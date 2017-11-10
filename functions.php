@@ -22,33 +22,11 @@ if ( ! function_exists( 'ethemeframework_setup' ) ) :
         // Add default posts and comments RSS feed links to head.
         add_theme_support( 'automatic-feed-links' );
 
-        /*
-         * Let WordPress manage the document title.
-         * By adding theme support, we declare that this theme does not use a
-         * hard-coded <title> tag in the document head, and expect WordPress to
-         * provide it for us.
-         */
-        add_theme_support('title-tag');
+        // Let WordPress manage the document title.
+        add_theme_support( 'title-tag' );
 
-        /* Change default image thumbnail sizes in wordpress */
-        update_option('thumbnail_size_w', 400);
-        update_option('thumbnail_size_h', 400);
-        update_option('thumbnail_crop', 1);
-        update_option('medium_size_w', 600);
-        update_option('medium_size_h', 400);
-        update_option('medium_crop', 1);
-        update_option('large_size_w', 1000);
-        update_option('large_size_h', 500);
-        update_option('large_crop', 1);
-
-
-        /*
-         * Enable support for Post Thumbnails on posts and pages.
-         *
-         * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
-         */
-        add_theme_support('post-thumbnails');
-
+        // Enable support for Post Thumbnails on posts and pages.
+        add_theme_support( 'post-thumbnails' );
 
         // This theme uses wp_nav_menu() in one location.
         register_nav_menus( array(
@@ -83,11 +61,6 @@ if ( ! function_exists( 'ethemeframework_setup' ) ) :
             'flex-width'  => true,
             'flex-height' => true,
         ) );
-
-        /*
-         * Enable support for Post Formats.
-         * See https://developer.wordpress.org/themes/functionality/post-formats/
-         */
         add_theme_support( 'post-formats', array(
             'image',
             'gallery',

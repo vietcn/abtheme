@@ -34,8 +34,8 @@ class EFramework
      */
     function __construct()
     {
-        $dir = untrailingslashit( get_template_directory().'/eframework' );
-        $url = untrailingslashit( get_template_directory_uri().'/eframework' );
+        $dir = untrailingslashit( get_template_directory().'/core' );
+        $url = untrailingslashit( get_template_directory_uri().'/core' );
 
         $this->set_paths( array(
             'APP_DIR'  => $dir,
@@ -52,15 +52,6 @@ class EFramework
         {
             require_once $this->path( 'APP_DIR', 'includes/class-ctax-register.php' );
             EFramework_CTax_Register::get_instance();
-        }
-
-        if ( ! class_exists( 'EFramework_PostFormat' ) )
-        {
-            require_once $this->path( 'APP_DIR', 'includes/class-post-format.php' );
-            if ( empty( $this->post_format_metabox ) )
-            {
-                $this->post_format_metabox = new EFramework_PostFormat();
-            }
         }
 
         if ( ! class_exists( 'ReduxFramework' ) )
@@ -125,6 +116,15 @@ class EFramework
             if ( empty( $this->taxonomy_metabox ) )
             {
                 $this->taxonomy_metabox = new EFramework_Taxonomy_Metabox( $redux );
+            }
+        }
+
+        if ( ! class_exists( 'EFramework_PostFormat' ) )
+        {
+            require_once $this->path( 'APP_DIR', 'includes/class-post-format.php' );
+            if ( empty( $this->post_format_metabox ) )
+            {
+                $this->post_format_metabox = new EFramework_PostFormat($redux);
             }
         }
     }
