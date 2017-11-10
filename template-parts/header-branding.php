@@ -3,7 +3,7 @@
  * Template part for displaying site branding
  */
 
-$logo     = ethemeframework_get_opt( 'logo', array( 'url' => '', 'id' => '' ) );
+$logo     = abtheme_get_opt( 'logo', array( 'url' => '', 'id' => '' ) );
 $logo_url = '';
 
 if ( $logo['id'] )
@@ -16,7 +16,7 @@ if ( ! $logo_url )
     $logo_url = $logo['url'];
 }
 
-$sticky_logo     = ethemeframework_get_opt( 'logo_sticky', array( 'url' => '', 'id' => '' ) );
+$sticky_logo     = abtheme_get_opt( 'logo_sticky', array( 'url' => '', 'id' => '' ) );
 $sticky_logo_url = '';
 
 if ( $sticky_logo['id'] )

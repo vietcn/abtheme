@@ -1,7 +1,7 @@
 <?php
 /**
  * Class EFramework
- * Author: Stev Ngo, KP
+ * Author: AbAuthor, KP
  * Version: 1.0.0
  */
 class EFramework

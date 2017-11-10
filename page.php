@@ -7,7 +7,7 @@
  * and that other 'pages' on your WordPress site may use a
  * different template.
  *
- * @package eThemeFramework
+ * @package Abtheme
  */
 
 get_header(); ?>

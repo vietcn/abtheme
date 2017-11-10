@@ -1,12 +1,12 @@
 <?php
 /**
- * eThemeFramework functions and definitions
+ * Abtheme functions and definitions
  *
- * @package eThemeFramework
+ * @package Abtheme
  */
 
 require_once get_template_directory() . '/inc/eframework.php';
-if ( ! function_exists( 'ethemeframework_setup' ) ) :
+if ( ! function_exists( 'abtheme_setup' ) ) :
     /**
      * Sets up theme defaults and registers support for various WordPress features.
      *
@@ -14,10 +14,10 @@ if ( ! function_exists( 'ethemeframework_setup' ) ) :
      * runs before the init hook. The init hook is too late for some features, such
      * as indicating support for post thumbnails.
      */
-    function ethemeframework_setup()
+    function abtheme_setup()
     {
         // Make theme available for translation.
-        load_theme_textdomain( 'ethemeframework', get_template_directory() . '/languages' );
+        load_theme_textdomain( 'abtheme', get_template_directory() . '/languages' );
 
         // Add default posts and comments RSS feed links to head.
         add_theme_support( 'automatic-feed-links' );
@@ -30,7 +30,7 @@ if ( ! function_exists( 'ethemeframework_setup' ) ) :
 
         // This theme uses wp_nav_menu() in one location.
         register_nav_menus( array(
-            'primary' => esc_html__( 'Primary', 'ethemeframework' ),
+            'primary' => esc_html__( 'Primary', 'abtheme' ),
         ) );
 
         /*
@@ -46,7 +46,7 @@ if ( ! function_exists( 'ethemeframework_setup' ) ) :
         ) );
 
         // Set up the WordPress core custom background feature.
-        add_theme_support( 'custom-background', apply_filters( 'ethemeframework_custom_background_args', array(
+        add_theme_support( 'custom-background', apply_filters( 'abtheme_custom_background_args', array(
             'default-color' => 'ffffff',
             'default-image' => '',
         ) ) );
@@ -71,7 +71,7 @@ if ( ! function_exists( 'ethemeframework_setup' ) ) :
         ) );
     }
 endif;
-add_action( 'after_setup_theme', 'ethemeframework_setup' );
+add_action( 'after_setup_theme', 'abtheme_setup' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -80,33 +80,33 @@ add_action( 'after_setup_theme', 'ethemeframework_setup' );
  *
  * @global int $content_width
  */
-function ethemeframework_content_width()
+function abtheme_content_width()
 {
-    $GLOBALS['content_width'] = apply_filters( 'ethemeframework_content_width', 640 );
+    $GLOBALS['content_width'] = apply_filters( 'abtheme_content_width', 640 );
 }
-add_action( 'after_setup_theme', 'ethemeframework_content_width', 0 );
+add_action( 'after_setup_theme', 'abtheme_content_width', 0 );
 
 /**
  * Register widget area.
  */
-function ethemeframework_widgets_init()
+function abtheme_widgets_init()
 {
     register_sidebar( array(
-        'name'          => esc_html__( 'Sidebar', 'ethemeframework' ),
+        'name'          => esc_html__( 'Sidebar', 'abtheme' ),
         'id'            => 'sidebar-1',
-        'description'   => esc_html__( 'Add widgets here.', 'ethemeframework' ),
+        'description'   => esc_html__( 'Add widgets here.', 'abtheme' ),
         'before_widget' => '<section id="%1$s" class="widget %2$s">',
         'after_widget'  => '</section>',
         'before_title'  => '<h2 class="widget-title">',
         'after_title'   => '</h2>',
     ) );
 }
-add_action( 'widgets_init', 'ethemeframework_widgets_init' );
+add_action( 'widgets_init', 'abtheme_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
  */
-function ethemeframework_scripts()
+function abtheme_scripts()
 {
     $min = '';
     if ( ! defined( 'WP_DEBUG' ) || ! WP_DEBUG )
@@ -117,17 +117,17 @@ function ethemeframework_scripts()
 
     wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap' . $min . '.css', array(), '3.3.7' );
     wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/css/font-awesome' . $min . '.css', array(), '4.7.0', 'screen' );
-    wp_enqueue_style( 'ethemeframework', get_template_directory_uri() . '/assets/css/theme.css', array(), $theme->get( 'Version' ) );
-    wp_enqueue_style( 'ethemeframework-style', get_stylesheet_uri() );
+    wp_enqueue_style( 'abtheme', get_template_directory_uri() . '/assets/css/theme.css', array(), $theme->get( 'Version' ) );
+    wp_enqueue_style( 'abtheme-style', get_stylesheet_uri() );
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) )
     {
         wp_enqueue_script( 'comment-reply' );
     }
 
-    wp_enqueue_script( 'ethemeframework', get_template_directory_uri() . '/assets/js/theme' . $min . '.js', array( 'jquery', 'imagesloaded' ), $theme->get( 'Version' ), true );
+    wp_enqueue_script( 'abtheme', get_template_directory_uri() . '/assets/js/theme' . $min . '.js', array( 'jquery', 'imagesloaded' ), $theme->get( 'Version' ), true );
 }
-add_action( 'wp_enqueue_scripts', 'ethemeframework_scripts' );
+add_action( 'wp_enqueue_scripts', 'abtheme_scripts' );
 
 /**
  * Helper functions for this theme.
@@ -147,7 +147,7 @@ require_once get_template_directory() . '/inc/page-options.php';
 /**
  * CSS Generator.
  */
-if ( ! class_exists( 'eThemeFramework_CSS_Generator' ) )
+if ( ! class_exists( 'Abtheme_CSS_Generator' ) )
 {
     require_once get_template_directory() . '/inc/classes/class-css-generator.php';
 }

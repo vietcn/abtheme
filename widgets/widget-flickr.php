@@ -2,11 +2,11 @@
 /**
  * Simple flickr widget
  *
- * @package eThemeFramework
+ * @package Abtheme
  * @version 1.0
  */
 
-class eThemeFramework_Flickr_Widget extends WP_Widget
+class Abtheme_Flickr_Widget extends WP_Widget
 {
     private static $image_sizes = array();
 
@@ -16,9 +16,9 @@ class eThemeFramework_Flickr_Widget extends WP_Widget
 
         parent::__construct(
             'ef_flickr',
-            __( '[EF] Flickr', 'ethemeframework' ),
+            __( '[EF] Flickr', 'abtheme' ),
             array(
-                'description' => __( 'Flickr Images Widget', 'ethemeframework' ),
+                'description' => __( 'Flickr Images Widget', 'abtheme' ),
                 'customize_selective_refresh' => true
             )
         );
@@ -177,33 +177,33 @@ class eThemeFramework_Flickr_Widget extends WP_Widget
         );
         ?>
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title', 'ethemeframework' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title', 'abtheme' ); ?></label>
             <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['title'] ); ?>" />
         </p>
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'usr' ) ); ?>"><?php esc_html_e( 'User ID', 'ethemeframework' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'usr' ) ); ?>"><?php esc_html_e( 'User ID', 'abtheme' ); ?></label>
             <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'usr' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'usr' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['usr'] ); ?>" />
         </p>
         <p class="howto"><?php
-            esc_html_e( 'Get your id at ', 'ethemeframework' );
+            esc_html_e( 'Get your id at ', 'abtheme' );
             echo '<a href="https://www.webpagefx.com/tools/idgettr/" target="_blank">idGettr</a>.';
         ?></p>
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'desc' ) ); ?>"><?php esc_html_e( 'Description:', 'ethemeframework' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'desc' ) ); ?>"><?php esc_html_e( 'Description:', 'abtheme' ); ?></label>
             <textarea class="widefat" type="text" id="<?php echo esc_attr( $this->get_field_id( 'desc' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'desc' ) ); ?>"><?php echo esc_textarea( $instance['desc'] ); ?></textarea>
         </p>
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'number' ) ); ?>"><?php esc_html_e( 'How many images?', 'ethemeframework' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'number' ) ); ?>"><?php esc_html_e( 'How many images?', 'abtheme' ); ?></label>
             <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'number' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'number' ) ); ?>" type="number" value="<?php echo esc_attr( $instance['number'] ); ?>" />
         </p>
-        <p class="howto"><?php esc_html_e( 'Number of images should greater than 0 and less than (or equals to) 20', 'ethemeframework' ); ?></p>
+        <p class="howto"><?php esc_html_e( 'Number of images should greater than 0 and less than (or equals to) 20', 'abtheme' ); ?></p>
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'space' ) ); ?>"><?php esc_html_e( 'Space between images?', 'ethemeframework' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'space' ) ); ?>"><?php esc_html_e( 'Space between images?', 'abtheme' ); ?></label>
             <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'space' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'space' ) ); ?>" type="number" value="<?php echo esc_attr( $instance['space'] ); ?>" />
         </p>
-        <p class="howto"><?php esc_html_e( 'Space should smaller than 20 and greater or equal zero.', 'ethemeframework' );?></p>
+        <p class="howto"><?php esc_html_e( 'Space should smaller than 20 and greater or equal zero.', 'abtheme' );?></p>
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'columns' ) ); ?>"><?php esc_html_e( 'Columns', 'ethemeframework' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'columns' ) ); ?>"><?php esc_html_e( 'Columns', 'abtheme' ); ?></label>
             <select class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'columns' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'columns' ) ); ?>">
                 <option value="2" <?php selected( $instance['columns'], "2" ); ?>>2</option>
                 <option value="3" <?php selected( $instance['columns'], "3" ); ?>>3</option>
@@ -215,12 +215,12 @@ class eThemeFramework_Flickr_Widget extends WP_Widget
             </select>
         </p>
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'size' ) ); ?>"><?php esc_html_e( 'Image Size', 'ethemeframework' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'size' ) ); ?>"><?php esc_html_e( 'Image Size', 'abtheme' ); ?></label>
             <select class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'size' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'size' ) ); ?>">
                 <option value="q" <?php selected( $instance['size'], "q" ); ?>><?php echo '150 x 150'; ?></option>
-                <option value="m" <?php selected( $instance['size'], "m" ); ?>><?php esc_html_e( '240 on longest side', 'ethemeframework' ); ?></option>
-                <option value="n" <?php selected( $instance['size'], "n" ); ?>><?php esc_html_e( '320 on longest side', 'ethemeframework' ); ?></option>
-                <option value="z" <?php selected( $instance['size'], "z" ); ?>><?php esc_html_e( '640 on longest side', 'ethemeframework' ); ?></option>
+                <option value="m" <?php selected( $instance['size'], "m" ); ?>><?php esc_html_e( '240 on longest side', 'abtheme' ); ?></option>
+                <option value="n" <?php selected( $instance['size'], "n" ); ?>><?php esc_html_e( '320 on longest side', 'abtheme' ); ?></option>
+                <option value="z" <?php selected( $instance['size'], "z" ); ?>><?php esc_html_e( '640 on longest side', 'abtheme' ); ?></option>
             </select>
         </p>
         <?php
@@ -234,7 +234,7 @@ class eThemeFramework_Flickr_Widget extends WP_Widget
      */
     function get_flickr_media( $usr )
     {
-        if ( false === ( $flickr = get_transient( 'ethemeframework-flickr-media-' . sanitize_title_with_dashes( $usr ) ) ) )
+        if ( false === ( $flickr = get_transient( 'abtheme-flickr-media-' . sanitize_title_with_dashes( $usr ) ) ) )
         {
             $https = true;
             $remote = wp_remote_get( 'https://api.flickr.com/services/feeds/photos_public.gne?id=' . trim( $usr ) . '&format=json' );
@@ -247,12 +247,12 @@ class eThemeFramework_Flickr_Widget extends WP_Widget
 
             if ( is_wp_error( $remote ) )
             {
-                return new WP_Error( 'site_down', esc_html__( 'Unable to communicate with Flickr.', 'ethemeframework' ) );
+                return new WP_Error( 'site_down', esc_html__( 'Unable to communicate with Flickr.', 'abtheme' ) );
             }
 
             if ( 200 != wp_remote_retrieve_response_code( $remote ) )
             {
-                return new WP_Error( 'invalid_response', esc_html__( 'Flickr did not return a 200.', 'ethemeframework' ) );
+                return new WP_Error( 'invalid_response', esc_html__( 'Flickr did not return a 200.', 'abtheme' ) );
             }
 
             $flickr_object = json_decode( substr( $remote['body'], 15, -1 ) );
@@ -260,12 +260,12 @@ class eThemeFramework_Flickr_Widget extends WP_Widget
             
             if ( ! $flickr_items )
             {
-                return new WP_Error( 'bad_json', esc_html__( 'Flickr has returned invalid data.', 'ethemeframework' ) );
+                return new WP_Error( 'bad_json', esc_html__( 'Flickr has returned invalid data.', 'abtheme' ) );
             }
 
             if ( ! is_array( $flickr_items ) )
             {
-                return new WP_Error( 'bad_array', esc_html__( 'Flickr has returned invalid data.', 'ethemeframework' ) );
+                return new WP_Error( 'bad_array', esc_html__( 'Flickr has returned invalid data.', 'abtheme' ) );
             }
 
             $flickr = array();
@@ -310,7 +310,7 @@ class eThemeFramework_Flickr_Widget extends WP_Widget
             }
 
             $flickr = maybe_serialize( $flickr );
-            set_transient( 'ethemeframework-flickr-media-' . sanitize_title_with_dashes( $usr ), $flickr, apply_filters( 'ethemeframework_flickr_cache_time', HOUR_IN_SECONDS * 2 ) );
+            set_transient( 'abtheme-flickr-media-' . sanitize_title_with_dashes( $usr ), $flickr, apply_filters( 'abtheme_flickr_cache_time', HOUR_IN_SECONDS * 2 ) );
         }
 
         return maybe_unserialize( $flickr );
@@ -333,4 +333,4 @@ class eThemeFramework_Flickr_Widget extends WP_Widget
     }
 }
 
-add_action( 'widgets_init', create_function( '', "register_widget( 'eThemeFramework_Flickr_Widget' );" ) );
+add_action( 'widgets_init', create_function( '', "register_widget( 'Abtheme_Flickr_Widget' );" ) );

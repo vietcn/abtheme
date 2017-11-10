@@ -11,7 +11,7 @@
  * @param  WP_Post $post    Current post object
  * @return array
  */
-function ethemeframework_breadcrumb_single_filter( $entries, $post )
+function abtheme_breadcrumb_single_filter( $entries, $post )
 {
     if ( 'cpt' == $post->post_type )
     {
@@ -46,4 +46,4 @@ function ethemeframework_breadcrumb_single_filter( $entries, $post )
 
     return $entries;
 }
-add_filter( 'ethemeframework_breadcrumb_single', 'ethemeframework_breadcrumb_single_filter', 10, 2 );
+add_filter( 'abtheme_breadcrumb_single', 'abtheme_breadcrumb_single_filter', 10, 2 );

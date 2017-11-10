@@ -3,7 +3,7 @@
  * The template for displaying the footer.
  * Contains the closing of the #content div and all content after.
  *
- * @package eThemeFramework
+ * @package Abtheme
  */
 
 ?>
@@ -18,22 +18,22 @@
         <div class="bottom-footer">
             <div class="container bottom-footer-container">
                 <div class="site-info">
-                    <a href="<?php echo esc_url( __( 'https://wordpress.org/', 'ethemeframework' ) ); ?>"><?php
+                    <a href="<?php echo esc_url( __( 'https://wordpress.org/', 'abtheme' ) ); ?>"><?php
                         /* translators: %s: CMS name, i.e. WordPress. */
-                        printf( esc_html__( 'Proudly powered by %s', 'ethemeframework' ), 'WordPress' );
+                        printf( esc_html__( 'Proudly powered by %s', 'abtheme' ), 'WordPress' );
                     ?></a>
                     <span class="sep"> | </span>
                     <?php
                         /* translators: 1: Theme name, 2: Theme author. */
-                        printf( esc_html__( 'Theme: %1$s by %2$s.', 'ethemeframework' ), 'ethemeframework', '<a href="https://stevngo.com">Stev Ngo</a>' );
+                        printf( esc_html__( 'Theme: %1$s by %2$s.', 'abtheme' ), 'abtheme', '<a href="http://absite.com">AbAuthor</a>' );
                     ?>
                 </div><!-- .site-info -->
             </div>
         </div>
     </footer><!-- #colophon -->
-    <?php if ( ethemeframework_get_opt( 'back_totop_on', true ) ) : ?>
+    <?php if ( abtheme_get_opt( 'back_totop_on', true ) ) : ?>
     <button class="backtotop" data-efelement="totopbutton"><span class="screen-reader-text"><?php
-        esc_html_e( 'Back to top', 'ethemeframework' );
+        esc_html_e( 'Back to top', 'abtheme' );
     ?></span><i class="fa fa-angle-up"></i></button>
     <?php endif; ?>
 </div><!-- #page -->

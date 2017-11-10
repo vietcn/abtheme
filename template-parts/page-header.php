@@ -5,7 +5,7 @@ if ( is_front_page() && is_home() )
     return;
 }
 
-$titles = ethemeframework_get_page_titles();
+$titles = abtheme_get_page_titles();
 
 ob_start();
 
@@ -21,13 +21,13 @@ if ( $titles['desc'] )
 
 if ( is_singular( 'post' ) )
 {
-    ethemeframework_entry_meta();
+    abtheme_entry_meta();
 }
 
 if ( ( is_page() && get_post_meta( get_the_ID(), '_breadcrumb_on', true ) )
-    || ethemeframework_get_opt( 'breadcrumb_on', true ) )
+    || abtheme_get_opt( 'breadcrumb_on', true ) )
 {
-    ethemeframework_breadcrumb();
+    abtheme_breadcrumb();
 }
 
 $titles_html = ob_get_clean();

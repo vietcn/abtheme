@@ -2,19 +2,19 @@
 /**
  * Recent Posts widgets
  *
- * @package eThemeFramework
+ * @package Abtheme
  * @version 1.0
  */
 
-class eThemeFramework_Recent_Posts_Widget extends WP_Widget
+class Abtheme_Recent_Posts_Widget extends WP_Widget
 {
     function __construct()
     {
         parent::__construct(
             'ef_recent_posts',
-            esc_html__( '[EF] Recent Posts', 'ethemeframework' ),
+            esc_html__( '[EF] Recent Posts', 'abtheme' ),
             array(
-                'description' => __( 'Shows your most recent posts.', 'ethemeframework' ),
+                'description' => __( 'Shows your most recent posts.', 'abtheme' ),
                 'customize_selective_refresh' => true,
             )
         );
@@ -30,13 +30,13 @@ class eThemeFramework_Recent_Posts_Widget extends WP_Widget
     function widget( $args, $instance )
     {
         $instance = wp_parse_args( (array) $instance, array(
-            'title'         => esc_html__( 'Recent Posts', 'ethemeframework' ),
+            'title'         => esc_html__( 'Recent Posts', 'abtheme' ),
             'number'        => 4,
             'show_date'     => true,
             'show_comments' => true
         ) );
 
-        $title = empty( $instance['title'] ) ? esc_html__( 'Recent Posts', 'ethemeframework' ) : $instance['title'];
+        $title = empty( $instance['title'] ) ? esc_html__( 'Recent Posts', 'abtheme' ) : $instance['title'];
         $title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
 
         echo $args['before_widget'];
@@ -104,7 +104,7 @@ class eThemeFramework_Recent_Posts_Widget extends WP_Widget
                     if ( $show_date )
                     {
                         echo '<div class="entry-posted-on">';
-                        printf( '<span class="screen-reader-text">%1$s</span>', esc_html__( 'Posted on: ', 'ethemeframework' ) );
+                        printf( '<span class="screen-reader-text">%1$s</span>', esc_html__( 'Posted on: ', 'abtheme' ) );
 
                         printf(
                             '<a href="%1$s" rel="bookmark"><time class="entry-date" datetime="%2$s">%3$s</time></a>',
@@ -120,7 +120,7 @@ class eThemeFramework_Recent_Posts_Widget extends WP_Widget
                         if ( ! post_password_required() && ( comments_open() || get_comments_number() ) )
                         {
                             echo '<div class="entry-comments">';
-                            printf( '<span class="screen-reader-text">%1$s</span>', esc_html__( 'Comment(s): ', 'ethemeframework' ) );
+                            printf( '<span class="screen-reader-text">%1$s</span>', esc_html__( 'Comment(s): ', 'abtheme' ) );
                             echo '<i class="fa fa-comments"></i>';
                             comments_popup_link( 0, 1, get_comments_number() );
                             echo '</div>';
@@ -175,39 +175,39 @@ class eThemeFramework_Recent_Posts_Widget extends WP_Widget
     function form( $instance )
     {
         $instance = wp_parse_args( (array) $instance, array(
-            'title'         => esc_html__( 'Recent Posts', 'ethemeframework' ),
+            'title'         => esc_html__( 'Recent Posts', 'abtheme' ),
             'number'        => 4,
             'show_date'     => true,
             'show_comments' => true
         ) );
 
-        $title         = $instance['title'] ? esc_attr( $instance['title'] ) : esc_html__( 'Recent Posts', 'ethemeframework' );
+        $title         = $instance['title'] ? esc_attr( $instance['title'] ) : esc_html__( 'Recent Posts', 'abtheme' );
         $number        = absint( $instance['number'] );
         $show_date     = (bool) $instance['show_date'];
         $show_comments = (bool) $instance['show_comments'];
 
         ?>
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'ethemeframework' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'abtheme' ); ?></label>
             <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
         </p>
 
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'number' ) ); ?>"><?php esc_html_e( 'Number of posts to show:', 'ethemeframework' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'number' ) ); ?>"><?php esc_html_e( 'Number of posts to show:', 'abtheme' ); ?></label>
             <input class="tiny-text" id="<?php echo esc_attr( $this->get_field_id( 'number' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'number' ) ); ?>" type="number" step="1" min="1" value="<?php echo esc_attr( $number ); ?>" size="3" />
         </p>
 
         <p>
             <input class="checkbox" type="checkbox"<?php checked( $show_date ); ?> id="<?php echo esc_attr( $this->get_field_id( 'show_date' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'show_date' ) ); ?>" value="1" />
-            <label for="<?php echo esc_attr( $this->get_field_id( 'show_date' ) ); ?>"><?php esc_html_e( 'Display post date?', 'ethemeframework' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'show_date' ) ); ?>"><?php esc_html_e( 'Display post date?', 'abtheme' ); ?></label>
         </p>
 
         <p>
             <input class="checkbox" type="checkbox"<?php checked( $show_comments ); ?> id="<?php echo esc_attr( $this->get_field_id( 'show_comments' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'show_comments' ) ); ?>" value="1" />
-            <label for="<?php echo esc_attr( $this->get_field_id( 'show_comments' ) ); ?>"><?php esc_html_e( 'Display post comments?', 'ethemeframework' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'show_comments' ) ); ?>"><?php esc_html_e( 'Display post comments?', 'abtheme' ); ?></label>
         </p>
         <?php
     }
 }
 
-add_action( 'widgets_init', create_function( '', "register_widget( 'eThemeFramework_Recent_Posts_Widget' );" ) );
+add_action( 'widgets_init', create_function( '', "register_widget( 'Abtheme_Recent_Posts_Widget' );" ) );
