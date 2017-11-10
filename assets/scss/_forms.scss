@@ -1,0 +1,70 @@
+// Buttons
+//--------------------------------------------------
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+
+    &:hover {
+        
+    }
+
+    &:active,
+    &:focus {
+        
+    }
+}
+
+// Fields
+//--------------------------------------------------
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+    &:focus {
+        
+    }
+}
+
+select {
+    
+}
+
+textarea {
+    width: 100%;
+}
+
+// Search form
+//--------------------------------------------------
+
+.search-form {
+
+}
+
+// Comment form
+//--------------------------------------------------
+
+.comment-form {
+
+}
+
+// Password form
+//--------------------------------------------------
+
+.post-password-form {
+
+}

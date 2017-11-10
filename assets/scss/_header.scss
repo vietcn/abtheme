@@ -1,0 +1,64 @@
+.site-branding {
+    padding: 1em 0;
+}
+
+.site-title {
+    font-size: 1.5em;
+    font-weight: 700;
+    margin: 0;
+}
+
+.site-description {
+    font-size: 0.875em;
+    margin: 0;
+}
+
+.site-logo {
+
+}
+
+.site-sticky-logo {
+    
+}
+
+// Main header area
+//--------------------------------------------------
+.main-header {
+    padding: 2em 0;
+    text-align: center;
+}
+
+.main-header-container {
+    position: relative;
+}
+
+// Sticky header
+//--------------------------------------------------
+
+@media( min-width: 992px ) {
+    .header-sticky-part {
+        &.unsticked.not-top,
+        &.sticked {
+            position: fixed;
+            left: 0;
+            right: 0;
+        }
+        &.unsticked {
+            margin-top: -64px;
+            visibility: hidden;
+            opacity: 0;
+        }
+        &.not-top {
+            @include transition( all 240ms );
+        }
+        &.sticked {
+            visibility: visible;
+            opacity: 1;
+            margin-top: 0;
+            z-index: 999;
+        }
+        &.top-reached {
+            position: static;
+        }
+    }
+}
