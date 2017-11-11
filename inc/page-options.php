@@ -1,9 +1,5 @@
 <?php
 /**
- *
- */
-
-/**
  * Register metabox for posts based on Redux Framework. Supported methods:
  *     isset_args( $post_type )
  *     set_args( $post_type, $redux_args, $metabox_args )
