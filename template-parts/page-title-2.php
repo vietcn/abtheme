@@ -24,12 +24,6 @@ if ( is_singular( 'post' ) )
     abtheme_entry_meta();
 }
 
-if ( ( is_page() && get_post_meta( get_the_ID(), '_breadcrumb_on', true ) )
-    || abtheme_get_opt( 'breadcrumb_on', true ) )
-{
-    abtheme_breadcrumb();
-}
-
 $titles_html = ob_get_clean();
 
 if ( ! $titles_html )
@@ -37,8 +31,15 @@ if ( ! $titles_html )
     return;
 }
 ?>
-<div id="pagehead" class="page-title">
+<div id="pagetitle" class="page-title page-title-2">
     <div class="container page-title-container">
-        <?php printf( '<div class="page-title-content">%s</div>', $titles_html ); ?>
+        <div class="row">
+            <?php
+                printf( '<div class="page-title-titles col-md-6">%s</div>', $titles_html );
+                echo '<div class="page-title-breadcrumb col-md-6">';
+                abtheme_breadcrumb();
+                echo '</div>';
+            ?>
+        </div>
     </div>
 </div>

@@ -236,7 +236,7 @@ Redux::setSection( $opt_name, array(
             'type'     => 'background',
             'title'    => esc_html__( 'Background', 'abtheme' ),
             'subtitle' => esc_html__( 'Page title background.', 'abtheme' ),
-            'output'   => array( '#pagehead' ),
+            'output'   => array( '#pagetitle' ),
             'default'  => array(
                 'background-color' => '#f7f7f7'
             )
@@ -252,7 +252,7 @@ Redux::setSection( $opt_name, array(
             'right'    => false,
             'bottom'   => true,
             'left'     => false,
-            'output'   => array( '#pagehead' )
+            'output'   => array( '#pagetitle' )
         ),
         array(
             'id'      => 'breadcrumb_on',
