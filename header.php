@@ -3,7 +3,7 @@
  * The header for our theme.
  * This is the template that displays all of the <head> section and everything up until <div id="content">
  *
- * @package Abtheme
+ * @package eThemeFramework
  */
 
 ?>
@@ -19,9 +19,9 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="site">
-    <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'abtheme' ); ?></a>
+    <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'ethemeframework' ); ?></a>
     <?php
-        $header_layout = abtheme_get_opt( 'header_layout', '1' );
+        $header_layout = ethemeframework_get_opt( 'header_layout', '1' );
         if ( is_page() )
         {
             $page_header_layout = get_post_meta( get_the_ID(), '_header_layout', true );
@@ -32,7 +32,7 @@
         }
         get_template_part( 'template-parts/header-layout', $header_layout );
 
-        $pheader_layout = abtheme_get_opt( 'pheader_layout', '1' );
+        $pheader_layout = ethemeframework_get_opt( 'pheader_layout', '1' );
 
         if ( is_page() )
         {

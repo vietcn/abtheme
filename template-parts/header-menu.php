@@ -17,6 +17,6 @@ else
     printf(
         '<ul class="primary-menu-not-set"><li><a href="%1$s">%2$s</a></li></ul>',
         esc_url( admin_url( 'nav-menus.php' ) ),
-        esc_html__( 'Primary menu is not set, please create menu and set location to "primary".', 'abtheme' )
+        esc_html__( 'Primary menu is not set, please create menu and set location to "primary".', 'ethemeframework' )
     );
 }

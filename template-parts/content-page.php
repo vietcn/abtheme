@@ -2,7 +2,7 @@
 /**
  * Template part for displaying page content in page.php
  *
- * @package Abtheme
+ * @package eThemeFramework
  */
 
 ?>
@@ -11,13 +11,13 @@
     <div class="entry-content">
         <?php
             the_content();
-            abtheme_entry_link_pages();
+            ethemeframework_entry_link_pages();
         ?>
     </div><!-- .entry-content -->
 
     <?php if ( get_edit_post_link() ) : ?>
         <footer class="entry-footer">
-            <?php abtheme_entry_edit_link(); ?>
+            <?php ethemeframework_entry_edit_link(); ?>
         </footer><!-- .entry-footer -->
     <?php endif; ?>
 </article><!-- #post-<?php the_ID(); ?> -->

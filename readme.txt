@@ -1,6 +1,6 @@
-=== Abtheme ===
+=== eThemeFramework ===
 
-Contributors: AbAuthor
+Contributors: Stev Ngo
 Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
 
 Requires at least: 4.0
@@ -23,7 +23,7 @@ WordPress theme Framework
 
 = Does this theme support any plugins? =
 
-Abtheme includes support for Redux Framework and eFramework. These are required.
+eThemeFramework includes support for Redux Framework and eFramework. These are required.
 
 == Changelog ==
 

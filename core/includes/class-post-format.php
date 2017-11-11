@@ -16,55 +16,48 @@ if (!class_exists('EFramework_PostFormat')) {
     {
         protected $post_format_panel = array();
 
-        public function __construct($redux)
+        public function __construct()
         {
-            add_action('init', array($this, 'init'));
+//            add_action('init', array($this, 'init'));
+            add_action( 'add_meta_boxes', array( $this, 'add_metaboxes' ) );
         }
 
         public function init()
         {
-//            global $pagenow;
-//            $post_type = isset($_REQUEST['post_type']) ? $_REQUEST['post_type'] : 'post';
-//            if (isset($pagenow) && ('post.php' === $pagenow || 'post-new.php' === $pagenow) && current_theme_supports('post-formats') && post_type_supports($post_type, 'post-formats')) {
-//                $post_formats = get_theme_support('post-formats');
-//                require_once get_template_directory() . '/inc/post-format.php';
-//            }
 
-            function redux_add_metaboxes($metaboxes) {
-                die();
-                // Declare your sections
-                $boxSections = array();
-                $boxSections[] = array(
-                    //'title'         => __('General Settings', 'redux-framework-demo'),
-                    //'icon'          => 'el-icon-home', // Only used with metabox position normal or advanced
-                    'fields'        => array(
-                        array(
-                            'id' => 'sidebar',
-                            //'title' => __( 'Sidebar', 'redux-framework-demo' ),
-                            'desc' => 'Please select the sidebar you would like to display on this page. Note: You must first create the sidebar under Appearance > Widgets.',
-                            'type' => 'select',
-                            'data' => 'sidebars',
-                        ),
-                    ),
+        }
+        public function add_metaboxes(){
+            global $pagenow;
+            $post_type = isset($_REQUEST['post_type']) ? $_REQUEST['post_type'] : 'post';
+            if (isset($pagenow) && ('post.php' === $pagenow || 'post-new.php' === $pagenow) && current_theme_supports('post-formats') && post_type_supports($post_type, 'post-formats')) {
+                $post_formats = get_theme_support('post-formats');
+                add_meta_box(
+                    'kp_options',
+                    "KP Settings",
+                    array( $this, 'generate_panel' ),
+                    $post_type,
+                    'normal'
                 );
-
-                // Declare your metaboxes
-                $metaboxes = array();
-                $metaboxes[] = array(
-                    'id'            => 'sidebar',
-                    'title'         => __( 'Sidebar', 'fusion-framework' ),
-                    'post_types'    => array( 'page', 'post', 'acme_product' ),
-                    //'page_template' => array('page-test.php'), // Visibility of box based on page template selector
-                    //'post_format' => array('image'), // Visibility of box based on post format
-                    'position'      => 'side', // normal, advanced, side
-                    'priority'      => 'high', // high, core, default, low - Priorities of placement
-                    'sections'      => $boxSections,
-                );
-
-                return $metaboxes;
             }
-            // Change {$redux_opt_name} to your opt_name
-            add_action("redux/metaboxes/kpkpkpkp_options/boxes", "redux_add_metaboxes");
+        }
+
+        public function generate_panel($post)
+        {
+            $sections = array();
+            $args = array(
+                // TYPICAL -> Change these values as you need/desire
+                'opt_name'             => 'kp_options',
+                // This is where your data is stored in the database and also becomes your global variable name.
+                'display_name'         => 'KAKAAKA',
+                // Name that appears at the top of your panel
+
+            );
+            require_once get_template_directory() . '/inc/post-format.php';
+            wp_nonce_field( 'srfmetabox_post_nonce_action', 'srfmetabox_post_nonce' );
+            $redux = new ReduxFramework( $sections, $args );
+            $redux->_register_settings();
+            $redux->_enqueue();
+            $redux->generate_panel();
         }
     }
 }

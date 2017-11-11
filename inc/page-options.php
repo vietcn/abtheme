@@ -14,13 +14,13 @@
  * 
  * @param  EFramework_Post_Metabox $metabox
  */
-function abtheme_page_options_register( $metabox )
+function ethemeframework_page_options_register( $metabox )
 {
     if ( ! $metabox->isset_args( 'page' ) )
     {
         $metabox->set_args( 'page', array(
-            'opt_name'     => 'abtheme_page_options',
-            'display_name' => esc_html__( 'Page Settings', 'abtheme' )
+            'opt_name'     => 'ethemeframework_page_options',
+            'display_name' => esc_html__( 'Page Settings', 'ethemeframework' )
         ), array(
             'context'  => 'advanced',
             'priority' => 'default'
@@ -29,8 +29,30 @@ function abtheme_page_options_register( $metabox )
     if ( ! $metabox->isset_args( 'post' ) )
     {
         $metabox->set_args( 'post', array(
-            'opt_name'     => 'abtheme_post_options',
-            'display_name' => esc_html__( 'Post Settings', 'abtheme' )
+            'opt_name'     => 'ethemeframework_post_options',
+            'display_name' => esc_html__( 'Post Settings', 'ethemeframework' )
+        ), array(
+            'context'  => 'advanced',
+            'priority' => 'default'
+        ) );
+    }
+
+    if ( ! $metabox->isset_args( 'image' ) )
+    {
+        $metabox->set_args( 'image', array(
+            'opt_name'     => 'post_format_image',
+            'display_name' => esc_html__( 'image Settings', 'ethemeframework' )
+        ), array(
+            'context'  => 'advanced',
+            'priority' => 'default'
+        ) );
+    }
+
+    if ( ! $metabox->isset_args( 'gallery' ) )
+    {
+        $metabox->set_args( 'gallery', array(
+            'opt_name'     => 'kp_gallery',
+            'display_name' => esc_html__( 'gallery Settings', 'ethemeframework' )
         ), array(
             'context'  => 'advanced',
             'priority' => 'default'
@@ -38,53 +60,104 @@ function abtheme_page_options_register( $metabox )
     }
 
     $metabox->add_section( 'page', array(
-        'title' => esc_html__( 'General', 'abtheme' ),
-        'desc'  => esc_html__( 'General settings for the page.', 'abtheme' ),
+        'title' => esc_html__( 'General', 'ethemeframework' ),
+        'desc'  => esc_html__( 'General settings for the page.', 'ethemeframework' ),
         'fields' => array(
             array(
                 'id'       => '_custom_title',
                 'type'     => 'text',
-                'title'    => esc_html__( 'Custom Title', 'abtheme' ),
-                'subtitle' => esc_html__( 'Use custom title for this page. The default title will be used on document title.', 'abtheme' )
+                'title'    => esc_html__( 'Custom Title', 'ethemeframework' ),
+                'subtitle' => esc_html__( 'Use custom title for this page. The default title will be used on document title.', 'ethemeframework' )
             ),
             array(
                 'id'       => '_custom_desc',
                 'type'     => 'text',
-                'title'    => esc_html__( 'Custom description', 'abtheme' ),
-                'subtitle' => esc_html__( 'Show custom page description under page title', 'abtheme' )
+                'title'    => esc_html__( 'Custom description', 'ethemeframework' ),
+                'subtitle' => esc_html__( 'Show custom page description under page title', 'ethemeframework' )
+            )
+        )
+    ) );
+
+    $metabox->add_section( 'image', array(
+        'title' => esc_html__( 'General098914124', 'ethemeframework' ),
+        'desc'  => esc_html__( 'General settings for the page.', 'ethemeframework' ),
+        'fields' => array(
+            array(
+                'id'       => '_custom_title',
+                'type'     => 'text',
+                'title'    => esc_html__( 'Custom Title', 'ethemeframework' ),
+                'subtitle' => esc_html__( 'Use custom title for this page. The default title will be used on document title.', 'ethemeframework' )
+            ),
+            array(
+                'id'       => '_custom_desc',
+                'type'     => 'text',
+                'title'    => esc_html__( 'Custom description', 'ethemeframework' ),
+                'subtitle' => esc_html__( 'Show custom page description under page title', 'ethemeframework' )
+            )
+        )
+    ) );
+
+    $metabox->add_section( 'gallery', array(
+        'title' => esc_html__( 'Gllery', 'ethemeframework' ),
+        'desc'  => esc_html__( 'General settings for the page.', 'ethemeframework' ),
+        'fields' => array(
+            array(
+                'id'        => 'post-gallery-lightbox',
+                'type'      => 'button_set',
+                'title'     => esc_html__( 'Lightbox?', 'ethemeframework' ),
+                'subtitle'  => esc_html__( 'Enable lightbox for gallery images', 'ethemeframework' ),
+                'options' => array(
+                    'on'  => esc_html__( 'On', 'ethemeframework' ),
+                    'off' => esc_html__( 'Off', 'ethemeframework' ),
+                ),
+                'default' => 'off'
+            ),
+            array(
+                'id'        => 'post-gallery',
+                'type'      => 'slides',
+                'title'     => esc_html__( 'Gallery Slider', 'boo' ),
+                'subtitle'  => esc_html__( 'Upload images or add from media library.', 'ethemeframework' ),
+                'placeholder'   => array(
+                    'title'     => esc_html__( 'Title', 'ethemeframework' ),
+                ),
+                'show' => array(
+                    'title' => true,
+                    'description' => false,
+                    'url' => false,
+                )
             )
         )
     ) );
 
     $metabox->add_section( 'post', array(
-        'title' => esc_html__( 'General', 'abtheme' ),
-        'desc'  => esc_html__( 'General settings for the page.', 'abtheme' ),
+        'title' => esc_html__( 'General', 'ethemeframework' ),
+        'desc'  => esc_html__( 'General settings for the page.', 'ethemeframework' ),
         'fields' => array(
             array(
                 'id'       => '_custom_title',
                 'type'     => 'text',
-                'title'    => esc_html__( 'Custom Title', 'abtheme' ),
-                'subtitle' => esc_html__( 'Use custom title for this page. The default title will be used on document title.', 'abtheme' )
+                'title'    => esc_html__( 'Custom Title', 'ethemeframework' ),
+                'subtitle' => esc_html__( 'Use custom title for this page. The default title will be used on document title.', 'ethemeframework' )
             ),
             array(
                 'id'       => '_custom_desc',
                 'type'     => 'text',
-                'title'    => esc_html__( 'Custom description', 'abtheme' ),
-                'subtitle' => esc_html__( 'Show custom page description under page title', 'abtheme' )
+                'title'    => esc_html__( 'Custom description', 'ethemeframework' ),
+                'subtitle' => esc_html__( 'Show custom page description under page title', 'ethemeframework' )
             )
         )
     ) );
 
     $metabox->add_section( 'page', array(
-        'title' => esc_html__( 'Header', 'abtheme' ),
-        'desc'  => esc_html__( 'Header settings for the page.', 'abtheme' ),
+        'title' => esc_html__( 'Header', 'ethemeframework' ),
+        'desc'  => esc_html__( 'Header settings for the page.', 'ethemeframework' ),
         'icon'  => 'el-icon-website',
         'fields' => array(
             array(
                 'id'       => '_header_layout',
                 'type'     => 'image_select',
-                'title'    => esc_html__( 'Layout', 'abtheme'),
-                'subtitle' => esc_html__( 'Select a layout for header.', 'abtheme' ),
+                'title'    => esc_html__( 'Layout', 'ethemeframework'),
+                'subtitle' => esc_html__( 'Select a layout for header.', 'ethemeframework' ),
                 'options'  => array(
                     '0'  => get_template_directory_uri().'/assets/images/header-00.png',
                     '1'  => get_template_directory_uri().'/assets/images/header-01.png',
@@ -96,15 +169,15 @@ function abtheme_page_options_register( $metabox )
     ) );
 
     $metabox->add_section( 'page', array(
-        'title' => esc_html__( 'Page Header', 'abtheme' ),
-        'desc'  => esc_html__( 'Settings for page header area.', 'abtheme' ),
+        'title' => esc_html__( 'Page Header', 'ethemeframework' ),
+        'desc'  => esc_html__( 'Settings for page header area.', 'ethemeframework' ),
         'icon'  => 'el-icon-map-marker',
         'fields' => array(
             array(
                 'id'       => '_pheader_layout',
                 'type'     => 'image_select',
-                'title'    => esc_html__( 'Layout', 'abtheme' ),
-                'subtitle' => esc_html__( 'Select a layout for page header.', 'abtheme' ),
+                'title'    => esc_html__( 'Layout', 'ethemeframework' ),
+                'subtitle' => esc_html__( 'Select a layout for page header.', 'ethemeframework' ),
                 'options'  => array(
                     '0' => get_template_directory_uri() . '/assets/images/page-header-00.png',
                     '1' => get_template_directory_uri() . '/assets/images/page-header-01.png',
@@ -115,10 +188,10 @@ function abtheme_page_options_register( $metabox )
             array(
                 'id'      => '_breadcrumb_on',
                 'type'    => 'switch',
-                'title'   => esc_html__( 'Breadcrumb', 'abtheme' ),
+                'title'   => esc_html__( 'Breadcrumb', 'ethemeframework' ),
                 'default' => true
             )
         )
     ) );
 }
-add_action( 'eframework_post_metabox_register', 'abtheme_page_options_register' );
+add_action( 'eframework_post_metabox_register', 'ethemeframework_page_options_register' );

@@ -2,10 +2,10 @@
 /**
  * Breadcrumb class for the theme.
  * 
- * @author  AbAuthor <http://absite.com>
+ * @author  Stev Ngo <https://stevngo.com>
  * @version 1.1
- * @package Abtheme
- * @since   Abtheme 1.0
+ * @package eThemeFramework
+ * @since   eThemeFramework 1.0
  */
 
 if ( ! defined( 'ABSPATH' ) )
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) )
     die();
 }
 
-class Abtheme_Breadcrumb
+class eThemeFramework_Breadcrumb
 {
     /**
      * Array of breadcrumb entries. Each one contains title, url, text
@@ -49,9 +49,9 @@ class Abtheme_Breadcrumb
     function __construct( $args = array() )
     {
         $args = wp_parse_args( $args, array(
-            'home_label'            => esc_html__( 'Home', 'abtheme' ),
-            '404_label'             => esc_html__( 'Not Found', 'abtheme' ),
-            'search_results_label'  => esc_html__( 'Search Results', 'abtheme' ),
+            'home_label'            => esc_html__( 'Home', 'ethemeframework' ),
+            '404_label'             => esc_html__( 'Not Found', 'ethemeframework' ),
+            'search_results_label'  => esc_html__( 'Search Results', 'ethemeframework' ),
             'entry_max_length'      => 3,
             'entry_max_length_type' => 'words',
             'more_indicator'        => '&hellip;'
@@ -418,7 +418,7 @@ class Abtheme_Breadcrumb
          * @var array  $entries   Each entry needs to be an array with 'label' and 'url' keys.
          * @var object $this_term Current taxonomy term object
          */
-        $entries = apply_filters( 'abtheme_breadcrumb_taxonomy', $entries, $this_term );
+        $entries = apply_filters( 'ethemeframework_breadcrumb_taxonomy', $entries, $this_term );
 
         foreach ( $entries as $entry )
         {
@@ -556,7 +556,7 @@ class Abtheme_Breadcrumb
          * @var array  $entries Each entry needs to be an array with 'label' and 'url' keys.
          * @var object $post    Current post object
          */
-        $entries = apply_filters( 'abtheme_breadcrumb_single', $entries, $post );
+        $entries = apply_filters( 'ethemeframework_breadcrumb_single', $entries, $post );
 
         foreach ( $entries as $entry )
         {

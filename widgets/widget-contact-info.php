@@ -2,11 +2,11 @@
 /**
  * Contact info widget for the theme
  *
- * @package Abtheme
+ * @package eThemeFramework
  * @version 1.0
  */
 
-class Abtheme_Contact_Info_Widget extends WP_Widget
+class eThemeFramework_Contact_Info_Widget extends WP_Widget
 {
 
     /**
@@ -18,9 +18,9 @@ class Abtheme_Contact_Info_Widget extends WP_Widget
     {
         parent::__construct(
             'ef_contact_info', // Base ID
-            esc_html__( '[EF] Contact Info', 'abtheme' ), // Name
+            esc_html__( '[EF] Contact Info', 'ethemeframework' ), // Name
             array(
-                'description' => esc_html__( 'Simple contact info box.', 'abtheme' ),
+                'description' => esc_html__( 'Simple contact info box.', 'ethemeframework' ),
                 'customize_selective_refresh' => true
             ) // Args
         );
@@ -35,7 +35,7 @@ class Abtheme_Contact_Info_Widget extends WP_Widget
      **/
     function widget( $args, $instance )
     {
-        $title = empty( $instance['title'] ) ? esc_html__( 'Contact info', 'abtheme' ) : $instance['title'];
+        $title = empty( $instance['title'] ) ? esc_html__( 'Contact info', 'ethemeframework' ) : $instance['title'];
         $title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
 
         $phone = preg_replace( '/[^0-9x\+]/', '', str_replace( '(0)', '', $instance['phone'] ) );
@@ -111,7 +111,7 @@ class Abtheme_Contact_Info_Widget extends WP_Widget
     function form( $instance )
     {
         $instance = wp_parse_args( (array) $instance, array(
-            'title'   => esc_html__( 'Contact info', 'abtheme' ),
+            'title'   => esc_html__( 'Contact info', 'ethemeframework' ),
             'desc'    => '',
             'address' => '',
             'phone'   => '',
@@ -121,41 +121,41 @@ class Abtheme_Contact_Info_Widget extends WP_Widget
 
         ?>
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'abtheme' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'ethemeframework' ); ?></label>
             <input class="widefat"
                 id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" 
                 name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" 
                 type="text" value="<?php echo esc_attr( $instance['title'] ) ?>" />
         </p>
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'desc' ) ); ?>"><?php esc_html_e( 'Custom description:', 'abtheme' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'desc' ) ); ?>"><?php esc_html_e( 'Custom description:', 'ethemeframework' ); ?></label>
             <textarea class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'desc' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'desc' ) ); ?>" rows="4"><?php
                 echo esc_textarea( $instance['desc'] );
             ?></textarea>
         </p>
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'address' ) ); ?>"><?php esc_html_e( 'Address:', 'abtheme' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'address' ) ); ?>"><?php esc_html_e( 'Address:', 'ethemeframework' ); ?></label>
             <input class="widefat"
                 id="<?php echo esc_attr( $this->get_field_id( 'address' ) ); ?>" 
                 name="<?php echo esc_attr( $this->get_field_name( 'address' ) ); ?>" 
                 type="text" value="<?php echo esc_attr( $instance['address'] ) ?>" />
         </p>
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'phone' ) ); ?>"><?php esc_html_e( 'Phone:', 'abtheme' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'phone' ) ); ?>"><?php esc_html_e( 'Phone:', 'ethemeframework' ); ?></label>
             <input class="widefat"
                 id="<?php echo esc_attr( $this->get_field_id( 'phone' ) ); ?>" 
                 name="<?php echo esc_attr( $this->get_field_name( 'phone' ) ); ?>" 
                 type="tel" value="<?php echo esc_attr( $instance['phone'] ) ?>" />
         </p>
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'fax' ) ); ?>"><?php esc_html_e( 'Fax:', 'abtheme' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'fax' ) ); ?>"><?php esc_html_e( 'Fax:', 'ethemeframework' ); ?></label>
             <input class="widefat"
                 id="<?php echo esc_attr( $this->get_field_id( 'fax' ) ); ?>" 
                 name="<?php echo esc_attr( $this->get_field_name( 'fax' ) ); ?>" 
                 type="text" value="<?php echo esc_attr( $instance['fax'] ) ?>" />
         </p>
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'email' ) ); ?>"><?php esc_html_e( 'Email:', 'abtheme' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'email' ) ); ?>"><?php esc_html_e( 'Email:', 'ethemeframework' ); ?></label>
             <input class="widefat"
                 id="<?php echo esc_attr( $this->get_field_id( 'email' ) ); ?>" 
                 name="<?php echo esc_attr( $this->get_field_name( 'email' ) ); ?>" 
@@ -165,4 +165,4 @@ class Abtheme_Contact_Info_Widget extends WP_Widget
     }
 }
 
-add_action( 'widgets_init', create_function( '', "register_widget( 'Abtheme_Contact_Info_Widget' );" ) );
+add_action( 'widgets_init', create_function( '', "register_widget( 'eThemeFramework_Contact_Info_Widget' );" ) );

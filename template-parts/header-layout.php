@@ -2,7 +2,7 @@
 /**
  * Template part for displaying default header layout
  */
-$sticky_on = abtheme_get_opt( 'sticky_on', true );
+$sticky_on = ethemeframework_get_opt( 'sticky_on', true );
 ?>
 <header id="masthead" class="site-header">
     <div class="header-top">alshaksa</div>
@@ -18,7 +18,7 @@ $sticky_on = abtheme_get_opt( 'sticky_on', true );
             </nav>
             <nav class="extra-navigation">
                 <button class="menu-toggle" aria-controls="site-navigation" aria-expanded="false" data-efelement="ariac"><?php
-                    printf( '<span class="screen-reader-text">%s</span>', esc_html__( 'Primary Menu', 'abtheme' ) );
+                    printf( '<span class="screen-reader-text">%s</span>', esc_html__( 'Primary Menu', 'ethemeframework' ) );
                     echo '<span class="menu-toggle-icon"></span>';
                 ?></button>
             </nav>

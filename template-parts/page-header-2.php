@@ -5,7 +5,7 @@ if ( is_front_page() && is_home() )
     return;
 }
 
-$titles = abtheme_get_page_titles();
+$titles = ethemeframework_get_page_titles();
 
 ob_start();
 
@@ -21,7 +21,7 @@ if ( $titles['desc'] )
 
 if ( is_singular( 'post' ) )
 {
-    abtheme_entry_meta();
+    ethemeframework_entry_meta();
 }
 
 $titles_html = ob_get_clean();
@@ -37,7 +37,7 @@ if ( ! $titles_html )
             <?php
                 printf( '<div class="page-header-titles col-md-6">%s</div>', $titles_html );
                 echo '<div class="page-header-breadcrumb col-md-6">';
-                abtheme_breadcrumb();
+                ethemeframework_breadcrumb();
                 echo '</div>';
             ?>
         </div>

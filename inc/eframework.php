@@ -1,7 +1,7 @@
 <?php
 /**
  * Class EFramework
- * Author: AbAuthor, KP
+ * Author: Stev Ngo, KP
  * Version: 1.0.0
  */
 class EFramework
@@ -124,7 +124,7 @@ class EFramework
             require_once $this->path( 'APP_DIR', 'includes/class-post-format.php' );
             if ( empty( $this->post_format_metabox ) )
             {
-                $this->post_format_metabox = new EFramework_PostFormat($redux);
+                $this->post_format_metabox = new EFramework_PostFormat();
             }
         }
     }

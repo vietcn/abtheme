@@ -4,7 +4,7 @@ if ( ! class_exists( 'ReduxFrameworkInstances' ) )
     return;
 }
 
-class Abtheme_CSS_Generator
+class eThemeFramework_CSS_Generator
 {
     /**
      * scssc class instance
@@ -44,7 +44,7 @@ class Abtheme_CSS_Generator
      */
     function __construct()
     {
-        $this->opt_name = abtheme_get_opt_name();
+        $this->opt_name = ethemeframework_get_opt_name();
 
         if ( empty( $this->opt_name ) )
         {
@@ -125,8 +125,8 @@ class Abtheme_CSS_Generator
     {
         ob_start();
 
-        $opt_value = abtheme_get_opt( 'primary_color', '#32a0df' );
-        if ( ! abtheme_is_valid_color( $opt_value ) )
+        $opt_value = ethemeframework_get_opt( 'primary_color', '#32a0df' );
+        if ( ! ethemeframework_is_valid_color( $opt_value ) )
         {
             $opt_value = '#32a0df';
         }
@@ -145,7 +145,7 @@ class Abtheme_CSS_Generator
 
         if ( $css )
         {
-            wp_add_inline_style( 'abtheme', $this->dev_mode ? $css : abtheme_css_minifier( $css ) );
+            wp_add_inline_style( 'ethemeframework', $this->dev_mode ? $css : ethemeframework_css_minifier( $css ) );
         }
     }
 
@@ -156,14 +156,14 @@ class Abtheme_CSS_Generator
     {
         ob_start();
 
-        $v = abtheme_get_opt( 'logo_maxh', array( 'height' => '100px' ) );
+        $v = ethemeframework_get_opt( 'logo_maxh', array( 'height' => '100px' ) );
 
         if ( is_array( $v ) && ! empty( $v['height'] ) )
         {
             printf( '.site-branding .logo-link img { max-height: %s; }', $v['height'] );
         }
 
-        $v = abtheme_get_opt( 'sticky_logo_maxh', array( 'height' => '100px' ) );
+        $v = ethemeframework_get_opt( 'sticky_logo_maxh', array( 'height' => '100px' ) );
 
         if ( is_array( $v ) && ! empty( $v['height'] ) )
         {
@@ -172,7 +172,7 @@ class Abtheme_CSS_Generator
 
         // Menu links color for both theme options and page
         //--------------------------------------------------
-        $v = abtheme_get_opt( 'menu_link_colors', array( 'regular' => '', 'hover' => '', 'active' => '' ) );
+        $v = ethemeframework_get_opt( 'menu_link_colors', array( 'regular' => '', 'hover' => '', 'active' => '' ) );
         if ( ! is_array( $v ) )
         {
             $v = array();
@@ -202,11 +202,11 @@ class Abtheme_CSS_Generator
         }
         if ( is_array( $v ) )
         {
-            if ( ! empty( $v['regular'] ) && abtheme_is_valid_color( $v['regular'] ) )
+            if ( ! empty( $v['regular'] ) && ethemeframework_is_valid_color( $v['regular'] ) )
             {
                 printf( '.primary-menu a { color: %s; }', $v['regular'] );
             }
-            if ( ! empty( $v['hover'] ) && abtheme_is_valid_color( $v['hover'] ) )
+            if ( ! empty( $v['hover'] ) && ethemeframework_is_valid_color( $v['hover'] ) )
             {
                 printf(
                     '.primary-menu .menu-item:hover > a,
@@ -218,7 +218,7 @@ class Abtheme_CSS_Generator
                     $v['hover']
                 );
             }
-            if ( ! empty( $v['active'] ) && abtheme_is_valid_color( $v['active'] ) )
+            if ( ! empty( $v['active'] ) && ethemeframework_is_valid_color( $v['active'] ) )
             {
                 printf(
                     '.primary-menu .current_page_item > a,
@@ -237,4 +237,4 @@ class Abtheme_CSS_Generator
     }
 }
 
-new Abtheme_CSS_Generator();
+new eThemeFramework_CSS_Generator();

@@ -7,15 +7,15 @@
  * It is used to display a page when nothing more specific matches a query.
  * E.g., it puts together the home page when no home.php file exists.
  *
- * @package Abtheme
+ * @package eThemeFramework
  */
 
-$sidebar_pos = abtheme_get_opt( 'archive_sidebar_pos', 'right' );
+$sidebar_pos = ethemeframework_get_opt( 'archive_sidebar_pos', 'right' );
 get_header();
 ?>
 <div class="container content-container">
     <div class="row content-row">
-        <div id="primary"<?php abtheme_primary_class( $sidebar_pos, 'content-area' ); ?>>
+        <div id="primary"<?php ethemeframework_primary_class( $sidebar_pos, 'content-area' ); ?>>
             <main id="main" class="site-main">
             <?php
 
@@ -33,7 +33,7 @@ get_header();
                         get_template_part( 'template-parts/loop-post', get_post_format() );
                     }
 
-                    abtheme_posts_navigation();
+                    ethemeframework_posts_navigation();
                 }
                 else
                 {
@@ -44,7 +44,7 @@ get_header();
             </main><!-- #main -->
         </div><!-- #primary -->
         <?php if ( 'left' == $sidebar_pos || 'right' == $sidebar_pos ) : ?>
-        <aside id="secondary"<?php abtheme_secondary_class( $sidebar_pos, 'widget-area' ); ?>>
+        <aside id="secondary"<?php ethemeframework_secondary_class( $sidebar_pos, 'widget-area' ); ?>>
             <?php get_sidebar(); ?>
         </aside>
         <?php endif; ?>
