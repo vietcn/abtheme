@@ -31,6 +31,7 @@ function ethemeframework_page_options_register( $metabox )
         $metabox->set_args( 'post', array(
             'opt_name'     => 'ethemeframework_post_options',
             'display_name' => esc_html__( 'Post Settings', 'ethemeframework' )
+<<<<<<< HEAD
         ), array(
             'context'  => 'advanced',
             'priority' => 'default'
@@ -53,6 +54,8 @@ function ethemeframework_page_options_register( $metabox )
         $metabox->set_args( 'gallery', array(
             'opt_name'     => 'post_format_gallery',
             'display_name' => esc_html__( 'gallery Settings', 'ethemeframework' )
+=======
+>>>>>>> parent of 0153ebb... ok
         ), array(
             'context'  => 'advanced',
             'priority' => 'default'
@@ -62,6 +65,7 @@ function ethemeframework_page_options_register( $metabox )
     $metabox->add_section( 'page', array(
         'title' => esc_html__( 'General', 'ethemeframework' ),
         'desc'  => esc_html__( 'General settings for the page.', 'ethemeframework' ),
+<<<<<<< HEAD
         'fields' => array(
             array(
                 'id'       => '_custom_title',
@@ -81,6 +85,8 @@ function ethemeframework_page_options_register( $metabox )
     $metabox->add_section( 'image', array(
         'title' => esc_html__( 'General098914124', 'ethemeframework' ),
         'desc'  => esc_html__( 'General settings for the page.', 'ethemeframework' ),
+=======
+>>>>>>> parent of 0153ebb... ok
         'fields' => array(
             array(
                 'id'       => '_custom_title',
@@ -93,6 +99,7 @@ function ethemeframework_page_options_register( $metabox )
                 'type'     => 'text',
                 'title'    => esc_html__( 'Custom description', 'ethemeframework' ),
                 'subtitle' => esc_html__( 'Show custom page description under page title', 'ethemeframework' )
+<<<<<<< HEAD
             )
         )
     ) );
@@ -125,6 +132,8 @@ function ethemeframework_page_options_register( $metabox )
                     'description' => false,
                     'url' => false,
                 )
+=======
+>>>>>>> parent of 0153ebb... ok
             )
         )
     ) );
