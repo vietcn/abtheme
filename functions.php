@@ -118,6 +118,7 @@ function abtheme_scripts()
     wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap' . $min . '.css', array(), '3.3.7' );
     wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/css/font-awesome' . $min . '.css', array(), '4.7.0', 'screen' );
     wp_enqueue_style( 'abtheme', get_template_directory_uri() . '/assets/css/theme.css', array(), $theme->get( 'Version' ) );
+    wp_enqueue_style( 'menu', get_template_directory_uri() . '/assets/css/menu.css', array(), $theme->get( 'Version' ) );
     wp_enqueue_style( 'abtheme-style', get_stylesheet_uri() );
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) )
@@ -125,7 +126,10 @@ function abtheme_scripts()
         wp_enqueue_script( 'comment-reply' );
     }
 
-    wp_enqueue_script( 'abtheme', get_template_directory_uri() . '/assets/js/theme' . $min . '.js', array( 'jquery', 'imagesloaded' ), $theme->get( 'Version' ), true );
+    // wp_enqueue_script( 'abtheme', get_template_directory_uri() . '/assets/js/theme' . $min . '.js', array( 'jquery', 'imagesloaded' ), $theme->get( 'Version' ), true );
+    wp_enqueue_script( 'headroom', get_template_directory_uri() . '/assets/js/headroom.min.js', array( 'jquery', 'imagesloaded' ), $theme->get( 'Version' ), true );
+    wp_enqueue_script( 'menu', get_template_directory_uri() . '/assets/js/menu.js', array( 'jquery', 'imagesloaded' ), $theme->get( 'Version' ), true );
+    wp_enqueue_script( 'abthemea', get_template_directory_uri() . '/assets/js/main.js', array( 'jquery', 'imagesloaded' ), $theme->get( 'Version' ), true );
 }
 add_action( 'wp_enqueue_scripts', 'abtheme_scripts' );
 

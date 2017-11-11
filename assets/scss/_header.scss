@@ -14,11 +14,21 @@
 }
 
 .site-logo {
-
+    display: block;
 }
 
-.site-sticky-logo {
-    
+.site-logo-sticky {
+    display: none;
+}
+
+.sticked{
+    .site-logo {
+        display: none;
+    }
+
+    .site-logo-sticky {
+        display: block;
+    }
 }
 
 // Main header area

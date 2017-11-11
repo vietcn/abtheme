@@ -5,10 +5,8 @@
 $sticky_on = abtheme_get_opt( 'sticky_on', true );
 ?>
 <header id="masthead" class="site-header">
-    <div class="header-top">alshaksa</div>
-    <div
-        class="main-header"
-        <?php echo ( $sticky_on ? ' data-efelement="stickyheader"' : '' ); ?>>
+    <div class="header-top"></div>
+    <div id="headroom" class="main-header" <?php echo ( $sticky_on ? ' data-efelement="stickyheader"' : '' ); ?>>
         <div class="container main-header-container">
             <div class="site-branding">
                 <?php get_template_part( 'template-parts/header-branding' ); ?>

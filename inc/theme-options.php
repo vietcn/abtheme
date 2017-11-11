@@ -232,14 +232,21 @@ Redux::setSection( $opt_name, array(
             'default'  => '1'
         ),
         array(
+            'id'       => 'ptitle_color',
+            'type'     => 'color',
+            'title'    => esc_html__( 'Title Color', 'abtheme' ),
+            'subtitle' => esc_html__( 'Page title color.', 'abtheme' ),
+            'output'   => array( '#pagetitle' ),
+            'default'  => array(
+                'color' => '#000'
+            )
+        ),
+        array(
             'id'       => 'ptitle_bg',
             'type'     => 'background',
             'title'    => esc_html__( 'Background', 'abtheme' ),
             'subtitle' => esc_html__( 'Page title background.', 'abtheme' ),
             'output'   => array( '#pagetitle' ),
-            'default'  => array(
-                'background-color' => '#f7f7f7'
-            )
         ),
         array(
             'id'       => 'ptitle_paddings',

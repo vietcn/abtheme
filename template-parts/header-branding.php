@@ -32,7 +32,7 @@ if ( ! $sticky_logo_url )
 if ( $logo_url )
 {
     printf(
-        '<a class="logo-link" href="%1$s" title="%2$s" rel="home"><img src="%3$s" alt="logo"/></a>',
+        '<a class="site-logo" href="%1$s" title="%2$s" rel="home"><img src="%3$s" alt="logo"/></a>',
         esc_url( home_url( '/' ) ),
         esc_attr( get_bloginfo( 'name' ) ),
         esc_url( $logo_url )
@@ -67,7 +67,7 @@ else
 if ( $sticky_logo_url )
 {
     printf(
-        '<a class="sticky-logo-link" href="%1$s" title="%2$s" rel="home"><img src="%3$s" alt="logo"/></a>',
+        '<a class="site-logo-sticky" href="%1$s" title="%2$s" rel="home"><img src="%3$s" alt="logo"/></a>',
         esc_url( home_url( '/' ) ),
         esc_attr( get_bloginfo( 'name' ) ),
         esc_url( $sticky_logo_url )
