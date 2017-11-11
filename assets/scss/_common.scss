@@ -64,7 +64,7 @@
 // Page header
 //--------------------------------------------------
 
-.page-header-container {
+.page-title-container {
     @include display( flex );
     @include flex-direction( row );
     @include flex-wrap( nowrap );
@@ -77,7 +77,7 @@
     }
 }
 
-.page-header-content {
+.page-title-content {
     width: 100%;
     text-align: center;
     padding: 80px 15px;

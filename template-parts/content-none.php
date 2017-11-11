@@ -10,9 +10,9 @@
 ?>
 
 <section class="no-results not-found">
-    <header class="page-header">
+    <header class="page-title">
         <h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'abtheme' ); ?></h1>
-    </header><!-- .page-header -->
+    </header><!-- .page-title -->
 
     <div class="page-content">
         <?php

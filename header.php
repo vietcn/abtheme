@@ -32,16 +32,16 @@
         }
         get_template_part( 'template-parts/header-layout', $header_layout );
 
-        $pheader_layout = abtheme_get_opt( 'pheader_layout', '1' );
+        $ptitle_layout = abtheme_get_opt( 'ptitle_layout', '1' );
 
         if ( is_page() )
         {
-            $page_pheader_layout = get_post_meta( get_the_ID(), '_pheader_layout', true );
-            if ( $page_pheader_layout !== '0' )
+            $page_ptitle_layout = get_post_meta( get_the_ID(), '_ptitle_layout', true );
+            if ( $page_ptitle_layout !== '0' )
             {
-                $pheader_layout = $page_pheader_layout;
+                $ptitle_layout = $page_ptitle_layout;
             }
         }
-        get_template_part( 'template-parts/page-header', $pheader_layout );
+        get_template_part( 'template-parts/page-title', $ptitle_layout );
     ?>
     <div id="content" class="site-content">

@@ -31,12 +31,12 @@ if ( ! $titles_html )
     return;
 }
 ?>
-<div id="pagehead" class="page-header page-header-2">
-    <div class="container page-header-container">
+<div id="pagehead" class="page-title page-title-2">
+    <div class="container page-title-container">
         <div class="row">
             <?php
-                printf( '<div class="page-header-titles col-md-6">%s</div>', $titles_html );
-                echo '<div class="page-header-breadcrumb col-md-6">';
+                printf( '<div class="page-title-titles col-md-6">%s</div>', $titles_html );
+                echo '<div class="page-title-breadcrumb col-md-6">';
                 abtheme_breadcrumb();
                 echo '</div>';
             ?>

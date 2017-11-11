@@ -37,8 +37,8 @@ if ( ! $titles_html )
     return;
 }
 ?>
-<div id="pagehead" class="page-header">
-    <div class="container page-header-container">
-        <?php printf( '<div class="page-header-content">%s</div>', $titles_html ); ?>
+<div id="pagehead" class="page-title">
+    <div class="container page-title-container">
+        <?php printf( '<div class="page-title-content">%s</div>', $titles_html ); ?>
     </div>
 </div>

@@ -221,18 +221,18 @@ Redux::setSection( $opt_name, array(
     'icon'   => 'el-icon-map-marker',
     'fields' => array(
         array(
-            'id'       => 'pheader_layout',
+            'id'       => 'ptitle_layout',
             'type'     => 'image_select',
             'title'    => esc_html__( 'Layout', 'abtheme' ),
             'subtitle' => esc_html__( 'Select a layout for page header.', 'abtheme' ),
             'options'  => array(
-                '1' => get_template_directory_uri().'/assets/images/page-header-01.png',
-                '2' => get_template_directory_uri().'/assets/images/page-header-02.png'
+                '1' => get_template_directory_uri().'/assets/images/page-title-01.png',
+                '2' => get_template_directory_uri().'/assets/images/page-title-02.png'
             ),
             'default'  => '1'
         ),
         array(
-            'id'       => 'pheader_bg',
+            'id'       => 'ptitle_bg',
             'type'     => 'background',
             'title'    => esc_html__( 'Background', 'abtheme' ),
             'subtitle' => esc_html__( 'Page title background.', 'abtheme' ),
@@ -242,7 +242,7 @@ Redux::setSection( $opt_name, array(
             )
         ),
         array(
-            'id'       => 'pheader_paddings',
+            'id'       => 'ptitle_paddings',
             'type'     => 'spacing',
             'title'    => esc_html__( 'Paddings', 'abtheme' ),
             'subtitle' => esc_html__( 'Page title paddings.', 'abtheme' ),
@@ -266,7 +266,7 @@ Redux::setSection( $opt_name, array(
             'title'       => esc_html__( 'Breadcrumb Text Color', 'abtheme' ),
             'subtitle'    => esc_html__( 'Select text color for breadcrumb', 'abtheme' ),
             'transparent' => false,
-            'output'      => array( '.page-header .breadcrumb' ),
+            'output'      => array( '.page-title .breadcrumb' ),
             'required'    => array( 'breadcrumb_on', '=', true )
         ),
         array(
@@ -274,7 +274,7 @@ Redux::setSection( $opt_name, array(
             'type'     => 'link_color',
             'title'    => esc_html__( 'Breadcrumb Link Colors', 'abtheme' ),
             'subtitle' => esc_html__( 'Select link colors for breadcrumb', 'abtheme' ),
-            'output'   => array( '.page-header .breadcrumb li a' ),
+            'output'   => array( '.page-title .breadcrumb li a' ),
             'required' => array( 'breadcrumb_on', '=', true )
         )
     )
