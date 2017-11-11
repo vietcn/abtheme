@@ -213,11 +213,11 @@ Redux::setSection( $opt_name, array(
 ) );
 
 /*--------------------------------------------------------------
-# Page header area
+# Page Title area
 --------------------------------------------------------------*/
 
 Redux::setSection( $opt_name, array(
-    'title'  => esc_html__( 'Page Header', 'abtheme' ),
+    'title'  => esc_html__( 'Page Title', 'abtheme' ),
     'icon'   => 'el-icon-map-marker',
     'fields' => array(
         array(
