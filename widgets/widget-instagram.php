@@ -2,19 +2,19 @@
 /**
  * Simple instagram widget
  *
- * @package eThemeFramework
+ * @package Abtheme
  * @version 1.0
  */
 
-class eThemeFramework_Instagram_Widget extends WP_Widget
+class Abtheme_Instagram_Widget extends WP_Widget
 {
     function __construct()
     {
         parent::__construct(
             'ef_instagram',
-            __( '[EF] Instagram', 'ethemeframework' ),
+            __( '[EF] Instagram', 'abtheme' ),
             array(
-                'description' => __( 'Instagram Widget', 'ethemeframework' ),
+                'description' => __( 'Instagram Widget', 'abtheme' ),
                 'customize_selective_refresh' => true
             )
         );
@@ -48,7 +48,7 @@ class eThemeFramework_Instagram_Widget extends WP_Widget
 
 
 
-        $title = empty( $instance['title'] ) ? esc_html__( 'Instagram', 'ethemeframework' ) : $instance['title'];
+        $title = empty( $instance['title'] ) ? esc_html__( 'Instagram', 'abtheme' ) : $instance['title'];
         $title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
 
         echo $args['before_widget'];
@@ -211,29 +211,29 @@ class eThemeFramework_Instagram_Widget extends WP_Widget
         );
         ?>
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title', 'ethemeframework' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title', 'abtheme' ); ?></label>
             <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['title'] ); ?>" />
         </p>
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'usr' ) ); ?>"><?php esc_html_e( 'Username', 'ethemeframework' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'usr' ) ); ?>"><?php esc_html_e( 'Username', 'abtheme' ); ?></label>
             <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'usr' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'usr' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['usr'] ); ?>" />
         </p>
-        <p class="howto">www.instagram.com/<strong style="color:red">your_username</strong>/ - <?php esc_html_e( 'Paste the red one in.', 'ethemeframework' ); ?></p>
+        <p class="howto">www.instagram.com/<strong style="color:red">your_username</strong>/ - <?php esc_html_e( 'Paste the red one in.', 'abtheme' ); ?></p>
         <p>
-            <input id="<?php echo esc_attr( $this->get_field_id( 'usr_show' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'usr_show' ) ); ?>" type="checkbox" value="1" <?php checked( $instance['usr_show'], "1" );  ?>/><label for="<?php echo esc_attr( $this->get_field_id( 'usr_show' ) ); ?>"><?php esc_html_e( 'Show profile url', 'ethemeframework' ); ?></label>
+            <input id="<?php echo esc_attr( $this->get_field_id( 'usr_show' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'usr_show' ) ); ?>" type="checkbox" value="1" <?php checked( $instance['usr_show'], "1" );  ?>/><label for="<?php echo esc_attr( $this->get_field_id( 'usr_show' ) ); ?>"><?php esc_html_e( 'Show profile url', 'abtheme' ); ?></label>
         </p>
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'number' ) ); ?>"><?php esc_html_e( 'How many images?', 'ethemeframework' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'number' ) ); ?>"><?php esc_html_e( 'How many images?', 'abtheme' ); ?></label>
             <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'number' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'number' ) ); ?>" type="number" value="<?php echo esc_attr( $instance['number'] ); ?>" />
         </p>
-        <p class="howto"><?php esc_html_e( 'Number of images should greater than 0 and less than (or equals to) 20', 'ethemeframework' ); ?></p>
+        <p class="howto"><?php esc_html_e( 'Number of images should greater than 0 and less than (or equals to) 20', 'abtheme' ); ?></p>
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'space' ) ); ?>"><?php esc_html_e( 'Space between images?', 'ethemeframework' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'space' ) ); ?>"><?php esc_html_e( 'Space between images?', 'abtheme' ); ?></label>
             <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'space' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'space' ) ); ?>" type="number" value="<?php echo esc_attr( $instance['space'] ); ?>" />
         </p>
-        <p class="howto"><?php esc_html_e( 'Space should smaller than 20 and greater or equal zero.', 'ethemeframework' );?></p>
+        <p class="howto"><?php esc_html_e( 'Space should smaller than 20 and greater or equal zero.', 'abtheme' );?></p>
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'columns' ) ); ?>"><?php esc_html_e( 'Columns', 'ethemeframework' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'columns' ) ); ?>"><?php esc_html_e( 'Columns', 'abtheme' ); ?></label>
             <select class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'columns' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'columns' ) ); ?>">
                 <option value="1" <?php selected( $instance['columns'], "1" ); ?>>1</option>
                 <option value="2" <?php selected( $instance['columns'], "2" ); ?>>2</option>
@@ -246,19 +246,19 @@ class eThemeFramework_Instagram_Widget extends WP_Widget
             </select>
         </p>
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'size' ) ); ?>"><?php esc_html_e( 'Image Size', 'ethemeframework' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'size' ) ); ?>"><?php esc_html_e( 'Image Size', 'abtheme' ); ?></label>
             <select class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'size' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'size' ) ); ?>">
-                <option value="thumbnail" <?php selected( $instance['size'], "thumbnail" ); ?>><?php esc_html_e( 'Thumbnail', 'ethemeframework' ); ?></option>
-                <option value="small" <?php selected( $instance['size'], "small" ); ?>><?php esc_html_e( 'Small', 'ethemeframework' ); ?></option>
-                <option value="standard" <?php selected( $instance['size'], "standard" ); ?>><?php esc_html_e( 'Standard', 'ethemeframework' ); ?></option>
-                <option value="original" <?php selected( $instance['size'], "original" ); ?>><?php esc_html_e( 'Original', 'ethemeframework' ); ?></option>
+                <option value="thumbnail" <?php selected( $instance['size'], "thumbnail" ); ?>><?php esc_html_e( 'Thumbnail', 'abtheme' ); ?></option>
+                <option value="small" <?php selected( $instance['size'], "small" ); ?>><?php esc_html_e( 'Small', 'abtheme' ); ?></option>
+                <option value="standard" <?php selected( $instance['size'], "standard" ); ?>><?php esc_html_e( 'Standard', 'abtheme' ); ?></option>
+                <option value="original" <?php selected( $instance['size'], "original" ); ?>><?php esc_html_e( 'Original', 'abtheme' ); ?></option>
             </select>
         </p>
         <p>
-            <input id="<?php echo esc_attr( $this->get_field_id( 'images_only' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'images_only' ) ); ?>" type="checkbox" value="1" <?php checked( $instance['images_only'], "1" );  ?>/><label for="<?php echo esc_attr( $this->get_field_id( 'images_only' ) ); ?>"><?php esc_html_e( 'Show only images', 'ethemeframework' ); ?></label>
+            <input id="<?php echo esc_attr( $this->get_field_id( 'images_only' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'images_only' ) ); ?>" type="checkbox" value="1" <?php checked( $instance['images_only'], "1" );  ?>/><label for="<?php echo esc_attr( $this->get_field_id( 'images_only' ) ); ?>"><?php esc_html_e( 'Show only images', 'abtheme' ); ?></label>
         </p>
         <p>
-            <input id="<?php echo esc_attr( $this->get_field_id( 'image_link' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'image_link' ) ); ?>" type="checkbox" value="1" <?php checked( $instance['image_link'], "1" );  ?>/><label for="<?php echo esc_attr( $this->get_field_id( 'image_link' ) ); ?>"><?php esc_html_e( 'Add link to images', 'ethemeframework' ); ?></label>
+            <input id="<?php echo esc_attr( $this->get_field_id( 'image_link' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'image_link' ) ); ?>" type="checkbox" value="1" <?php checked( $instance['image_link'], "1" );  ?>/><label for="<?php echo esc_attr( $this->get_field_id( 'image_link' ) ); ?>"><?php esc_html_e( 'Add link to images', 'abtheme' ); ?></label>
         </p>
         <?php
     }
@@ -284,7 +284,7 @@ class eThemeFramework_Instagram_Widget extends WP_Widget
         }
         $usr = strtolower( $usr );
 
-        if ( false === ( $instagram = get_transient( 'ethemeframework-instagram-media-' . sanitize_title_with_dashes( $usr ) ) ) )
+        if ( false === ( $instagram = get_transient( 'abtheme-instagram-media-' . sanitize_title_with_dashes( $usr ) ) ) )
         {
             $url = 'https://instagram.com/' . $usr;
 
@@ -302,12 +302,12 @@ class eThemeFramework_Instagram_Widget extends WP_Widget
 
             if ( is_wp_error( $remote ) )
             {
-                return new WP_Error( 'site_down', esc_html__( 'Unable to communicate with Instagram.', 'ethemeframework' ) );
+                return new WP_Error( 'site_down', esc_html__( 'Unable to communicate with Instagram.', 'abtheme' ) );
             }
 
             if ( 200 != wp_remote_retrieve_response_code( $remote ) )
             {
-                return new WP_Error( 'invalid_response', esc_html__( 'Instagram did not return a 200.', 'ethemeframework' ) );
+                return new WP_Error( 'invalid_response', esc_html__( 'Instagram did not return a 200.', 'abtheme' ) );
             }
 
             $shards      = explode( 'window._sharedData = ', $remote['body'] );
@@ -316,7 +316,7 @@ class eThemeFramework_Instagram_Widget extends WP_Widget
 
             if ( ! $insta_array )
             {
-                return new WP_Error( 'bad_json', esc_html__( 'Instagram has returned invalid data.', 'ethemeframework' ) );
+                return new WP_Error( 'bad_json', esc_html__( 'Instagram has returned invalid data.', 'abtheme' ) );
             }
 
             $insta_items = array();
@@ -330,12 +330,12 @@ class eThemeFramework_Instagram_Widget extends WP_Widget
             }
             else
             {
-                return new WP_Error( 'bad_json_2', esc_html__( 'Instagram has returned invalid data.', 'ethemeframework' ) );
+                return new WP_Error( 'bad_json_2', esc_html__( 'Instagram has returned invalid data.', 'abtheme' ) );
             }
 
             if ( ! is_array( $insta_items ) )
             {
-                return new WP_Error( 'bad_array', esc_html__( 'Instagram has returned invalid data.', 'ethemeframework' ) );
+                return new WP_Error( 'bad_array', esc_html__( 'Instagram has returned invalid data.', 'abtheme' ) );
             }
 
             $instagram = array();
@@ -388,12 +388,12 @@ class eThemeFramework_Instagram_Widget extends WP_Widget
 
             $instagram = base64_encode( serialize( $instagram ) );
 
-            set_transient( 'ethemeframework-instagram-media-' . sanitize_title_with_dashes( $usr ), $instagram, apply_filters( 'ethemeframework_instagram_cache_time', HOUR_IN_SECONDS * 2 ) );
+            set_transient( 'abtheme-instagram-media-' . sanitize_title_with_dashes( $usr ), $instagram, apply_filters( 'abtheme_instagram_cache_time', HOUR_IN_SECONDS * 2 ) );
         }
 
         if ( empty( $instagram ) )
         {
-            return new WP_Error( 'no_images', esc_html__( 'Instagram did not return any images.', 'ethemeframework' ) );
+            return new WP_Error( 'no_images', esc_html__( 'Instagram did not return any images.', 'abtheme' ) );
             
         }
         return unserialize( base64_decode( $instagram ) );
@@ -415,4 +415,4 @@ class eThemeFramework_Instagram_Widget extends WP_Widget
     }
 }
 
-add_action( 'widgets_init', create_function( '', "register_widget( 'eThemeFramework_Instagram_Widget' );" ) );
+add_action( 'widgets_init', create_function( '', "register_widget( 'Abtheme_Instagram_Widget' );" ) );

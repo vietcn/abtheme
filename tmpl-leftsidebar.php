@@ -3,7 +3,7 @@
  * Template name: Left Sidebar
  * The template for displaying all pages with left sidebar.
  *
- * @package eThemeFramework
+ * @package Abtheme
  */
 
 $sidebar_pos = 'left';
@@ -11,7 +11,7 @@ get_header();
 ?>
 <div class="container content-container">
     <div class="row content-row">
-        <div id="primary"<?php ethemeframework_primary_class( $sidebar_pos, 'content-area' ); ?>>
+        <div id="primary"<?php abtheme_primary_class( $sidebar_pos, 'content-area' ); ?>>
             <main id="main" class="site-main">
                 <?php
 
@@ -30,7 +30,7 @@ get_header();
                 ?>
             </main><!-- #main -->
         </div><!-- #primary -->
-        <aside id="secondary"<?php ethemeframework_secondary_class( $sidebar_pos, 'widget-area' ); ?>>
+        <aside id="secondary"<?php abtheme_secondary_class( $sidebar_pos, 'widget-area' ); ?>>
             <?php get_sidebar(); ?>
         </aside>
     </div>

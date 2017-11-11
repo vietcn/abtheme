@@ -2,7 +2,7 @@
 /**
  * Helper functions for the theme
  *
- * @package eThemeFramework
+ * @package Abtheme
  */
 
 /**
@@ -13,9 +13,9 @@
  *                         If not set, false will be used
  * @return mixed
  */
-function ethemeframework_get_opt( $opt_id, $default = false )
+function abtheme_get_opt( $opt_id, $default = false )
 {
-    $opt_name = ethemeframework_get_opt_name();
+    $opt_name = abtheme_get_opt_name();
 
     if ( empty( $opt_name ) )
     {
@@ -39,9 +39,9 @@ function ethemeframework_get_opt( $opt_id, $default = false )
  * 
  * @return string
  */
-function ethemeframework_get_opt_name()
+function abtheme_get_opt_name()
 {
-    return apply_filters( 'ethemeframework_opt_name', 'ethemeframework_theme_options' );
+    return apply_filters( 'abtheme_opt_name', 'abtheme_theme_options' );
 }
 
 /**
@@ -49,7 +49,7 @@ function ethemeframework_get_opt_name()
  * 
  * @return array Contains 'title' and 'desc'
  */
-function ethemeframework_get_page_titles()
+function abtheme_get_page_titles()
 {
     $title = $desc = '';
 
@@ -79,13 +79,13 @@ function ethemeframework_get_page_titles()
         // 404
         elseif ( is_404() )
         {
-            $title = esc_html__( '404', 'ethemeframework' );
+            $title = esc_html__( '404', 'abtheme' );
         }
         // Search result
         elseif ( is_search() )
         {
-            $title = esc_html__( 'Search results', 'ethemeframework' );
-            $desc  = sprintf( esc_html__( 'You searched for: "%s"', 'ethemeframework' ), get_search_query() );
+            $title = esc_html__( 'Search results', 'abtheme' );
+            $desc  = sprintf( esc_html__( 'You searched for: "%s"', 'abtheme' ), get_search_query() );
         }
         // Anything else
         else
@@ -135,7 +135,7 @@ function ethemeframework_get_page_titles()
  * @param int|WP_Post $post Optional. You will need to provide post id or post object if used outside loops.
  * @return string           The excerpt with custom length.
  */
-function ethemeframework_get_the_excerpt( $length = 55, $post = null )
+function abtheme_get_the_excerpt( $length = 55, $post = null )
 {
     $post = get_post( $post );
 
@@ -166,7 +166,7 @@ function ethemeframework_get_the_excerpt( $length = 55, $post = null )
  * @param  string $color
  * @return boolean
  */
-function ethemeframework_is_valid_color( $color )
+function abtheme_is_valid_color( $color )
 {
     $color = preg_replace( "/\s+/m", '', $color );
 
@@ -207,7 +207,7 @@ function ethemeframework_is_valid_color( $color )
  * @param  string $css
  * @return string
  */
-function ethemeframework_css_minifier( $css )
+function abtheme_css_minifier( $css )
 {
     // Normalize whitespace
     $css = preg_replace( '/\s+/', ' ', $css );

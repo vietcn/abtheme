@@ -2,7 +2,7 @@
 /**
  * Template part for displaying results in search pages
  *
- * @package eThemeFramework
+ * @package Abtheme
  */
 
 ?>
@@ -13,7 +13,7 @@
 
         <?php if ( 'post' === get_post_type() ) : ?>
         <div class="entry-meta">
-            <?php ethemeframework_entry_posted_on(); ?>
+            <?php abtheme_entry_posted_on(); ?>
         </div><!-- .entry-meta -->
         <?php endif; ?>
     </header><!-- .entry-header -->
@@ -23,6 +23,6 @@
     </div><!-- .entry-summary -->
 
     <footer class="entry-footer">
-        <?php ethemeframework_entry_footer(); ?>
+        <?php abtheme_entry_footer(); ?>
     </footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->
