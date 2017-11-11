@@ -90,7 +90,7 @@ class EFramework_Post_Metabox
         $this->default_args = $redux->args;
         $this->optimize_default_args();
 
-        do_action('eframework_post_metabox_register', $this);
+        do_action('abtheme_post_metabox_register', $this);
 
         if (empty($this->post_types) || empty($this->panels)) {
             return;
@@ -116,11 +116,11 @@ class EFramework_Post_Metabox
         global $pagenow;
 
         if ('post.php' == $pagenow) {
-            $this->notices = get_transient('eframework-post-metabox-transients');
+            $this->notices = get_transient('abtheme-post-metabox-transients');
 
             // If the transient exists then we override it with an empty value
             if (false !== $this->notices) {
-                set_transient('eframework-metabox-transients', '');
+                set_transient('abtheme-metabox-transients', '');
             } else {
                 $this->notices = maybe_unserialize($this->notices);
             }
@@ -225,8 +225,8 @@ class EFramework_Post_Metabox
      */
     protected function optimize_default_args()
     {
-        $this->default_args['opt_name'] = isset($this->default_args['opt_name']) ? $this->default_args['opt_name'] . '_post_metabox' : 'eframework_post_metabox';
-        $this->default_args['display_name'] = esc_html__('Settings', 'eframework');
+        $this->default_args['opt_name'] = isset($this->default_args['opt_name']) ? $this->default_args['opt_name'] . '_post_metabox' : 'abtheme_post_metabox';
+        $this->default_args['display_name'] = esc_html__('Settings', 'abtheme');
         $this->default_args['open_expanded'] = true;
         $this->default_args['footer_credit'] = '';
         $this->default_args['admin_bar'] = false;
@@ -266,7 +266,7 @@ class EFramework_Post_Metabox
             }
 
             if (in_array($field['id'], $this->field_ids[$post_type])) {
-                trigger_error(sprintf(esc_html__('The field with id %1$s for post type %2$s is already registered.', 'eframework'), esc_html($field['id']), esc_html($post_type)));
+                trigger_error(sprintf(esc_html__('The field with id %1$s for post type %2$s is already registered.', 'abtheme'), esc_html($field['id']), esc_html($post_type)));
                 unset($section['fields'][$fkey]);
                 continue;
             }
@@ -280,7 +280,7 @@ class EFramework_Post_Metabox
 
         if (!empty($section['id'])) {
             if ($this->section_exist($section['id'], $post_type)) {
-                trigger_error(sprintf(esc_html__('Section %1$s for post type %2$s is already exist.', 'eframework'), esc_html($field['id']), esc_html($post_type)));
+                trigger_error(sprintf(esc_html__('Section %1$s for post type %2$s is already exist.', 'abtheme'), esc_html($field['id']), esc_html($post_type)));
                 return;
             } else {
                 $this->panels[$post_type]['sections'][$section['id']] = $section;
@@ -449,11 +449,11 @@ class EFramework_Post_Metabox
 //        }
 //        die();
 
-        wp_enqueue_style('eframework-metabox', eframework()->path('APP_URL') . '/assets/css/metabox' . Redux_Functions::isMin() . '.css', array(), self::$version, 'all');
-        wp_enqueue_script('eframework-metabox', eframework()->path('APP_URL') . '/assets/js/metabox' . Redux_Functions::isMin() . '.js', array('jquery', 'redux-js'), self::$version, 'all');
+        wp_enqueue_style('abtheme-metabox', abtheme()->path('APP_URL') . '/assets/css/metabox' . Redux_Functions::isMin() . '.css', array(), self::$version, 'all');
+        wp_enqueue_script('abtheme-metabox', abtheme()->path('APP_URL') . '/assets/js/metabox' . Redux_Functions::isMin() . '.js', array('jquery', 'redux-js'), self::$version, 'all');
 
         wp_localize_script(
-            'eframework-metabox',
+            'abtheme-metabox',
             'EFrameworkMetaboxLocalize',
             $this->localize_script
         );
@@ -468,7 +468,7 @@ class EFramework_Post_Metabox
      */
     function panel_template()
     {
-        return eframework()->path('APP_DIR') . '/templates/panel';
+        return abtheme()->path('APP_DIR') . '/templates/panel';
     }
 
     /**
@@ -739,7 +739,7 @@ class EFramework_Post_Metabox
                 $notices['warnings'] = array();
             }
 
-            set_transient('eframework-post-metabox-transients', $notices);
+            set_transient('abtheme-post-metabox-transients', $notices);
         }
     }
 
@@ -760,8 +760,8 @@ class EFramework_Post_Metabox
             printf(
                 '<strong>%1$s %2$s</strong> %3$s',
                 esc_html(count($this->notices['errors'])),
-                esc_html__('error(s)', 'eframework'),
-                esc_html__('were found! Some data might not be saved.', 'eframework')
+                esc_html__('error(s)', 'abtheme'),
+                esc_html__('were found! Some data might not be saved.', 'abtheme')
             );
             echo '</p></div>';
         }
@@ -772,12 +772,12 @@ class EFramework_Post_Metabox
             printf(
                 '<strong>%1$s %2$s</strong> %3$s',
                 esc_html(count($this->notices['warnings'])),
-                esc_html__('warning(s)', 'eframework'),
-                esc_html__('were found! Some data might not be saved.', 'eframework')
+                esc_html__('warning(s)', 'abtheme'),
+                esc_html__('were found! Some data might not be saved.', 'abtheme')
             );
 
             echo '</p>';
-            printf('<button type="button" class="notice-dismiss"><span class="screen-reader-text">%s</span></button>', esc_html__('Dismiss this notice.', 'eframework'));
+            printf('<button type="button" class="notice-dismiss"><span class="screen-reader-text">%s</span></button>', esc_html__('Dismiss this notice.', 'abtheme'));
             echo '</div>';
         }
     }
@@ -826,7 +826,7 @@ class EFramework_Post_Metabox
 
         printf(
             '<style type="text/css" id="%1$s">%2$s</style>',
-            esc_attr('eframework-' . $post->post_type . '-dynamic-css'),
+            esc_attr('abtheme-' . $post->post_type . '-dynamic-css'),
             $redux->outputCSS
         );
     }

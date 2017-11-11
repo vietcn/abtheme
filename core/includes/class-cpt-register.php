@@ -38,7 +38,7 @@ class EFramework_CPT_Register
      */
     function init()
     {
-        $this->post_types = apply_filters( 'eframework_extra_post_types', array(
+        $this->post_types = apply_filters( 'abtheme_extra_post_types', array(
             'portfolio'   => false,
             'team_member' => false
         ) );
@@ -62,30 +62,30 @@ class EFramework_CPT_Register
      */
     protected function type_portfolio_register()
     {
-        $args = apply_filters( 'eframework_portfolio_post_type_args', array(
+        $args = apply_filters( 'abtheme_portfolio_post_type_args', array(
             'labels' => array(
-                'name'                  => __( 'Portfolio', 'eframework' ),
-                'singular_name'         => __( 'Portfolio Entry', 'eframework' ),
-                'add_new'               => _x( 'Add New', 'add new on admin panel', 'eframework' ),
-                'add_new_item'          => __( 'Add New Portfolio Entry', 'eframework' ),
-                'edit_item'             => __( 'Edit Portfolio Entry', 'eframework' ),
-                'new_item'              => __( 'New Portfolio Entry', 'eframework' ),
-                'view_item'             => __( 'View Portfolio Entry', 'eframework' ),
-                'view_items'            => __( 'View Portfolio Entries', 'eframework' ),
-                'search_items'          => __( 'Search Portfolio Entries', 'eframework' ),
-                'not_found'             => __( 'No Portfolio Entries Found', 'eframework' ),
-                'not_found_in_trash'    => __( 'No Portfolio Entries Found in Trash', 'eframework' ),
-                'parent_item_colon'     => __( 'Parent Portfolio Entry:', 'eframework' ),
-                'all_items'             => __( 'All Entries', 'eframework' ),
-                'archives'              => __( 'Portfolio Archives', 'eframework' ),
-                'attributes'            => __( 'Portfolio Entry Attributes', 'eframework' ),
-                'insert_into_item'      => __( 'Insert into Portfolio Entry', 'eframework' ),
-                'uploaded_to_this_item' => __( 'Uploaded to this Portfolio Entry', 'eframework' ),
-                'menu_name'             => __( 'Portfolio', 'eframework' ),
-                'filter_items_list'     => __( 'Filter portfolio list', 'eframework' ),
-                'items_list_navigation' => __( 'Portfolio list navigation', 'eframework' ),
-                'items_list'            => __( 'Portfolio list', 'eframework' ),
-                'name_admin_bar'        => _x( 'Portfolio', 'add new on admin bar', 'eframework' )
+                'name'                  => __( 'Portfolio', 'abtheme' ),
+                'singular_name'         => __( 'Portfolio Entry', 'abtheme' ),
+                'add_new'               => _x( 'Add New', 'add new on admin panel', 'abtheme' ),
+                'add_new_item'          => __( 'Add New Portfolio Entry', 'abtheme' ),
+                'edit_item'             => __( 'Edit Portfolio Entry', 'abtheme' ),
+                'new_item'              => __( 'New Portfolio Entry', 'abtheme' ),
+                'view_item'             => __( 'View Portfolio Entry', 'abtheme' ),
+                'view_items'            => __( 'View Portfolio Entries', 'abtheme' ),
+                'search_items'          => __( 'Search Portfolio Entries', 'abtheme' ),
+                'not_found'             => __( 'No Portfolio Entries Found', 'abtheme' ),
+                'not_found_in_trash'    => __( 'No Portfolio Entries Found in Trash', 'abtheme' ),
+                'parent_item_colon'     => __( 'Parent Portfolio Entry:', 'abtheme' ),
+                'all_items'             => __( 'All Entries', 'abtheme' ),
+                'archives'              => __( 'Portfolio Archives', 'abtheme' ),
+                'attributes'            => __( 'Portfolio Entry Attributes', 'abtheme' ),
+                'insert_into_item'      => __( 'Insert into Portfolio Entry', 'abtheme' ),
+                'uploaded_to_this_item' => __( 'Uploaded to this Portfolio Entry', 'abtheme' ),
+                'menu_name'             => __( 'Portfolio', 'abtheme' ),
+                'filter_items_list'     => __( 'Filter portfolio list', 'abtheme' ),
+                'items_list_navigation' => __( 'Portfolio list navigation', 'abtheme' ),
+                'items_list'            => __( 'Portfolio list', 'abtheme' ),
+                'name_admin_bar'        => _x( 'Portfolio', 'add new on admin bar', 'abtheme' )
             ),
             'hierarchical'        => false,
             'description'         => '',
@@ -127,30 +127,30 @@ class EFramework_CPT_Register
      */
     protected function type_team_member_register()
     {
-        $args = apply_filters( 'eframework_team_member_post_type_args', array(
+        $args = apply_filters( 'abtheme_team_member_post_type_args', array(
             'labels' => array(
-                'name'                  => __( 'Team', 'eframework' ),
-                'singular_name'         => __( 'Team Member', 'eframework' ),
-                'add_new'               => _x( 'Add New', 'add new on admin panel', 'eframework' ),
-                'add_new_item'          => __( 'Add New Member', 'eframework' ),
-                'edit_item'             => __( 'Edit Member', 'eframework' ),
-                'new_item'              => __( 'New Member', 'eframework' ),
-                'view_item'             => __( 'View Member', 'eframework' ),
-                'view_items'            => __( 'View Members', 'eframework' ),
-                'search_items'          => __( 'Search Members', 'eframework' ),
-                'not_found'             => __( 'No Members Found', 'eframework' ),
-                'not_found_in_trash'    => __( 'No Members Found in Trash', 'eframework' ),
-                'parent_item_colon'     => __( 'Parent Member:', 'eframework' ),
-                'all_items'             => __( 'All Members', 'eframework' ),
-                'archives'              => __( 'Team Archives', 'eframework' ),
-                'attributes'            => __( 'Member Attributes', 'eframework' ),
-                'insert_into_item'      => __( 'Insert into Member', 'eframework' ),
-                'uploaded_to_this_item' => __( 'Uploaded to this Member', 'eframework' ),
-                'menu_name'             => __( 'Team', 'eframework' ),
-                'filter_items_list'     => __( 'Filter Members list', 'eframework' ),
-                'items_list_navigation' => __( 'Members list navigation', 'eframework' ),
-                'items_list'            => __( 'Members list', 'eframework' ),
-                'name_admin_bar'        => _x( 'Team', 'add new on admin bar', 'eframework' ),
+                'name'                  => __( 'Team', 'abtheme' ),
+                'singular_name'         => __( 'Team Member', 'abtheme' ),
+                'add_new'               => _x( 'Add New', 'add new on admin panel', 'abtheme' ),
+                'add_new_item'          => __( 'Add New Member', 'abtheme' ),
+                'edit_item'             => __( 'Edit Member', 'abtheme' ),
+                'new_item'              => __( 'New Member', 'abtheme' ),
+                'view_item'             => __( 'View Member', 'abtheme' ),
+                'view_items'            => __( 'View Members', 'abtheme' ),
+                'search_items'          => __( 'Search Members', 'abtheme' ),
+                'not_found'             => __( 'No Members Found', 'abtheme' ),
+                'not_found_in_trash'    => __( 'No Members Found in Trash', 'abtheme' ),
+                'parent_item_colon'     => __( 'Parent Member:', 'abtheme' ),
+                'all_items'             => __( 'All Members', 'abtheme' ),
+                'archives'              => __( 'Team Archives', 'abtheme' ),
+                'attributes'            => __( 'Member Attributes', 'abtheme' ),
+                'insert_into_item'      => __( 'Insert into Member', 'abtheme' ),
+                'uploaded_to_this_item' => __( 'Uploaded to this Member', 'abtheme' ),
+                'menu_name'             => __( 'Team', 'abtheme' ),
+                'filter_items_list'     => __( 'Filter Members list', 'abtheme' ),
+                'items_list_navigation' => __( 'Members list navigation', 'abtheme' ),
+                'items_list'            => __( 'Members list', 'abtheme' ),
+                'name_admin_bar'        => _x( 'Team', 'add new on admin bar', 'abtheme' ),
             ),
             'hierarchical'        => false,
             'description'         => '',

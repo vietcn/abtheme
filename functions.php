@@ -5,7 +5,7 @@
  * @package Abtheme
  */
 
-require_once get_template_directory() . '/inc/eframework.php';
+require_once get_template_directory() . '/inc/abtheme.php';
 if ( ! function_exists( 'abtheme_setup' ) ) :
     /**
      * Sets up theme defaults and registers support for various WordPress features.
@@ -186,8 +186,8 @@ require_once get_template_directory() . '/inc/snippets.php';
  * Custom post types and args based on eFramework.
  * require eFramework plugin
  */
-add_filter( 'eframework_extra_post_types', function( $post_types ) { return array( 'portfolio' => true, 'team_member' => true ); } );
-add_filter( 'eframework_portfolio_post_type_args', function( $args )
+add_filter( 'abtheme_extra_post_types', function( $post_types ) { return array( 'portfolio' => true, 'team_member' => true ); } );
+add_filter( 'abtheme_portfolio_post_type_args', function( $args )
 {
     $args['labels']['menu_name'] = 'Portfolio Test Filter';
     return $args;

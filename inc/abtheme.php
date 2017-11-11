@@ -76,7 +76,7 @@ class EFramework
      */
     function init()
     {
-        if ( apply_filters( 'eframework_scssc_on', false ) )
+        if ( apply_filters( 'abtheme_scssc_on', false ) )
         {
             // scss compiler library
             if ( ! class_exists( 'scssc' ) )
@@ -85,7 +85,7 @@ class EFramework
             }
         }
 
-        if ( apply_filters( 'eframework_widget_extends_on', true ) )
+        if ( apply_filters( 'abtheme_widget_extends_on', true ) )
         {
             require_once $this->path( 'APP_DIR', 'includes/class-widget-extends.php' );
         }
@@ -139,7 +139,7 @@ class EFramework
         );
         echo '</p>';
 
-        printf( '<button type="button" class="notice-dismiss"><span class="screen-reader-text">%s</span></button>', esc_html__( 'Dismiss this notice.', 'eframework' ) );
+        printf( '<button type="button" class="notice-dismiss"><span class="screen-reader-text">%s</span></button>', esc_html__( 'Dismiss this notice.', 'abtheme' ) );
         echo '</div>';
     }
 
@@ -224,9 +224,9 @@ class EFramework
  * @since  1.0
  * @return SReduxFramework_Metabox instance
  */
-function eframework()
+function abtheme()
 {
     return EFramework::get_instance();
 }
 
-$GLOBALS['eframework'] = eframework();
+$GLOBALS['abtheme'] = abtheme();

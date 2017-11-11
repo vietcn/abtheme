@@ -38,7 +38,7 @@ class EFramework_CTax_Register
      */
     function init()
     {
-        $this->taxonomies = apply_filters( 'eframework_extra_taxonomies', array(
+        $this->taxonomies = apply_filters( 'abtheme_extra_taxonomies', array(
             'portfolio_category' => false,
             'team_member_position' => false
         ) );

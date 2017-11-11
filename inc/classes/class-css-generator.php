@@ -51,7 +51,7 @@ class Abtheme_CSS_Generator
             return;
         }
 
-        add_filter( 'eframework_scssc_on', '__return_true' );
+        add_filter( 'abtheme_scssc_on', '__return_true' );
         add_action( 'init', array( $this, 'init' ) );
         add_action( 'wp_enqueue_scripts', array( $this, 'enqueue' ), 20 );
     }
