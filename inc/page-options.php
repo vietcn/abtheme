@@ -16,6 +16,11 @@
  */
 function abtheme_page_options_register( $metabox )
 {
+
+    /**
+     * Config page meta options
+     *
+     */
     if ( ! $metabox->isset_args( 'page' ) )
     {
         $metabox->set_args( 'page', array(
@@ -26,6 +31,30 @@ function abtheme_page_options_register( $metabox )
             'priority' => 'default'
         ) );
     }
+    
+    $metabox->add_section( 'page', array(
+        'title' => esc_html__( 'General', 'abtheme' ),
+        'desc'  => esc_html__( 'General settings for the page.', 'abtheme' ),
+        'fields' => array(
+            array(
+                'id'       => '_custom_title',
+                'type'     => 'text',
+                'title'    => esc_html__( 'Custom Title', 'abtheme' ),
+                'subtitle' => esc_html__( 'Use custom title for this page. The default title will be used on document title.', 'abtheme' )
+            ),
+            array(
+                'id'       => '_custom_desc',
+                'type'     => 'text',
+                'title'    => esc_html__( 'Custom description', 'abtheme' ),
+                'subtitle' => esc_html__( 'Show custom page description under page title', 'abtheme' )
+            )
+        )
+    ) );
+
+    /**
+     * Config post meta options
+     *
+     */
     if ( ! $metabox->isset_args( 'post' ) )
     {
         $metabox->set_args( 'post', array(
@@ -36,6 +65,11 @@ function abtheme_page_options_register( $metabox )
             'priority' => 'default'
         ) );
     }
+
+    /**
+     * Config post format meta options
+     *
+     */
 
     if ( ! $metabox->isset_args( 'image' ) )
     {
@@ -58,25 +92,6 @@ function abtheme_page_options_register( $metabox )
             'priority' => 'default'
         ) );
     }
-
-    $metabox->add_section( 'page', array(
-        'title' => esc_html__( 'General', 'abtheme' ),
-        'desc'  => esc_html__( 'General settings for the page.', 'abtheme' ),
-        'fields' => array(
-            array(
-                'id'       => '_custom_title',
-                'type'     => 'text',
-                'title'    => esc_html__( 'Custom Title', 'abtheme' ),
-                'subtitle' => esc_html__( 'Use custom title for this page. The default title will be used on document title.', 'abtheme' )
-            ),
-            array(
-                'id'       => '_custom_desc',
-                'type'     => 'text',
-                'title'    => esc_html__( 'Custom description', 'abtheme' ),
-                'subtitle' => esc_html__( 'Show custom page description under page title', 'abtheme' )
-            )
-        )
-    ) );
 
     $metabox->add_section( 'image', array(
         'title' => esc_html__( 'General098914124', 'abtheme' ),
