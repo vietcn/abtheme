@@ -51,7 +51,7 @@ function ethemeframework_page_options_register( $metabox )
     if ( ! $metabox->isset_args( 'gallery' ) )
     {
         $metabox->set_args( 'gallery', array(
-            'opt_name'     => 'kp_gallery',
+            'opt_name'     => 'post_format_gallery',
             'display_name' => esc_html__( 'gallery Settings', 'ethemeframework' )
         ), array(
             'context'  => 'advanced',
