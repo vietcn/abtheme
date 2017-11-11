@@ -118,15 +118,6 @@ class EFramework
                 $this->taxonomy_metabox = new EFramework_Taxonomy_Metabox( $redux );
             }
         }
-
-        if ( ! class_exists( 'EFramework_PostFormat' ) )
-        {
-            require_once $this->path( 'APP_DIR', 'includes/class-post-format.php' );
-            if ( empty( $this->post_format_metabox ) )
-            {
-                $this->post_format_metabox = new EFramework_PostFormat();
-            }
-        }
     }
     /**
      * Redux Framework notices

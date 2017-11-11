@@ -378,10 +378,6 @@ class EFramework_Post_Metabox
                 continue;
             }
             $old_post_type = $post_type;
-            echo '<pre>';
-            var_dump($old_post_type);
-            var_dump(in_array($old_post_type, $post_formats));
-            echo '</pre>';
             if (in_array($old_post_type, $post_formats) !== false) {
                 $old_post_type = 'post';
             }

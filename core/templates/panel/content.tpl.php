@@ -6,7 +6,7 @@
 $this->get_template('menu_container.tpl.php');
 $post_formats = (get_theme_support('post-formats') !== false) ? get_theme_support('post-formats')[0] : array();
 $style = (strpos($this->parent->args['opt_name'], 'post_format_') !== false && in_array(str_replace('post_format_', '', $this->parent->args['opt_name']), $post_formats) !== false) ? 'style="margin-left:0px"' : "";
-   
+
 ?>
 
 <div class="redux-main" <?php echo $style; ?>>
