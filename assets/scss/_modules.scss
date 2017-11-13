@@ -59,15 +59,3 @@
     clear: both;
     @include center-block;
 }
-
-// Clearing floats
-//--------------------------------------------------
-
-.clear,
-.entry-content,
-.comment-content,
-.site-header,
-.site-content,
-.site-footer {
-    @include clearfix;
-}

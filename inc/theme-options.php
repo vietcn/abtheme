@@ -150,7 +150,14 @@ Redux::setSection( $opt_name, array(
             'subtitle' => esc_html__( 'Set maximum height for your logo, just in case the logo is too large.', 'abtheme' ),
             'width'    => false,
             'unit'     => 'px'
-        )
+        ),
+        array(
+            'id'       => 'search_button',
+            'type'     => 'switch',
+            'title'    => esc_html__( 'Enable Search Button', 'abtheme' ),
+            'subtitle' => esc_html__( 'Enable Search Button On Header', 'abtheme' ),
+            'default'  => true
+        ),
     )
 ) );
 

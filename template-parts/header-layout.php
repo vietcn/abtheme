@@ -14,12 +14,29 @@ $sticky_on = abtheme_get_opt( 'sticky_on', true );
             <nav id="site-navigation" class="main-navigation" aria-expanded="false" data-efelement="ariactarget">
                 <?php get_template_part( 'template-parts/header-menu' ); ?>
             </nav>
-            <nav class="extra-navigation">
-                <button class="menu-toggle" aria-controls="site-navigation" aria-expanded="false" data-efelement="ariac"><?php
-                    printf( '<span class="screen-reader-text">%s</span>', esc_html__( 'Primary Menu', 'abtheme' ) );
-                    echo '<span class="menu-toggle-icon"></span>';
-                ?></button>
-            </nav>
+
+            <div id="header-cart">
+                <div class="menu-right pull-right">
+                    <?php if ( class_exists( 'WC_Widget_Cart' ) ): ?>
+                        <span class="cat-icon">
+                            <?php //matilda_get_cart_icon(); ?>
+                            </span>
+                    <?php endif; ?>
+                </div>
+                <div class="top-socials pull-right">
+                    <?php get_template_part('template-parts/social');?>
+                </div>
+            </div>
+
+            <?php if (abtheme_get_opt( 'search_button', true )) { ?>
+                <div id="header-search">
+                    <a href="#" class="open-search st-search"><i class="fa fa-search"></i></a>
+                    <a href="#" class="close-search st-search"><i class="fa fa-close"></i></a>
+                    <div class="form-search">
+                        <?php get_search_form(); ?>
+                    </div>
+                </div>
+            <?php } ?>
         </div>
     </div>
 </header>

@@ -25,9 +25,33 @@
         offset : 280
     });
     // initialise
-    headroom.init(); 
+    headroom.init();
 
-
+    /* ===================
+     Search Toggle
+     ===================== */
+    var openSearch = $('.open-search'),
+        SearchForm = $('.form-search'),
+        closeSearch = $('.close-search');
+    openSearch.on('click', function(event){
+        event.preventDefault();
+        openSearch.css({'display': 'none'});
+        closeSearch.css({'display': 'block'});
+        if (!SearchForm.hasClass('show')) {
+            SearchForm.fadeIn(300, function(){
+                SearchForm.addClass('show');
+                $('.site-header input.search-field').focus();
+            });
+        }
+    });
+    closeSearch.on('click', function(event){
+        event.preventDefault();
+        closeSearch.css({'display': 'none'});
+        openSearch.css({'display': 'block'});
+        SearchForm.fadeOut(300, function(){
+            SearchForm.removeClass('show');
+        });
+    });
 
 
     var nav1 = new KoalaNav("site-navigation",{

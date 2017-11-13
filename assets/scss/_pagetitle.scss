@@ -1,5 +1,32 @@
+// Page Title
+//--------------------------------------------------
 #pagetitle{
   padding-top: 50px;
   padding-bottom: 50px;
   background: #ccc;
+}
+
+// Breadcrumbs
+//--------------------------------------------------
+.breadcrumb {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    display: inline-block;
+    vertical-align: middle;
+
+    &:after {
+      content: '/';
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+
+    &:last-child {
+      &:after {
+        display: none;
+      }
+    }
+  }
 }
