@@ -15,7 +15,7 @@ get_header();
 ?>
 <div class="container content-container">
     <div class="row content-row">
-        <div id="primary"<?php abtheme_primary_class( $sidebar_pos, 'content-area' ); ?>>
+        <div id="primary" <?php abtheme_primary_class( $sidebar_pos, 'content-area' ); ?>>
             <main id="main" class="site-main">
             <?php
 

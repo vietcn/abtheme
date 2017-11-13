@@ -14,26 +14,36 @@
  */
 function abtheme_primary_class( $sidebar_pos, $extra_class = '' )
 {
-    $class = array( trim( $extra_class ) );
-    switch ( $sidebar_pos )
-    {
-        case 'left':
-            $class[] = 'content-area-lsidebar';
-            break;
+    if ( is_page() ) :
+        $sidebar_load = 'sidebar-page';
+    elseif ( is_shop() ) :
+        $sidebar_load = 'sidebar-shop';
+    else :
+        $sidebar_load = 'sidebar-1';
+    endif;
 
-        case 'right':
-            $class[] = 'content-area-rsidebar';
-            break;
-        
-        default:
-            break;
-    }
+    if ( is_active_sidebar( $sidebar_load ) ) {
+        $class = array( trim( $extra_class ) );
+        switch ( $sidebar_pos )
+        {
+            case 'left':
+                $class[] = 'content-area-lsidebar pull-right';
+                break;
 
-    $class = implode( ' ', array_filter( $class ) );
+            case 'right':
+                $class[] = 'content-area-rsidebar pull-left';
+                break;
 
-    if ( $class )
-    {
-        echo ' class="' . esc_html__( $class ) . '"';
+            default:
+                break;
+        }
+
+        $class = implode( ' ', array_filter( $class ) );
+
+        if ( $class )
+        {
+            echo ' class="' . esc_html__( $class ) . '"';
+        }
     }
 }
 
@@ -45,26 +55,34 @@ function abtheme_primary_class( $sidebar_pos, $extra_class = '' )
  */
 function abtheme_secondary_class( $sidebar_pos, $extra_class = '' )
 {
-    $class = array( trim( $extra_class ) );
-    switch ( $sidebar_pos )
-    {
-        case 'left':
-            $class[] = 'lsidebar';
-            break;
+    if ( is_page() ) :
+        $sidebar_load = 'sidebar-page';
+    elseif ( is_shop() ) :
+        $sidebar_load = 'sidebar-shop';
+    else :
+        $sidebar_load = 'sidebar-1';
+    endif;
 
-        case 'right':
-            $class[] = 'rsidebar';
-            break;
-        
-        default:
-            break;
-    }
+    if ( is_active_sidebar( $sidebar_load ) ) {
+        $class = array(trim($extra_class));
+        switch ($sidebar_pos) {
+            case 'left':
+                $class[] = 'lsidebar pull-left';
+                break;
 
-    $class = implode( ' ', array_filter( $class ) );
+            case 'right':
+                $class[] = 'rsidebar pull-right';
+                break;
 
-    if ( $class )
-    {
-        echo ' class="' . esc_html__( $class ) . '"';
+            default:
+                break;
+        }
+
+        $class = implode(' ', array_filter($class));
+
+        if ($class) {
+            echo ' class="' . esc_html__($class) . '"';
+        }
     }
 }
 

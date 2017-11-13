@@ -4,12 +4,18 @@
  *
  * @package Abtheme
  */
-
-if ( ! is_active_sidebar( 'sidebar-1' ) ) {
-    return;
-}
 ?>
 
-<div class="widgets">
-    <?php dynamic_sidebar( 'sidebar-1' ); ?>
-</div>
+<?php //if ( is_active_sidebar( 'sidebar' ) ) : ?>
+    <aside id="sidebar" class="site-sidebar">
+        <?php
+        if ( is_page() ) :
+            dynamic_sidebar( 'sidebar-page' );
+        elseif ( is_shop() ) :
+            dynamic_sidebar( 'sidebar-shop' );
+        else :
+            dynamic_sidebar( 'sidebar-1' );
+        endif;
+        ?>
+    </aside>
+<?php //endif; ?>
