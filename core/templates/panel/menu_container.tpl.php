@@ -3,8 +3,6 @@
  * The template for the menu container of the panel.
  * It's silly that we need this for redux scripts fully worked, although we dont use this.
  */
-//post_format_image
-//$this->parent->args['otp_name']
 $post_formats = (get_theme_support('post-formats') !== false) ? get_theme_support('post-formats')[0] : array();
 $style = (strpos($this->parent->args['opt_name'], 'post_format_') !== false && in_array(str_replace('post_format_', '', $this->parent->args['opt_name']), $post_formats) !== false) ? 'style="display:none"' : "";
 ?>
