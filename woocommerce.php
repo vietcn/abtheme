@@ -2,7 +2,7 @@
 /**
  * Custom Woocommerce shop page.
  */
-$sidebar_pos = abtheme_get_opt( 'archive_sidebar_pos', 'right' );
+$sidebar_pos = abtheme_get_opt( 'sidebar_shop', 'none' );
 get_header();
 ?>
     <div class="container content-container">

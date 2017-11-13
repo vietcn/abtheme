@@ -27,11 +27,11 @@ function abtheme_primary_class( $sidebar_pos, $extra_class = '' )
         switch ( $sidebar_pos )
         {
             case 'left':
-                $class[] = 'content-area-lsidebar pull-right';
+                $class[] = 'content-has-sidebar pull-right';
                 break;
 
             case 'right':
-                $class[] = 'content-area-rsidebar pull-left';
+                $class[] = 'content-has-sidebar pull-left';
                 break;
 
             default:
@@ -67,11 +67,11 @@ function abtheme_secondary_class( $sidebar_pos, $extra_class = '' )
         $class = array(trim($extra_class));
         switch ($sidebar_pos) {
             case 'left':
-                $class[] = 'lsidebar pull-left';
+                $class[] = 'widget-has-sidebar pull-left';
                 break;
 
             case 'right':
-                $class[] = 'rsidebar pull-right';
+                $class[] = 'widget-has-sidebar pull-right';
                 break;
 
             default:

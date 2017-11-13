@@ -694,49 +694,21 @@ a {
 /*--------------------------------------------------------------
 # Common Content
 --------------------------------------------------------------*/
-.content-area,
+.content-area {
+  padding-left: 15px;
+  padding-right: 15px;
+  position: relative; }
+
 .widget-area {
   padding-left: 15px;
   padding-right: 15px;
   position: relative; }
 
-@media (min-width: 992px) {
-  .content-area-lsidebar,
-  .content-area-rsidebar,
-  .lsidebar,
-  .rsidebar {
-    float: left; }
+.site-content .content-has-sidebar {
+  width: 70%; }
+.site-content .widget-has-sidebar {
+  width: 30%; }
 
-  .content-area-lsidebar,
-  .content-area-rsidebar {
-    width: 70%; }
-
-  .lsidebar,
-  .rsidebar {
-    width: 30%; }
-
-  .content-area-lsidebar {
-    left: 30%; }
-
-  .lsidebar {
-    right: 70%; } }
-@media (min-width: 1200px) {
-  .content-area-lsidebar,
-  .content-area-rsidebar {
-    width: 75%; }
-
-  .lsidebar,
-  .rsidebar {
-    width: 25%; }
-
-  .content-area-lsidebar {
-    left: 25%; }
-
-  .lsidebar {
-    right: 75%; } }
-@media (min-width: 1280px) {
-  .container {
-    width: 1200px; } }
 .backtotop {
   border: 1px solid;
   width: 48px;
