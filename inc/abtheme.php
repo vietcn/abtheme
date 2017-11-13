@@ -54,11 +54,6 @@ class EFramework
             EFramework_CTax_Register::get_instance();
         }
 
-        if ( ! class_exists( 'EFramework_enqueue_scripts' ) )
-        {
-            require_once $this->path('APP_DIR','includes/class-enqueue-scripts.php');
-        }
-
         if ( ! class_exists( 'ReduxFramework' ) )
         {
             add_action( 'admin_notices', array( $this, 'redux_framework_notice' ) );
@@ -68,6 +63,11 @@ class EFramework
             // Late at 30 to be sure that other extensions available via same hook.
             // Eg: Load extensions at 29 or lower.
             add_action( "redux/extensions/before", array( $this, 'redux_extensions' ), 30 );
+        }
+
+        if ( ! class_exists( 'EFramework_enqueue_scripts' ) )
+        {
+            require_once $this->path('APP_DIR','includes/class-enqueue-scripts.php');
         }
 
         add_action( 'init', array( $this, 'init' ), 0 );
