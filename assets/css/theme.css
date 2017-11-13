@@ -313,14 +313,20 @@ textarea {
 
 .site-logo {
   display: block; }
+  .site-logo img {
+    max-height: 100px; }
 
 .site-logo-sticky {
   display: none; }
+  .site-logo-sticky img {
+    max-height: 100px; }
 
-.headroom--pinned .site-logo {
-  display: none; }
-.headroom--pinned .site-logo-sticky {
-  display: block; }
+.headroom--not-top {
+  background: #ccc; }
+  .headroom--not-top .site-logo {
+    display: none; }
+  .headroom--not-top .site-logo-sticky {
+    display: block; }
 
 .site-header {
   position: relative;
@@ -354,9 +360,13 @@ textarea {
     display: none;
     position: absolute;
     z-index: 999;
-    padding: 15px;
     right: 0;
     top: 50px; }
+  #header-cart .widget_shopping_cart {
+    margin: 0;
+    padding: 15px; }
+    #header-cart .widget_shopping_cart p {
+      margin-bottom: 0; }
 
 .main-header {
   padding: 2em 0;

@@ -69,6 +69,11 @@ if ( ! function_exists( 'abtheme_setup' ) ) :
             'quote',
             'link',
         ) );
+
+        add_theme_support( 'woocommerce' );
+        add_theme_support( 'wc-product-gallery-zoom' );
+        add_theme_support( 'wc-product-gallery-lightbox' );
+        add_theme_support( 'wc-product-gallery-slider' );
     }
 endif;
 add_action( 'after_setup_theme', 'abtheme_setup' );
@@ -92,8 +97,28 @@ add_action( 'after_setup_theme', 'abtheme_content_width', 0 );
 function abtheme_widgets_init()
 {
     register_sidebar( array(
-        'name'          => esc_html__( 'Sidebar', 'abtheme' ),
+        'name'          => esc_html__( 'Blog Sidebar', 'abtheme' ),
         'id'            => 'sidebar-1',
+        'description'   => esc_html__( 'Add widgets here.', 'abtheme' ),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
+    ) );
+
+    register_sidebar( array(
+        'name'          => esc_html__( 'Page Sidebar', 'abtheme' ),
+        'id'            => 'sidebar-page',
+        'description'   => esc_html__( 'Add widgets here.', 'abtheme' ),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
+    ) );
+
+    register_sidebar( array(
+        'name'          => esc_html__( 'Shop Sidebar', 'abtheme' ),
+        'id'            => 'sidebar-shop',
         'description'   => esc_html__( 'Add widgets here.', 'abtheme' ),
         'before_widget' => '<section id="%1$s" class="widget %2$s">',
         'after_widget'  => '</section>',

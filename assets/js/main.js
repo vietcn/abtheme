@@ -55,7 +55,7 @@
     var nav1 = new KoalaNav("site-navigation",{
         // The type of icon to use for the mobile toggle button.
         // "hamburger" or "arrow"
-        btnIcon: 'fa fa-home',
+        btnIcon: 'arrow',
         // The position of the mobile toggle button icon.
         // "left" or "right"
         btnPosition: 'left',

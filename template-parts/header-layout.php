@@ -42,10 +42,7 @@ $sticky_on = abtheme_get_opt( 'sticky_on', true );
 
 
                 <div class="cartform">
-                    <form id="search">
-                        <input type="text" class="s" id="s" placeholder="keywords...">
-                        <button type="submit" class="sbtn"><i class="fa fa-search"></i></button>
-                    </form>
+                    <?php get_template_part( 'template-parts/cartform' ); ?>
                 </div>
             </div>
         </div>
