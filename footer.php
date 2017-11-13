@@ -18,19 +18,18 @@
         <div class="bottom-footer">
             <div class="container bottom-footer-container">
                 <div class="site-info">
-                    <a href="<?php echo esc_url( __( 'https://wordpress.org/', 'abtheme' ) ); ?>"><?php
-                        /* translators: %s: CMS name, i.e. WordPress. */
-                        printf( esc_html__( 'Proudly powered by %s', 'abtheme' ), 'WordPress' );
-                    ?></a>
-                    <span class="sep"> | </span>
                     <?php
-                        /* translators: 1: Theme name, 2: Theme author. */
-                        printf( esc_html__( 'Theme: %1$s by %2$s.', 'abtheme' ), 'abtheme', '<a href="https://stevngo.com">Stev Ngo</a>' );
+                    if (ethemeframework_get_opt( 'footer_copyright')) {
+                        printf(esc_html__('&copy; %1$s %2$s - Theme by %3$s', 'abtheme'), date("Y"), get_bloginfo('name'), '<a href="' . esc_url('http://www.farost.com/', 'abtheme') . '">Farost</a>');
+                    } else {
+                        echo wp_kses_post(ethemeframework_get_opt( 'footer_copyright'));
+                    }
                     ?>
                 </div><!-- .site-info -->
             </div>
         </div>
     </footer><!-- #colophon -->
+
     <?php if ( abtheme_get_opt( 'back_totop_on', true ) ) : ?>
     <button class="backtotop" data-efelement="totopbutton"><span class="screen-reader-text"><?php
         esc_html_e( 'Back to top', 'abtheme' );

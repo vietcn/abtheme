@@ -4,12 +4,18 @@
  *
  * @package Abtheme
  */
-$sidebar_pos = abtheme_get_opt( 'post_sidebar_pos', 'right' );
+
 get_header();
+
+if ( is_singular('product')  ) :
+    $sidebar_pos = abtheme_get_opt( 'sidebar_shop', 'right' );
+else :
+    $sidebar_pos = abtheme_get_opt( 'post_sidebar_pos', 'right' );
+endif;
 ?>
 <div class="container content-container">
     <div class="row content-row">
-        <div id="primary"<?php abtheme_primary_class( $sidebar_pos, 'content-area' ); ?>>
+        <div id="primary" <?php abtheme_primary_class( $sidebar_pos, 'content-area' ); ?>>
             <main id="main" class="site-main">
             <?php
 
@@ -29,8 +35,9 @@ get_header();
             ?>
             </main><!-- #main -->
         </div><!-- #primary -->
+
         <?php if ( 'left' == $sidebar_pos || 'right' == $sidebar_pos ) : ?>
-        <aside id="secondary"<?php abtheme_secondary_class( $sidebar_pos, 'widget-area' ); ?>>
+        <aside id="secondary" <?php abtheme_secondary_class( $sidebar_pos, 'widget-area' ); ?>>
             <?php get_sidebar(); ?>
         </aside>
         <?php endif; ?>

@@ -57,7 +57,7 @@ function abtheme_secondary_class( $sidebar_pos, $extra_class = '' )
 {
     if ( is_page() ) :
         $sidebar_load = 'sidebar-page';
-    elseif ( is_woocommerce() ) :
+    elseif ( is_woocommerce() || is_singular('product')) :
         $sidebar_load = 'sidebar-shop';
     else :
         $sidebar_load = 'sidebar-1';
