@@ -54,6 +54,11 @@ class EFramework
             EFramework_CTax_Register::get_instance();
         }
 
+        if ( ! class_exists( 'EFramework_enqueue_scripts' ) )
+        {
+            require_once $this->path('APP_DIR','includes/class-enqueue-scripts.php');
+        }
+
         if ( ! class_exists( 'ReduxFramework' ) )
         {
             add_action( 'admin_notices', array( $this, 'redux_framework_notice' ) );

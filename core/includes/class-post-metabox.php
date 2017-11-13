@@ -658,7 +658,6 @@ class EFramework_Post_Metabox
         if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
             return;
         }
-
         // Check the user's permissions.
         if (!current_user_can('edit_post', $post_id)) {
             return;
@@ -682,11 +681,9 @@ class EFramework_Post_Metabox
         $args = $this->get_opt_args($post_type);
         $data_to_save = array();
         $data_to_compare = $this->get_opt_defaults($post_type);
-
         if (empty($sections) || empty($args)) {
             return;
         }
-
         foreach ($_POST[$args['opt_name']] as $key => $data) {
             if (is_array($data)) {
                 foreach ($data as $dindex => $value) {
@@ -723,7 +720,51 @@ class EFramework_Post_Metabox
                 }
             }
         }
+        /**
+         * Save post format data
+         */
+        $post_format = !empty($_REQUEST['post_format'])? $_REQUEST['post_format']: '';
+        $post_format_type = $_POST['post_format_'.$post_format];
+        if(in_array($post_format, $this->post_types) && !empty($_POST[$this->panels[$post_format]['args']['opt_name']]) && !empty($post_format_type)){
+            $sections_post_format = $this->get_opt_sections($post_format);
+            $args_post_format = $this->get_opt_args($post_format);
+            $data_to_save_pfm = array();
+            $data_to_compare_pfm = $this->get_opt_defaults($post_format);
+            foreach ($_POST[$args_post_format['opt_name']] as $key => $data) {
+                if (is_array($data)) {
+                    foreach ($data as $dindex => $value) {
+                        if (!is_array($value)) {
+                            $data[$dindex] = stripslashes($value);
+                        }
+                    }
+                }
 
+                $data_to_save_pfm[$key] = $data;
+            }
+
+            $redux = new ReduxFramework($sections, $args);
+            $validate_pfm = $redux->_validate_values($data_to_save_pfm, $data_to_compare_pfm, $sections_post_format);
+
+            foreach ($data_to_save_pfm as $key => $value) {
+                if (isset($validate_pfm[$key])) {
+                    if ($validate_pfm[$key] != $data_to_save_pfm[$key]) {
+                        $data_to_save_pfm[$key] = $validate_pfm[$key];
+                    }
+                } else {
+                    unset($data_to_save_pfm[$key]);
+                }
+
+                $prev_value = isset($prev_data[$post_id][$key]) ? $prev_data[$post_id][$key] : '';
+
+                // Only use registered field ids.
+                if (array_key_exists($key, $data_to_compare_pfm)) {
+                    // If it is validated, save it.
+                    if (isset($data_to_save_pfm[$key])) {
+                        update_post_meta($post_id, $key, $data_to_save_pfm[$key], $prev_value = '');
+                    }
+                }
+            }
+        }
         $notices = array();
 
         if (!empty($redux->errors) || !empty($redux->warnings)) {
@@ -800,7 +841,7 @@ class EFramework_Post_Metabox
 
         global $post;
 
-        if (!isset($post->ID) || !isset($post->post_type) || !in_array($post->post_type, $this->post_types)) {
+        if (!isset($post->post_type) || !in_array($post->post_type, $this->post_types)) {
             return;
         }
 

@@ -109,7 +109,7 @@ function abtheme_page_options_register( $metabox )
     ) );
 
     $metabox->add_section( 'gallery', array(
-        'title' => esc_html__( 'Gllery', 'abtheme' ),
+        'title' => esc_html__( 'Gallery', 'abtheme' ),
         'desc'  => esc_html__( 'General settings for the page.', 'abtheme' ),
         'fields' => array(
             array(
@@ -155,7 +155,22 @@ function abtheme_page_options_register( $metabox )
                 'type'     => 'text',
                 'title'    => esc_html__( 'Custom description', 'abtheme' ),
                 'subtitle' => esc_html__( 'Show custom page description under page title', 'abtheme' )
+            ),
+            array(
+                'id'        => 'post-gallery-possssst',
+                'type'      => 'slides',
+                'title'     => esc_html__( 'Gallery  hiuhiu', 'boo' ),
+                'subtitle'  => esc_html__( 'Upload images or add from media library.', 'abtheme' ),
+                'placeholder'   => array(
+                    'title'     => esc_html__( 'Title', 'abtheme' ),
+                ),
+                'show' => array(
+                    'title' => true,
+                    'description' => false,
+                    'url' => false,
+                )
             )
+
         )
     ) );
 
