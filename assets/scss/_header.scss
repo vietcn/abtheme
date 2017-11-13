@@ -16,9 +16,16 @@
 .site-logo {
     display: block;
 }
-
 .site-logo-sticky {
     display: none;
+}
+.headroom--pinned{
+    .site-logo {
+        display: none;
+    }
+    .site-logo-sticky {
+        display: block;
+    }
 }
 
 .sticked{
