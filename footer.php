@@ -19,10 +19,10 @@
             <div class="container bottom-footer-container">
                 <div class="site-info">
                     <?php
-                    if (ethemeframework_get_opt( 'footer_copyright')) {
+                    if (abtheme_get_opt( 'footer_copyright')) {
                         printf(esc_html__('&copy; %1$s %2$s - Theme by %3$s', 'abtheme'), date("Y"), get_bloginfo('name'), '<a href="' . esc_url('http://www.farost.com/', 'abtheme') . '">Farost</a>');
                     } else {
-                        echo wp_kses_post(ethemeframework_get_opt( 'footer_copyright'));
+                        echo wp_kses_post(abtheme_get_opt( 'footer_copyright'));
                     }
                     ?>
                 </div><!-- .site-info -->
