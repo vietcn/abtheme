@@ -10,7 +10,9 @@
  * @package Abtheme
  */
 
-get_header(); ?>
+get_header();
+$sidebar_pos = abtheme_get_opt( 'sidebar_page', 'right' );
+?>
 <div class="container content-container">
     <div class="row content-row">
         <div id="primary" class="content-area">
