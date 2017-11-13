@@ -31,6 +31,8 @@ class EFramework_Post_Metabox
      */
     protected $panels = array();
 
+    protected $list_screen = array();
+
     /**
      * Store all field ids for each post type
      *
@@ -48,6 +50,7 @@ class EFramework_Post_Metabox
      * @var string
      */
     protected $post_types = array();
+
 
     /**
      * Store args from ReduxFramework options, we will alter this to fit.
@@ -102,6 +105,7 @@ class EFramework_Post_Metabox
             add_action('save_post', array($this, 'save_meta_boxes'), 5, 2);
             add_action('admin_notices', array($this, 'admin_notices'));
             add_action('wp_head', array($this, 'enqueue_output'), 160);
+            add_action('hidden_meta_boxes', array($this, 'abtheme_set_user_metaboxes'));
         }
     }
 
@@ -378,7 +382,7 @@ class EFramework_Post_Metabox
                 continue;
             }
             $new_post_type = $post_type;
-            if (in_array(str_replace('abtheme_pf_','',$new_post_type), $post_formats) !== false) {
+            if (in_array(str_replace('abtheme_pf_', '', $new_post_type), $post_formats) !== false) {
                 $new_post_type = 'post';
             }
             add_meta_box(
@@ -390,11 +394,22 @@ class EFramework_Post_Metabox
                 'default',
                 array('p' => $post_type)
             );
+            $this->list_screen[] = $panel['args']['opt_name'];
             add_filter("postbox_classes_{$post_type}_{$panel['args']['opt_name']}", array($this, 'meta_box_class'));
             add_action("redux/page/{$panel['args']['opt_name']}/enqueue", array($this, 'panel_scripts'));
             add_filter("redux/{$panel['args']['opt_name']}/panel/templates_path", array($this, 'panel_template'));
             add_filter("redux/options/{$panel['args']['opt_name']}/options", array($this, 'get_values'));
         }
+    }
+
+    function abtheme_set_user_metaboxes($hidden)
+    {
+        foreach ($this->list_screen as $post_fm) {
+            if (($key = array_search($post_fm, $hidden)) !== false) {
+                unset($hidden[$key]);
+            }
+        }
+        return $hidden;
     }
 
     /**
@@ -723,9 +738,9 @@ class EFramework_Post_Metabox
         /**
          * Save post format data
          */
-        $post_format = !empty($_REQUEST['post_format'])? $_REQUEST['post_format']: '';
-        $post_format_type = $_POST['post_format_'.$post_format];
-        if(in_array($post_format, $this->post_types) && !empty($_POST[$this->panels[$post_format]['args']['opt_name']]) && !empty($post_format_type)){
+        $post_format = !empty($_REQUEST['post_format']) ? $_REQUEST['post_format'] : '';
+        $post_format_type = $_POST['post_format_' . $post_format];
+        if (in_array($post_format, $this->post_types) && !empty($_POST[$this->panels[$post_format]['args']['opt_name']]) && !empty($post_format_type)) {
             $sections_post_format = $this->get_opt_sections($post_format);
             $args_post_format = $this->get_opt_args($post_format);
             $data_to_save_pfm = array();
