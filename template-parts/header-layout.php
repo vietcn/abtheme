@@ -30,13 +30,24 @@ $sticky_on = abtheme_get_opt( 'sticky_on', true );
 
             <?php if (abtheme_get_opt( 'search_button', true )) { ?>
                 <div id="header-search">
-                    <a href="#" class="open-search st-search"><i class="fa fa-search"></i></a>
-                    <a href="#" class="close-search st-search"><i class="fa fa-close"></i></a>
-                    <div class="form-search">
+                    <a href="#" class="search-toggle"><i class="fa fa-search"></i></a>
+                    <div class="searchform">
                         <?php get_search_form(); ?>
                     </div>
                 </div>
             <?php } ?>
+
+            <div id="header-cart">
+                <a href="#" class="cart-toggle"><i class="fa fa-shopping-bag"></i></a>
+
+
+                <div class="cartform">
+                    <form id="search">
+                        <input type="text" class="s" id="s" placeholder="keywords...">
+                        <button type="submit" class="sbtn"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </header>

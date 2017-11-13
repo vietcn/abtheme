@@ -317,9 +317,9 @@ textarea {
 .site-logo-sticky {
   display: none; }
 
-.sticked .site-logo {
+.headroom--pinned .site-logo {
   display: none; }
-.sticked .site-logo-sticky {
+.headroom--pinned .site-logo-sticky {
   display: block; }
 
 .site-header {
@@ -328,9 +328,11 @@ textarea {
 
 #header-search {
   position: relative; }
-  #header-search .form-search {
+  #header-search .searchform {
     display: none; }
-  #header-search .form-search {
+    #header-search .searchform.active {
+      display: block; }
+  #header-search .searchform {
     background: #fff;
     width: 260px;
     display: none;
@@ -339,8 +341,29 @@ textarea {
     padding: 15px;
     right: 0;
     top: 50px; }
-  #header-search .close-search {
+
+#header-cart {
+  position: relative; }
+  #header-cart .cartform {
     display: none; }
+    #header-cart .cartform.active {
+      display: block; }
+  #header-cart .cartform {
+    background: #fff;
+    width: 260px;
+    display: none;
+    position: absolute;
+    z-index: 999;
+    padding: 15px;
+    right: 0;
+    top: 50px; }
+
+.main-header {
+  padding: 2em 0;
+  text-align: center; }
+
+.main-header-container {
+  position: relative; }
 
 /**
  * headroom
@@ -383,36 +406,6 @@ textarea {
 .admin-bar .headroom--not-top {
   top: 32px; }
 
-.main-header {
-  padding: 2em 0;
-  text-align: center; }
-
-.main-header-container {
-  position: relative; }
-
-@media (min-width: 992px) {
-  .header-sticky-part.unsticked.not-top, .header-sticky-part.sticked {
-    position: fixed;
-    left: 0;
-    right: 0; }
-  .header-sticky-part.unsticked {
-    margin-top: -64px;
-    visibility: hidden;
-    opacity: 0; }
-  .header-sticky-part.not-top {
-    -webkit-transition: all 240ms;
-    -khtml-transition: all 240ms;
-    -moz-transition: all 240ms;
-    -ms-transition: all 240ms;
-    -o-transition: all 240ms;
-    transition: all 240ms; }
-  .header-sticky-part.sticked {
-    visibility: visible;
-    opacity: 1;
-    margin-top: 0;
-    z-index: 999; }
-  .header-sticky-part.top-reached {
-    position: static; } }
 /*--------------------------------------------------------------
 # Page Title & Breadcrumb
 --------------------------------------------------------------*/

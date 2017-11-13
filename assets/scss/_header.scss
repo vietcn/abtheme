@@ -28,16 +28,6 @@
     }
 }
 
-.sticked{
-    .site-logo {
-        display: none;
-    }
-
-    .site-logo-sticky {
-        display: block;
-    }
-}
-
 .site-header{
     position: relative;
     z-index: 999;
@@ -45,10 +35,13 @@
 
 #header-search{
     position: relative;
-    .form-search{
+    .searchform{
         display: none;
+        &.active{
+            display: block;
+        }
     }
-    .form-search{
+    .searchform{
         background: #fff;
         width: 260px;
         display: none;
@@ -58,8 +51,24 @@
         right: 0;
         top: 50px;
     }
-    .close-search{
+}
+#header-cart{
+    position: relative;
+    .cartform{
         display: none;
+        &.active{
+            display: block;
+        }
+    }
+    .cartform{
+        background: #fff;
+        width: 260px;
+        display: none;
+        position: absolute;
+        z-index: 999;
+        padding: 15px;
+        right: 0;
+        top: 50px;
     }
 }
 
