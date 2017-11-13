@@ -377,20 +377,20 @@ class EFramework_Post_Metabox
             if (empty($panel['args']) || empty($panel['sections'])) {
                 continue;
             }
-            $old_post_type = $post_type;
-            if (in_array($old_post_type, $post_formats) !== false) {
-                $old_post_type = 'post';
+            $new_post_type = $post_type;
+            if (in_array(str_replace('abtheme_pf_','',$new_post_type), $post_formats) !== false) {
+                $new_post_type = 'post';
             }
             add_meta_box(
                 $panel['args']['opt_name'],
                 $panel['args']['display_name'],
                 array($this, 'generate_panel'),
-                $old_post_type,
-                $panel['args']['metabox_context'],
-                $panel['args']['metabox_priority'],
+                $new_post_type,
+                'advanced',
+                'default',
                 array('p' => $post_type)
             );
-            add_filter("postbox_classes_{$old_post_type}_{$panel['args']['opt_name']}", array($this, 'meta_box_class'));
+            add_filter("postbox_classes_{$post_type}_{$panel['args']['opt_name']}", array($this, 'meta_box_class'));
             add_action("redux/page/{$panel['args']['opt_name']}/enqueue", array($this, 'panel_scripts'));
             add_filter("redux/{$panel['args']['opt_name']}/panel/templates_path", array($this, 'panel_template'));
             add_filter("redux/options/{$panel['args']['opt_name']}/options", array($this, 'get_values'));
