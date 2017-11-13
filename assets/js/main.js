@@ -30,43 +30,37 @@
     /* ===================
      Search Toggle
      ===================== */
-    var openSearch = $('.open-search'),
-        SearchForm = $('.form-search'),
-        closeSearch = $('.close-search');
-    openSearch.on('click', function(event){
-        event.preventDefault();
-        openSearch.css({'display': 'none'});
-        closeSearch.css({'display': 'block'});
-        if (!SearchForm.hasClass('show')) {
-            SearchForm.fadeIn(300, function(){
-                SearchForm.addClass('show');
-                $('.site-header input.search-field').focus();
-            });
-        }
+    $('#header-search .search-toggle').click(function(e){
+        e.preventDefault();
+        $('#header-cart .cartform').removeClass('active');
+        $('#header-search .searchform').toggleClass('active').find('.search-field').focus();
     });
-    closeSearch.on('click', function(event){
-        event.preventDefault();
-        closeSearch.css({'display': 'none'});
-        openSearch.css({'display': 'block'});
-        SearchForm.fadeOut(300, function(){
-            SearchForm.removeClass('show');
-        });
+    $('#header-search .search-submit').click(function(e){
+        if( $(this).parent().find('.search-field').val() == '' ) {
+            e.preventDefault();
+            $(this).parent().parent().removeClass('active');
+        }
+
     });
 
+    /* ===================
+     Cart Toggle
+     ===================== */
+    $('#header-cart .cart-toggle').click(function(e){
+        e.preventDefault();
+        $('#header-search .searchform').removeClass('active');
+        $('#header-cart .cartform').toggleClass('active');
+    });
 
     var nav1 = new KoalaNav("site-navigation",{
-
-// The type of icon to use for the mobile toggle button.
-// "hamburger" or "arrow"
+        // The type of icon to use for the mobile toggle button.
+        // "hamburger" or "arrow"
         btnIcon: 'fa fa-home',
-
-// The position of the mobile toggle button icon.
-// "left" or "right"
+        // The position of the mobile toggle button icon.
+        // "left" or "right"
         btnPosition: 'left',
-
-// The width (in pixels) of when the mobile menu should be displayed
+        // The width (in pixels) of when the mobile menu should be displayed
         mobileWidth: 500
-
     });
 
     /* ====================
