@@ -70,6 +70,11 @@ class EFramework
             require_once $this->path('APP_DIR','includes/class-enqueue-scripts.php');
         }
 
+        if ( ! class_exists( 'EFramework_menu_handle' ) )
+        {
+            require_once $this->path('APP_DIR','includes/class-menu-hanlde.php');
+        }
+
         add_action( 'init', array( $this, 'init' ), 0 );
     }
 
