@@ -35,7 +35,7 @@ if (!class_exists('EFramework_menu_handle')) {
         public function abtheme_add_menu()
         {
             add_menu_page($this->theme_name, $this->theme_name, 'manage_options', $this->theme_text_domain, array($this, 'abtheme_create_theme_dashboard'), 'dashicons-admin-generic', 3);
-            add_submenu_page($this->theme_text_domain, esc_html__('Dashboard', 'abtheme'), esc_html__('Dashboard', 'abtheme'), 'manage_options', $this->theme_text_domain, array($this, 'abtheme_create_theme_dashboard'));
+            add_submenu_page($this->theme_text_domain, $this->theme_name, esc_html__('Dashboard', 'abtheme'), 'manage_options', $this->theme_text_domain, array($this, 'abtheme_create_theme_dashboard'));
             add_submenu_page($this->theme_text_domain, esc_html__('Import Demos', 'abtheme'), esc_html__('Import Demos', 'abtheme'), 'manage_options', 'abtheme-import', array($this, 'abtheme_import_demo_page'));
             if ($this->abtheme_enable_export_mode()) {
                 add_submenu_page($this->theme_text_domain, esc_html__('Export data', 'abtheme'), esc_html__('Export data', 'abtheme'), 'manage_options', 'abtheme-export', array($this, 'abtheme_export_demo_page'));
