@@ -15,7 +15,7 @@ $args = array(
     // Name that appears at the top of your panel
     'display_version'      => $theme->get( 'Version' ),
     // Version that appears at the top of your panel
-    'menu_type'            => 'menu',
+    'menu_type'            => 'submenu',
     //Specify if the admin menu should appear or not. Options: menu or submenu (Under appearance only)
     'allow_sub_menu'       => true,
     // Show the sections below the admin menu item or not
@@ -50,7 +50,7 @@ $args = array(
     // OPTIONAL -> Give you extra features
     'page_priority'        => null,
     // Order where the menu appears in the admin area. If there is any conflict, something will not show. Warning.
-    'page_parent'          => 'themes.php',
+    'page_parent'          => $theme->get('TextDomain'),
     // For a full list of options, visit: http://codex.wordpress.org/Function_Reference/add_submenu_page#Parameters
     'page_permissions'     => 'manage_options',
     // Permissions needed to access the options panel.
@@ -60,7 +60,7 @@ $args = array(
     // Force your panel to always open to a specific tab (by id)
     'page_icon'            => 'icon-themes',
     // Icon displayed in the admin panel next to your menu_title
-    'page_slug'            => '',
+    'page_slug'            => 'ctheme-option',
     // Page slug used to denote the panel, will be based off page title then menu title then opt_name if not provided
     'save_defaults'        => true,
     // On load save the defaults to DB before user clicks save or not
@@ -244,9 +244,7 @@ Redux::setSection( $opt_name, array(
             'title'    => esc_html__( 'Title Color', 'abtheme' ),
             'subtitle' => esc_html__( 'Page title color.', 'abtheme' ),
             'output'   => array( '#pagetitle' ),
-            'default'  => array(
-                'color' => '#000'
-            )
+            'default'  => '#000'
         ),
         array(
             'id'       => 'ptitle_bg',
