@@ -11,7 +11,7 @@
         <?php
         if ( is_page() ) :
             dynamic_sidebar( 'sidebar-page' );
-        elseif ( is_shop() ) :
+        elseif ( class_exists( 'WooCommerce' ) && (is_shop() || is_product()) ) :
             dynamic_sidebar( 'sidebar-shop' );
         else :
             dynamic_sidebar( 'sidebar-1' );

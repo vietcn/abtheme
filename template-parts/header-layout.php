@@ -36,15 +36,14 @@ $sticky_on = abtheme_get_opt( 'sticky_on', true );
                     </div>
                 </div>
             <?php } ?>
-
+            <?php if(class_exists( 'WooCommerce' )) {?>
             <div id="header-cart">
                 <a href="#" class="cart-toggle"><i class="fa fa-shopping-bag"></i></a>
-
-
                 <div class="cartform">
                     <?php get_template_part( 'template-parts/cartform' ); ?>
                 </div>
             </div>
+            <?php } ?>
         </div>
     </div>
 </header>
