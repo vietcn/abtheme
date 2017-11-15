@@ -44,12 +44,12 @@ if (!class_exists('EFramework_menu_handle')) {
 
         public function abtheme_create_theme_dashboard()
         {
-            echo '1111';
+            include_once abtheme()->path( 'APP_DIR', 'templates/dashboard/import-page.php' );
         }
 
         public function abtheme_import_demo_page()
         {
-            echo 'Import page';
+            include_once abtheme()->path( 'APP_DIR', 'templates/dashboard/import-page.php' );
         }
         public function abtheme_export_demo_page()
         {
@@ -58,6 +58,7 @@ if (!class_exists('EFramework_menu_handle')) {
 
         function abtheme_enable_export_mode()
         {
+
             return apply_filters('abtheme_export_mode', false);
         }
     }
