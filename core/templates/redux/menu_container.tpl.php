@@ -12,7 +12,7 @@
 ?>
 <div class="redux-sidebar">
 	<div class="redux-sidebar-head">
-		<div class="rella-redux-logo"></div>
+		<div class="abcore-redux-logo"></div>
 		<h2>
 			<?php echo wp_kses_post( $this->parent->args['display_name'] ); ?>
 			<?php if ( ! empty( $this->parent->args['display_version'] ) ) { ?>
