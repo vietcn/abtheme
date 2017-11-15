@@ -117,7 +117,7 @@ $args = array(
             ),
         ),
     ),
-    'templates_path'       => get_template_directory() . '/core/templates/redux/'
+//    'templates_path'       => get_template_directory() . '/core/templates/redux/'
 );
 
 Redux::SetArgs($opt_name, $args);

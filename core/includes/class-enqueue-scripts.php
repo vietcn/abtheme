@@ -3,6 +3,7 @@
  * Class EFramework_enqueue_scripts
  * Author: KP
  * Version: 1.0.0
+ * Create: 11 November, 2017
  */
 if (!defined('ABSPATH')) {
     die();

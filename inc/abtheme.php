@@ -1,8 +1,9 @@
 <?php
 /**
  * Class EFramework
- * Author: Stev Ngo, KP
+ * Author: KP
  * Version: 1.0.0
+ * Create: 01 November, 2017
  */
 class EFramework
 {
