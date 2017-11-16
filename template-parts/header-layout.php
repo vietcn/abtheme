@@ -4,7 +4,7 @@
  */
 $sticky_on = abtheme_get_opt( 'sticky_on', true );
 ?>
-<header id="masthead" class="site-header">
+<header id="masthead" class="site-header header-layout1">
     <div class="header-top"></div>
     <div id="headroom" class="main-header">
         <div class="container main-header-container">

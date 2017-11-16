@@ -37,7 +37,7 @@ if ( ! $titles_html )
     return;
 }
 ?>
-<div id="pagetitle" class="page-title">
+<div id="pagetitle" class="page-title page-title-layout1">
     <div class="container page-title-container">
         <?php printf( '<div class="page-title-content">%s</div>', $titles_html ); ?>
     </div>
