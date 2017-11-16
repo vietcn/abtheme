@@ -2,8 +2,8 @@
 /**
  * Custom Woocommerce shop page.
  */
-$sidebar_pos = abtheme_get_opt( 'sidebar_shop', 'none' );
 get_header();
+$sidebar_pos = abtheme_get_opt( 'sidebar_shop', 'none' );
 ?>
     <div class="container content-container">
         <div class="row content-row">
