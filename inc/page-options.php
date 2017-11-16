@@ -66,24 +66,6 @@ function abtheme_page_options_register($metabox)
      *
      */
     $metabox->add_section('page', array(
-        'title'  => esc_html__('General', 'abtheme'),
-        'desc'   => esc_html__('General settings for the page.', 'abtheme'),
-        'fields' => array(
-            array(
-                'id'       => '_custom_title',
-                'type'     => 'text',
-                'title'    => esc_html__('Custom Title', 'abtheme'),
-                'subtitle' => esc_html__('Use custom title for this page. The default title will be used on document title.', 'abtheme')
-            ),
-            array(
-                'id'       => '_custom_desc',
-                'type'     => 'text',
-                'title'    => esc_html__('Custom description', 'abtheme'),
-                'subtitle' => esc_html__('Show custom page description under page title', 'abtheme')
-            )
-        )
-    ));
-    $metabox->add_section('page', array(
         'title'  => esc_html__('Header', 'abtheme'),
         'desc'   => esc_html__('Header settings for the page.', 'abtheme'),
         'icon'   => 'el-icon-website',
@@ -119,6 +101,18 @@ function abtheme_page_options_register($metabox)
                     '2' => get_template_directory_uri() . '/assets/images/page-title-02.png'
                 ),
                 'default'  => '0'
+            ),
+            array(
+                'id'       => '_custom_title',
+                'type'     => 'text',
+                'title'    => esc_html__('Custom Title', 'abtheme'),
+                'subtitle' => esc_html__('Use custom title for this page. The default title will be used on document title.', 'abtheme')
+            ),
+            array(
+                'id'       => '_custom_desc',
+                'type'     => 'text',
+                'title'    => esc_html__('Custom description', 'abtheme'),
+                'subtitle' => esc_html__('Show custom page description under page title', 'abtheme')
             ),
             array(
                 'id'      => '_breadcrumb_on',
