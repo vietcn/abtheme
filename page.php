@@ -13,7 +13,7 @@
 get_header();
 
 if(( class_exists( 'WooCommerce' ) && (is_cart() || is_checkout()) )) {
-    $sidebar_pos = abtheme_get_opt( 'sidebar_shop', 'none' );
+    $sidebar_pos = 'none';
 } else {
     $sidebar_pos = abtheme_get_opt( 'sidebar_page', 'none' );
 }
