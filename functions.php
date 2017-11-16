@@ -158,6 +158,14 @@ function abtheme_scripts()
 }
 add_action( 'wp_enqueue_scripts', 'abtheme_scripts' );
 
+/* add editor styles */
+function abtheme_add_editor_styles()
+{
+    add_editor_style('editor-style.css');
+}
+
+add_action('admin_init', 'abtheme_add_editor_styles');
+
 /**
  * Helper functions for this theme.
  */
