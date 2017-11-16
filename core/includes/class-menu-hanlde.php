@@ -27,6 +27,9 @@ if (!class_exists('EFramework_menu_handle')) {
             $this->theme_text_domain = $current_theme->get('TextDomain');
 
             add_action('admin_menu', array($this, 'abtheme_add_menu'));
+
+            add_action('admin_bar_menu', array($this, 'abtheme_add_admin_bar_menu'), 100);
+
             add_filter('abtheme_export_mode', function () {
                 return true;
             });
@@ -61,6 +64,71 @@ if (!class_exists('EFramework_menu_handle')) {
         function abtheme_enable_export_mode()
         {
             return apply_filters('abtheme_export_mode', false);
+        }
+
+        function abtheme_add_admin_bar_menu($wp_admin_bar)
+        {
+            $theme = wp_get_theme();
+            /**
+             *
+             */
+            $opt_name = abtheme_get_opt_name();
+            $args = array(
+                'id'    => $theme->get("TextDomain"),
+                'title' => '<span class="ab-icon dashicons-smiley"></span>' . $theme->get("Name"),
+                'href'  => admin_url('admin.php?page=' . $theme->get("TextDomain")),
+                'meta'  => array(
+                    'class' => 'dashicons dashicons-admin-generic',
+                    'title' => $theme->get("TextDomain"),
+                )
+            );
+            $wp_admin_bar->add_node($args);
+            /**
+             *
+             */
+            $args = array(
+                'id'     => 'dashboard',
+                'title'  => esc_html__('Dashboard', 'abtheme'),
+                'href'   => admin_url('admin.php?page=' . $theme->get("TextDomain")),
+                'parent' => $theme->get("TextDomain"),
+                'meta'   => array(
+                    'class' => '',
+                    'title' => esc_html__('Dashboard', 'abtheme'),
+                )
+            );
+            $wp_admin_bar->add_node($args);
+
+            /**
+             *
+             */
+            if (is_plugin_active('theme-core-import-export/theme-core-import-export.php')) {
+                $args = array(
+                    'id'     => 'abtheme-import',
+                    'title'  => esc_html__('Import Demos', 'abtheme'),
+                    'href'   => admin_url('admin.php?page=abtheme-import'),
+                    'parent' => $theme->get("TextDomain"),
+                    'meta'   => array(
+                        'class' => '',
+                        'title' => esc_html__('Import Demos', 'abtheme'),
+                    )
+                );
+                $wp_admin_bar->add_node($args);
+            }
+
+            /**
+             *
+             */
+            $args = array(
+                'id'     => 'theme-options',
+                'title'  => esc_html__('Theme Options', 'abtheme'),
+                'href'   => admin_url('admin.php?page=theme-options'),
+                'parent' => $theme->get("TextDomain"),
+                'meta'   => array(
+                    'class' => '',
+                    'title' => esc_html__('Import Demos', 'abtheme'),
+                )
+            );
+            $wp_admin_bar->add_node($args);
         }
     }
 }

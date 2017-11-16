@@ -18,5 +18,15 @@
         <div class="abcore-import-demos">
             <h1>Demos..............................</h1>
         </div>
+        <?php
+        $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : '';
+        //        $current_link = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+        //        wp_parse_args($current_link)
+        ?>
+        <form action="" method="post">
+<!--            <input type="hidden" name="page" value="--><?php //echo $page ?><!--">-->
+            <input type="text" name="kp" value="123123">
+            <button>ABC</button>
+        </form>
     </div>
 </div>
