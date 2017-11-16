@@ -10,11 +10,17 @@
  *
  * @param  abtheme_Post_Metabox $metabox
  */
+
+
+//echo '<pre>';
+//var_dump(abtheme_get_option_of_theme_options('breadcrumb_on','111'));
+//echo '</pre>';
+
 function abtheme_page_options_register($metabox)
 {
     if (!$metabox->isset_args('page')) {
         $metabox->set_args('page', array(
-            'opt_name'     => 'abtheme_page_options',
+            'opt_name'     => abtheme_get_page_opt_name(),
             'display_name' => esc_html__('Page Settings', 'abtheme')
         ), array(
             'context'  => 'advanced',
@@ -23,7 +29,7 @@ function abtheme_page_options_register($metabox)
     }
     if (!$metabox->isset_args('post')) {
         $metabox->set_args('post', array(
-            'opt_name'     => 'abtheme_post_options',
+            'opt_name'     => abtheme_get_post_opt_name(),
             'display_name' => esc_html__('Post Settings', 'abtheme')
         ), array(
             'context'  => 'advanced',
@@ -79,7 +85,7 @@ function abtheme_page_options_register($metabox)
                     'right' => esc_html__('Right', 'abtheme'),
                     'none'  => esc_html__('Disabled', 'abtheme')
                 ),
-                'default'  => 'none'
+                'default'  => abtheme_get_option_of_theme_options('sidebar_page','none')
             ),
         )
     ));
@@ -89,16 +95,15 @@ function abtheme_page_options_register($metabox)
         'icon'   => 'el-icon-website',
         'fields' => array(
             array(
-                'id'       => '_header_layout',
+                'id'       => 'header_layout',
                 'type'     => 'image_select',
                 'title'    => esc_html__('Layout', 'abtheme'),
                 'subtitle' => esc_html__('Select a layout for header.', 'abtheme'),
                 'options'  => array(
-                    '0' => get_template_directory_uri() . '/assets/images/header-00.png',
                     '1' => get_template_directory_uri() . '/assets/images/header-01.png',
                     '2' => get_template_directory_uri() . '/assets/images/header-02.png'
                 ),
-                'default'  => '0'
+                'default'  => abtheme_get_option_of_theme_options('header_layout','1')
             )
         )
     ));
@@ -109,7 +114,7 @@ function abtheme_page_options_register($metabox)
         'icon'   => 'el-icon-map-marker',
         'fields' => array(
             array(
-                'id'       => '_ptitle_layout',
+                'id'       => 'ptitle_layout',
                 'type'     => 'image_select',
                 'title'    => esc_html__('Layout', 'abtheme'),
                 'subtitle' => esc_html__('Select a layout for page header.', 'abtheme'),
@@ -118,10 +123,10 @@ function abtheme_page_options_register($metabox)
                     '1' => get_template_directory_uri() . '/assets/images/page-title-01.png',
                     '2' => get_template_directory_uri() . '/assets/images/page-title-02.png'
                 ),
-                'default'  => '0'
+                'default'  => abtheme_get_option_of_theme_options('ptitle_layout')
             ),
             array(
-                'id'       => '_custom_title',
+                'id'       => 'custom_title',
                 'type'     => 'text',
                 'title'    => esc_html__('Custom Title', 'abtheme'),
                 'subtitle' => esc_html__('Use custom title for this page. The default title will be used on document title.', 'abtheme')
@@ -133,10 +138,10 @@ function abtheme_page_options_register($metabox)
                 'subtitle' => esc_html__('Show custom page description under page title', 'abtheme')
             ),
             array(
-                'id'      => '_breadcrumb_on',
+                'id'      => 'breadcrumb_on',
                 'type'    => 'switch',
                 'title'   => esc_html__('Breadcrumb', 'abtheme'),
-                'default' => true
+                'default' => abtheme_get_option_of_theme_options('breadcrumb_on',true)
             )
         )
     ));
@@ -256,18 +261,13 @@ function abtheme_page_options_register($metabox)
     ));
 }
 
-//echo '<pre>';
-//var_dump(get_option(abtheme_get_opt_name()));
-//echo '</pre>';
-//die();
-
 
 add_action('abtheme_post_metabox_register', 'abtheme_page_options_register');
 
-function abtheme_get_option_of_theme_options($key = '', $default = '')
+function abtheme_get_option_of_theme_options($key, $default = '')
 {
-    if (!empty($key)) return '';
+    if (empty($key)) return '';
     $options = get_option(abtheme_get_opt_name(), array());
-    $value = !empty($options[$key]) ? $options[$key] : $default;
+    $value = isset($options[$key]) ? $options[$key] : $default;
     return $value;
 }
