@@ -739,7 +739,7 @@ class EFramework_Post_Metabox
          * Save post format data
          */
         $post_format = !empty($_REQUEST['post_format']) ? $_REQUEST['post_format'] : '';
-        $post_format_type = $_POST['post_format_' . $post_format];
+        $post_format_type = !empty($_POST['post_format_' . $post_format]) ? $_POST['post_format_' . $post_format] : '';
         if (in_array($post_format, $this->post_types) && !empty($_POST[$this->panels[$post_format]['args']['opt_name']]) && !empty($post_format_type)) {
             $sections_post_format = $this->get_opt_sections($post_format);
             $args_post_format = $this->get_opt_args($post_format);
