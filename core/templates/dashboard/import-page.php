@@ -15,24 +15,8 @@
             </div>
             <!--            --><?php //include_once(get_template_directory() . '/rella/admin/views/rella-tabs.php'); ?>
         </header>
-        <?php
-        if (!is_plugin_active('theme-core-import-export/theme-core-import-export.php')):
-            ?>
-            <div class="abcore-tab-pane">
-                <div class="abcore-info abtheme-align-center bg-seashell">
-                    <h4>
-                        <i class="fa fa-info-circle abcore-text-gradient"></i> <?php esc_html_e('Importing a demo will create pages, posts, add images, theme options, widgets, sliders and others.', 'abtheme'); ?>
-                        <br/>
-                        <?php esc_html_e('IMPORTANT: Please, install and activate required plugins  before to import any demo.', 'abtheme'); ?>
-                    </h4>
-                </div>
-            </div>
-            <?php
-        else:
-            ?>
-            <h1>Show demos here</h1>
-            <?php
-        endif;
-        ?>
+        <div class="abcore-import-demos">
+            <h1>Demos..............................</h1>
+        </div>
     </div>
 </div>
