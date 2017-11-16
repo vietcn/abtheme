@@ -49,16 +49,13 @@ if (!class_exists('EFramework_menu_handle')) {
 
         public function abtheme_create_theme_dashboard()
         {
-            include_once abtheme()->path('APP_DIR', 'templates/dashboard/import-page.php');
+            include_once abtheme()->path('APP_DIR', 'templates/dashboard/dashboard.php');
         }
 
         public function abtheme_import_demo_page()
         {
+            $export_mode = $this->abtheme_enable_export_mode();
             include_once abtheme()->path('APP_DIR', 'templates/dashboard/import-page.php');
-
-            if ($this->abtheme_enable_export_mode()) {
-                echo 'Export page';
-            }
         }
 
         function abtheme_enable_export_mode()
@@ -70,7 +67,7 @@ if (!class_exists('EFramework_menu_handle')) {
         {
             $theme = wp_get_theme();
             /**
-             *
+             * Add "Theme Name" parent node
              */
             $opt_name = abtheme_get_opt_name();
             $args = array(
@@ -84,7 +81,7 @@ if (!class_exists('EFramework_menu_handle')) {
             );
             $wp_admin_bar->add_node($args);
             /**
-             *
+             * Add Dashboard children node
              */
             $args = array(
                 'id'     => 'dashboard',
@@ -99,7 +96,7 @@ if (!class_exists('EFramework_menu_handle')) {
             $wp_admin_bar->add_node($args);
 
             /**
-             *
+             * Add Import Export children node
              */
             if (is_plugin_active('theme-core-import-export/theme-core-import-export.php')) {
                 $args = array(
@@ -116,7 +113,7 @@ if (!class_exists('EFramework_menu_handle')) {
             }
 
             /**
-             *
+             * Add Theme options children node
              */
             $args = array(
                 'id'     => 'theme-options',
