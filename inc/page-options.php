@@ -146,38 +146,38 @@ function abtheme_page_options_register($metabox)
      *
      */
     $metabox->add_section('post', array(
-    'title'  => esc_html__('General', 'abtheme'),
-    'desc'   => esc_html__('General settings for the page.', 'abtheme'),
-    'fields' => array(
-        array(
-            'id'       => '_custom_title',
-            'type'     => 'text',
-            'title'    => esc_html__('Custom Title', 'abtheme'),
-            'subtitle' => esc_html__('Use custom title for this page. The default title will be used on document title.', 'abtheme')
-        ),
-        array(
-            'id'       => '_custom_desc',
-            'type'     => 'text',
-            'title'    => esc_html__('Custom description', 'abtheme'),
-            'subtitle' => esc_html__('Show custom page description under page title', 'abtheme')
-        ),
-        array(
-            'id'          => 'post-gallery-possssst',
-            'type'        => 'slides',
-            'title'       => esc_html__('Gallery  hiuhiu', 'boo'),
-            'subtitle'    => esc_html__('Upload images or add from media library.', 'abtheme'),
-            'placeholder' => array(
-                'title' => esc_html__('Title', 'abtheme'),
+        'title'  => esc_html__('General', 'abtheme'),
+        'desc'   => esc_html__('General settings for the page.', 'abtheme'),
+        'fields' => array(
+            array(
+                'id'       => '_custom_title',
+                'type'     => 'text',
+                'title'    => esc_html__('Custom Title', 'abtheme'),
+                'subtitle' => esc_html__('Use custom title for this page. The default title will be used on document title.', 'abtheme')
             ),
-            'show'        => array(
-                'title'       => true,
-                'description' => false,
-                'url'         => false,
+            array(
+                'id'       => '_custom_desc',
+                'type'     => 'text',
+                'title'    => esc_html__('Custom description', 'abtheme'),
+                'subtitle' => esc_html__('Show custom page description under page title', 'abtheme')
+            ),
+            array(
+                'id'          => 'post-gallery-possssst',
+                'type'        => 'slides',
+                'title'       => esc_html__('Gallery  hiuhiu', 'boo'),
+                'subtitle'    => esc_html__('Upload images or add from media library.', 'abtheme'),
+                'placeholder' => array(
+                    'title' => esc_html__('Title', 'abtheme'),
+                ),
+                'show'        => array(
+                    'title'       => true,
+                    'description' => false,
+                    'url'         => false,
+                )
             )
-        )
 
-    )
-));
+        )
+    ));
 
     /**
      * Config post format meta options
@@ -256,5 +256,18 @@ function abtheme_page_options_register($metabox)
     ));
 }
 
+//echo '<pre>';
+//var_dump(get_option(abtheme_get_opt_name()));
+//echo '</pre>';
+//die();
+
 
 add_action('abtheme_post_metabox_register', 'abtheme_page_options_register');
+
+function abtheme_get_option_of_theme_options($key = '', $default = '')
+{
+    if (!empty($key)) return '';
+    $options = get_option(abtheme_get_opt_name(), array());
+    $value = !empty($options[$key]) ? $options[$key] : $default;
+    return $value;
+}
