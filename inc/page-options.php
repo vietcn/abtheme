@@ -219,7 +219,7 @@ function abtheme_page_options_register($metabox)
     $metabox->add_section('page', array(
         'title'  => esc_html__('Footer', 'abtheme'),
         'desc'   => esc_html__('Settings for page footer.', 'abtheme'),
-        'icon'   => 'el-icon-map-marker',
+        'icon'   => 'el el-website',
         'fields' => array(
             array(
                 'id'       => 'footer_layout',
