@@ -235,7 +235,7 @@ Redux::setSection($opt_name, array(
             'id'       => 'ptitle_layout',
             'type'     => 'image_select',
             'title'    => esc_html__('Layout', 'abtheme'),
-            'subtitle' => esc_html__('Select a layout for page header.', 'abtheme'),
+            'subtitle' => esc_html__('Select a layout for page title.', 'abtheme'),
             'options'  => array(
                 '1' => get_template_directory_uri() . '/assets/images/page-title-01.png',
                 '2' => get_template_directory_uri() . '/assets/images/page-title-02.png'
