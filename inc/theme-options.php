@@ -39,7 +39,7 @@ $args = array(
     // Choose an icon for the admin bar menu
     'admin_bar_priority'   => 50,
     // Choose an priority for the admin bar menu
-    'global_variable'      => '',
+    'global_variable'      => 'theme-options',
     // Set a different name for your global variable other than the opt_name
     'dev_mode'             => false,
     // Show the time the page took to load, etc

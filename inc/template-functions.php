@@ -98,15 +98,15 @@ function abtheme_get_page_titles()
             // Only available if posts page is set.
             if (!is_front_page() && $page_for_posts = get_option('page_for_posts')) {
                 $title = get_the_title($page_for_posts);
-                $desc = get_post_meta($page_for_posts, '_page_desc', true);
+                $desc = get_post_meta($page_for_posts, 'page_desc', true);
             }
         } // Single page view
         elseif (is_page()) {
-            $title = get_post_meta(get_the_ID(), '_custom_title', true);
+            $title = get_post_meta(get_the_ID(), 'custom_title', true);
             if (!$title) {
                 $title = get_the_title();
             }
-            $desc = get_post_meta(get_the_ID(), '_custom_desc', true);
+            $desc = get_post_meta(get_the_ID(), 'custom_desc', true);
         } // 404
         elseif (is_404()) {
             $title = esc_html__('404', 'abtheme');

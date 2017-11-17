@@ -133,7 +133,7 @@ function abtheme_page_options_register($metabox)
                 'subtitle' => esc_html__('Use custom title for this page. The default title will be used on document title.', 'abtheme')
             ),
             array(
-                'id'       => '_custom_desc',
+                'id'       => 'custom_desc',
                 'type'     => 'text',
                 'title'    => esc_html__('Custom description', 'abtheme'),
                 'subtitle' => esc_html__('Show custom page description under page title', 'abtheme')
