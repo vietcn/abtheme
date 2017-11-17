@@ -7,12 +7,13 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'loop-hentry' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'single-hentry' ); ?>>
     <?php if ( has_post_thumbnail() ) : ?>
     <div class="entry-featured">
         <?php the_post_thumbnail(); ?>
     </div><!-- .entry-featured -->
     <?php endif; ?>
+
     <header class="entry-header">
         <?php
             the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
@@ -34,5 +35,4 @@
     <footer class="entry-footer">
         <?php abtheme_entry_footer(); ?>
     </footer><!-- .entry-footer -->
-</article><!-- #post-<?php the_ID(); ?> -->
-<hr/>
+</article><!-- #post -->
