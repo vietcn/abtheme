@@ -815,3 +815,8 @@ object {
 .bottom-footer {
   padding: 2em 0;
   text-align: center; }
+
+a.scroll-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px; }

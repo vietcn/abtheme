@@ -24,9 +24,8 @@
     ?>
 
     <?php if ( abtheme_get_opt( 'back_totop_on', true ) ) : ?>
-    <button class="backtotop" data-efelement="totopbutton"><span class="screen-reader-text"><?php
-        esc_html_e( 'Back to top', 'abtheme' );
-    ?></span><i class="fa fa-angle-up"></i></button>
+        <!-- scroll to top  -->
+        <a href="#" class="scroll-top"><i class="fa fa-angle-up fa-2x"></i></a>
     <?php endif; ?>
 
 </div><!-- #page -->
