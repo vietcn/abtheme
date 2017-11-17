@@ -38,10 +38,30 @@ function abtheme_page_options_register($metabox)
         ));
     }
 
-    if (!$metabox->isset_args('abtheme_pf_image')) {
-        $metabox->set_args('abtheme_pf_image', array(
-            'opt_name'     => 'post_format_image',
-            'display_name' => esc_html__('image Settings', 'abtheme')
+    if (!$metabox->isset_args('abtheme_pf_audio')) {
+        $metabox->set_args('abtheme_pf_audio', array(
+            'opt_name'     => 'post_format_audio',
+            'display_name' => esc_html__('Audio', 'abtheme')
+        ), array(
+            'context'  => 'advanced',
+            'priority' => 'default'
+        ));
+    }
+
+    if (!$metabox->isset_args('abtheme_pf_link')) {
+        $metabox->set_args('abtheme_pf_link', array(
+            'opt_name'     => 'post_format_link',
+            'display_name' => esc_html__('Link', 'abtheme')
+        ), array(
+            'context'  => 'advanced',
+            'priority' => 'default'
+        ));
+    }
+
+    if (!$metabox->isset_args('abtheme_pf_quote')) {
+        $metabox->set_args('abtheme_pf_quote', array(
+            'opt_name'     => 'post_format_quote',
+            'display_name' => esc_html__('Quote', 'abtheme')
         ), array(
             'context'  => 'advanced',
             'priority' => 'default'
@@ -51,7 +71,7 @@ function abtheme_page_options_register($metabox)
     if (!$metabox->isset_args('abtheme_pf_video')) {
         $metabox->set_args('abtheme_pf_video', array(
             'opt_name'     => 'post_format_video',
-            'display_name' => esc_html__('Video Settings', 'abtheme')
+            'display_name' => esc_html__('Video', 'abtheme')
         ), array(
             'context'  => 'advanced',
             'priority' => 'default'
@@ -61,7 +81,7 @@ function abtheme_page_options_register($metabox)
     if (!$metabox->isset_args('abtheme_pf_gallery')) {
         $metabox->set_args('abtheme_pf_gallery', array(
             'opt_name'     => 'post_format_gallery',
-            'display_name' => esc_html__('gallery Settings', 'abtheme')
+            'display_name' => esc_html__('Gallery', 'abtheme')
         ), array(
             'context'  => 'advanced',
             'priority' => 'default'
@@ -220,41 +240,11 @@ function abtheme_page_options_register($metabox)
      *
      */
 
-    $metabox->add_section('abtheme_pf_image', array(
-        'title'  => esc_html__('General098914124', 'abtheme'),
-        'desc'   => esc_html__('General settings for the page.', 'abtheme'),
-        'fields' => array(
-            array(
-                'id'       => 'abtheme_image_select',
-                'type'     => 'media',
-                'url'      => false,
-                'title'    => __('Select Image', 'abtheme'),
-                'subtitle' => __('Choose a image.', 'abtheme'),
-                'default'  => array(
-                    'url' => 'http://s.wordpress.org/style/images/codeispoetry.png'
-                ),
-            ),
-            array(
-                'id'       => 'abtheme_image_title',
-                'type'     => 'text',
-                'title'    => esc_html__('Image Title', 'abtheme'),
-                'subtitle' => esc_html__('Title of this image', 'abtheme')
-            ),
-            array(
-                'id'       => 'abtheme_image_title_description',
-                'type'     => 'text',
-                'title'    => esc_html__('Image description', 'abtheme'),
-                'subtitle' => esc_html__('This is description of image', 'abtheme')
-            )
-        )
-    ));
-
     $metabox->add_section('abtheme_pf_video', array(
-        'title'  => esc_html__('General098914124', 'abtheme'),
-        'desc'   => esc_html__('General settings for the page.', 'abtheme'),
+        'title'  => esc_html__('Video', 'abtheme'),
         'fields' => array(
             array(
-                'id'          => 'video-gallery-possssst',
+                'id'          => 'post-video',
                 'type'        => 'slides',
                 'title'       => esc_html__('Gallery  hiuhwfqwiu', 'boo'),
                 'subtitle'    => esc_html__('Upload images or add from media library.', 'abtheme'),
@@ -271,22 +261,58 @@ function abtheme_page_options_register($metabox)
     ));
 
     $metabox->add_section('abtheme_pf_gallery', array(
-        'title'  => esc_html__('General098914124', 'abtheme'),
-        'desc'   => esc_html__('General settings for the page.', 'abtheme'),
+        'title'  => esc_html__('Gallery', 'abtheme'),
         'fields' => array(
             array(
-                'id'          => 'vidqwfeo-gallery-possssst',
+                'id'       => 'post-gallery-lightbox',
+                'type'     => 'switch',
+                'title'    => esc_html__('Lightbox?', 'abtheme'),
+                'subtitle' => esc_html__('Enable lightbox for gallery images.', 'abtheme'),
+                'default'  => true
+            ),
+            array(
+                'id'          => 'post-gallery-images',
                 'type'        => 'gallery',
-                'title'       => esc_html__('Gallery  hiuhwfqwiu', 'boo'),
-                'subtitle'    => esc_html__('Upload images or add from media library.', 'abtheme'),
-                'placeholder' => array(
-                    'title' => esc_html__('Title', 'abtheme'),
-                ),
-                'show'        => array(
-                    'title'       => true,
-                    'description' => false,
-                    'url'         => false,
-                )
+                'title'       => esc_html__('Gallery Images ', 'abtheme'),
+                'subtitle'    => esc_html__('Upload images or add from media library.', 'abtheme')
+            )
+        )
+    ));
+
+    $metabox->add_section('abtheme_pf_audio', array(
+        'title'  => esc_html__('Audio', 'abtheme'),
+        'fields' => array(
+            array(
+                'id'       => 'post-audio-url',
+                'type'     => 'text',
+                'title'    => esc_html__('Audio URL', 'abtheme'),
+                'description' => esc_html__('Audio file URL in format: mp3, ogg, wav.','abtheme'),
+                'validate' => 'url',
+                'msg'      => 'Url error!'
+            )
+        )
+    ));
+
+    $metabox->add_section('abtheme_pf_link', array(
+        'title'  => esc_html__('Link', 'abtheme'),
+        'fields' => array(
+            array(
+                'id'       => 'post-link-url',
+                'type'     => 'text',
+                'title'    => esc_html__('URL', 'abtheme'),
+                'validate' => 'url',
+                'msg'      => 'Url error!'
+            )
+        )
+    ));
+
+    $metabox->add_section('abtheme_pf_quote', array(
+        'title'  => esc_html__('Quote', 'abtheme'),
+        'fields' => array(
+            array(
+                'id'       => 'post-quote-cite',
+                'type'     => 'text',
+                'title'    => esc_html__('Cite', 'abtheme')
             )
         )
     ));

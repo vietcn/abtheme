@@ -62,7 +62,6 @@ if ( ! function_exists( 'abtheme_setup' ) ) :
             'flex-height' => true,
         ) );
         add_theme_support( 'post-formats', array(
-            'image',
             'gallery',
             'video',
             'audio',
