@@ -630,6 +630,17 @@ Redux::setSection($opt_name, array(
     'icon'   => 'el el-website',
     'fields' => array(
         array(
+            'id'       => 'footer_layout',
+            'type'     => 'image_select',
+            'title'    => esc_html__('Layout', 'abtheme'),
+            'subtitle' => esc_html__('Select a layout for upper footer area.', 'abtheme'),
+            'options'  => array(
+                '1' => get_template_directory_uri() . '/assets/images/footer-01.png',
+                '2' => get_template_directory_uri() . '/assets/images/footer-02.png'
+            ),
+            'default'  => '1'
+        ),
+        array(
             'id'       => 'footer_bg',
             'type'     => 'background',
             'title'    => esc_html__('Background', 'abtheme'),
@@ -654,17 +665,6 @@ Redux::setSection($opt_name, array(
     'icon'       => 'el el-circle-arrow-right',
     'subsection' => true,
     'fields'     => array(
-        array(
-            'id'       => 'footer_top_layout',
-            'type'     => 'image_select',
-            'title'    => esc_html__('Layout', 'abtheme'),
-            'subtitle' => esc_html__('Select a layout for upper footer area.', 'abtheme'),
-            'options'  => array(
-                '1' => get_template_directory_uri() . '/assets/images/footer-top-01.png',
-                '2' => get_template_directory_uri() . '/assets/images/footer-top-02.png'
-            ),
-            'default'  => '1'
-        ),
         array(
             'id'       => 'footer_top_paddings',
             'type'     => 'spacing',

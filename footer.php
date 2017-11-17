@@ -10,33 +10,26 @@
 
     </div><!-- #content -->
 
-    <footer id="colophon" class="site-footer">
-        <div class="top-footer">
-            <div class="container top-footer-container">
-            </div>
-        </div>
-        <div class="bottom-footer">
-            <div class="container bottom-footer-container">
-                <div class="site-info">
-                    <?php
-                    if (abtheme_get_opt( 'footer_copyright')) {
-                        printf(esc_html__('&copy; %1$s %2$s - Theme by %3$s', 'abtheme'), date("Y"), get_bloginfo('name'), '<a href="' . esc_url('http://www.farost.com/', 'abtheme') . '">Farost</a>');
-                    } else {
-                        echo wp_kses_post(abtheme_get_opt( 'footer_copyright'));
-                    }
-                    ?>
-                </div><!-- .site-info -->
-            </div>
-        </div>
-    </footer><!-- #colophon -->
+    <?php
+    $footer_layout = abtheme_get_opt( 'footer_layout', '1' );
+    if ( is_page() )
+    {
+        $page_footer_layout = get_post_meta( get_the_ID(), '_footer_layout', true );
+        if ( $page_footer_layout !== '0' )
+        {
+            $footer_layout = $page_footer_layout;
+        }
+    }
+    get_template_part( 'template-parts/footer-layout', $footer_layout );
+    ?>
 
     <?php if ( abtheme_get_opt( 'back_totop_on', true ) ) : ?>
     <button class="backtotop" data-efelement="totopbutton"><span class="screen-reader-text"><?php
         esc_html_e( 'Back to top', 'abtheme' );
     ?></span><i class="fa fa-angle-up"></i></button>
     <?php endif; ?>
-</div><!-- #page -->
 
+</div><!-- #page -->
 <?php wp_footer(); ?>
 
 </body>

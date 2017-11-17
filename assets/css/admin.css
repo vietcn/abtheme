@@ -1,0 +1,7 @@
+/**
+ * Theme Option
+ */
+#abtheme_page_options-_header_layout .redux-image-select,
+#abtheme_page_options-_ptitle_layout .redux-image-select{
+	display: block;
+}

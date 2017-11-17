@@ -165,8 +165,13 @@ function abtheme_add_editor_styles()
 {
     add_editor_style('editor-style.css');
 }
-
 add_action('admin_init', 'abtheme_add_editor_styles');
+
+/* add admin styles */
+function abtheme_admin_style() {
+    wp_enqueue_style('abtheme-admin-style', get_template_directory_uri() . '/assets/css/admin.css');
+}
+add_action('admin_enqueue_scripts', 'abtheme_admin_style');
 
 /**
  * Helper functions for this theme.
