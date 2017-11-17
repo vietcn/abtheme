@@ -3,7 +3,7 @@
  * Template part for displaying default footer layout
  */
 ?>
-<footer id="colophon" class="site-footer footer-layout1">
+<footer id="colophon" class="site-footer footer-layout2">
     <div class="top-footer">
         <div class="container top-footer-container">
 
