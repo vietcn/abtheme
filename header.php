@@ -21,10 +21,10 @@
 <div id="page" class="site">
     <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'abtheme' ); ?></a>
     <?php
-        $header_layout = abtheme_get_opt( 'header_layout', '1' );
+        $header_layout = abtheme_get_page_opt( 'header_layout', '1' );
         if ( is_page() )
         {
-            $page_header_layout = get_post_meta( get_the_ID(), '_header_layout', true );
+            $page_header_layout = get_post_meta( get_the_ID(), 'header_layout', true );
             if ( $page_header_layout !== '0' )
             {
                 $header_layout = $page_header_layout;
@@ -32,11 +32,11 @@
         }
         get_template_part( 'template-parts/header-layout', $header_layout );
 
-        $ptitle_layout = abtheme_get_opt( 'ptitle_layout', '1' );
+        $ptitle_layout = abtheme_get_page_opt( 'ptitle_layout', '1' );
 
         if ( is_page() )
         {
-            $page_ptitle_layout = get_post_meta( get_the_ID(), '_ptitle_layout', true );
+            $page_ptitle_layout = get_post_meta( get_the_ID(), 'ptitle_layout', true );
             if ( $page_ptitle_layout !== '0' )
             {
                 $ptitle_layout = $page_ptitle_layout;
