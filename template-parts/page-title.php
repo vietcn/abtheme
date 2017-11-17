@@ -24,7 +24,7 @@ if ( is_singular( 'post' ) )
     abtheme_entry_meta();
 }
 
-if ( ( is_page() && get_post_meta( get_the_ID(), '_breadcrumb_on', true ) )
+if ( ( is_page() && get_post_meta( get_the_ID(), 'breadcrumb_on', true ) )
     || abtheme_get_opt( 'breadcrumb_on', true ) )
 {
     abtheme_breadcrumb();

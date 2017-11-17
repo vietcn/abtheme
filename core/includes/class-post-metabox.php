@@ -229,7 +229,7 @@ class EFramework_Post_Metabox
      */
     protected function optimize_default_args()
     {
-        $this->default_args['opt_name'] = isset($this->default_args['opt_name']) ? $this->default_args['opt_name'] . '_post_metabox' : 'abtheme_post_metabox';
+//        $this->default_args['opt_name'] = isset($this->default_args['opt_name']) ? $this->default_args['opt_name'] . '_post_metabox' : 'abtheme_post_metabox';
         $this->default_args['display_name'] = esc_html__('Settings', 'abtheme');
         $this->default_args['open_expanded'] = true;
         $this->default_args['footer_credit'] = '';
@@ -874,6 +874,9 @@ class EFramework_Post_Metabox
         $redux = new ReduxFramework();
         $redux->sections = $this->get_opt_sections($post->post_type);
         $redux->options = $options;
+        if (array_key_exists($post->post_type, $this->panels) && !empty($this->panels[$post->post_type]['args'])) {
+            $redux->args = $this->panels[$post->post_type]['args'];
+        }
         $redux->_enqueue_output();
 
         if (!$redux->outputCSS) {

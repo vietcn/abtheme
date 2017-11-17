@@ -39,7 +39,7 @@ $args = array(
     // Choose an icon for the admin bar menu
     'admin_bar_priority'   => 50,
     // Choose an priority for the admin bar menu
-    'global_variable'      => 'theme-options',
+    'global_variable'      => '',
     // Set a different name for your global variable other than the opt_name
     'dev_mode'             => false,
     // Show the time the page took to load, etc
@@ -297,7 +297,12 @@ Redux::setSection($opt_name, array(
             'type'     => 'link_color',
             'title'    => esc_html__('Breadcrumb Link Colors', 'abtheme'),
             'subtitle' => esc_html__('Select link colors for breadcrumb', 'abtheme'),
-            'output'   => array('.page-title .breadcrumb li a'),
+            'default'  => array(
+                'regular'  => '#1e73be', // blue
+                'hover'    => '#dd3333', // red
+                'active'   => '#8224e3',  // purple
+                'visited'  => '#8224e3',  // purple
+            ),
             'required' => array('breadcrumb_on', '=', true)
         )
     )

@@ -19,18 +19,24 @@
 
 function abtheme_page_options_register($metabox)
 {
+
+//    $metabox->set_args('global_variable', abtheme_get_page_opt_name());
     if (!$metabox->isset_args('page')) {
         $metabox->set_args('page', array(
             'opt_name'     => abtheme_get_page_opt_name(),
-            'display_name' => esc_html__('Page Settings', 'abtheme')
+            'display_name' => esc_html__('Page Settings', 'abtheme'),
         ), array(
             'context'  => 'advanced',
             'priority' => 'default'
         ));
     }
+
+//    echo '<pre>';
+//    print_r($metabox);
+//    echo '</pre>';
     if (!$metabox->isset_args('post')) {
         $metabox->set_args('post', array(
-            'opt_name'     => abtheme_get_post_opt_name(),
+            'opt_name'     =>abtheme_get_post_opt_name(),
             'display_name' => esc_html__('Post Settings', 'abtheme')
         ), array(
             'context'  => 'advanced',
@@ -201,17 +207,30 @@ function abtheme_page_options_register($metabox)
                 'subtitle'    => esc_html__('Select text color for breadcrumb', 'abtheme'),
                 'transparent' => false,
                 'output'      => array('.page-title .breadcrumb'),
-                'required'    => array('breadcrumb_on', '=', true),
+                'required'    => array('ptitle_layout', '=', '1'),
                 'default'     => abtheme_get_option_of_theme_options('breadcrumb_color', true)
             ),
+//            array(
+//                'id'       => 'breadcrumb_link_colors',
+//                'type'     => 'link_color',
+//                'title'    => esc_html__('Breadcrumb Link Colors', 'abtheme'),
+//                'subtitle' => esc_html__('Select link colors for breadcrumb', 'abtheme'),
+//                'output'   => array('.page-title .breadcrumb li a'),
+//                'required' => array('breadcrumb_on', '=', true),
+//                'default'  => abtheme_get_option_of_theme_options('breadcrumb_link_colors', true)
+//            ),
             array(
                 'id'       => 'breadcrumb_link_colors',
                 'type'     => 'link_color',
                 'title'    => esc_html__('Breadcrumb Link Colors', 'abtheme'),
                 'subtitle' => esc_html__('Select link colors for breadcrumb', 'abtheme'),
-                'output'   => array('.page-title .breadcrumb li a'),
-                'required' => array('breadcrumb_on', '=', true),
-                'default'  => abtheme_get_option_of_theme_options('breadcrumb_link_colors', true)
+                'required'    => array('breadcrumb_on', '=', true),
+                'default'  => array(
+                    'regular'  => '#1e73be', // blue
+                    'hover'    => '#dd3333', // red
+                    'active'   => '#8224e3',  // purple
+                    'visited'  => '#8224e3',  // purple
+                )
             )
         )
     ));
