@@ -11,9 +11,10 @@
  * @param  abtheme_Post_Metabox $metabox
  */
 
-
+//global $post;
 //echo '<pre>';
-//var_dump(abtheme_get_option_of_theme_options('breadcrumb_on','111'));
+//var_dump(get_post_meta(107, 'ptitle_bg'));
+////var_dump($post);
 //echo '</pre>';
 
 function abtheme_page_options_register($metabox)
@@ -85,7 +86,7 @@ function abtheme_page_options_register($metabox)
                     'right' => esc_html__('Right', 'abtheme'),
                     'none'  => esc_html__('Disabled', 'abtheme')
                 ),
-                'default'  => abtheme_get_option_of_theme_options('sidebar_page','none')
+                'default'  => abtheme_get_option_of_theme_options('sidebar_page', 'none')
             ),
         )
     ));
@@ -103,7 +104,7 @@ function abtheme_page_options_register($metabox)
                     '1' => get_template_directory_uri() . '/assets/images/header-01.png',
                     '2' => get_template_directory_uri() . '/assets/images/header-02.png'
                 ),
-                'default'  => abtheme_get_option_of_theme_options('header_layout','1')
+                'default'  => abtheme_get_option_of_theme_options('header_layout', '1')
             )
         )
     ));
@@ -138,10 +139,60 @@ function abtheme_page_options_register($metabox)
                 'subtitle' => esc_html__('Show custom page description under page title', 'abtheme')
             ),
             array(
+                'id'       => 'ptitle_color',
+                'type'     => 'color',
+                'title'    => esc_html__('Title Color', 'abtheme'),
+                'subtitle' => esc_html__('Page title color.', 'abtheme'),
+                'output'   => array('#pagetitle'),
+                'default'  => '#000',
+                'default'  => abtheme_get_option_of_theme_options('ptitle_color','#fff')
+            ),
+            array(
+                'id'       => 'ptitle_bg',
+                'type'     => 'background',
+                'title'    => esc_html__('Background', 'abtheme'),
+                'subtitle' => esc_html__('Page title background.', 'abtheme'),
+                'output'   => array('#pagetitle'),
+                'default'  => abtheme_get_option_of_theme_options('ptitle_bg',array())
+            ),
+            array(
+                'id'       => 'ptitle_paddings',
+                'type'     => 'spacing',
+                'title'    => esc_html__('Paddings', 'abtheme'),
+                'subtitle' => esc_html__('Page title paddings.', 'abtheme'),
+                'mode'     => 'padding',
+                'units'    => array('em', 'px', '%'),
+                'top'      => true,
+                'right'    => false,
+                'bottom'   => true,
+                'left'     => false,
+                'output'   => array('#pagetitle'),
+                'default'  => abtheme_get_option_of_theme_options('ptitle_paddings', array())
+            ),
+            array(
                 'id'      => 'breadcrumb_on',
                 'type'    => 'switch',
                 'title'   => esc_html__('Breadcrumb', 'abtheme'),
-                'default' => abtheme_get_option_of_theme_options('breadcrumb_on',true)
+                'default' => abtheme_get_option_of_theme_options('breadcrumb_on', true)
+            ),
+            array(
+                'id'          => 'breadcrumb_color',
+                'type'        => 'color',
+                'title'       => esc_html__('Breadcrumb Text Color', 'abtheme'),
+                'subtitle'    => esc_html__('Select text color for breadcrumb', 'abtheme'),
+                'transparent' => false,
+                'output'      => array('.page-title .breadcrumb'),
+                'required'    => array('breadcrumb_on', '=', true),
+                'default'     => abtheme_get_option_of_theme_options('breadcrumb_color', true)
+            ),
+            array(
+                'id'       => 'breadcrumb_link_colors',
+                'type'     => 'link_color',
+                'title'    => esc_html__('Breadcrumb Link Colors', 'abtheme'),
+                'subtitle' => esc_html__('Select link colors for breadcrumb', 'abtheme'),
+                'output'   => array('.page-title .breadcrumb li a'),
+                'required' => array('breadcrumb_on', '=', true),
+                'default'  => abtheme_get_option_of_theme_options('breadcrumb_link_colors', true)
             )
         )
     ));

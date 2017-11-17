@@ -138,18 +138,18 @@ class EFramework
      */
     function redux_framework_notice()
     {
-        $plugin_name = '<strong>eFramework</strong>';
+        $theme_name = '<strong>'.wp_get_theme()->get('Name').'</strong>';
         $redux_name  = '<strong>Redux Framework</strong>';
 
         echo '<div class="notice notice-warning is-dismissible">';
         echo '<p>';
         printf(
-            esc_html__( '%1$s is automatically deactivated as it depends on %2$s which is currently not installed or installed but deactivated.', 'srfmetabox' ),
-            $plugin_name,
+            esc_html__( '%1$s require %2$s installed and activated. Please active %3$s plugin', 'abtheme' ),
+            $theme_name,
+            $redux_name,
             $redux_name
         );
         echo '</p>';
-
         printf( '<button type="button" class="notice-dismiss"><span class="screen-reader-text">%s</span></button>', esc_html__( 'Dismiss this notice.', 'abtheme' ) );
         echo '</div>';
     }
