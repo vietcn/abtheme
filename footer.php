@@ -14,7 +14,7 @@
     $footer_layout = abtheme_get_opt( 'footer_layout', '1' );
     if ( is_page() )
     {
-        $page_footer_layout = get_post_meta( get_the_ID(), '_footer_layout', true );
+        $page_footer_layout = abtheme_get_page_opt('footer_layout');
         if ( $page_footer_layout !== '0' )
         {
             $footer_layout = $page_footer_layout;

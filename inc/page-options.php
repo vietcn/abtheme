@@ -145,7 +145,7 @@ function abtheme_page_options_register($metabox)
                 'subtitle' => esc_html__('Page title color.', 'abtheme'),
                 'output'   => array('#pagetitle'),
                 'default'  => '#000',
-                'default'  => abtheme_get_option_of_theme_options('ptitle_color','#fff')
+                'default'  => abtheme_get_option_of_theme_options('ptitle_color', '#fff')
             ),
             array(
                 'id'       => 'ptitle_bg',
@@ -153,7 +153,7 @@ function abtheme_page_options_register($metabox)
                 'title'    => esc_html__('Background', 'abtheme'),
                 'subtitle' => esc_html__('Page title background.', 'abtheme'),
                 'output'   => array('#pagetitle'),
-                'default'  => abtheme_get_option_of_theme_options('ptitle_bg',array())
+                'default'  => abtheme_get_option_of_theme_options('ptitle_bg', array())
             ),
             array(
                 'id'       => 'ptitle_paddings',
@@ -195,6 +195,24 @@ function abtheme_page_options_register($metabox)
                 'default'  => abtheme_get_option_of_theme_options('breadcrumb_link_colors', true)
             )
         )
+    ));
+
+    $metabox->add_section('page', array(
+        'title'  => esc_html__('Footer', 'abtheme'),
+        'desc'   => esc_html__('Settings for page footer.', 'abtheme'),
+        'icon'   => 'el-icon-map-marker',
+        'fields' => array(
+            array(
+                'id'       => 'footer_layout',
+                'type'     => 'image_select',
+                'title'    => esc_html__('Layout', 'abtheme'),
+                'subtitle' => esc_html__('Select a layout for upper footer area.', 'abtheme'),
+                'options'  => array(
+                    '1' => get_template_directory_uri() . '/assets/images/footer-01.png',
+                    '2' => get_template_directory_uri() . '/assets/images/footer-02.png'
+                ),
+                'default'  => abtheme_get_option_of_theme_options('footer_layout','1')
+            ))
     ));
 
     /**

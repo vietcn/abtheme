@@ -5,9 +5,6 @@
  *
  * @package Abtheme
  */
-echo '<pre>';
-var_dump(get_post_meta( get_the_ID(), '' ));
-echo '</pre>';
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -26,7 +23,7 @@ echo '</pre>';
         $header_layout = abtheme_get_opt( 'header_layout', '1' );
         if ( is_page() )
         {
-            $page_header_layout = get_post_meta( get_the_ID(), 'header_layout', true );
+            $page_header_layout = abtheme_get_page_opt('header_layout');
             if ( $page_header_layout !== '0' )
             {
                 $header_layout = $page_header_layout;
