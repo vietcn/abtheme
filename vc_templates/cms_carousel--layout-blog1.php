@@ -12,7 +12,7 @@
             $posts->the_post();
             $size = 'abtheme_blog_size3';
             ?>
-            <div class="cms-carousel-item">
+                <div class="cms-carousel-item">
                     <?php 
                         if(has_post_thumbnail() && !post_password_required() && !is_attachment() &&  wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), $size, false)):
                             $class = ' has-feature-img';
