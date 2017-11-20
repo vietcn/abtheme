@@ -4,7 +4,9 @@
  *
  * @package Abtheme
  */
-
+echo '<pre>';
+var_dump(get_post_format(get_the_ID()));
+echo '</pre>';
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'single-hentry' ); ?>>

@@ -99,6 +99,10 @@ class EFramework_Post_Metabox
             return;
         }
 
+        echo '<pre>';
+        var_dump(get_post_meta(10));
+        echo '</pre>';
+
         if (!empty($this->panels)) {
             add_action('admin_init', array($this, 'admin_init'));
             add_action('add_meta_boxes', array($this, 'add_meta_boxes'));
@@ -683,11 +687,14 @@ class EFramework_Post_Metabox
         }
 
         $post_type = $_POST['post_type'];
-
         if (!in_array($post_type, $this->post_types)) {
             return;
         }
 
+        echo '<pre>';
+        print_r($this->panels);
+        echo '</pre>';
+        die();
         if (empty($_POST[$this->panels[$post_type]['args']['opt_name']])) {
             return;
         }
@@ -739,6 +746,9 @@ class EFramework_Post_Metabox
          * Save post format data
          */
         $post_format = !empty($_REQUEST['post_format']) ? $_REQUEST['post_format'] : '';
+        echo '<pre>';
+        var_dump($post_format);
+        echo '</pre>';
         $post_format_type = !empty($_POST['post_format_' . $post_format]) ? $_POST['post_format_' . $post_format] : '';
         if (in_array($post_format, $this->post_types) && !empty($_POST[$this->panels[$post_format]['args']['opt_name']]) && !empty($post_format_type)) {
             $sections_post_format = $this->get_opt_sections($post_format);

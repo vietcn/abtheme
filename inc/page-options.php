@@ -31,19 +31,6 @@ function abtheme_page_options_register($metabox)
         ));
     }
 
-//    echo '<pre>';
-//    print_r($metabox);
-//    echo '</pre>';
-    if (!$metabox->isset_args('post')) {
-        $metabox->set_args('post', array(
-            'opt_name'     =>abtheme_get_post_opt_name(),
-            'display_name' => esc_html__('Post Settings', 'abtheme')
-        ), array(
-            'context'  => 'advanced',
-            'priority' => 'default'
-        ));
-    }
-
     if (!$metabox->isset_args('abtheme_pf_audio')) {
         $metabox->set_args('abtheme_pf_audio', array(
             'opt_name'     => 'post_format_audio',
