@@ -124,7 +124,7 @@ class EFramework_Post_Metabox
 
             // If the transient exists then we override it with an empty value
             if (false !== $this->notices) {
-                set_transient('abtheme-metabox-transients', '');
+                set_transient('abtheme-post-metabox-transients', '');
             } else {
                 $this->notices = maybe_unserialize($this->notices);
             }

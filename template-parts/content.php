@@ -4,11 +4,11 @@
  *
  * @package Abtheme
  */
+
 ?>
 
-<article id="111 post-<?php the_ID(); ?>" <?php post_class( 'single-hentry' ); ?>>
-<?php
-?>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'single-hentry' ); ?>>
+
     <div class="entry-featured">
         <?php if(has_post_format('gallery')) : ?>
 

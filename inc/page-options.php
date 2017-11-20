@@ -249,18 +249,24 @@ function abtheme_page_options_register($metabox)
         'title'  => esc_html__('Video', 'abtheme'),
         'fields' => array(
             array(
-                'id'          => 'post-video',
-                'type'        => 'slides',
-                'title'       => esc_html__('Gallery  hiuhwfqwiu', 'boo'),
-                'subtitle'    => esc_html__('Upload images or add from media library.', 'abtheme'),
-                'placeholder' => array(
-                    'title' => esc_html__('Title', 'abtheme'),
-                ),
-                'show'        => array(
-                    'title'       => true,
-                    'description' => false,
-                    'url'         => false,
-                )
+                'id'        => 'post-video-url',
+                'type'      => 'text',
+                'title'     => esc_html__( 'Video URL', 'abtheme' ),
+                'desc'  => esc_html__( 'YouTube or Vimeo video URL', 'abtheme' )
+            ),
+
+            array(
+                'id'        => 'post-video-file',
+                'type'      => 'editor',
+                'title'     => esc_html__( 'Video Upload', 'abtheme' ),
+                'desc'  => esc_html__( 'Upload video file', 'abtheme' )
+            ),
+
+            array(
+                'id'        => 'post-video-html',
+                'type'      => 'textarea',
+                'title'     => esc_html__( 'Embadded video', 'abtheme' ),
+                'desc'  => esc_html__( 'Use this option when the video does not come from YouTube or Vimeo', 'abtheme' )
             )
         )
     ));

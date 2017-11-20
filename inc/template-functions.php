@@ -48,6 +48,20 @@ function abtheme_get_page_opt($opt_id, $default = false)
     return $options = !empty($post->ID) ? get_post_meta($post->ID, $opt_id, true) : $default;
 }
 
+/**
+ *
+ * Get post format values.
+ *
+ * @param $post_format_key
+ * @param bool $default
+ * @return bool|mixed
+ */
+function abtheme_get_post_format_value($post_format_key, $default = false)
+{
+    global $post;
+    return $value = !empty($post->ID) ? get_post_meta($post->ID, $post_format_key, true) : $default;
+}
+
 
 /**
  * Get opt_name for Redux Framework options instance args and for
