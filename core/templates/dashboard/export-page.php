@@ -12,13 +12,13 @@
             <label for="abcore-ie-id">
                 <h4><?php echo esc_html__('Demo Name (*) Enter demo slug (EXP : demo1, demo_1, demo-1...)', 'abtheme') ?></h4>
             </label>
-            <input type="text" id="abcore-ie-id" placeholder="demo-slug">
+            <input type="text" id="abcore-ie-id" name="abcore-ie-id" placeholder="demo-slug">
         </div>
         <div class="abcore-export-link">
             <label for="abcore-ie-link">
                 <h4><?php echo esc_html__('Link Demo Preview (*)', 'abtheme') ?></h4>
             </label>
-            <input type="text" id="abcore-ie-id" placeholder="https://cmssuperheroes.com/">
+            <input type="text" id="abcore-ie-link" name="abcore-ie-link" placeholder="https://cmssuperheroes.com/">
         </div>
         <div class="abcore-export-options">
             <h4><?php echo esc_html__('Select data (*):') ?></h4>
