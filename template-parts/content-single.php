@@ -77,6 +77,7 @@
         <?php elseif (has_post_format('audio')) : ?>
             <?php
             $audio_url = abtheme_get_post_format_value('post-audio-url', '#');
+            echo esc_url($audio_url);
             ?>
         <?php else : ?>
 
