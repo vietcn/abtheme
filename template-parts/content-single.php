@@ -13,14 +13,17 @@
             <?php
             $light_box = abtheme_get_post_format_value('post-gallery-lightbox','0'); //Value is string ("0" or "1")
             $gallery_list = explode(',',abtheme_get_post_format_value('post-gallery-images','')); //Value is array of id image list
+            echo $gallery_list;
             ?>
         <?php elseif(has_post_format('quote')) : ?>
             <?php
             $quote_text = abtheme_get_post_format_value('post-quote-cite',''); //Value is string
+            echo $quote_text;
             ?>
         <?php elseif(has_post_format('link')) : ?>
             <?php
             $link_pf = abtheme_get_post_format_value('post-link-url','#');// Value is url
+            echo esc_url($link_pf);
             ?>
         <?php elseif(has_post_format('video')) : ?>
             <?php
