@@ -141,8 +141,9 @@ function abtheme_scripts()
 
     wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap' . $min . '.css', array(), '3.3.7' );
     wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/css/font-awesome' . $min . '.css', array(), '4.7.0', 'screen' );
-    wp_enqueue_style( 'abtheme', get_template_directory_uri() . '/assets/css/theme.css', array(), $theme->get( 'Version' ) );
-    wp_enqueue_style( 'menu', get_template_directory_uri() . '/assets/css/menu.css', array(), $theme->get( 'Version' ) );
+    wp_enqueue_style( 'owl-carousel', get_template_directory_uri() . '/assets/css/owl.carousel.min.css', array(), $theme->get( 'Version' ) );
+    wp_enqueue_style( 'abtheme-theme', get_template_directory_uri() . '/assets/css/theme.css', array(), $theme->get( 'Version' ) );
+    wp_enqueue_style( 'abtheme-menu', get_template_directory_uri() . '/assets/css/menu.css', array(), $theme->get( 'Version' ) );
     wp_enqueue_style( 'abtheme-style', get_stylesheet_uri() );
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) )
@@ -154,8 +155,9 @@ function abtheme_scripts()
     if( $sticky_on = 1 ){
         wp_enqueue_script( 'headroom', get_template_directory_uri() . '/assets/js/headroom.min.js', array( 'jquery' ), $theme->get( 'Version' ), true );
     }
-    wp_enqueue_script( 'menu', get_template_directory_uri() . '/assets/js/menu.js', array( 'jquery' ), $theme->get( 'Version' ), true );
-    wp_enqueue_script( 'abthemea', get_template_directory_uri() . '/assets/js/main.js', array( 'jquery' ), $theme->get( 'Version' ), true );
+    wp_enqueue_script( 'owl-carousel', get_template_directory_uri() . '/assets/js/owl.carousel.min.js', array( 'jquery' ), $theme->get( 'Version' ), true );
+    wp_enqueue_script( 'abtheme-menu', get_template_directory_uri() . '/assets/js/menu.js', array( 'jquery' ), $theme->get( 'Version' ), true );
+    wp_enqueue_script( 'abtheme-main', get_template_directory_uri() . '/assets/js/main.js', array( 'jquery' ), $theme->get( 'Version' ), true );
 }
 add_action( 'wp_enqueue_scripts', 'abtheme_scripts' );
 
@@ -204,6 +206,68 @@ require_once get_template_directory() . '/inc/classes/class-breadcrumb.php';
  * Custom template tags for this theme.
  */
 require_once get_template_directory() . '/inc/template-tags.php';
+
+/**
+ * Custom params & remove VC Elements.
+ *
+ * @author FOX
+ */
+
+function abtheme_vc_after_init(){
+
+    require_once ( get_template_directory() . '/vc_params/vc_custom_heading.php' );
+    require_once ( get_template_directory() . '/vc_params/cms_custom_pagram_vc.php' );
+
+    vc_remove_element( "vc_button" );
+    vc_remove_element( "vc_button2" );
+    vc_remove_element( "vc_cta_button" );
+    vc_remove_element( "vc_cta_button2" );
+    vc_remove_element( "vc_cta" );
+    vc_remove_element( "cms_fancybox" );
+    vc_remove_element( "cms_counter" );
+}
+add_action('vc_after_init', 'abtheme_vc_after_init');
+
+/* Include CMS Shortcode */
+function abtheme_shortcodes_list(){
+    $abtheme_shortcodes_list = array(
+        'cms_carousel',
+        'cms_grid',
+        'cms_fancybox_single',
+        'cms_counter_single',
+        'cms_progressbar',
+    );
+
+    return $abtheme_shortcodes_list;
+}
+
+function abtheme_get_post_meta($post_id = 0){
+    global $post;
+    if(!$post_id) $post_id = $post->ID;
+
+    $_post_meta = maybe_unserialize(get_post_meta($post_id, 'opt_meta_options', true));
+
+    if($_post_meta) return $_post_meta;
+
+    return null;
+}
+
+/**
+ * Add new elements for VC
+ */
+
+function abtheme_vc_elements(){
+
+    if(class_exists('CmsShortCode')) {
+        add_filter('cms-shorcode-list', 'abtheme_shortcodes_list');
+
+        require_once( get_template_directory() . '/vc_elements/cms_button.php' );
+        require_once( get_template_directory() . '/vc_elements/cms_googlemap.php' );
+        require_once( get_template_directory() . '/vc_elements/cms_heading.php' );
+        require_once( get_template_directory() . '/vc_elements/cms_process.php' );
+    }
+}
+add_action('vc_before_init', 'abtheme_vc_elements');
 
 /**
  * Additional widgets for the theme
