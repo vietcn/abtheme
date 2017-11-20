@@ -4,13 +4,11 @@
  *
  * @package Abtheme
  */
-echo '<pre>';
-var_dump(get_post_format(get_the_ID()));
-echo '</pre>';
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'single-hentry' ); ?>>
-
+<article id="111 post-<?php the_ID(); ?>" <?php post_class( 'single-hentry' ); ?>>
+<?php
+?>
     <div class="entry-featured">
         <?php if(has_post_format('gallery')) : ?>
 

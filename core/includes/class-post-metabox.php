@@ -99,10 +99,6 @@ class EFramework_Post_Metabox
             return;
         }
 
-        echo '<pre>';
-        var_dump(get_post_meta(10));
-        echo '</pre>';
-
         if (!empty($this->panels)) {
             add_action('admin_init', array($this, 'admin_init'));
             add_action('add_meta_boxes', array($this, 'add_meta_boxes'));
@@ -687,75 +683,16 @@ class EFramework_Post_Metabox
         }
 
         $post_type = $_POST['post_type'];
-        if (!in_array($post_type, $this->post_types)) {
-            return;
-        }
+        if (in_array($post_type, $this->post_types) && !empty($_POST[$this->panels[$post_type]['args']['opt_name']])) {
 
-        echo '<pre>';
-        print_r($this->panels);
-        echo '</pre>';
-        die();
-        if (empty($_POST[$this->panels[$post_type]['args']['opt_name']])) {
-            return;
-        }
-
-        $sections = $this->get_opt_sections($post_type);
-        $args = $this->get_opt_args($post_type);
-        $data_to_save = array();
-        $data_to_compare = $this->get_opt_defaults($post_type);
-        if (empty($sections) || empty($args)) {
-            return;
-        }
-        foreach ($_POST[$args['opt_name']] as $key => $data) {
-            if (is_array($data)) {
-                foreach ($data as $dindex => $value) {
-                    if (!is_array($value)) {
-                        $data[$dindex] = stripslashes($value);
-                    }
-                }
+            $sections = $this->get_opt_sections($post_type);
+            $args = $this->get_opt_args($post_type);
+            $data_to_save = array();
+            $data_to_compare = $this->get_opt_defaults($post_type);
+            if (empty($sections) || empty($args)) {
+                return;
             }
-
-            $data_to_save[$key] = $data;
-        }
-
-        $redux = new ReduxFramework($sections, $args);
-        $validate = $redux->_validate_values($data_to_save, $data_to_compare, $sections);
-
-        // Validate field value. Just in case, bypass invalid values.
-        // Also check if field id is registered or not.
-        foreach ($data_to_save as $key => $value) {
-            if (isset($validate[$key])) {
-                if ($validate[$key] != $data_to_save[$key]) {
-                    $data_to_save[$key] = $validate[$key];
-                }
-            } else {
-                unset($data_to_save[$key]);
-            }
-
-            $prev_value = isset($prev_data[$post_id][$key]) ? $prev_data[$post_id][$key] : '';
-
-            // Only use registered field ids.
-            if (array_key_exists($key, $data_to_compare)) {
-                // If it is validated, save it.
-                if (isset($data_to_save[$key])) {
-                    update_post_meta($post_id, $key, $data_to_save[$key], $prev_value = '');
-                }
-            }
-        }
-        /**
-         * Save post format data
-         */
-        $post_format = !empty($_REQUEST['post_format']) ? $_REQUEST['post_format'] : '';
-        echo '<pre>';
-        var_dump($post_format);
-        echo '</pre>';
-        $post_format_type = !empty($_POST['post_format_' . $post_format]) ? $_POST['post_format_' . $post_format] : '';
-        if (in_array($post_format, $this->post_types) && !empty($_POST[$this->panels[$post_format]['args']['opt_name']]) && !empty($post_format_type)) {
-            $sections_post_format = $this->get_opt_sections($post_format);
-            $args_post_format = $this->get_opt_args($post_format);
-            $data_to_save_pfm = array();
-            $data_to_compare_pfm = $this->get_opt_defaults($post_format);
-            foreach ($_POST[$args_post_format['opt_name']] as $key => $data) {
+            foreach ($_POST[$args['opt_name']] as $key => $data) {
                 if (is_array($data)) {
                     foreach ($data as $dindex => $value) {
                         if (!is_array($value)) {
@@ -764,28 +701,79 @@ class EFramework_Post_Metabox
                     }
                 }
 
-                $data_to_save_pfm[$key] = $data;
+                $data_to_save[$key] = $data;
             }
 
             $redux = new ReduxFramework($sections, $args);
-            $validate_pfm = $redux->_validate_values($data_to_save_pfm, $data_to_compare_pfm, $sections_post_format);
+            $validate = $redux->_validate_values($data_to_save, $data_to_compare, $sections);
 
-            foreach ($data_to_save_pfm as $key => $value) {
-                if (isset($validate_pfm[$key])) {
-                    if ($validate_pfm[$key] != $data_to_save_pfm[$key]) {
-                        $data_to_save_pfm[$key] = $validate_pfm[$key];
+            // Validate field value. Just in case, bypass invalid values.
+            // Also check if field id is registered or not.
+            foreach ($data_to_save as $key => $value) {
+                if (isset($validate[$key])) {
+                    if ($validate[$key] != $data_to_save[$key]) {
+                        $data_to_save[$key] = $validate[$key];
                     }
                 } else {
-                    unset($data_to_save_pfm[$key]);
+                    unset($data_to_save[$key]);
                 }
 
                 $prev_value = isset($prev_data[$post_id][$key]) ? $prev_data[$post_id][$key] : '';
 
                 // Only use registered field ids.
-                if (array_key_exists($key, $data_to_compare_pfm)) {
+                if (array_key_exists($key, $data_to_compare)) {
                     // If it is validated, save it.
-                    if (isset($data_to_save_pfm[$key])) {
-                        update_post_meta($post_id, $key, $data_to_save_pfm[$key], $prev_value = '');
+                    if (isset($data_to_save[$key])) {
+                        update_post_meta($post_id, $key, $data_to_save[$key], $prev_value = '');
+                    }
+                }
+            }
+        }
+
+        /**
+         * Save post format data
+         */
+        $post_format = !empty($_REQUEST['post_format']) ? $_REQUEST['post_format'] : '';
+        if(!empty($post_format)){
+            $abtheme_pf_panel = 'abtheme_pf_'.$post_format;
+            $post_format_type = !empty($_POST['post_format_' . $post_format]) ? $_POST['post_format_' . $post_format] : '';
+            if (in_array($abtheme_pf_panel, $this->post_types) && !empty($_POST[$this->panels[$abtheme_pf_panel]['args']['opt_name']]) && !empty($post_format_type)) {
+                $sections_post_format = $this->get_opt_sections($abtheme_pf_panel);
+                $args_post_format = $this->get_opt_args($abtheme_pf_panel);
+                $data_to_save_pfm = array();
+                $data_to_compare_pfm = $this->get_opt_defaults($abtheme_pf_panel);
+                foreach ($_POST[$args_post_format['opt_name']] as $key => $data) {
+                    if (is_array($data)) {
+                        foreach ($data as $dindex => $value) {
+                            if (!is_array($value)) {
+                                $data[$dindex] = stripslashes($value);
+                            }
+                        }
+                    }
+
+                    $data_to_save_pfm[$key] = $data;
+                }
+
+                $redux = new ReduxFramework($sections_post_format, $args_post_format);
+                $validate_pfm = $redux->_validate_values($data_to_save_pfm, $data_to_compare_pfm, $sections_post_format);
+
+                foreach ($data_to_save_pfm as $key => $value) {
+                    if (isset($validate_pfm[$key])) {
+                        if ($validate_pfm[$key] != $data_to_save_pfm[$key]) {
+                            $data_to_save_pfm[$key] = $validate_pfm[$key];
+                        }
+                    } else {
+                        unset($data_to_save_pfm[$key]);
+                    }
+
+                    $prev_value = isset($prev_data[$post_id][$key]) ? $prev_data[$post_id][$key] : '';
+
+                    // Only use registered field ids.
+                    if (array_key_exists($key, $data_to_compare_pfm)) {
+                        // If it is validated, save it.
+                        if (isset($data_to_save_pfm[$key])) {
+                            update_post_meta($post_id, $key, $data_to_save_pfm[$key], $prev_value = '');
+                        }
                     }
                 }
             }
