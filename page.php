@@ -41,10 +41,10 @@ if(( class_exists( 'WooCommerce' ) && (is_cart() || is_checkout()) )) {
         </div><!-- #primary -->
 
 
-            <?php if ( 'left' == $sidebar_pos || 'right' == $sidebar_pos ) : ?>
-                <aside id="secondary" <?php abtheme_secondary_class( $sidebar_pos, 'widget-area' ); ?>>
-                    <?php get_sidebar(); ?>
-                </aside>
+        <?php if ( 'left' == $sidebar_pos || 'right' == $sidebar_pos ) : ?>
+            <aside id="secondary" <?php abtheme_secondary_class( $sidebar_pos, 'widget-area' ); ?>>
+                <?php get_sidebar(); ?>
+            </aside>
         <?php endif; ?>
     </div>
 </div>
