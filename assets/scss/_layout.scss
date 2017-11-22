@@ -31,29 +31,3 @@
         width: 30%;
     }
 }
-
-// Back to top
-//--------------------------------------------------
-
-.backtotop {
-    border: 1px solid;
-    width: 48px;
-    height: 48px;
-    border-radius: 3px;
-    line-height: 46px;
-    text-align: center;
-    font-size: 28px;
-    padding: 0;
-    visibility: hidden;
-    opacity: 0;
-    position: fixed;
-    right: -48px;
-    bottom: 20px;
-    @include transition( all 240ms );
-
-    &.active {
-        visibility: visible;
-        opacity: 1;
-        right: 20px;
-    }
-}

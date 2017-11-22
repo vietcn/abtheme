@@ -1811,31 +1811,6 @@ a {
 .site-content .widget-has-sidebar {
   width: 30%; }
 
-.backtotop {
-  border: 1px solid;
-  width: 48px;
-  height: 48px;
-  border-radius: 3px;
-  line-height: 46px;
-  text-align: center;
-  font-size: 28px;
-  padding: 0;
-  visibility: hidden;
-  opacity: 0;
-  position: fixed;
-  right: -48px;
-  bottom: 20px;
-  -webkit-transition: all 240ms;
-  -khtml-transition: all 240ms;
-  -moz-transition: all 240ms;
-  -ms-transition: all 240ms;
-  -o-transition: all 240ms;
-  transition: all 240ms; }
-  .backtotop.active {
-    visibility: visible;
-    opacity: 1;
-    right: 20px; }
-
 /*--------------------------------------------------------------
 # Widgets
 --------------------------------------------------------------*/

@@ -286,7 +286,7 @@ if ( ! function_exists( 'abtheme_entry_comments_popup_link' ) ) :
     {
         if ( ! post_password_required() && ( comments_open() || get_comments_number() ) )
         {
-            echo '<div class="entry-comments-link">';
+            echo '<div class="entry-comments-link"><i class="fa fa-comment"></i>';
             comments_popup_link(
                 sprintf(
                     wp_kses(
@@ -321,7 +321,7 @@ function abtheme_entry_edit_link()
             ),
             get_the_title()
         ),
-        '<div class="entry-edit-link">',
+        '<div class="entry-edit-link"><i class="fa fa-edit"></i>',
         '</div>'
     );
 }
