@@ -29,3 +29,31 @@
 .entry-featured {
 
 }
+
+.format-gallery{
+  .entry-featured{
+    position: relative;
+    .owl-next, .owl-prev{
+      background: #ccc;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      position: absolute;
+      &:hover{
+        background: #000;
+        color: #fff;
+      }
+    }
+    .owl-next{
+      right: 0;
+      top: 50%;
+      margin-top: -15px;
+    }
+    .owl-prev{
+      left: 0;
+      top: 50%;
+      margin-top: -15px;
+    }
+  }
+}

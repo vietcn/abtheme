@@ -15,7 +15,7 @@
             $light_box = abtheme_get_post_format_value('post-gallery-lightbox', '0'); //Value is string ("0" or "1")
             $gallery_list = explode(',', abtheme_get_post_format_value('post-gallery-images', '')); //Value is array of id image list
             ?>
-            <div class="cms-carousel owl-carousel" data-margin="0" data-loop="true" data-nav="true" data-dots="false" data-autoplay="false" data-large-items="1" data-medium-items="1" data-small-items="1" data-xsmall-items="1">
+            <div class="cms-carousel owl-carousel" data-margin="0" data-loop="false" data-nav="true" data-dots="false" data-autoplay="false" data-large-items="1" data-medium-items="1" data-small-items="1" data-xsmall-items="1">
                 <?php
                 foreach ($gallery_list as $img_id):
                     ?>

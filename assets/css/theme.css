@@ -1748,6 +1748,27 @@ ul.back {
 .entry-content {
   margin: 1.5em 0 0; }
 
+.format-gallery .entry-featured {
+  position: relative; }
+  .format-gallery .entry-featured .owl-next, .format-gallery .entry-featured .owl-prev {
+    background: #ccc;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    position: absolute; }
+    .format-gallery .entry-featured .owl-next:hover, .format-gallery .entry-featured .owl-prev:hover {
+      background: #000;
+      color: #fff; }
+  .format-gallery .entry-featured .owl-next {
+    right: 0;
+    top: 50%;
+    margin-top: -15px; }
+  .format-gallery .entry-featured .owl-prev {
+    left: 0;
+    top: 50%;
+    margin-top: -15px; }
+
 /*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
