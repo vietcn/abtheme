@@ -1156,6 +1156,65 @@ td {
   .hidden-print {
     display: none !important; } }
 /*--------------------------------------------------------------
+# Class
+--------------------------------------------------------------*/
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important; }
+  .screen-reader-text:focus {
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+    clip: auto !important;
+    clip-path: none;
+    color: #000;
+    display: block;
+    font-size: 0.875em;
+    font-weight: bold;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000;
+    /* Above WP toolbar. */ }
+
+/* Do not show the outline on the skip link target. */
+#content[tabindex="-1"]:focus {
+  outline: 0; }
+
+.alignleft,
+.alignright,
+.aligncenter {
+  margin-bottom: 1em; }
+
+.alignleft {
+  display: inline;
+  float: left;
+  margin-right: 1.5em; }
+
+.alignright {
+  display: inline;
+  float: right;
+  margin-left: 1.5em; }
+
+.aligncenter {
+  clear: both;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
+/*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
 ::-webkit-input-placeholder {
@@ -1673,6 +1732,23 @@ ul.back {
       display: none; }
 
 /*--------------------------------------------------------------
+# Post and Page
+--------------------------------------------------------------*/
+.sticky {
+  display: block; }
+
+.hentry {
+  margin: 0 0 1.5em; }
+
+.updated:not(.published) {
+  display: none; }
+
+.page-content,
+.entry-content,
+.entry-content {
+  margin: 1.5em 0 0; }
+
+/*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
 a {
@@ -1687,104 +1763,7 @@ a {
   margin: 0 0 1.5em; }
 
 /*--------------------------------------------------------------
-# Modules
---------------------------------------------------------------*/
-.screen-reader-text {
-  border: 0;
-  clip: rect(1px, 1px, 1px, 1px);
-  clip-path: inset(50%);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute !important;
-  width: 1px;
-  word-wrap: normal !important; }
-  .screen-reader-text:focus {
-    background-color: #fff;
-    border-radius: 3px;
-    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
-    clip: auto !important;
-    clip-path: none;
-    color: #000;
-    display: block;
-    font-size: 0.875em;
-    font-weight: bold;
-    height: auto;
-    left: 5px;
-    line-height: normal;
-    padding: 15px 23px 14px;
-    text-decoration: none;
-    top: 5px;
-    width: auto;
-    z-index: 100000;
-    /* Above WP toolbar. */ }
-
-/* Do not show the outline on the skip link target. */
-#content[tabindex="-1"]:focus {
-  outline: 0; }
-
-.alignleft,
-.alignright,
-.aligncenter {
-  margin-bottom: 1em; }
-
-.alignleft {
-  display: inline;
-  float: left;
-  margin-right: 1.5em; }
-
-.alignright {
-  display: inline;
-  float: right;
-  margin-left: 1.5em; }
-
-.aligncenter {
-  clear: both;
-  display: block;
-  margin-left: auto;
-  margin-right: auto; }
-
-/*--------------------------------------------------------------
-# Widgets
---------------------------------------------------------------*/
-.widget {
-  margin: 0 0 1.5em; }
-  .widget select {
-    max-width: 100%; }
-
-.widget_categories ul ul ul ul ul,
-.widget_pages ul ul ul ul ul,
-.widget_nav_menu ul ul ul ul ul {
-  padding-left: 0; }
-
-.widget_recent_comments .recentcomments > a:before {
-  content: '\A';
-  white-space: pre; }
-
-.widget_rss ul {
-  list-style: none;
-  padding: 0; }
-.widget_rss li {
-  margin-bottom: 16px; }
-  .widget_rss li:last-child {
-    margin-bottom: 0; }
-.widget_rss .rsswidget {
-  font-weight: 700;
-  display: inline-block; }
-.widget_rss .rss-date {
-  font-size: 0.875em;
-  font-style: italic;
-  display: block; }
-.widget_rss cite {
-  font-weight: 700;
-  font-size: 0.875em; }
-
-.widget_calendar th, .widget_calendar td {
-  text-align: center; }
-
-/*--------------------------------------------------------------
-# Common Content
+# Layout Content
 --------------------------------------------------------------*/
 .content-area {
   padding-left: 15px;
@@ -1826,19 +1805,43 @@ a {
     opacity: 1;
     right: 20px; }
 
-.sticky {
-  display: block; }
-
-.hentry {
+/*--------------------------------------------------------------
+# Widgets
+--------------------------------------------------------------*/
+.widget {
   margin: 0 0 1.5em; }
+  .widget select {
+    max-width: 100%; }
 
-.updated:not(.published) {
-  display: none; }
+.widget_categories ul ul ul ul ul,
+.widget_pages ul ul ul ul ul,
+.widget_nav_menu ul ul ul ul ul {
+  padding-left: 0; }
 
-.page-content,
-.entry-content,
-.entry-content {
-  margin: 1.5em 0 0; }
+.widget_recent_comments .recentcomments > a:before {
+  content: '\A';
+  white-space: pre; }
+
+.widget_rss ul {
+  list-style: none;
+  padding: 0; }
+.widget_rss li {
+  margin-bottom: 16px; }
+  .widget_rss li:last-child {
+    margin-bottom: 0; }
+.widget_rss .rsswidget {
+  font-weight: 700;
+  display: inline-block; }
+.widget_rss .rss-date {
+  font-size: 0.875em;
+  font-style: italic;
+  display: block; }
+.widget_rss cite {
+  font-weight: 700;
+  font-size: 0.875em; }
+
+.widget_calendar th, .widget_calendar td {
+  text-align: center; }
 
 /*--------------------------------------------------------------
 # Media

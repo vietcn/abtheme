@@ -102,50 +102,40 @@
             $('#header-search .searchform').removeClass('active');
             $('#header-cart .cartform').toggleClass('active');
         });
-    });
 
-    // grab an element
-    var myElement = document.querySelector("#headroom");
-    $( '#header' ).css('height',$( '#header' ).outerHeight());
-
-    window.addEventListener('resize',function(){
-        $( '#header' ).css('height','');
+        /* ====================
+         Headroom
+         ====================== */
+        // grab an element
+        var myElement = document.querySelector("#headroom");
         $( '#header' ).css('height',$( '#header' ).outerHeight());
-    });
-
-    // construct an instance of Headroom, passing the element
-    var headroom  = new Headroom(myElement,{
-        offset : 280
-    });
-    // initialise
-    headroom.init();
-
-    /* ====================
-     Scroll To Top
-     ====================== */
-    /* Check to see if the window is top if not then display button */
-    $(window).scroll(function(){
-        if ($(this).scrollTop() > 1000) {
-            $('.scroll-top').fadeIn();
-        } else {
-            $('.scroll-top').fadeOut();
-        }
-    });
-    /* Click event to scroll to top */
-    $('.scroll-top').click(function(){
-        $('html, body').animate({scrollTop : 0},800);
-        return false;
-    });
-    $(document).ready(function() {
-        $('#nav-expander').on('click', function(e) {
-            e.preventDefault();
-            $('body').toggleClass('nav-expanded');
+        window.addEventListener('resize',function(){
+            $( '#header' ).css('height','');
+            $( '#header' ).css('height',$( '#header' ).outerHeight());
         });
-        $('#nav-close').on('click', function(e) {
-            e.preventDefault();
-            $('body').removeClass('nav-expanded');
+        // construct an instance of Headroom, passing the element
+        var headroom  = new Headroom(myElement,{
+            offset : 280
+        });
+        // initialise
+        headroom.init();
+
+        /* ====================
+         Scroll To Top
+         ====================== */
+        /* Check to see if the window is top if not then display button */
+        $(window).scroll(function(){
+            if ($(this).scrollTop() > 1000) {
+                $('.scroll-top').fadeIn();
+            } else {
+                $('.scroll-top').fadeOut();
+            }
+        });
+        /* Click event to scroll to top */
+        $('.scroll-top').click(function(){
+            $('html, body').animate({scrollTop : 0},800);
+            return false;
         });
     });
-    document.addEventListener("touchstart", function(){}, true);
 
 })( jQuery );
