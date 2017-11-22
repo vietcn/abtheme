@@ -486,6 +486,25 @@ Redux::setSection($opt_name, array(
     )
 ));
 
+
+
+/*--------------------------------------------------------------
+# Portfolio
+--------------------------------------------------------------*/
+
+Redux::setSection($opt_name, array(
+    'title'  => esc_html__('Portfolio', 'abtheme'),
+    'icon'   => 'el el-th',
+    'fields' => array(
+        array(
+            'id'       => 'portfolio_slug',
+            'type'     => 'text',
+            'title'    => esc_html__('Portfolio slug rewrite', 'abtheme'),
+            'default' => esc_html__('portfolio','abtheme')
+        ),
+    )
+));
+
 /*--------------------------------------------------------------
 # Colors
 --------------------------------------------------------------*/
