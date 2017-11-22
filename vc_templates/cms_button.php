@@ -26,9 +26,9 @@ extract(shortcode_atts(array(
                 ?>
                     <span><?php echo esc_attr($button_text); ?></span>
                     <?php if( $icon_custom ): ?>
-                        <i class="<?php echo esc_attr($icon_custom);?>"></i>
+                        <i class="<?php echo esc_attr($icon_custom);?> fa-right"></i>
                         <?php else: if( $iconClass ): ?>
-                            <i class="<?php echo esc_attr($iconClass);?>"></i>
+                            <i class="<?php echo esc_attr($iconClass);?> fa-right"></i>
                         <?php endif; ?>
                     <?php endif;?>
                 <?php
@@ -37,9 +37,9 @@ extract(shortcode_atts(array(
             default:
                 ?>
                     <?php if( $icon_custom ): ?>
-                        <i class="<?php echo esc_attr($icon_custom);?>"></i>
+                        <i class="<?php echo esc_attr($icon_custom);?> fa-left"></i>
                         <?php else: if( $iconClass ): ?>
-                            <i class="<?php echo esc_attr($iconClass);?>"></i>
+                            <i class="<?php echo esc_attr($iconClass);?> fa-left"></i>
                         <?php endif; ?>
                     <?php endif;?>
                     <span><?php echo esc_attr($button_text); ?></span>

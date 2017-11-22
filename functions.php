@@ -156,7 +156,7 @@ function abtheme_scripts()
         wp_enqueue_script( 'headroom', get_template_directory_uri() . '/assets/js/headroom.min.js', array( 'jquery' ), $theme->get( 'Version' ), true );
     }
     wp_enqueue_script( 'owl-carousel', get_template_directory_uri() . '/assets/js/owl.carousel.min.js', array( 'jquery' ), $theme->get( 'Version' ), true );
-    wp_enqueue_script( 'abtheme-menu', get_template_directory_uri() . '/assets/js/menu.js', array( 'jquery' ), $theme->get( 'Version' ), true );
+    //wp_enqueue_script( 'abtheme-menu', get_template_directory_uri() . '/assets/js/menu.js', array( 'jquery' ), $theme->get( 'Version' ), true );
     wp_enqueue_script( 'abtheme-main', get_template_directory_uri() . '/assets/js/main.js', array( 'jquery' ), $theme->get( 'Version' ), true );
 }
 add_action( 'wp_enqueue_scripts', 'abtheme_scripts' );
@@ -223,8 +223,8 @@ function abtheme_vc_after_init(){
     vc_remove_element( "vc_cta_button" );
     vc_remove_element( "vc_cta_button2" );
     vc_remove_element( "vc_cta" );
-    vc_remove_element( "cms_fancybox" );
-    vc_remove_element( "cms_counter" );
+    // vc_remove_element( "cms_fancybox" );
+    // vc_remove_element( "cms_counter" );
 }
 add_action('vc_after_init', 'abtheme_vc_after_init');
 
@@ -239,17 +239,6 @@ function abtheme_shortcodes_list(){
     );
 
     return $abtheme_shortcodes_list;
-}
-
-function abtheme_get_post_meta($post_id = 0){
-    global $post;
-    if(!$post_id) $post_id = $post->ID;
-
-    $_post_meta = maybe_unserialize(get_post_meta($post_id, 'opt_meta_options', true));
-
-    if($_post_meta) return $_post_meta;
-
-    return null;
 }
 
 /**

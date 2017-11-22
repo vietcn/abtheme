@@ -1,23 +1,41 @@
-// Buttons
-//--------------------------------------------------
-
-button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-
-    &:hover {
-        
-    }
-
-    &:active,
-    &:focus {
-        
-    }
+::-webkit-input-placeholder {
+    color: #8a8a8a;
 }
 
-// Fields
-//--------------------------------------------------
+:-moz-placeholder { /* Firefox 18- */
+    color: #8a8a8a;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+    color: #8a8a8a;
+}
+
+:-ms-input-placeholder {
+    color: #8a8a8a;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="number"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+    border: none;
+    border: 1px solid #e1e1e1;
+    color: #8a8a8a;
+    padding: 12px;
+    @include transition(all 0.3s);
+}
 
 input[type="text"],
 input[type="email"],
@@ -36,7 +54,8 @@ input[type="datetime-local"],
 input[type="color"],
 textarea {
     &:focus {
-        
+        border: 1px solid #232927;
+        outline: 0;
     }
 }
 

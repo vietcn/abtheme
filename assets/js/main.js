@@ -11,6 +11,99 @@
         $('body').delay(350).css({'overflow':'visible'});
     });
 
+    $(document).ready(function(){
+        /* Menu */
+        var $menu = $('.main-navigation');
+        $menu.find('ul.sub-menu > li').each(function(){
+            var $submenu = $(this).find('>ul');
+            if($submenu.length == 1){
+                $(this).hover(function(){
+                    if($submenu.offset().left + $submenu.width() > $(window).width()){
+                        $submenu.addClass('back');
+                    }else if($submenu.offset().left < 0){
+                        $submenu.addClass('back');
+                    }
+                }, function(){
+                    $submenu.removeClass('back');
+                });
+            }
+        });
+
+        /* Menu drop down */
+        $('.main-navigation li.menu-item-has-children').append('<span class="main-menu-toggle"></span>');
+        $('.menu-item-has-children > a').on('click', function(){
+            $(this).parent().find('> .sub-menu').toggleClass('submenu-open');
+            $(this).parent().find('> .sub-menu').slideToggle();
+        });
+        $('.main-menu-toggle').on('click', function(){
+            $(this).parent().find('> .sub-menu').toggleClass('submenu-open');
+            $(this).parent().find('> .sub-menu').slideToggle();
+        });
+        /* Menu mobile */
+        $("#main-menu-mobile .open-menu").on('click',function(){
+            $(this).toggleClass('opened');
+            $('#site-navigation').toggleClass('navigation-open');
+        })
+
+        /* =================
+         Carousel
+         =================== */
+        $(".cms-carousel").each(function() {
+
+            // VC 4.4 adds an empty div .vc_row-full-width somehow, get rid of them
+            $(this).find('> .vc_row-full-width').remove();
+
+            $(this).owlCarousel({
+                margin: parseInt($(this).attr('data-margin')),
+                loop: $(this).attr('data-loop') === 'true' ? true : false,
+                nav: $(this).attr('data-nav') === 'true' ? true : false,
+                mouseDrag: $(this).attr('data-mousedrag') === 'true' ? true : false,
+                navText:['<i class="fa fa-arrow-left"></i>','<i class="fa fa-arrow-right"></i>'],
+                dots: $(this).attr('data-dots') === 'true' ? true : false,
+                autoplay : $(this).attr('data-autoplay') === 'false' ? false : $(this).attr('data-autoplay'),
+                responsive:{
+                    0:{
+                        items:parseInt($(this).attr('data-xsmall-items'))
+                    },
+                    768:{
+                        items:parseInt($(this).attr('data-small-items'))
+                    },
+                    992:{
+                        items:parseInt($(this).attr('data-medium-items'))
+                    },
+                    1200:{
+                        items:parseInt($(this).attr('data-large-items'))
+                    }
+                }
+            });
+        });
+
+        /* ===================
+         Search Toggle
+         ===================== */
+        $('#header-search .search-toggle').click(function(e){
+            e.preventDefault();
+            $('#header-cart .cartform').removeClass('active');
+            $('#header-search .searchform').toggleClass('active').find('.search-field').focus();
+        });
+        $('#header-search .search-submit').click(function(e){
+            if( $(this).parent().find('.search-field').val() == '' ) {
+                e.preventDefault();
+                $(this).parent().parent().removeClass('active');
+            }
+
+        });
+
+        /* ===================
+         Cart Toggle
+         ===================== */
+        $('#header-cart .cart-toggle').click(function(e){
+            e.preventDefault();
+            $('#header-search .searchform').removeClass('active');
+            $('#header-cart .cartform').toggleClass('active');
+        });
+    });
+
     // grab an element
     var myElement = document.querySelector("#headroom");
     $( '#header' ).css('height',$( '#header' ).outerHeight());
@@ -26,75 +119,6 @@
     });
     // initialise
     headroom.init();
-
-    /* ===================
-     Search Toggle
-     ===================== */
-    $('#header-search .search-toggle').click(function(e){
-        e.preventDefault();
-        $('#header-cart .cartform').removeClass('active');
-        $('#header-search .searchform').toggleClass('active').find('.search-field').focus();
-    });
-    $('#header-search .search-submit').click(function(e){
-        if( $(this).parent().find('.search-field').val() == '' ) {
-            e.preventDefault();
-            $(this).parent().parent().removeClass('active');
-        }
-
-    });
-
-    /* ===================
-     Cart Toggle
-     ===================== */
-    $('#header-cart .cart-toggle').click(function(e){
-        e.preventDefault();
-        $('#header-search .searchform').removeClass('active');
-        $('#header-cart .cartform').toggleClass('active');
-    });
-
-    var nav1 = new KoalaNav("site-navigation",{
-        // The type of icon to use for the mobile toggle button.
-        // "hamburger" or "arrow"
-        btnIcon: 'arrow',
-        // The position of the mobile toggle button icon.
-        // "left" or "right"
-        btnPosition: 'left',
-        // The width (in pixels) of when the mobile menu should be displayed
-        mobileWidth: 500
-    });
-
-    /* =================
-     Carousel
-     =================== */
-    $(".cms-carousel").each(function() {
-
-        // VC 4.4 adds an empty div .vc_row-full-width somehow, get rid of them
-        $(this).find('> .vc_row-full-width').remove();
-
-        $(this).owlCarousel({
-            margin:parseInt($(this).attr('data-margin')),
-            responsiveClass:true,
-            loop: $(this).attr('data-loop') === 'true' ? true : false,
-            nav: $(this).attr('data-nav') === 'true' ? true : false,
-            navText:['<i class="icon-arrow-left-circle icons"></i>','<i class="icon-arrow-right-circle icons"></i>'],
-            dots: $(this).attr('data-dots') === 'true' ? true : false,
-            autoPlay : $(this).attr('data-autoplay') === 'false' ? false : $(this).attr('data-autoplay'),
-            responsive:{
-                0:{
-                    items:parseInt($(this).attr('data-xsmall-items'))
-                },
-                768:{
-                    items:parseInt($(this).attr('data-small-items'))
-                },
-                992:{
-                    items:parseInt($(this).attr('data-medium-items'))
-                },
-                1200:{
-                    items:parseInt($(this).attr('data-large-items'))
-                }
-            }
-        });
-    });
 
     /* ====================
      Scroll To Top

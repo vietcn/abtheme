@@ -11,9 +11,14 @@ $sticky_on = abtheme_get_opt( 'sticky_on', true );
             <div class="site-branding">
                 <?php get_template_part( 'template-parts/header-branding' ); ?>
             </div>
-            <nav id="site-navigation" class="main-navigation" aria-expanded="false" data-efelement="ariactarget">
+            <nav id="site-navigation" class="main-navigation">
                 <?php get_template_part( 'template-parts/header-menu' ); ?>
             </nav>
+            <div id="main-menu-mobile">
+                <span class="btn-nav-mobile open-menu">
+                    <span></span>
+                </span>
+            </div>
 
             <div id="header-cart">
                 <div class="menu-right pull-right">

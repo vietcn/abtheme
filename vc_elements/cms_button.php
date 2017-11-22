@@ -27,7 +27,7 @@ vc_map(array(
             'value' => array(
                 'Default' => 'btn-default',                   
                 'Outline' => 'btn-outline-white',                     
-                'Primary White' => 'btn-primary-white',                     
+                'Primary' => 'btn-primary',
             ),
             "group" => esc_html__("Button Settings", "wp-abtheme"),
         ),  
@@ -36,9 +36,9 @@ vc_map(array(
             'heading' => esc_html__("Button Size", "wp-abtheme"),
             'param_name' => 'button_size',
             'value' => array(
-                'Default' => 'size-default',      
-                'Large' => 'size-large btn-lg',      
-                'XLarge' => 'btn-xlg',      
+                'Default' => 'btn-small',
+                'Default' => 'btn-normal',
+                'Large' => 'btn-lg',
             ),
             "group" => esc_html__("Button Settings", "wp-abtheme"),
         ),   

@@ -10,6 +10,7 @@
     -o-#{$property}: #{$value};
     #{$property}: #{$value};
 }
+
 // BACKGROUND GRADIENT
 @mixin background-gradient($startColor: #3C3C3C, $endColor: #999999) {
     background-color: $startColor;
@@ -99,6 +100,8 @@
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$color}',endColorstr='#{$color}');
     zoom:   1;
 }
+
+
 // BOX SHADOW
 @mixin box-shadow($x) {
     @include css3-prefix('box-shadow', $x);
