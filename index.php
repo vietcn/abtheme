@@ -37,7 +37,7 @@ $sidebar_pos = abtheme_get_opt( 'archive_sidebar_pos', 'right' );
                 }
                 else
                 {
-                    get_template_part( 'template-parts/content/content', 'none' );
+                    get_template_part( 'template-parts/content', 'none' );
                 }
 
             ?>

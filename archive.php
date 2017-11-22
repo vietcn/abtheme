@@ -25,14 +25,14 @@ $sidebar_pos = abtheme_get_opt( 'archive_sidebar_pos', 'right' );
                          * If you want to override this in a child theme, then include a file
                          * called loop-post-___.php (where ___ is the Post Format name) and that will be used instead.
                          */
-                        get_template_part( 'template-parts/loop-post', get_post_format() );
+                        get_template_part( 'template-parts/content' );
                     }
 
                     abtheme_posts_navigation();
                 }
                 else
                 {
-                    get_template_part( 'template-parts/loop-post', 'none' );
+                    get_template_part( 'template-parts/content', 'none' );
                 }
 
             ?>

@@ -31,7 +31,7 @@ get_header();
                 }
                 else
                 {
-                    get_template_part( 'template-parts/loop-post', 'none' );
+                    get_template_part( 'template-parts/content', 'none' );
                 }
 
             ?>

@@ -55,7 +55,6 @@
                 margin: parseInt($(this).attr('data-margin')),
                 loop: $(this).attr('data-loop') === 'true' ? true : false,
                 nav: $(this).attr('data-nav') === 'true' ? true : false,
-                mouseDrag: $(this).attr('data-mousedrag') === 'true' ? true : false,
                 navText:['<i class="fa fa-arrow-left"></i>','<i class="fa fa-arrow-right"></i>'],
                 dots: $(this).attr('data-dots') === 'true' ? true : false,
                 autoplay : $(this).attr('data-autoplay') === 'false' ? false : $(this).attr('data-autoplay'),
