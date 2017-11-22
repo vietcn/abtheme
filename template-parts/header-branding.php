@@ -31,12 +31,24 @@ if ( ! $sticky_logo_url )
 
 if ( $logo_url )
 {
-    printf(
-        '<a class="site-logo" href="%1$s" title="%2$s" rel="home"><img src="%3$s" alt="logo"/></a>',
-        esc_url( home_url( '/' ) ),
-        esc_attr( get_bloginfo( 'name' ) ),
-        esc_url( $logo_url )
-    );
+    if ( is_front_page() && is_home() )
+    {
+        printf(
+            '<h1 class="site-title" style="display: none;">%2$s</h1><a class="site-logo" href="%1$s" title="%2$s" rel="home"><img src="%3$s" alt="logo"/></a>',
+            esc_url( home_url( '/' ) ),
+            esc_attr( get_bloginfo( 'name' ) ),
+            esc_url( $logo_url )
+        );
+    }
+    else
+    {
+        printf(
+            '<a class="site-logo" href="%1$s" title="%2$s" rel="home"><img src="%3$s" alt="logo"/></a>',
+            esc_url( home_url( '/' ) ),
+            esc_attr( get_bloginfo( 'name' ) ),
+            esc_url( $logo_url )
+        );
+    }
 }
 else
 {

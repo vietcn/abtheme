@@ -18,6 +18,7 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="site">
+    <div class="loader"></div>
     <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'abtheme' ); ?></a>
     <?php
         $header_layout = abtheme_get_opt( 'header_layout', '1' );
