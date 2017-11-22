@@ -43,18 +43,6 @@ class EFramework
             'APP_URL'  => $url
         ) );
 
-        if ( ! class_exists( 'EFramework_CPT_Register' ) )
-        {
-            require_once $this->path( 'APP_DIR', 'includes/class-cpt-register.php' );
-            EFramework_CPT_Register::get_instance();
-        }
-
-        if ( ! class_exists( 'EFramework_CTax_Register' ) )
-        {
-            require_once $this->path( 'APP_DIR', 'includes/class-ctax-register.php' );
-            EFramework_CTax_Register::get_instance();
-        }
-
         if ( ! class_exists( 'ReduxFramework' ) )
         {
             add_action( 'admin_notices', array( $this, 'redux_framework_notice' ) );
