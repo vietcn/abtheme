@@ -1517,7 +1517,7 @@ input[type="submit"]:focus {
     .primary-menu .sub-menu {
       position: absolute;
       background: #fff;
-      padding: 12px 0;
+      padding: 0;
       top: 100%;
       left: 0;
       margin-top: 15px;
@@ -1537,6 +1537,10 @@ input[type="submit"]:focus {
       .primary-menu .sub-menu .sub-menu {
         top: 0;
         left: 100%; }
+      .primary-menu .sub-menu .vc_row {
+        background: #fff;
+        padding: 10px;
+        box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.25); }
     .primary-menu li:hover,
     .primary-menu li.focus {
       overflow: visible; }
