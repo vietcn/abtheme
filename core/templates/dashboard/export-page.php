@@ -21,7 +21,7 @@
             <input type="text" id="abcore-ie-link" name="abcore-ie-link" placeholder="https://cmssuperheroes.com/">
         </div>
         <div class="abcore-export-options">
-            <h4><?php echo esc_html__('Select data (*):') ?></h4>
+            <h4><?php echo esc_html__('Select data (*):', 'abtheme') ?></h4>
             <div class="abcore-export-list-opt">
 
                 <input name="abcore-ie-data-type[]" type="checkbox" value="attachment" checked="checked">

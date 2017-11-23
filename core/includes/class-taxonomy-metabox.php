@@ -277,7 +277,7 @@ class EFramework_Taxonomy_Metabox
 
             if ( in_array( $field['id'], $this->field_ids[ $taxonomy ] ) )
             {
-                trigger_error( sprintf( esc_html__( 'The field with id %1$s for taxonomy %2$s is already registered.', 'abtheme' ), esc_html( $field['id'] ), esc_html( $taxonomy ) ) );
+                trigger_error( sprintf( esc_html__( 'The field with id %1$s for taxonomy %2$s is already registered.', 'abtheme' ), esc_html( $field['id'], 'abtheme' ), esc_html( $taxonomy, 'abtheme') ) );
                 unset( $section['fields'][ $fkey ] );
                 continue;
             }
@@ -294,7 +294,7 @@ class EFramework_Taxonomy_Metabox
         {
             if ( $this->section_exist( $section['id'], $taxonomy ) )
             {
-                trigger_error( sprintf( esc_html__( 'Section %1$s for taxonomy %2$s is already exist.', 'abtheme' ), esc_html( $field['id'] ), esc_html( $taxonomy ) ) );
+                trigger_error( sprintf( esc_html__( 'Section %1$s for taxonomy %2$s is already exist.', 'abtheme' ), esc_html( $field['id'], 'abtheme' ), esc_html( $taxonomy, 'abtheme' ) ) );
                 return;
             }
             else
