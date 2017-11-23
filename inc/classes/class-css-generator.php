@@ -73,8 +73,7 @@ class Abtheme_CSS_Generator
             return;
         }
 
-        // $this->dev_mode = defined( 'WP_DEBUG' ) && WP_DEBUG;
-        $this->dev_mode = false;
+        $this->dev_mode = defined( 'WP_DEBUG' ) && WP_DEBUG;
 
         if ( $this->dev_mode )
         {
