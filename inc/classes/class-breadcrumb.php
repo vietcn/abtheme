@@ -2,8 +2,6 @@
 /**
  * Breadcrumb class for the theme.
  * 
- * @author  Stev Ngo <https://stevngo.com>
- * @version 1.1
  * @package Abtheme
  * @since   Abtheme 1.0
  */
@@ -322,7 +320,7 @@ class Abtheme_Breadcrumb
     {
         $queried_object = $GLOBALS['wp_query']->get_queried_object();
         $this->add_entry(
-            sprintf( esc_html__( 'Tag: &#8220;%s&#8221;', 'leone' ),
+            sprintf( esc_html__( 'Tag: &#8220;%s&#8221;', 'abtheme' ),
                 single_tag_title( '', false ) ), get_tag_link( $queried_object->term_id )
         );
     }
@@ -339,7 +337,7 @@ class Abtheme_Breadcrumb
         global $author;
         $userdata = get_userdata( $author );
         $this->add_entry(
-            sprintf( esc_html__( 'Author: %s', 'leone' ),
+            sprintf( esc_html__( 'Author: %s', 'abtheme' ),
                 $userdata->display_name )
         );
     }
@@ -455,7 +453,7 @@ class Abtheme_Breadcrumb
         if ( $page > 1 )
         {
             $this->add_entry(
-                apply_filters( 'leone_breadcrumb_paged', sprintf( 'Page %s', $page ) ),
+                apply_filters( 'abtheme_breadcrumb_paged', sprintf( 'Page %s', $page ) ),
                 ''
             );
         }

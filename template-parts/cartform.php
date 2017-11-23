@@ -9,7 +9,7 @@ if ( class_exists( 'WC_Widget_Cart' ) )
 {
     the_widget( 'WC_Widget_Cart',
         array(
-            'title'         => esc_html__( 'Cart', 'shopy' ),
+            'title'         => esc_html__( 'Cart', 'abtheme' ),
             'hide_if_empty' => 0
         ),
         array(

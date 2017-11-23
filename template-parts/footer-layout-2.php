@@ -6,7 +6,13 @@
 <footer id="colophon" class="site-footer footer-layout2">
     <div class="top-footer">
         <div class="container top-footer-container">
-
+            <div class="container top-footer-container">
+                <?php if (abtheme_get_opt( 'show_social', true )) { ?>
+                    <div id="footer-socials">
+                        <?php get_template_part('template-parts/social');?>
+                    </div>
+                <?php } ?>
+            </div>
         </div>
     </div>
     <div class="bottom-footer">

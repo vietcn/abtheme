@@ -156,10 +156,24 @@ Redux::setSection($opt_name, array(
             'unit'     => 'px'
         ),
         array(
-            'id'       => 'search_button',
+            'id'       => 'show_search',
             'type'     => 'switch',
             'title'    => esc_html__('Enable Search Button', 'abtheme'),
             'subtitle' => esc_html__('Enable Search Button On Header', 'abtheme'),
+            'default'  => true
+        ),
+        array(
+            'id'       => 'show_cart',
+            'type'     => 'switch',
+            'title'    => esc_html__('Enable Cart Button', 'abtheme'),
+            'subtitle' => esc_html__('Enable Cart Button On Header', 'abtheme'),
+            'default'  => true
+        ),
+        array(
+            'id'       => 'show_social',
+            'type'     => 'switch',
+            'title'    => esc_html__('Enable Social Icons', 'abtheme'),
+            'subtitle' => esc_html__('Enable Social Icons On Header', 'abtheme'),
             'default'  => true
         ),
     )
@@ -649,6 +663,93 @@ Redux::setSection($opt_name, array(
             'subtitle' => esc_html__('Add css selectors to apply above font.', 'abtheme'),
             'validate' => 'no_html'
         )
+    )
+));
+
+/* Social Media */
+Redux::setSection($opt_name, array(
+    'title' => esc_html__('Social Media', 'abtheme'),
+    'icon' => 'el el-twitter',
+    'subsection' => false,
+    'fields' => array(
+        array(
+            'id' => 'social_facebook_url',
+            'type' => 'text',
+            'title' => esc_html__('Facebook URL', 'abtheme'),
+            'default' => '',
+        ),
+        array(
+            'id' => 'social_twitter_url',
+            'type' => 'text',
+            'title' => esc_html__('Twitter URL', 'abtheme'),
+            'default' => '',
+        ),
+        array(
+            'id' => 'social_inkedin_url',
+            'type' => 'text',
+            'title' => esc_html__('Inkedin URL', 'abtheme'),
+            'default' => '',
+        ),
+        array(
+            'id' => 'social_rss_url',
+            'type' => 'text',
+            'title' => esc_html__('Rss URL', 'abtheme'),
+            'default' => '',
+        ),
+        array(
+            'id' => 'social_instagram_url',
+            'type' => 'text',
+            'title' => esc_html__('Instagram URL', 'abtheme'),
+            'default' => '',
+        ),
+        array(
+            'id' => 'social_google_url',
+            'type' => 'text',
+            'title' => esc_html__('Google URL', 'abtheme'),
+            'default' => '',
+        ),
+        array(
+            'id' => 'social_skype_url',
+            'type' => 'text',
+            'title' => esc_html__('Skype URL', 'abtheme'),
+            'default' => '',
+        ),
+        array(
+            'id' => 'social_pinterest_url',
+            'type' => 'text',
+            'title' => esc_html__('Pinterest URL', 'abtheme'),
+            'default' => '',
+        ),
+        array(
+            'id' => 'social_vimeo_url',
+            'type' => 'text',
+            'title' => esc_html__('Vimeo URL', 'abtheme'),
+            'default' => '',
+        ),
+        array(
+            'id' => 'social_youtube_url',
+            'type' => 'text',
+            'title' => esc_html__('Youtube URL', 'abtheme'),
+            'default' => '',
+        ),
+        array(
+            'id' => 'social_yelp_url',
+            'type' => 'text',
+            'title' => esc_html__('Yelp URL', 'abtheme'),
+            'default' => '',
+        ),
+        array(
+            'id' => 'social_tumblr_url',
+            'type' => 'text',
+            'title' => esc_html__('Tumblr URL', 'abtheme'),
+            'default' => '',
+        ),
+        array(
+            'id' => 'social_tripadvisor_url',
+            'type' => 'text',
+            'title' => esc_html__('Tripadvisor URL', 'abtheme'),
+            'default' => '',
+        ),
     )
 ));
 

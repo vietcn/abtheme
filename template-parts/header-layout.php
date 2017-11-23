@@ -8,6 +8,12 @@ $sticky_on = abtheme_get_opt( 'sticky_on', true );
     <div class="header-top"></div>
     <div id="headroom" class="main-header">
         <div class="container main-header-container">
+            <?php if (abtheme_get_opt( 'show_social', true )) { ?>
+            <div id="header-socials">
+                <?php get_template_part('template-parts/social');?>
+            </div>
+            <?php } ?>
+
             <div class="site-branding">
                 <?php get_template_part( 'template-parts/header-branding' ); ?>
             </div>
@@ -20,20 +26,7 @@ $sticky_on = abtheme_get_opt( 'sticky_on', true );
                 </span>
             </div>
 
-            <div id="header-cart">
-                <div class="menu-right pull-right">
-                    <?php if ( class_exists( 'WC_Widget_Cart' ) ): ?>
-                        <span class="cat-icon">
-                            <?php //matilda_get_cart_icon(); ?>
-                            </span>
-                    <?php endif; ?>
-                </div>
-                <div class="top-socials pull-right">
-                    <?php get_template_part('template-parts/social');?>
-                </div>
-            </div>
-
-            <?php if (abtheme_get_opt( 'search_button', true )) { ?>
+            <?php if (abtheme_get_opt( 'show_search', true )) { ?>
                 <div id="header-search">
                     <a href="#" class="search-toggle"><i class="fa fa-search"></i></a>
                     <div class="searchform">
@@ -41,7 +34,7 @@ $sticky_on = abtheme_get_opt( 'sticky_on', true );
                     </div>
                 </div>
             <?php } ?>
-            <?php if(class_exists( 'WooCommerce' )) {?>
+            <?php if(class_exists( 'WooCommerce' ) && abtheme_get_opt( 'show_cart', true )) {?>
             <div id="header-cart">
                 <a href="#" class="cart-toggle"><i class="fa fa-shopping-bag"></i></a>
                 <div class="cartform">

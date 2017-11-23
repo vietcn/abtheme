@@ -182,13 +182,13 @@ function abtheme_get_the_excerpt($length = 55, $post = null)
     }
 
     if (post_password_required($post)) {
-        return esc_html__('Post password required.', 'shopy');
+        return esc_html__('Post password required.', 'abtheme');
     }
 
     $content = apply_filters('the_content', strip_shortcodes($post->post_content));
     $content = str_replace(']]>', ']]&gt;', $content);
 
-    $excerpt_more = apply_filters('shopy_excerpt_more', '&hellip;');
+    $excerpt_more = apply_filters('abtheme_excerpt_more', '&hellip;');
     $excerpt = wp_trim_words($content, $length, $excerpt_more);
 
     return $excerpt;
