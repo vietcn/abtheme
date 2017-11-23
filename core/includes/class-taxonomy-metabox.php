@@ -294,7 +294,7 @@ class EFramework_Taxonomy_Metabox
         {
             if ( $this->section_exist( $section['id'], $taxonomy ) )
             {
-                trigger_error( sprintf( esc_html__( 'Section %1$s for taxonomy %2$s is already exist.', 'abtheme' ), esc_html( $field['id'], 'abtheme' ), esc_html( $taxonomy, 'abtheme' ) ) );
+                trigger_error( sprintf( esc_html__( 'Section %1$s for taxonomy %2$s is already exist.', 'abtheme' ), esc_html( $field['id'] ), esc_html( $taxonomy ) ) );
                 return;
             }
             else

@@ -270,7 +270,7 @@ class EFramework_Post_Metabox
             }
 
             if (in_array($field['id'], $this->field_ids[$post_type])) {
-                trigger_error(sprintf(esc_html__('The field with id %1$s for post type %2$s is already registered.', 'abtheme'), esc_html($field['id'], 'abtheme'), esc_html($post_type), 'abtheme'));
+                trigger_error(sprintf(esc_html__('The field with id %1$s for post type %2$s is already registered.', 'abtheme'), esc_html($field['id']), esc_html($post_type)));
                 unset($section['fields'][$fkey]);
                 continue;
             }
@@ -284,7 +284,7 @@ class EFramework_Post_Metabox
 
         if (!empty($section['id'])) {
             if ($this->section_exist($section['id'], $post_type)) {
-                trigger_error(sprintf(esc_html__('Section %1$s for post type %2$s is already exist.', 'abtheme'), esc_html($field['id'], 'abtheme'), esc_html($post_type), 'abtheme'));
+                trigger_error(sprintf(esc_html__('Section %1$s for post type %2$s is already exist.', 'abtheme'), esc_html($field['id']), esc_html($post_type)));
                 return;
             } else {
                 $this->panels[$post_type]['sections'][$section['id']] = $section;
