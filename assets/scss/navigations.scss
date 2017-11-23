@@ -1,0 +1,83 @@
+// Links
+//--------------------------------------------------
+
+a {
+    color: $primary_color;
+    &:hover,
+    &:focus {
+
+    }
+
+    &:visited {
+        
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+        
+    }
+
+    &:focus {
+        outline: thin dotted;
+    }
+
+    &:hover,
+    &:active {
+        outline: 0;
+    }
+}
+
+// Other common navigations
+//--------------------------------------------------
+
+.post-navigation,
+.posts-navigation,
+.comment-navigation {
+    .nav-links {
+
+    }
+
+    a {
+
+    }
+
+    .nav-link-title {
+
+    }
+
+    .nav-previous {
+
+    }
+
+    .nav-next {
+
+    }
+}
+
+.posts-pagination {
+    .posts-page-links {
+
+    }
+
+    .page-numbers {
+
+    }
+
+    a.page-numbers {
+
+    }
+}
+
+.page-links {
+    clear: both;
+    margin: 0 0 1.5em;
+
+    .page-link-text {
+
+    }
+
+    a {
+        
+    }
+}
