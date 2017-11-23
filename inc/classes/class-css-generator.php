@@ -96,7 +96,7 @@ class Abtheme_CSS_Generator
         $this->scssc = new scssc();
         $this->scssc->setImportPaths( $scss_dir );
 
-        $_options = $scss_dir . '_variables.scss';
+        $_options = $scss_dir . 'variables.scss';
 
         $this->redux->filesystem->execute( 'put_contents', $_options, array(
             'content' => $this->options_output()
