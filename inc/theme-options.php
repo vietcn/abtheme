@@ -897,7 +897,7 @@ Redux::setSection( $opt_name, array(
             'type'     => 'textarea',
             'theme'    => 'chrome',
             'title'    => esc_html__('Footer Custom Codes', 'abtheme'),
-            'subtitle' => esc_html__('It will insert the code to wp_footer hook.) ', 'abtheme'),
+            'subtitle' => esc_html__('It will insert the code to wp_footer hook.', 'abtheme'),
         ),
 
     ),
