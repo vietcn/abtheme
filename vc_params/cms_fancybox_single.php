@@ -4,32 +4,32 @@
 			'type' => 'cms_template_img',
 		    'param_name' => 'cms_template',
 		    "shortcode" => "cms_fancybox_single",
-		    "heading" => esc_html__("Shortcode Template",'wp-abtheme'),
+		    "heading" => esc_html__("Shortcode Template",'abtheme'),
 		    "admin_label" => true,
-		    "group" => esc_html__("Template", 'wp-abtheme'),
+		    "group" => esc_html__("Template", 'abtheme'),
 		),
         array(
             "type" => "colorpicker",
-            "heading" => esc_html__("Icon - Background Color",'wp-abtheme'),
+            "heading" => esc_html__("Icon - Background Color",'abtheme'),
             "param_name" => "icon_bg_color",
             "value" => "",
-            "group" => esc_html__("Template", 'wp-abtheme'),
+            "group" => esc_html__("Template", 'abtheme'),
             "template" => array(
                 "cms_fancybox_single--layout2.php",
             ),
         ),
         array(
             "type" => "attach_image",
-            "heading" => esc_html__("Background Image",'wp-abtheme'),
+            "heading" => esc_html__("Background Image",'abtheme'),
             "param_name" => "bg_image",
-            "group" => esc_html__("Template", 'wp-abtheme'),
+            "group" => esc_html__("Template", 'abtheme'),
             "template" => array(
                 "cms_fancybox_single--layout3.php",
             ),
         ),
         array(
             "type" => "dropdown",
-            "heading" => esc_html__("Style", 'wp-abtheme'),
+            "heading" => esc_html__("Style", 'abtheme'),
             "param_name" => "style",
             "value" => array(
                 "Style 1" => "style1",
@@ -42,10 +42,10 @@
         ),
         array(
             "type" => "textfield",
-            "heading" => esc_html__("Custom Icon -  Add Class Icon","wp-abtheme"),
+            "heading" => esc_html__("Custom Icon -  Add Class Icon","abtheme"),
             "param_name" => "icon_custom",
             "value" => "",
-            "group" => esc_html__("Template", "wp-abtheme"),
+            "group" => esc_html__("Template", "abtheme"),
             "description" => 'Please add class icon. Use the library <a href="http://zavoloklom.github.io/material-design-iconic-font/icons.html" target="_blank">Material Design Iconic</a>, <a href="http://fortawesome.github.io/Font-Awesome/cheatsheet/" target="_blank">FontAwesome</a>',
             "template" => array(
                 "cms_fancybox_single--layout4.php",
@@ -54,7 +54,7 @@
         ),
         array(
             "type" => "dropdown",
-            "heading" => esc_html__("Style", 'wp-abtheme'),
+            "heading" => esc_html__("Style", 'abtheme'),
             "param_name" => "icon_style",
             "value" => array(
                 "Style 1" => "icon-style1",
@@ -67,7 +67,7 @@
         ),
         array(
             "type" => "dropdown",
-            "heading" => esc_html__("Content Align", 'wp-abtheme'),
+            "heading" => esc_html__("Content Align", 'abtheme'),
             "param_name" => "box_align",
             "value" => array(
                 "Left" => "content-left",

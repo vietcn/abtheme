@@ -6,7 +6,7 @@
 vc_add_param("vc_custom_heading", array(
     "type" => "dropdown",
     "class" => "",
-    "heading" => esc_html__("Custom Font Weight", 'wp-abtheme'),
+    "heading" => esc_html__("Custom Font Weight", 'abtheme'),
     "admin_label" => true,
     "param_name" => "custom_font_weight",
     "value" => array(
@@ -21,7 +21,7 @@ vc_add_param("vc_custom_heading", array(
 vc_add_param("vc_custom_heading", array(
     "type" => "dropdown",
     "class" => "",
-    "heading" => esc_html__("Custom Font Style", 'wp-abtheme'),
+    "heading" => esc_html__("Custom Font Style", 'abtheme'),
     "admin_label" => true,
     "param_name" => "custom_font_style",
     "value" => array(
@@ -33,7 +33,7 @@ vc_add_param("vc_custom_heading", array(
 vc_add_param("vc_custom_heading", array(
     "type" => "dropdown",
     "class" => "",
-    "heading" => esc_html__("Heading Letter Spacing", 'wp-abtheme'),
+    "heading" => esc_html__("Heading Letter Spacing", 'abtheme'),
     "admin_label" => true,
     "param_name" => "letter_spacing",
     "value" => array(

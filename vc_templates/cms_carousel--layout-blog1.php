@@ -44,7 +44,7 @@
                                 <?php echo substr(strip_tags(strip_shortcodes(get_the_content())), 0,118); ?>...
                             </div>
                             <div class="entry-readmore">
-                                <a href="<?php the_permalink(); ?>"><?php echo esc_html__('Read more', 'wp-abtheme'); ?></a>
+                                <a href="<?php the_permalink(); ?>"><?php echo esc_html__('Read more', 'abtheme'); ?></a>
                             </div>
                         </div>
                     </div>

@@ -15,7 +15,7 @@ WPBakeryShortCode_VC_Tta_Section::$self_count ++;
 WPBakeryShortCode_VC_Tta_Section::$section_info[] = $atts;
 $isPageEditable = vc_is_page_editable();
 
-/* nuvo custom */
+/* custom */
 $body_css = '';
 extract(shortcode_atts(array(
     'body_css' => '',

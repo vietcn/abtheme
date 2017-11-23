@@ -2,9 +2,9 @@
 	$params = array(
 		array(
             "type" => "attach_image",
-            "heading" => esc_html__("Icon Image",'wp-abtheme'),
+            "heading" => esc_html__("Icon Image",'abtheme'),
             "param_name" => "image_icon",
-            "group" => esc_html__("Progress Bar Settings", 'wp-abtheme'),
+            "group" => esc_html__("Progress Bar Settings", 'abtheme'),
         ),
 	);
 
@@ -13,9 +13,9 @@
 		'type' => 'cms_template_img',
 	    'param_name' => 'cms_template',
 	    "shortcode" => "cms_progressbar",
-	    "heading" => esc_html__("Shortcode Template","wp-abtheme"),
+	    "heading" => esc_html__("Shortcode Template","abtheme"),
 	    "admin_label" => true,
-	    "group" => esc_html__("Template", "wp-abtheme"),
+	    "group" => esc_html__("Template", "abtheme"),
 		);
 	vc_add_param('cms_progressbar',$cms_template_attribute);
 	vc_remove_param( "cms_progressbar", "width" );

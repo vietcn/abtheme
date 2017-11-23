@@ -3,22 +3,22 @@ vc_map(array(
     "name" => 'CMS Heading',
     "base" => "cms_heading",
     "icon" => "cs_icon_for_vc",
-    "category" => esc_html__('CmsSuperheroes Shortcodes', "wp-abtheme"),
+    "category" => esc_html__('CmsSuperheroes Shortcodes', "abtheme"),
     "params" => array(
         array(
             "type" => "textfield",
-            "heading" => esc_html__( 'Title', "wp-abtheme" ),
+            "heading" => esc_html__( 'Title', "abtheme" ),
             "param_name" => "hd_title",
             "value" => '',
             "admin_label" => true,
-            "group" => esc_html__("Heading Settings", "wp-abtheme")
+            "group" => esc_html__("Heading Settings", "abtheme")
         ),
         array(
             "type" => "colorpicker",
-            "heading" => esc_html__("Title Color","wp-abtheme"),
+            "heading" => esc_html__("Title Color","abtheme"),
             "param_name" => "title_color",
             "value" => "",
-            "group" => esc_html__("Heading Settings", "wp-abtheme"),
+            "group" => esc_html__("Heading Settings", "abtheme"),
             "dependency" => array(
                 "element"=>"cms_template",
                 "value"=>array(
@@ -29,7 +29,7 @@ vc_map(array(
         array(
             "type" => "dropdown",
             "class" => "",
-            "heading" => esc_html__("Heading tag", "wp-abtheme"),
+            "heading" => esc_html__("Heading tag", "abtheme"),
             "param_name" => "hd_tag",
             "value" => array(
                 "h1" => "h1",
@@ -42,14 +42,14 @@ vc_map(array(
                 "div" => "div",
             ),
             "std" => "h2",
-            "group" => esc_html__("Heading Settings", "wp-abtheme"),
+            "group" => esc_html__("Heading Settings", "abtheme"),
         ),
         array(
             "type" => "textfield",
-            "heading" => esc_html__( 'Title Font Size', "wp-abtheme" ),
+            "heading" => esc_html__( 'Title Font Size', "abtheme" ),
             "param_name" => "hd_title_font_size",
             "value" => '',
-            "group" => esc_html__("Heading Settings", "wp-abtheme"),
+            "group" => esc_html__("Heading Settings", "abtheme"),
             "description" => "Enter font size (Number Only)",
             "dependency" => array(
                 "element"=>"cms_template",
@@ -61,14 +61,14 @@ vc_map(array(
         array(
             "type" => "dropdown",
             "class" => "",
-            "heading" => esc_html__("Content Align", "wp-abtheme"),
+            "heading" => esc_html__("Content Align", "abtheme"),
             "param_name" => "content_align",
             "value" => array(
                 "Left" => "left",
                 "Center" => "center",
                 "Right" => "right"
             ),
-            "group" => esc_html__("Heading Settings", "wp-abtheme"),
+            "group" => esc_html__("Heading Settings", "abtheme"),
             "dependency" => array(
                 "element"=>"cms_template",
                 "value"=>array(
@@ -78,10 +78,10 @@ vc_map(array(
         ),
         array(
             "type" => "textarea",
-            "heading" => esc_html__( 'Description', "wp-abtheme" ),
+            "heading" => esc_html__( 'Description', "abtheme" ),
             "param_name" => "hd_description",
             "value" => '',
-            "group" => esc_html__("Heading Settings", "wp-abtheme"),
+            "group" => esc_html__("Heading Settings", "abtheme"),
             "dependency" => array(
                 "element"=>"cms_template",
                 "value"=>array(
@@ -94,9 +94,9 @@ vc_map(array(
             'type' => 'cms_template_img',
             'param_name' => 'cms_template',
             "shortcode" => "cms_heading",
-            "heading" => esc_html__("Heading Template","wp-abtheme"),
+            "heading" => esc_html__("Heading Template","abtheme"),
             "admin_label" => true,
-            "group" => esc_html__("Template", "wp-abtheme"),
+            "group" => esc_html__("Template", "abtheme"),
         ),
     )
 ));

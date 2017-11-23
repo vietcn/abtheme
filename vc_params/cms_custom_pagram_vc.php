@@ -5,7 +5,7 @@
 vc_add_param("vc_row", array(
     "type" => "dropdown",
     "class" => "",
-    "heading" => esc_html__("CMS Custom Style", 'wp-abtheme'),
+    "heading" => esc_html__("CMS Custom Style", 'abtheme'),
     "param_name" => "el_class",
     "value" => array(
         'None' => '',
