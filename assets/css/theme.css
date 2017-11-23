@@ -243,7 +243,6 @@ address {
 
 pre {
   background-color: rgba(0, 0, 0, 0.05);
-  font-family: ;
   font-size: 0.875em;
   line-height: 1.4;
   margin-bottom: 1.6em;
@@ -252,7 +251,6 @@ pre {
   padding: 1.6em; }
 
 code, kbd, tt, var {
-  font-family: ;
   font-size: 0.9375em; }
 
 abbr, acronym {
@@ -1710,7 +1708,7 @@ ul.back {
     margin-top: -15px; }
 
 a {
-  color: #7f0727; }
+  color: #32a0df; }
   a:focus {
     outline: thin dotted; }
   a:hover, a:active {

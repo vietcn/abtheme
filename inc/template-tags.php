@@ -42,7 +42,7 @@ function abtheme_primary_class( $sidebar_pos, $extra_class = '' )
 
         if ( $class )
         {
-            echo ' class="' . esc_html__( $class, 'abtheme' ) . '"';
+            echo ' class="' . esc_html($class) . '"';
         }
     }
 }
@@ -81,7 +81,7 @@ function abtheme_secondary_class( $sidebar_pos, $extra_class = '' )
         $class = implode(' ', array_filter($class));
 
         if ($class) {
-            echo ' class="' . esc_html__($class, 'abtheme') . '"';
+            echo ' class="' . esc_html($class) . '"';
         }
     }
 }
