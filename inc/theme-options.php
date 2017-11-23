@@ -836,17 +836,6 @@ Redux::setSection($opt_name, array(
     'subsection' => true,
     'fields'     => array(
         array(
-            'id'       => 'footer_bottom_layout',
-            'type'     => 'image_select',
-            'title'    => esc_html__('Layout', 'abtheme'),
-            'subtitle' => esc_html__('Select a layout for lower footer area.', 'abtheme'),
-            'options'  => array(
-                '1' => get_template_directory_uri() . '/assets/images/footer-bottom-01.png',
-                '2' => get_template_directory_uri() . '/assets/images/footer-bottom-02.png'
-            ),
-            'default'  => '1'
-        ),
-        array(
             'id'       => 'footer_bottom_paddings',
             'type'     => 'spacing',
             'title'    => esc_html__('Paddings', 'abtheme'),
