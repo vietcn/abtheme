@@ -916,7 +916,7 @@ Redux::setSection( $opt_name, array(
         ),
 
         array(
-            'id'        => 'textarea_csscode',
+            'id'        => 'site_css',
             'type'      => 'ace_editor',
             'title'     => esc_html__('CSS Code', 'abtheme'),
             'subtitle'  => esc_html__('Advanced CSS Options. You can paste your custom CSS Code here.', 'abtheme'),

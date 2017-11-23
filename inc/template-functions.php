@@ -271,7 +271,7 @@ function abtheme_css_minifier($css)
 function abtheme_header_code()
 {
     $site_header_code = abtheme_get_opt('site_header_code');
-    if ($site_header_code !== '') echo esc_attr($site_header_code);
+    if ($site_header_code !== '') print $site_header_code;
 }
 
 add_action('wp_head', 'abtheme_header_code');
@@ -282,7 +282,7 @@ add_action('wp_head', 'abtheme_header_code');
 function abtheme_footer_code()
 {
     $site_footer_code = abtheme_get_opt('site_footer_code');
-    if ($site_footer_code !== '') echo esc_attr($site_footer_code);
+    if ($site_footer_code !== '') print $site_footer_code;
 }
 
 add_action('wp_footer', 'abtheme_footer_code');
@@ -298,9 +298,9 @@ function abtheme_custom_css()
 
     if ($custom_css !== '') $styles .= $custom_css;
 
-    $css_output = "\n<style id=\"theme_option_custom_css\" type=\"text/css\">\n" . preg_replace('/\s+/', ' ', $styles) . "\n</style>\n";
+    $css_output = "\n<style type=\"text/css\">\n" . preg_replace('/\s+/', ' ', $styles) . "\n</style>\n";
 
-    if (!empty($custom_css)) echo esc_attr($css_output);
+    if (!empty($custom_css)) print $css_output;
 
 }
 
