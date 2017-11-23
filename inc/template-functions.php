@@ -264,3 +264,47 @@ function abtheme_css_minifier($css)
     $css = preg_replace('/#([a-f0-9])\\1([a-f0-9])\\2([a-f0-9])\\3/i', '#\1\2\3', $css);
     return trim($css);
 }
+
+/**
+ * Header Tracking Code to wp_head hook.
+ */
+function abtheme_header_code()
+{
+    global $abtheme_data;
+    $site_header_code = $abtheme_data('site_header_code');
+    if ($site_header_code !== '') echo esc_attr($site_header_code);
+}
+
+add_action('wp_head', 'abtheme_header_code');
+
+/**
+ * Footer Tracking Code to wp_footer hook.
+ */
+function abtheme_footer_code()
+{
+    global $abtheme_data;
+    $site_footer_code = $abtheme_data('site_footer_code');
+    if ($site_footer_code !== '') echo esc_attr($site_footer_code);
+}
+
+add_action('wp_footer', 'abtheme_footer_code');
+
+/**
+ * Custom CSS to wp_head hook.
+ */
+function abtheme_custom_css()
+{
+    global $abtheme_data;
+
+    $styles = null;
+    $custom_css = $abtheme_data('site_css');
+
+    if ($custom_css !== '') $styles .= $custom_css;
+
+    $css_output = "\n<style id=\"theme_option_custom_css\" type=\"text/css\">\n" . preg_replace('/\s+/', ' ', $styles) . "\n</style>\n";
+
+    if (!empty($custom_css)) echo esc_attr($css_output);
+
+}
+
+add_action('wp_head', 'abtheme_custom_css');

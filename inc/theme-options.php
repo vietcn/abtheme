@@ -878,3 +878,53 @@ Redux::setSection($opt_name, array(
         )
     )
 ));
+
+/* Custom Code /--------------------------------------------------------- */
+Redux::setSection( $opt_name, array(
+    'title'     => esc_html__('Custom Code', 'abtheme'),
+    'icon'      => 'el-icon-edit',
+    'fields'    => array(
+
+        array(
+            'id'       =>'site_header_code',
+            'type'     => 'textarea',
+            'theme'    => 'chrome',
+            'title'    => esc_html__('Header Custom Codes', 'abtheme'),
+            'subtitle' => esc_html__('It will insert the code to wp_head hook.', 'abtheme'),
+        ),
+        array(
+            'id'       =>'site_footer_code',
+            'type'     => 'textarea',
+            'theme'    => 'chrome',
+            'title'    => esc_html__('Footer Custom Codes', 'abtheme'),
+            'subtitle' => esc_html__('It will insert the code to wp_footer hook.) ', 'abtheme'),
+        ),
+
+    ),
+));
+
+/* Custom CSS /--------------------------------------------------------- */
+Redux::setSection( $opt_name, array(
+    'title'     => esc_html__('Custom CSS', 'abtheme'),
+    'icon'      => 'el-icon-adjust-alt',
+    'fields'    => array(
+
+        array(
+            'id'        => 'customcss',
+            'type'      => 'info',
+            'desc'      => esc_html__('Custom CSS', 'abtheme')
+        ),
+
+        array(
+            'id'        => 'textarea_csscode',
+            'type'      => 'ace_editor',
+            'title'     => esc_html__('CSS Code', 'abtheme'),
+            'subtitle'  => esc_html__('Advanced CSS Options. You can paste your custom CSS Code here.', 'abtheme'),
+            'mode'      => 'css',
+            'validate' => 'css',
+            'theme'     => 'chrome',
+            'default'   => ""
+        ),
+
+    ),
+));
