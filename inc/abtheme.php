@@ -59,11 +59,6 @@ class EFramework
             require_once $this->path('APP_DIR','includes/class-enqueue-scripts.php');
         }
 
-        if ( ! class_exists( 'EFramework_menu_handle' ) )
-        {
-            require_once $this->path('APP_DIR','includes/class-menu-hanlde.php');
-        }
-
         add_action( 'init', array( $this, 'init' ), 0 );
     }
 
@@ -75,14 +70,6 @@ class EFramework
      */
     function init()
     {
-        if ( apply_filters( 'abtheme_scssc_on', false ) )
-        {
-            // scss compiler library
-            if ( ! class_exists( 'scssc' ) )
-            {
-                require_once $this->path( 'APP_DIR', 'libraries/scss.inc.php' );
-            }
-        }
 
         if ( apply_filters( 'abtheme_widget_extends_on', true ) )
         {
