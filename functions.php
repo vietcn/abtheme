@@ -19,6 +19,9 @@ if ( ! function_exists( 'abtheme_setup' ) ) :
         // Make theme available for translation.
         load_theme_textdomain( 'abtheme', get_template_directory() . '/languages' );
 
+        // Custom Header
+        add_theme_support( "custom-header");
+
         // Add default posts and comments RSS feed links to head.
         add_theme_support( 'automatic-feed-links' );
 
