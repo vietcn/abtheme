@@ -1,19 +1,24 @@
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
-# Base
+# Normalize
+# Typography
+# Grid
+# Class
 # Forms
+# Button
 # Header
-# Navigations
-# Modules
+# Main Menu
+# Page Title & Breadcrumb
+# Post and Page
+# Navigation
+# Layout Content
 # Widgets
-# Common Content
 # Media
-# Loops
-# Singular
+# Singlular
 # Comments
 # Footer
-# Custom
+# VC Elements
 --------------------------------------------------------------*/
 @import "variables";
 @import "mixins";
@@ -25,7 +30,7 @@
 @import "normalize";
 
 /*--------------------------------------------------------------
-# Base
+# Typography
 --------------------------------------------------------------*/
 @import "typography";
 

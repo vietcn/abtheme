@@ -16,7 +16,7 @@ vc_map(array(
         array(
             "type" => "colorpicker",
             "heading" => esc_html__("Title Color","abtheme"),
-            "param_name" => "title_color",
+            "param_name" => "hd_title_color",
             "value" => "",
             "group" => esc_html__("Heading Settings", "abtheme"),
             "dependency" => array(
@@ -62,7 +62,7 @@ vc_map(array(
             "type" => "dropdown",
             "class" => "",
             "heading" => esc_html__("Content Align", "abtheme"),
-            "param_name" => "content_align",
+            "param_name" => "hd_content_align",
             "value" => array(
                 "Left" => "left",
                 "Center" => "center",
