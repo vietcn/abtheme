@@ -74,8 +74,8 @@ class Abtheme_CSS_Generator
         }
 
         $this->dev_mode = defined( 'WP_DEBUG' ) && WP_DEBUG;
-
-        if ( $this->dev_mode )
+//        $this->dev_mode = false;
+        if ( $this->dev_mode === true )
         {
             $this->generate_file();
         }
@@ -101,14 +101,14 @@ class Abtheme_CSS_Generator
         $this->redux->filesystem->execute( 'put_contents', $_options, array(
             'content' => $this->options_output()
         ) );
-
+        $css_file = $css_dir . 'theme.css';
         if ( ! $this->dev_mode )
         {
             $this->scssc->setFormatter( 'scss_formatter_compressed' );
+            $css_file = $css_dir . 'theme.min.css';
+        }else{
+            $this->scssc->setFormatter( 'scss_formatter' );
         }
-
-        $css_file = $css_dir . 'theme.css';
-
         $this->redux->filesystem->execute( 'put_contents', $css_file, array(
             'content' => $this->scssc->compile( '@import "theme.scss"' )
         ) );
