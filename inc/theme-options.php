@@ -123,6 +123,31 @@ $args = array(
 Redux::SetArgs($opt_name, $args);
 
 /*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+
+Redux::setSection($opt_name, array(
+    'title'  => esc_html__('General', 'abtheme'),
+    'icon'   => 'el-icon-home',
+    'fields' => array(
+        array(
+            'id'       => 'show_page_loading',
+            'type'     => 'switch',
+            'title'    => esc_html__('Enable Page Loading', 'abtheme'),
+            'subtitle' => esc_html__('Enable Page Loading Effect When You Load Site', 'abtheme'),
+            'default'  => false
+        ),
+        array(
+            'id'       => 'back_totop_on',
+            'type'     => 'switch',
+            'title'    => esc_html__('Back to Top Button', 'abtheme'),
+            'subtitle' => esc_html__('Show back to top button when scrolled down.', 'abtheme'),
+            'default'  => true
+        ),
+    )
+));
+
+/*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
 
@@ -782,13 +807,6 @@ Redux::setSection($opt_name, array(
             ),
             'output'   => array('.site-footer')
         ),
-        array(
-            'id'       => 'back_totop_on',
-            'type'     => 'switch',
-            'title'    => esc_html__('Back to Top Button', 'abtheme'),
-            'subtitle' => esc_html__('Show back to top button when scrolled down.', 'abtheme'),
-            'default'  => true
-        )
     )
 ));
 
