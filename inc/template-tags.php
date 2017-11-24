@@ -513,7 +513,7 @@ function abtheme_posts_pagination( $query = null )
  */
 function abtheme_posts_navigation( $query = null, $nav_type = '' )
 {
-    if ( ! $nav_type )
+    if ( empty($nav_type) )
     {
         $nav_type = abtheme_get_opt( 'archive_nav_type', 'default' );
     }
@@ -523,7 +523,6 @@ function abtheme_posts_navigation( $query = null, $nav_type = '' )
         case 'paged':
             abtheme_posts_pagination( $query );
             break;
-        
         default:
             the_post_navigation();
             break;
