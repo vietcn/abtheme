@@ -517,14 +517,13 @@ function abtheme_posts_navigation( $query = null, $nav_type = '' )
     {
         $nav_type = abtheme_get_opt( 'archive_nav_type', 'default' );
     }
-
     switch ( $nav_type )
     {
         case 'paged':
             abtheme_posts_pagination( $query );
             break;
         default:
-            the_post_navigation();
+            posts_nav_link('',esc_html__('Prev','abtheme'),esc_html__('Next','abtheme'));
             break;
     }
 }
