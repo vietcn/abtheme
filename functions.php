@@ -283,6 +283,20 @@ require_once get_template_directory() . '/inc/extends.php';
 require_once get_template_directory() . '/inc/snippets.php';
 
 /**
+ * woo_hide_page_title
+ *
+ * Removes the "shop" title on the main shop page
+ *
+ * @access      public
+ * @since       1.0
+ * @return      void
+ */
+function woo_hide_page_title() {
+    return false;
+}
+add_filter( 'woocommerce_show_page_title' , 'woo_hide_page_title' );
+
+/**
  * Custom post types and args based on eFramework.
  * require eFramework plugin
  */

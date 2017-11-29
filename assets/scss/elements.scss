@@ -1,3 +1,21 @@
+/* VC fixed mobile */
+@media (max-width: 767px){
+    .vc_column_container>.vc_column-inner{
+        padding-left: 15px!important;;
+        padding-right: 15px!important;
+    }
+    .entry-content .vc_row .vc_column_container{
+        margin-bottom: 30px;
+        &:last-child{
+            margin-bottom: 0;
+        }
+    }
+}
+.vc_row {
+    z-index: 10;
+}
+
+/* OWL theme */
 .owl-theme .owl-nav {
     margin-top: 10px;
     text-align: center;
