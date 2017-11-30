@@ -14,15 +14,4 @@
             ),
         ),
 	);
-
-	vc_remove_param('cms_carousel','cms_template');
-	$cms_template_attribute = array(
-		'type' => 'cms_template_img',
-	    'param_name' => 'cms_template',
-	    "shortcode" => "cms_carousel",
-	    "heading" => esc_html__("Shortcode Template",'abtheme'),
-	    "admin_label" => true,
-	    "group" => esc_html__("Template", 'abtheme'),
-		);
-	vc_add_param('cms_carousel',$cms_template_attribute);
 ?>

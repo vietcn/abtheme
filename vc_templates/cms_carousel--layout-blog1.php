@@ -5,7 +5,7 @@
     <?php if(!empty($carousel_title)) { ?>
         <h3><?php echo esc_attr($carousel_title); ?></h3>
     <?php } ?>
-    <div class="cms-carousel cms-carousel-blog-layout1 <?php echo esc_attr($atts['template']);?>" id="<?php echo esc_attr($atts['html_id']);?>">
+    <div class="cms-carousel owl-carousel owl-theme cms-carousel-layout2 <?php echo esc_attr($atts['template']);?>" data-margin="<?php echo esc_attr($atts['margin']); ?>" data-loop="<?php echo esc_attr($atts['loop']); ?>" data-nav="<?php echo esc_attr($atts['nav']); ?>" data-dots="<?php echo esc_attr($atts['dots']); ?>" data-autoplay="<?php echo esc_attr($atts['autoplay']); ?>" data-large-items="<?php echo esc_attr($atts['large_items']); ?>" data-medium-items="<?php echo esc_attr($atts['medium_items']); ?>" data-small-items="<?php echo esc_attr($atts['small_items']); ?>" data-xsmall-items="<?php echo esc_attr($atts['xsmall_items']); ?>">
         <?php
         $posts = $atts['posts'];
         while($posts->have_posts()){
@@ -17,7 +17,7 @@
                         if(has_post_thumbnail() && !post_password_required() && !is_attachment() &&  wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), $size, false)):
                             $class = ' has-feature-img';
                             $thumbnail_url = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), $size, false);
-                            $thumbnail = get_the_post_thumbnail(get_the_ID(),'abtheme_blog_size3');
+                            $thumbnail = get_the_post_thumbnail(get_the_ID(),'large');
                         else:
                             $class = ' no-feature-img';
                             $thumbnail_url[0] = get_template_directory_uri(). '/assets/images/no-image.jpg';
