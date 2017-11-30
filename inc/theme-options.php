@@ -131,6 +131,13 @@ Redux::setSection($opt_name, array(
     'icon'   => 'el-icon-home',
     'fields' => array(
         array(
+            'id'       => 'site_boxed',
+            'type'     => 'switch',
+            'title'    => esc_html__('Layout Boxed', 'abtheme'),
+            'subtitle' => esc_html__('Site will be boxed.', 'abtheme'),
+            'default'  => false
+        ),
+        array(
             'id'       => 'show_page_loading',
             'type'     => 'switch',
             'title'    => esc_html__('Enable Page Loading', 'abtheme'),

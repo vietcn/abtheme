@@ -22,10 +22,22 @@ add_action( 'after_setup_theme', 'abtheme_after_setup_theme' );
  */
 function abtheme_body_classes( $classes )
 {
+    // Adds a class of group-blog to blogs with more than 1 published author.
+    if (is_multi_author()) {
+        $classes[] = 'group-blog';
+    }
+
     // Adds a class of hfeed to non-singular pages.
-    if ( ! is_singular() )
-    {
+    if (!is_singular()) {
         $classes[] = 'hfeed';
+    }
+
+    if (abtheme_get_opt( 'site_boxed', false )) {
+        $classes[] = 'site-boxed';
+    }
+
+    if ( class_exists('WPBakeryVisualComposerAbstract') ) {
+        $classes[] = 'visual-composer';
     }
 
     return $classes;

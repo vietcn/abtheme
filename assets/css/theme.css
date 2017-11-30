@@ -75,6 +75,7 @@
 /*--------------------------------------------------------------
 # VC Elements
 --------------------------------------------------------------*/
+/* VC fixed mobile */
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -1803,6 +1804,10 @@ a:hover, a:active {
   clear: both;
   margin: 0 0 1.5em;
 }
+.site-boxed #page {
+  width: 1200px;
+  margin: 0 auto;
+}
 .loader {
   position: fixed;
   left: 0px;
@@ -1922,6 +1927,22 @@ a.scroll-top {
   position: fixed;
   right: 20px;
   bottom: 20px;
+}
+@media (max-width: 767px) {
+  .vc_column_container > .vc_column-inner {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+  .entry-content .vc_row .vc_column_container {
+    margin-bottom: 30px;
+  }
+  .entry-content .vc_row .vc_column_container:last-child {
+    margin-bottom: 0;
+  }
+}
+.vc_row {
+  z-index: 10;
+  /* OWL theme */
 }
 .owl-theme .owl-nav {
   margin-top: 10px;
