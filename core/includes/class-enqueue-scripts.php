@@ -19,8 +19,10 @@ if (!class_exists('EFramework_enqueue_scripts')) {
         public function abtheme_admin_enqueue_scripts()
         {
             global $pagenow;
-            if (!empty($pagenow) && ($pagenow === 'post.php' || $pagenow === 'post-new.php')) {
-                $post_format = !empty($_REQUEST['post']) ? get_post_format($_REQUEST['post']) : '';
+            if (!empty($pagenow) && ($pagenow === 'post.php' || $pagenow === 'post-new.php') && !empty($_REQUEST['post'])) {
+
+                $id = esc_attr(wp_unslash(intval($_REQUEST['post'])));
+                $post_format = get_post_format($id);
                 wp_enqueue_script('abtheme-meta-box.js', abtheme()->path('APP_URL') . '/assets/js/abtheme-meta-box'.Redux_Functions::isMin().'.js', '', 'all', true);
                 wp_localize_script('abtheme-meta-box.js', 'post_format', $post_format);
             }

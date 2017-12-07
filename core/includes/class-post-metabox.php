@@ -270,7 +270,7 @@ class EFramework_Post_Metabox
             }
 
             if (in_array($field['id'], $this->field_ids[$post_type])) {
-                trigger_error(sprintf(esc_html__('The field with id %1$s for post type %2$s is already registered.', 'abtheme'), esc_html($field['id']), esc_html($post_type)));
+                trigger_error(esc_html__('The field with id','abtheme').' '.esc_html($field['id']).' ' .esc_html__('for post type','abtheme').' '.esc_html($post_type).' '.esc_html__('is already registered.', 'abtheme'));
                 unset($section['fields'][$fkey]);
                 continue;
             }
@@ -284,7 +284,7 @@ class EFramework_Post_Metabox
 
         if (!empty($section['id'])) {
             if ($this->section_exist($section['id'], $post_type)) {
-                trigger_error(sprintf(esc_html__('Section %1$s for post type %2$s is already exist.', 'abtheme'), esc_html($field['id']), esc_html($post_type)));
+                trigger_error(esc_html__('Section','abtheme').' '.esc_html($field['id']).' ' .esc_html__('for post type','abtheme').' '.esc_html($post_type).' '.esc_html__('is already registered.', 'abtheme'));
                 return;
             } else {
                 $this->panels[$post_type]['sections'][$section['id']] = $section;
@@ -616,7 +616,7 @@ class EFramework_Post_Metabox
                 if ($post_id) {
                     $post_type = get_post_type($post_id);
                 } elseif (isset($_GET['post_type'])) {
-                    $post_type = $_GET['post_type'];
+                    $post_type = sanitize_text_field(wp_unslash($_GET['post_type']));
                 } else {
                     $post_type = 'post';
                 }
@@ -678,11 +678,10 @@ class EFramework_Post_Metabox
             return;
         }
 
-        if (!isset($_POST['srfmetabox_post_nonce']) || !wp_verify_nonce($_POST['srfmetabox_post_nonce'], 'srfmetabox_post_nonce_action')) {
+        if (!isset($_POST['srfmetabox_post_nonce']) ||!wp_verify_nonce(sanitize_key(wp_unslash($_POST['srfmetabox_post_nonce'])), 'srfmetabox_post_nonce_action')) {
             return;
         }
-
-        $post_type = $_POST['post_type'];
+        $post_type = sanitize_text_field(wp_unslash($_POST['post_type']));
         if (in_array($post_type, $this->post_types) && !empty($_POST[$this->panels[$post_type]['args']['opt_name']])) {
 
             $sections = $this->get_opt_sections($post_type);
@@ -692,7 +691,7 @@ class EFramework_Post_Metabox
             if (empty($sections) || empty($args)) {
                 return;
             }
-            foreach ($_POST[$args['opt_name']] as $key => $data) {
+            foreach (esc_attr(wp_unslash($_POST[$args['opt_name']])) as $key => $data) {
                 if (is_array($data)) {
                     foreach ($data as $dindex => $value) {
                         if (!is_array($value)) {
