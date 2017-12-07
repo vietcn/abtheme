@@ -288,12 +288,9 @@ if ( ! function_exists( 'abtheme_entry_comments_popup_link' ) ) :
         {
             echo '<div class="entry-comments-link"><i class="fa fa-comment"></i>';
             comments_popup_link(
-                sprintf(
-                    wp_kses(
-                        esc_html__( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'abtheme' ),
-                        array( 'span' => array( 'class' => array() ) )
-                    ),
-                    get_the_title()
+                wp_kses(
+                    esc_html__( 'Leave a Comment','abtheme').'<span class="screen-reader-text">'.' '.esc_html__('on','abtheme').' "'.get_the_title().'"</span>',
+                    array( 'span' => array( 'class' => array() ) )
                 ),
                 esc_html__( '1 Comment', 'abtheme' ), 
                 esc_html__( '% Comments', 'abtheme' )

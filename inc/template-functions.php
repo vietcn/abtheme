@@ -127,7 +127,7 @@ function abtheme_get_page_titles()
         } // Search result
         elseif (is_search()) {
             $title = esc_html__('Search results', 'abtheme');
-            $desc = sprintf(esc_html__('You searched for: "%s"', 'abtheme'),wp_kses_allowed_html(get_search_query()));
+            $desc = esc_html__('You searched for:','abtheme').' "'. get_search_query(). '" ';
         } // Anything else
         else {
             $title = get_the_title();
