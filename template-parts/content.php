@@ -20,7 +20,7 @@
                 foreach ($gallery_list as $img_id):
                     ?>
                     <div class="cms-carousel-item">
-                        <img src="<?php echo esc_url(wp_get_attachment_image_url($img_id));?>" alt="<?php echo get_post_meta( $img_id, '_wp_attachment_image_alt', true ) ?>">
+                        <img src="<?php echo esc_url(wp_get_attachment_image_url($img_id));?>" alt="<?php echo esc_attr(get_post_meta( $img_id, '_wp_attachment_image_alt', true )) ?>">
                     </div>
                     <?php
                 endforeach;
@@ -29,7 +29,7 @@
         <?php elseif (has_post_format('quote')) : ?>
             <?php
             $quote_text = abtheme_get_post_format_value('post-quote-cite', ''); //Value is string
-            echo $quote_text;
+            echo esc_attr($quote_text);
             ?>
         <?php elseif (has_post_format('link')) : ?>
             <?php
