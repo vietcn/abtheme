@@ -51,9 +51,9 @@ class Abtheme_Instagram_Widget extends WP_Widget
         $title = empty( $instance['title'] ) ? esc_html__( 'Instagram', 'abtheme' ) : $instance['title'];
         $title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
 
-        echo $args['before_widget'];
+        echo wp_kses_allowed_html($args['before_widget']);
 
-        echo $args['before_title'] . $title . $args['after_title'];
+        echo wp_kses_allowed_html($args['before_title']) . esc_attr($title) . wp_kses_allowed_html($args['after_title']);
 
         $instance['usr'] = trim( $instance['usr'] );
         $instance['usr_show'] = (bool) $instance['usr_show'];
@@ -70,7 +70,7 @@ class Abtheme_Instagram_Widget extends WP_Widget
         printf(
             '<ul class="images columns-%1$s"%2$s>',
             esc_attr( $instance['columns'] ),
-            $instance['space'] > 0 ? ' style="margin-left:-' . $instance['space'] . 'px;margin-bottom:-' . $instance['space'] . 'px"' : ''
+            esc_attr($instance['space']) > 0 ? ' style="margin-left:-' . esc_attr($instance['space']) . 'px;margin-bottom:-' . esc_attr($instance['space']) . 'px"' : ''
         );
 
         if ( ! empty( $instance['usr'] ) )
@@ -100,7 +100,7 @@ class Abtheme_Instagram_Widget extends WP_Widget
 
                     printf(
                         '<li class="image-holder" %s>',
-                        $instance['space'] > 0 ? ' style="padding-left:' . $instance['space'] . 'px;padding-bottom:' . $instance['space'] . 'px;"' : ''
+                        esc_attr($instance['space']) > 0 ? ' style="padding-left:' . esc_attr($instance['space']) . 'px;padding-bottom:' . esc_attr($instance['space']) . 'px;"' : ''
                     );
 
                     if ( $instance['image_link'] )
@@ -137,7 +137,7 @@ class Abtheme_Instagram_Widget extends WP_Widget
                 esc_html( $instance['usr'] )
             );
         }
-        echo $args['after_widget'];
+        echo wp_kses_allowed_html($args['after_widget']);
     }         
     
 

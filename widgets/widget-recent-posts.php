@@ -132,7 +132,7 @@ class Abtheme_Recent_Posts_Widget extends WP_Widget
 
                     if ( $post_meta )
                     {
-                        printf( '<div class="entry-meta">%s</div>', $post_meta );
+                        printf( '<div class="entry-meta">%s</div>', esc_attr($post_meta) );
                     }
                 }
                 echo '</div>';
