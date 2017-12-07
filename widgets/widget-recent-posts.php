@@ -39,9 +39,9 @@ class Abtheme_Recent_Posts_Widget extends WP_Widget
         $title = empty( $instance['title'] ) ? esc_html__( 'Recent Posts', 'abtheme' ) : $instance['title'];
         $title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
 
-        echo $args['before_widget'];
+        echo wp_kses_post($args['before_widget']);
 
-        echo $args['before_title'] . $title . $args['after_title'];
+        echo wp_kses_post($args['before_title']) . wp_kses_post($title) . wp_kses_post($args['after_title']);
 
         $number = absint( $instance['number'] );
         if ( $number <= 0 || $number > 10)
@@ -145,7 +145,7 @@ class Abtheme_Recent_Posts_Widget extends WP_Widget
 
         wp_reset_postdata();
 
-        echo $args['after_widget'];
+        echo wp_kses_post($args['after_widget']);
     }
 
     /**
