@@ -18,7 +18,7 @@
         </div>
         <?php
         if (!empty($export_mode)) {
-            include_once abtheme()->path('APP_DIR', 'templates/dashboard/export-page.php');
+            get_template_part('core/templates/dashboard/export-page.php');
         }
         ?>
     </div>
