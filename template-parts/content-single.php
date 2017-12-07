@@ -47,7 +47,7 @@
             } elseif (!empty($video_file)) {
                 if (strpos('[embed', $video_file)) {
                     global $wp_embed;
-                    echo $wp_embed->run_shortcode($video_file);
+                    echo wp_kses_allowed_html($wp_embed->run_shortcode($video_file));
                 } else {
                     echo do_shortcode($video_file);
                 }

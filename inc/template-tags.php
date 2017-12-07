@@ -141,7 +141,7 @@ function abtheme_breadcrumb()
 
     if ( $output )
     {
-        printf( '<ul class="breadcrumb">%s</ul>', $output );
+        printf( '<ul class="breadcrumb">%s</ul>', wp_kses_allowed_html($output) );
     }
 }
 
@@ -224,7 +224,7 @@ if ( ! function_exists( 'abtheme_entry_posted_on' ) ) :
                 <a href="%1$s" rel="bookmark">%2$s</a>
             </div>',
             esc_url( get_permalink() ),
-            $time_string
+            wp_kses_allowed_html($time_string)
         );
     }
 endif;
@@ -247,7 +247,7 @@ if ( ! function_exists( 'abtheme_entry_posted_in' ) ) :
                     %2$s
                 </div>',
                 esc_html__( 'Posted in: ', 'abtheme' ),
-                $categories_list
+                esc_attr($categories_list)
             );
         }
     }
@@ -271,7 +271,7 @@ if ( ! function_exists( 'abtheme_entry_tagged_in' ) ) :
                     %2$s
                 </div>',
                 esc_html__( 'Tagged in: ', 'abtheme' ),
-                $tags_list
+                esc_attr($tags_list)
             );
         }
     }
@@ -290,7 +290,7 @@ if ( ! function_exists( 'abtheme_entry_comments_popup_link' ) ) :
             comments_popup_link(
                 sprintf(
                     wp_kses(
-                        __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'abtheme' ),
+                        esc_html__( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'abtheme' ),
                         array( 'span' => array( 'class' => array() ) )
                     ),
                     get_the_title()
@@ -344,7 +344,7 @@ if ( ! function_exists( 'abtheme_entry_excerpt' ) ) :
      */
     function abtheme_entry_excerpt( $length = 55 )
     {
-        echo abtheme_get_the_excerpt( $length );
+        echo wp_kses_post(abtheme_get_the_excerpt( $length ));
     }
 endif;
 
@@ -415,7 +415,7 @@ if ( ! function_exists( 'abtheme_entry_meta' ) ) :
 
         if ( $output )
         {
-            printf( '<div class="entry-meta">%s</div>', $output );
+            printf( '<div class="entry-meta">%s</div>', wp_kses_allowed_html($output ));
         }
     }
 endif;
@@ -496,9 +496,9 @@ function abtheme_posts_pagination( $query = null )
     if ( $links )
     {
         printf(
-            $template,
+            wp_kses_allowed_html($template),
             esc_html__( 'Navigation', 'abtheme' ),
-            $links
+            wp_kses_allowed_html($links)
         );
     }
 }

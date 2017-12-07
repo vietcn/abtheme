@@ -39,7 +39,7 @@
                 $groups[] = '"category-'.$category->slug.'"';
             }
             ?>
-            <div class="cms-grid-item <?php echo esc_attr($atts['item_class']);?>" data-groups='[<?php echo implode(',', $groups);?>]'>
+            <div class="cms-grid-item <?php echo esc_attr($atts['item_class']);?>" data-groups='[<?php echo esc_attr(implode(',', $groups));?>]'>
                 <?php 
                     if(has_post_thumbnail() && !post_password_required() && !is_attachment() &&  wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), $size, false)):
                         $class = ' has-thumbnail';
@@ -48,7 +48,7 @@
                         $class = ' no-image';
                         $thumbnail = '<img src="'.esc_url(CMS_IMAGES).'no-image.jpg" alt="'.get_the_title().'" />';
                     endif;
-                    echo '<div class="cms-grid-media '.esc_attr($class).'">'.$thumbnail.'</div>';
+                    echo '<div class="cms-grid-media '.esc_attr($class).'">'.wp_kses_allowed_html($thumbnail).'</div>';
                 ?>
                 <div class="cms-grid-title">
                     <?php the_title();?>

@@ -30,7 +30,7 @@
             <div class="cms-progress-content">
                 <?php if($item_title):?>
                     <h3 class="cms-progress-title ft-nvsb">
-                        <?php echo apply_filters('the_title',$item_title);?>
+                        <?php echo esc_attr(apply_filters('the_title',$item_title));?>
                     </h3>
                 <?php endif;?>
                 <div class="cms-progress progress">

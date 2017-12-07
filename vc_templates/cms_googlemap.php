@@ -109,5 +109,5 @@ $setting = array(
 ?>
 
 <div class="cs_extra_map">
-	<div class="map-render" <?php echo implode(' ', $setting); ?> style="width:<?php echo esc_attr($width); ?>;height: <?php echo esc_attr($height); ?>"></div>
+	<div class="map-render" <?php echo esc_attr(implode(' ', $setting)); ?> style="width:<?php echo esc_attr($width); ?>;height: <?php echo esc_attr($height); ?>"></div>
 </div>

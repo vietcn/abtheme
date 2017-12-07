@@ -72,7 +72,7 @@ else
     $description = get_bloginfo( 'description', 'display' );
     if ( $description || is_customize_preview() )
     {
-        printf( '<p class="site-description">%s</p>', $description );
+        printf( '<p class="site-description">%s</p>', esc_attr($description) );
     }
 }
 

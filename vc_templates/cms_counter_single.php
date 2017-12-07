@@ -33,7 +33,7 @@
             </div>
             <?php if($atts['c_title']):?>
                 <span class="cms-counter-title" style="font-size: <?php echo esc_attr($title_fontsize); ?>; margin: <?php echo esc_attr($title_margin); ?>; color: <?php echo esc_attr($title_color)?>">
-                    <?php echo apply_filters('the_title',$atts['c_title']);?>
+                    <?php echo esc_attr(apply_filters('the_title',$atts['c_title']));?>
                 </span>
             <?php endif;?>
         </div>

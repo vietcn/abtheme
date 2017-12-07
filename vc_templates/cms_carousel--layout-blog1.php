@@ -33,7 +33,7 @@
                                 <li class="detail-date"><?php the_date(); ?></li>
                             </ul>
                             <div class="entry-feature">
-                                <a href="<?php the_permalink(); ?>"><?php echo ''.$thumbnail.''; ?></a>
+                                <a href="<?php the_permalink(); ?>"><?php echo ''.wp_kses_allowed_html($thumbnail); ?></a>
                             </div>
                         </div>
                         <div class="entry-body">
@@ -41,7 +41,7 @@
                                 <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                             </h3>
                             <div class="entry-content">
-                                <?php echo substr(strip_tags(strip_shortcodes(get_the_content())), 0,118); ?>...
+                                <?php echo esc_attr(substr(strip_tags(strip_shortcodes(get_the_content())), 0,118)); ?>...
                             </div>
                             <div class="entry-readmore">
                                 <a href="<?php the_permalink(); ?>"><?php echo esc_html__('Read more', 'abtheme'); ?></a>

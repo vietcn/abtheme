@@ -120,9 +120,9 @@ class EFramework
         echo '<p>';
         printf(
             esc_html__( '%1$s require %2$s installed and activated. Please active %3$s plugin', 'abtheme' ),
-            $theme_name,
-            $redux_name,
-            $redux_name
+            esc_attr($theme_name),
+            esc_attr($redux_name),
+            esc_attr($redux_name)
         );
         echo '</p>';
         printf( '<button type="button" class="notice-dismiss"><span class="screen-reader-text">%s</span></button>', esc_html__( 'Dismiss this notice.', 'abtheme' ) );

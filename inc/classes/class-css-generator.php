@@ -159,14 +159,14 @@ class Abtheme_CSS_Generator
 
         if ( is_array( $v ) && ! empty( $v['height'] ) )
         {
-            printf( '.site-branding .logo-link img { max-height: %s; }', $v['height'] );
+            printf( '.site-branding .logo-link img { max-height: %s; }', esc_attr($v['height']) );
         }
 
         $v = abtheme_get_opt( 'sticky_logo_maxh', array( 'height' => '100px' ) );
 
         if ( is_array( $v ) && ! empty( $v['height'] ) )
         {
-            printf( '.site-branding .sticky-logo-link img { max-height: %s; }', $v['height'] );
+            printf( '.site-branding .sticky-logo-link img { max-height: %s; }', esc_attr($v['height']) );
         }
 
         // Menu links color for both theme options and page
@@ -203,7 +203,7 @@ class Abtheme_CSS_Generator
         {
             if ( ! empty( $v['regular'] ) && abtheme_is_valid_color( $v['regular'] ) )
             {
-                printf( '.primary-menu a { color: %s; }', $v['regular'] );
+                printf( '.primary-menu a { color: %s; }', esc_attr($v['regular']) );
             }
             if ( ! empty( $v['hover'] ) && abtheme_is_valid_color( $v['hover'] ) )
             {
@@ -214,7 +214,7 @@ class Abtheme_CSS_Generator
                     .primary-menu a:focus {
                         color: %s;
                     }',
-                    $v['hover']
+                    esc_attr($v['hover'])
                 );
             }
             if ( ! empty( $v['active'] ) && abtheme_is_valid_color( $v['active'] ) )
@@ -227,7 +227,7 @@ class Abtheme_CSS_Generator
                     .primary-menu a:active {
                         color: %s;
                     }',
-                    $v['active']
+                    esc_attr($v['active'])
                 );
             }
         }

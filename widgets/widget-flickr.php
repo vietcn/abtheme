@@ -49,9 +49,9 @@ class Abtheme_Flickr_Widget extends WP_Widget
         $title = empty( $instance['title'] ) ? 'Flickr' : $instance['title'];
         $title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
 
-        echo $args['before_widget'];
+        echo esc_attr($args['before_widget']);
 
-        echo $args['before_title'] . $title . $args['after_title'];
+        echo esc_attr($args['before_title']) . esc_attr($title) . esc_attr($args['after_title']);
 
         $instance['usr'] = trim( $instance['usr'] );
         $instance['number'] = absint( $instance['number'] );
@@ -65,7 +65,7 @@ class Abtheme_Flickr_Widget extends WP_Widget
         printf(
             '<ul class="images columns-%1$s"%2$s>',
             esc_attr( $instance['columns'] ),
-            $instance['space'] > 0 ? ' style="margin-left:-' . $instance['space'] . 'px;margin-bottom:-' . $instance['space'] . 'px"' : ''
+            esc_attr($instance['space']) > 0 ? ' style="margin-left:-' . esc_attr($instance['space']) . 'px;margin-bottom:-' . esc_attr($instance['space']) . 'px"' : ''
         );
 
         if ( ! empty( $instance['usr'] ) )
@@ -89,7 +89,7 @@ class Abtheme_Flickr_Widget extends WP_Widget
 
                     printf(
                         '<li class="image-holder" %s>',
-                        $instance['space'] > 0 ? ' style="padding-left:' . $instance['space'] . 'px;padding-bottom:' . $instance['space'] . 'px;"' : ''
+                        esc_attr($instance['space']) > 0 ? ' style="padding-left:' . esc_attr($instance['space']) . 'px;padding-bottom:' . esc_attr($instance['space']) . 'px;"' : ''
                     );
 
                     printf(
@@ -108,7 +108,7 @@ class Abtheme_Flickr_Widget extends WP_Widget
         echo '</ul>';
         echo '</div>';
 
-        echo $args['after_widget'];
+        echo esc_attr($args['after_widget']);
     }         
     
 

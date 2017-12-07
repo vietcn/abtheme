@@ -27,12 +27,12 @@
         <div class="cms-fancybox-right">
             <?php if($atts['title_item']):?>
                 <h3 class="cms-fancybox-title">
-                    <?php echo apply_filters('the_title',$atts['title_item']);?>
+                    <?php echo esc_attr(apply_filters('the_title',$atts['title_item']));?>
                 </h3>
             <?php endif;?>
             <?php if($atts['description_item']): ?>
                 <div class="cms-fancybox-content">
-                    <?php echo apply_filters('the_content',$atts['description_item']);?>
+                    <?php echo esc_attr(apply_filters('the_content',$atts['description_item']));?>
                 </div>
             <?php endif; ?>
 
