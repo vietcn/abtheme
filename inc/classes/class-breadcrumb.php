@@ -320,8 +320,7 @@ class Abtheme_Breadcrumb
     {
         $queried_object = $GLOBALS['wp_query']->get_queried_object();
         $this->add_entry(
-            sprintf( esc_html__( 'Tag: &#8220;%s&#8221;', 'abtheme' ),
-                single_tag_title( '', false ) ), get_tag_link( $queried_object->term_id )
+            esc_html__( 'Tag:', 'abtheme' ).' '.single_tag_title( '', false ) ).' '.get_tag_link( $queried_object->term_id
         );
     }
 
@@ -337,8 +336,7 @@ class Abtheme_Breadcrumb
         global $author;
         $userdata = get_userdata( $author );
         $this->add_entry(
-            sprintf( esc_html__( 'Author: %s', 'abtheme' ),
-                $userdata->display_name )
+            esc_html__( 'Author:', 'abtheme' ).' '.$userdata->display_name
         );
     }
 
