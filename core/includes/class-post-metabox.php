@@ -691,7 +691,7 @@ class EFramework_Post_Metabox
             if (empty($sections) || empty($args)) {
                 return;
             }
-            foreach (esc_attr(wp_unslash($_POST[$args['opt_name']])) as $key => $data) {
+            foreach ($_POST[$args['opt_name']] as $key => $data) {
                 if (is_array($data)) {
                     foreach ($data as $dindex => $value) {
                         if (!is_array($value)) {
