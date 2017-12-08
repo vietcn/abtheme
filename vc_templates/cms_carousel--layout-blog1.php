@@ -33,7 +33,7 @@
                                 <li class="detail-date"><?php the_date(); ?></li>
                             </ul>
                             <div class="entry-feature">
-                                <a href="<?php the_permalink(); ?>"><?php echo ''.wp_kses_allowed_html($thumbnail); ?></a>
+                                <a href="<?php the_permalink(); ?>"><?php echo ''.wp_kses($thumbnail,wp_kses_allowed_html()); ?></a>
                             </div>
                         </div>
                         <div class="entry-body">

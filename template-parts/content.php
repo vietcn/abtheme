@@ -44,17 +44,17 @@
             $video = '';
             if (!empty($video_url)) {
                 global $wp_embed;
-                echo wp_kses_allowed_html($wp_embed->run_shortcode('[embed]' . $video_url . '[/embed]'));
+                echo wp_kses($wp_embed->run_shortcode('[embed]' . $video_url . '[/embed]'),wp_kses_allowed_html());
             } elseif (!empty($video_file)) {
                 if (strpos('[embed', $video_file)) {
                     global $wp_embed;
-                    echo wp_kses_allowed_html( $wp_embed->run_shortcode($video_file));
+                    echo wp_kses( $wp_embed->run_shortcode($video_file),wp_kses_allowed_html());
                 } else {
                     echo do_shortcode($video_file);
                 }
             } else {
                 if ('' != $video_html) {
-                    $my_allowed = wp_kses_allowed_html('post');
+                    $my_allowed = wp_kses('post',wp_kses_allowed_html());
 
                     $my_allowed['iframe'] = array(
                         'align'        => true,

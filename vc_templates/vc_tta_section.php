@@ -41,4 +41,4 @@ if ( $isPageEditable ) {
 $output .= '</div>';
 $output .= '</div>';
 
-echo wp_kses_allowed_html($output);
+echo wp_kses($output,wp_kses_allowed_html());

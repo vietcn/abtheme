@@ -35,7 +35,7 @@ if ( ! $titles_html )
     <div class="container page-title-container">
         <div class="row">
             <?php
-                printf( '<div class="page-title-titles col-md-6">%s</div>', wp_kses_allowed_html($titles_html ));
+                printf( '<div class="page-title-titles col-md-6">%s</div>', wp_kses($titles_html,wp_kses_allowed_html()));
                 echo '<div class="page-title-breadcrumb col-md-6">';
                     abtheme_breadcrumb();
                 echo '</div>';

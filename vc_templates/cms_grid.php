@@ -48,7 +48,7 @@
                         $class = ' no-image';
                         $thumbnail = '<img src="'.esc_url(CMS_IMAGES).'no-image.jpg" alt="'.get_the_title().'" />';
                     endif;
-                    echo '<div class="cms-grid-media '.esc_attr($class).'">'.wp_kses_allowed_html($thumbnail).'</div>';
+                    echo '<div class="cms-grid-media '.esc_attr($class).'">'.wp_kses($thumbnail,wp_kses_allowed_html()).'</div>';
                 ?>
                 <div class="cms-grid-title">
                     <?php the_title();?>

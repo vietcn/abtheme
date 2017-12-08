@@ -271,7 +271,7 @@ function abtheme_css_minifier($css)
 function abtheme_header_code()
 {
     $site_header_code = abtheme_get_opt('site_header_code');
-    if ($site_header_code !== '') print wp_kses_allowed_html($site_header_code);
+    if ($site_header_code !== '') print wp_kses($site_header_code,wp_kses_allowed_html());
 }
 
 add_action('wp_head', 'abtheme_header_code');
@@ -282,7 +282,7 @@ add_action('wp_head', 'abtheme_header_code');
 function abtheme_footer_code()
 {
     $site_footer_code = abtheme_get_opt('site_footer_code');
-    if ($site_footer_code !== '') print wp_kses_allowed_html($site_footer_code);
+    if ($site_footer_code !== '') print wp_kses($site_footer_code,wp_kses_allowed_html());
 }
 
 add_action('wp_footer', 'abtheme_footer_code');
@@ -300,7 +300,7 @@ function abtheme_custom_css()
 
     $css_output = "\n<style type=\"text/css\">\n" . preg_replace('/\s+/', ' ', $styles) . "\n</style>\n";
 
-    if (!empty($custom_css)) print wp_kses_allowed_html($css_output);
+    if (!empty($custom_css)) print wp_kses($css_output,wp_kses_allowed_html());
 
 }
 

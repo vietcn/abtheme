@@ -39,6 +39,6 @@ if ( ! $titles_html )
 ?>
 <div id="pagetitle" class="page-title page-title-layout1">
     <div class="container page-title-container">
-        <?php printf( '<div class="page-title-content">%s</div>', wp_kses_allowed_html($titles_html )); ?>
+        <?php printf( '<div class="page-title-content">%s</div>', wp_kses($titles_html ,wp_kses_allowed_html())); ?>
     </div>
 </div>

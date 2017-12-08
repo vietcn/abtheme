@@ -141,7 +141,7 @@ function abtheme_breadcrumb()
 
     if ( $output )
     {
-        printf( '<ul class="breadcrumb">%s</ul>', wp_kses_allowed_html($output) );
+        printf( '<ul class="breadcrumb">%s</ul>', wp_kses($output,wp_kses_allowed_html()) );
     }
 }
 
@@ -224,7 +224,7 @@ if ( ! function_exists( 'abtheme_entry_posted_on' ) ) :
                 <a href="%1$s" rel="bookmark">%2$s</a>
             </div>',
             esc_url( get_permalink() ),
-            wp_kses_allowed_html($time_string)
+            wp_kses($time_string,wp_kses_allowed_html())
         );
     }
 endif;
@@ -412,7 +412,7 @@ if ( ! function_exists( 'abtheme_entry_meta' ) ) :
 
         if ( $output )
         {
-            printf( '<div class="entry-meta">%s</div>', wp_kses_allowed_html($output ));
+            printf( '<div class="entry-meta">%s</div>', wp_kses($output,wp_kses_allowed_html()));
         }
     }
 endif;
@@ -493,7 +493,7 @@ function abtheme_posts_pagination( $query = null )
     if ( $links )
     {
         printf(
-            wp_kses_allowed_html($template),
+            wp_kses($template,wp_kses_allowed_html()),
             esc_html__( 'Navigation', 'abtheme' ),
             wp_kses_allowed_html($links)
         );
