@@ -247,7 +247,7 @@ if ( ! function_exists( 'abtheme_entry_posted_in' ) ) :
                     %2$s
                 </div>',
                 esc_html__( 'Posted in: ', 'abtheme' ),
-                esc_attr($categories_list)
+                esc_url($categories_list)
             );
         }
     }
@@ -271,7 +271,7 @@ if ( ! function_exists( 'abtheme_entry_tagged_in' ) ) :
                     %2$s
                 </div>',
                 esc_html__( 'Tagged in: ', 'abtheme' ),
-                esc_attr($tags_list)
+                $tags_list
             );
         }
     }
