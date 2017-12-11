@@ -19,7 +19,7 @@ if (!class_exists('EFramework_enqueue_scripts')) {
         public function abtheme_admin_enqueue_scripts()
         {
             global $pagenow;
-            if (!empty($pagenow) && ($pagenow === 'post.php' || $pagenow === 'post-new.php') && !empty($_REQUEST['post'])) {
+            if (!empty($pagenow) && ($pagenow === 'post.php' && !empty($_REQUEST['post'])) || $pagenow === 'post-new.php') {
 
                 $id = esc_attr(wp_unslash(intval($_REQUEST['post'])));
                 $post_format = get_post_format($id);
