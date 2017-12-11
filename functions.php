@@ -310,13 +310,13 @@ add_filter('woocommerce_show_page_title', 'woo_hide_page_title');
  * Custom post types and args based on eFramework.
  * require eFramework plugin
  */
-//add_filter('cmssuperheroes_extra_post_types', 'cmssuperheroes_extra_post_types_func' );
+add_filter('cmssuperheroes_extra_post_types', 'cmssuperheroes_extra_post_types_func_1' );
 function cmssuperheroes_extra_post_types_func_1($post_types)
 {
     return array('portfolio' => true, 'team_member' => true);
 }
 
-//add_filter('cmssuperheroes_extra_post_types', 'cmssuperheroes_extra_post_types_func');
+add_filter('cmssuperheroes_extra_post_types', 'cmssuperheroes_extra_post_types_func_2');
 function cmssuperheroes_extra_post_types_func_2($args) {
     $args['labels']['menu_name'] = 'Portfolio Test Filter';
     return $args;
