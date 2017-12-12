@@ -307,8 +307,8 @@ function woo_hide_page_title()
 add_filter('woocommerce_show_page_title', 'woo_hide_page_title');
 
 /**
- * Custom post types and args based on eFramework.
- * require eFramework plugin
+ * Custom post types and args based on plugin.
+ * require plugin
  */
 add_filter('cmssuperheroes_extra_post_types', 'cmssuperheroes_extra_post_types_func_1' );
 function cmssuperheroes_extra_post_types_func_1($post_types)
