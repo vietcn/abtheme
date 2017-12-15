@@ -18,7 +18,7 @@ $args = array(
     // Name that appears at the top of your panel
     'display_version'      => $theme->get('Version'),
     // Version that appears at the top of your panel
-    'menu_type'            => 'submenu',
+    'menu_type'            => is_plugin_active('cmssuperheroes/cmssuperheroes.php') ? 'submenu' : '',
     //Specify if the admin menu should appear or not. Options: menu or submenu (Under appearance only)
     'allow_sub_menu'       => true,
     // Show the sections below the admin menu item or not
@@ -53,7 +53,7 @@ $args = array(
     // OPTIONAL -> Give you extra features
     'page_priority'        => null,
     // Order where the menu appears in the admin area. If there is any conflict, something will not show. Warning.
-    'page_parent'          => $theme->get('TextDomain'),
+    'page_parent'          => is_plugin_active('cmssuperheroes/cmssuperheroes.php') ? $theme->get('TextDomain') : '',
     // For a full list of options, visit: http://codex.wordpress.org/Function_Reference/add_submenu_page#Parameters
     'page_permissions'     => 'manage_options',
     // Permissions needed to access the options panel.
@@ -320,7 +320,7 @@ Redux::setSection($opt_name, array(
                 'right'  => '5',
                 'bottom' => '5',
                 'left'   => '5',
-                'units'         => 'px',
+                'units'  => 'px',
             )
         ),
         array(
@@ -344,10 +344,10 @@ Redux::setSection($opt_name, array(
             'title'    => esc_html__('Breadcrumb Link Colors', 'abtheme'),
             'subtitle' => esc_html__('Select link colors for breadcrumb', 'abtheme'),
             'default'  => array(
-                'regular'  => '#1e73be', // blue
-                'hover'    => '#dd3333', // red
-                'active'   => '#8224e3',  // purple
-                'visited'  => '#8224e3',  // purple
+                'regular' => '#1e73be', // blue
+                'hover'   => '#dd3333', // red
+                'active'  => '#8224e3',  // purple
+                'visited' => '#8224e3',  // purple
             ),
             'required' => array('breadcrumb_on', '=', true)
         )
@@ -533,7 +533,6 @@ Redux::setSection($opt_name, array(
 ));
 
 
-
 /*--------------------------------------------------------------
 # Portfolio
 --------------------------------------------------------------*/
@@ -543,10 +542,10 @@ Redux::setSection($opt_name, array(
     'icon'   => 'el el-th',
     'fields' => array(
         array(
-            'id'       => 'portfolio_slug',
-            'type'     => 'text',
-            'title'    => esc_html__('Portfolio slug rewrite', 'abtheme'),
-            'default' => esc_html__('portfolio','abtheme')
+            'id'      => 'portfolio_slug',
+            'type'    => 'text',
+            'title'   => esc_html__('Portfolio slug rewrite', 'abtheme'),
+            'default' => esc_html__('portfolio', 'abtheme')
         ),
     )
 ));
@@ -700,86 +699,86 @@ Redux::setSection($opt_name, array(
 
 /* Social Media */
 Redux::setSection($opt_name, array(
-    'title' => esc_html__('Social Media', 'abtheme'),
-    'icon' => 'el el-twitter',
+    'title'      => esc_html__('Social Media', 'abtheme'),
+    'icon'       => 'el el-twitter',
     'subsection' => false,
-    'fields' => array(
+    'fields'     => array(
         array(
-            'id' => 'social_facebook_url',
-            'type' => 'text',
-            'title' => esc_html__('Facebook URL', 'abtheme'),
+            'id'      => 'social_facebook_url',
+            'type'    => 'text',
+            'title'   => esc_html__('Facebook URL', 'abtheme'),
             'default' => '',
         ),
         array(
-            'id' => 'social_twitter_url',
-            'type' => 'text',
-            'title' => esc_html__('Twitter URL', 'abtheme'),
+            'id'      => 'social_twitter_url',
+            'type'    => 'text',
+            'title'   => esc_html__('Twitter URL', 'abtheme'),
             'default' => '',
         ),
         array(
-            'id' => 'social_inkedin_url',
-            'type' => 'text',
-            'title' => esc_html__('Inkedin URL', 'abtheme'),
+            'id'      => 'social_inkedin_url',
+            'type'    => 'text',
+            'title'   => esc_html__('Inkedin URL', 'abtheme'),
             'default' => '',
         ),
         array(
-            'id' => 'social_rss_url',
-            'type' => 'text',
-            'title' => esc_html__('Rss URL', 'abtheme'),
+            'id'      => 'social_rss_url',
+            'type'    => 'text',
+            'title'   => esc_html__('Rss URL', 'abtheme'),
             'default' => '',
         ),
         array(
-            'id' => 'social_instagram_url',
-            'type' => 'text',
-            'title' => esc_html__('Instagram URL', 'abtheme'),
+            'id'      => 'social_instagram_url',
+            'type'    => 'text',
+            'title'   => esc_html__('Instagram URL', 'abtheme'),
             'default' => '',
         ),
         array(
-            'id' => 'social_google_url',
-            'type' => 'text',
-            'title' => esc_html__('Google URL', 'abtheme'),
+            'id'      => 'social_google_url',
+            'type'    => 'text',
+            'title'   => esc_html__('Google URL', 'abtheme'),
             'default' => '',
         ),
         array(
-            'id' => 'social_skype_url',
-            'type' => 'text',
-            'title' => esc_html__('Skype URL', 'abtheme'),
+            'id'      => 'social_skype_url',
+            'type'    => 'text',
+            'title'   => esc_html__('Skype URL', 'abtheme'),
             'default' => '',
         ),
         array(
-            'id' => 'social_pinterest_url',
-            'type' => 'text',
-            'title' => esc_html__('Pinterest URL', 'abtheme'),
+            'id'      => 'social_pinterest_url',
+            'type'    => 'text',
+            'title'   => esc_html__('Pinterest URL', 'abtheme'),
             'default' => '',
         ),
         array(
-            'id' => 'social_vimeo_url',
-            'type' => 'text',
-            'title' => esc_html__('Vimeo URL', 'abtheme'),
+            'id'      => 'social_vimeo_url',
+            'type'    => 'text',
+            'title'   => esc_html__('Vimeo URL', 'abtheme'),
             'default' => '',
         ),
         array(
-            'id' => 'social_youtube_url',
-            'type' => 'text',
-            'title' => esc_html__('Youtube URL', 'abtheme'),
+            'id'      => 'social_youtube_url',
+            'type'    => 'text',
+            'title'   => esc_html__('Youtube URL', 'abtheme'),
             'default' => '',
         ),
         array(
-            'id' => 'social_yelp_url',
-            'type' => 'text',
-            'title' => esc_html__('Yelp URL', 'abtheme'),
+            'id'      => 'social_yelp_url',
+            'type'    => 'text',
+            'title'   => esc_html__('Yelp URL', 'abtheme'),
             'default' => '',
         ),
         array(
-            'id' => 'social_tumblr_url',
-            'type' => 'text',
-            'title' => esc_html__('Tumblr URL', 'abtheme'),
+            'id'      => 'social_tumblr_url',
+            'type'    => 'text',
+            'title'   => esc_html__('Tumblr URL', 'abtheme'),
             'default' => '',
         ),
         array(
-            'id' => 'social_tripadvisor_url',
-            'type' => 'text',
-            'title' => esc_html__('Tripadvisor URL', 'abtheme'),
+            'id'      => 'social_tripadvisor_url',
+            'type'    => 'text',
+            'title'   => esc_html__('Tripadvisor URL', 'abtheme'),
             'default' => '',
         ),
     )
@@ -894,20 +893,20 @@ Redux::setSection($opt_name, array(
 ));
 
 /* Custom Code /--------------------------------------------------------- */
-Redux::setSection( $opt_name, array(
-    'title'     => esc_html__('Custom Code', 'abtheme'),
-    'icon'      => 'el-icon-edit',
-    'fields'    => array(
+Redux::setSection($opt_name, array(
+    'title'  => esc_html__('Custom Code', 'abtheme'),
+    'icon'   => 'el-icon-edit',
+    'fields' => array(
 
         array(
-            'id'       =>'site_header_code',
+            'id'       => 'site_header_code',
             'type'     => 'textarea',
             'theme'    => 'chrome',
             'title'    => esc_html__('Header Custom Codes', 'abtheme'),
             'subtitle' => esc_html__('It will insert the code to wp_head hook.', 'abtheme'),
         ),
         array(
-            'id'       =>'site_footer_code',
+            'id'       => 'site_footer_code',
             'type'     => 'textarea',
             'theme'    => 'chrome',
             'title'    => esc_html__('Footer Custom Codes', 'abtheme'),
@@ -918,26 +917,26 @@ Redux::setSection( $opt_name, array(
 ));
 
 /* Custom CSS /--------------------------------------------------------- */
-Redux::setSection( $opt_name, array(
-    'title'     => esc_html__('Custom CSS', 'abtheme'),
-    'icon'      => 'el-icon-adjust-alt',
-    'fields'    => array(
+Redux::setSection($opt_name, array(
+    'title'  => esc_html__('Custom CSS', 'abtheme'),
+    'icon'   => 'el-icon-adjust-alt',
+    'fields' => array(
 
         array(
-            'id'        => 'customcss',
-            'type'      => 'info',
-            'desc'      => esc_html__('Custom CSS', 'abtheme')
+            'id'   => 'customcss',
+            'type' => 'info',
+            'desc' => esc_html__('Custom CSS', 'abtheme')
         ),
 
         array(
-            'id'        => 'site_css',
-            'type'      => 'ace_editor',
-            'title'     => esc_html__('CSS Code', 'abtheme'),
-            'subtitle'  => esc_html__('Advanced CSS Options. You can paste your custom CSS Code here.', 'abtheme'),
-            'mode'      => 'css',
+            'id'       => 'site_css',
+            'type'     => 'ace_editor',
+            'title'    => esc_html__('CSS Code', 'abtheme'),
+            'subtitle' => esc_html__('Advanced CSS Options. You can paste your custom CSS Code here.', 'abtheme'),
+            'mode'     => 'css',
             'validate' => 'css',
-            'theme'     => 'chrome',
-            'default'   => ""
+            'theme'    => 'chrome',
+            'default'  => ""
         ),
 
     ),
