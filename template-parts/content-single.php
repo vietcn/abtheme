@@ -43,11 +43,11 @@
             $video = '';
             if (!empty($video_url)) {
                 global $wp_embed;
-                echo wp_kses_post($wp_embed->run_shortcode('[embed]' . $video_url . '[/embed]'));
+                echo $wp_embed->run_shortcode('[embed]' . $video_url . '[/embed]');
             } elseif (!empty($video_file)) {
                 if (strpos('[embed', $video_file)) {
                     global $wp_embed;
-                    echo wp_kses($wp_embed->run_shortcode($video_file),wp_kses_allowed_html());
+                    echo $wp_embed->run_shortcode($video_file);
                 } else {
                     echo do_shortcode($video_file);
                 }
