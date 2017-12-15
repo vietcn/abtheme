@@ -5,7 +5,6 @@
  * @package Abtheme
  */
 
-require_once get_template_directory() . '/inc/core.php';
 if (!function_exists('abtheme_setup')) :
     /**
      * Sets up theme defaults and registers support for various WordPress features.
