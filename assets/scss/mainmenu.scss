@@ -260,6 +260,11 @@
             left: 5px;
             top: 9px;
         }
+        &.close{
+            &:after {
+                display: none;
+            }
+        }
     }
 
 }

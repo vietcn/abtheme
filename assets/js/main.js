@@ -36,6 +36,7 @@
         $('.main-menu-toggle').on('click', function(){
             $(this).parent().find('> .sub-menu').toggleClass('submenu-open');
             $(this).parent().find('> .sub-menu').slideToggle();
+            $(this).toggleClass('close');
         });
         /* Menu mobile */
         $("#main-menu-mobile .open-menu").on('click',function(){
