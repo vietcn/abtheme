@@ -260,13 +260,10 @@
             left: 5px;
             top: 9px;
         }
-        &.close{
-            &:after {
-                display: none;
-            }
+        &.close:before {
+            display: none;
         }
     }
-
 }
 
 @media screen and (min-width: 992px) {

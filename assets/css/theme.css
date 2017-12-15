@@ -1703,6 +1703,9 @@ button:focus, input[type="button"]:focus, input[type="reset"]:focus, input[type=
     left: 5px;
     top: 9px;
   }
+  .main-menu-toggle.close:before {
+    display: none;
+  }
 }
 @media screen and (min-width: 992px) {
   .menu-toggle {
