@@ -9,7 +9,6 @@ if (class_exists('ReduxFrameworkPlugin')) {
 
 $opt_name = abtheme_get_opt_name();
 $theme = wp_get_theme();
-
 $args = array(
     // TYPICAL -> Change these values as you need/desire
     'opt_name'             => $opt_name,
