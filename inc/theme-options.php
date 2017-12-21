@@ -18,7 +18,7 @@ $args = array(
     // Name that appears at the top of your panel
     'display_version'      => $theme->get('Version'),
     // Version that appears at the top of your panel
-    'menu_type'            => is_plugin_active('cmssuperheroes/cmssuperheroes.php') ? 'submenu' : '',
+    'menu_type'            => class_exists('CmssuperheroesCore') ? 'submenu' : '',
     //Specify if the admin menu should appear or not. Options: menu or submenu (Under appearance only)
     'allow_sub_menu'       => true,
     // Show the sections below the admin menu item or not
@@ -53,7 +53,7 @@ $args = array(
     // OPTIONAL -> Give you extra features
     'page_priority'        => null,
     // Order where the menu appears in the admin area. If there is any conflict, something will not show. Warning.
-    'page_parent'          => is_plugin_active('cmssuperheroes/cmssuperheroes.php') ? $theme->get('TextDomain') : '',
+    'page_parent'          => class_exists('CmssuperheroesCore') ? $theme->get('TextDomain') : '',
     // For a full list of options, visit: http://codex.wordpress.org/Function_Reference/add_submenu_page#Parameters
     'page_permissions'     => 'manage_options',
     // Permissions needed to access the options panel.
