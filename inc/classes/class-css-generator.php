@@ -51,7 +51,7 @@ class Abtheme_CSS_Generator
             return;
         }
 
-        add_filter( 'abtheme_scssc_on', '__return_true' );
+        add_filter( 'cms_scssc_on', '__return_true' );
         add_action( 'init', array( $this, 'init' ) );
         add_action( 'wp_enqueue_scripts', array( $this, 'enqueue' ), 20 );
     }
@@ -73,8 +73,8 @@ class Abtheme_CSS_Generator
             return;
         }
 
-        $this->dev_mode = defined( 'WP_DEBUG' ) && WP_DEBUG;
-//        $this->dev_mode = false;
+        // $this->dev_mode = defined( 'WP_DEBUG' ) && WP_DEBUG;
+       $this->dev_mode = true;
         if ( $this->dev_mode === true )
         {
             $this->generate_file();
