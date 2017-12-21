@@ -11,12 +11,12 @@ ob_start();
 
 if ( $titles['title'] )
 {
-    printf( '<h1 class="page-title">%s</h1>', esc_attr($titles['title']) );
+    printf( '<h1 class="page-title">%s</h1>', wp_kses_post($titles['title']) );
 }
 
 if ( $titles['desc'] )
 {
-    printf( '<div class="page-desc">%s</div>', esc_attr(wpautop( $titles['desc'] )) );
+    printf( '<div class="page-desc">%s</div>', wp_kses_post( $titles['desc'] ) );
 }
 
 if ( is_singular( 'post' ) )
@@ -39,6 +39,6 @@ if ( ! $titles_html )
 ?>
 <div id="pagetitle" class="page-title page-title-layout1">
     <div class="container page-title-container">
-        <?php printf( '<div class="page-title-content">%s</div>', wp_kses($titles_html ,wp_kses_allowed_html())); ?>
+        <?php printf( '<div class="page-title-content">%s</div>', wp_kses_post($titles_html)); ?>
     </div>
 </div>
