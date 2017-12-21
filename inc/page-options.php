@@ -330,7 +330,7 @@ function abtheme_page_options_register($metabox)
 }
 
 
-add_action('abtheme_post_metabox_register', 'abtheme_page_options_register');
+add_action('cms_post_metabox_register', 'abtheme_page_options_register');
 
 function abtheme_get_option_of_theme_options($key, $default = '')
 {
