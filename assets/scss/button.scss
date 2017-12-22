@@ -91,3 +91,12 @@ input[type="submit"]:focus {
     background: transparent;
   }
 }
+
+.btn-primary{
+  background: $primary_color;
+  color: #fff;
+  &:hover{
+    background: #000;
+    color: #fff;
+  }
+}

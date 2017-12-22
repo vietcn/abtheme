@@ -3,6 +3,9 @@
 
 a {
     color: $primary_color;
+    text-decoration: none;
+    @include transition(all 300ms linear 0ms);
+    
     &:hover,
     &:focus {
 
