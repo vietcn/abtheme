@@ -31,8 +31,8 @@ function abtheme_page_options_register($metabox)
         ));
     }
 
-    if (!$metabox->isset_args('abtheme_pf_audio')) {
-        $metabox->set_args('abtheme_pf_audio', array(
+    if (!$metabox->isset_args('cms_pf_audio')) {
+        $metabox->set_args('cms_pf_audio', array(
             'opt_name'     => 'post_format_audio',
             'display_name' => esc_html__('Audio', 'abtheme')
         ), array(
@@ -41,8 +41,8 @@ function abtheme_page_options_register($metabox)
         ));
     }
 
-    if (!$metabox->isset_args('abtheme_pf_link')) {
-        $metabox->set_args('abtheme_pf_link', array(
+    if (!$metabox->isset_args('cms_pf_link')) {
+        $metabox->set_args('cms_pf_link', array(
             'opt_name'     => 'post_format_link',
             'display_name' => esc_html__('Link', 'abtheme')
         ), array(
@@ -51,8 +51,8 @@ function abtheme_page_options_register($metabox)
         ));
     }
 
-    if (!$metabox->isset_args('abtheme_pf_quote')) {
-        $metabox->set_args('abtheme_pf_quote', array(
+    if (!$metabox->isset_args('cms_pf_quote')) {
+        $metabox->set_args('cms_pf_quote', array(
             'opt_name'     => 'post_format_quote',
             'display_name' => esc_html__('Quote', 'abtheme')
         ), array(
@@ -61,8 +61,8 @@ function abtheme_page_options_register($metabox)
         ));
     }
 
-    if (!$metabox->isset_args('abtheme_pf_video')) {
-        $metabox->set_args('abtheme_pf_video', array(
+    if (!$metabox->isset_args('cms_pf_video')) {
+        $metabox->set_args('cms_pf_video', array(
             'opt_name'     => 'post_format_video',
             'display_name' => esc_html__('Video', 'abtheme')
         ), array(
@@ -71,8 +71,8 @@ function abtheme_page_options_register($metabox)
         ));
     }
 
-    if (!$metabox->isset_args('abtheme_pf_gallery')) {
-        $metabox->set_args('abtheme_pf_gallery', array(
+    if (!$metabox->isset_args('cms_pf_gallery')) {
+        $metabox->set_args('cms_pf_gallery', array(
             'opt_name'     => 'post_format_gallery',
             'display_name' => esc_html__('Gallery', 'abtheme')
         ), array(
@@ -245,7 +245,7 @@ function abtheme_page_options_register($metabox)
      *
      */
 
-    $metabox->add_section('abtheme_pf_video', array(
+    $metabox->add_section('cms_pf_video', array(
         'title'  => esc_html__('Video', 'abtheme'),
         'fields' => array(
             array(
@@ -271,7 +271,7 @@ function abtheme_page_options_register($metabox)
         )
     ));
 
-    $metabox->add_section('abtheme_pf_gallery', array(
+    $metabox->add_section('cms_pf_gallery', array(
         'title'  => esc_html__('Gallery', 'abtheme'),
         'fields' => array(
             array(
@@ -290,7 +290,7 @@ function abtheme_page_options_register($metabox)
         )
     ));
 
-    $metabox->add_section('abtheme_pf_audio', array(
+    $metabox->add_section('cms_pf_audio', array(
         'title'  => esc_html__('Audio', 'abtheme'),
         'fields' => array(
             array(
@@ -304,7 +304,7 @@ function abtheme_page_options_register($metabox)
         )
     ));
 
-    $metabox->add_section('abtheme_pf_link', array(
+    $metabox->add_section('cms_pf_link', array(
         'title'  => esc_html__('Link', 'abtheme'),
         'fields' => array(
             array(
@@ -317,7 +317,7 @@ function abtheme_page_options_register($metabox)
         )
     ));
 
-    $metabox->add_section('abtheme_pf_quote', array(
+    $metabox->add_section('cms_pf_quote', array(
         'title'  => esc_html__('Quote', 'abtheme'),
         'fields' => array(
             array(
