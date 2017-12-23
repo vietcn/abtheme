@@ -9,9 +9,19 @@ https://codex.wordpress.org/Right-to-Left_Language_Support
 
 */
 
-/*
 body {
     direction: rtl;
     unicode-bidi: embed;
 }
-*/
+.pull-left{
+    float: right!important;
+}
+.pull-right{
+    float: left!important;
+}
+@media (min-width: 992px){
+    .primary-menu .sub-menu {
+        right: 0;
+        left: auto;
+    }
+}
