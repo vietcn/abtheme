@@ -24,4 +24,22 @@ body {
         right: 0;
         left: auto;
     }
+    .primary-menu .sub-menu .sub-menu {
+        left: auto;
+        right: 100%;
+    }
+    ul.back {
+        left: 100%!important;
+        right: auto!important;
+    }
+}
+@media screen and (max-width: 991px){
+    .main-menu-toggle {
+        right: auto;
+        left: 0;
+    }
+    .primary-menu .sub-menu{
+        padding-right: 20px;
+        padding-left: 0;
+    }
 }
