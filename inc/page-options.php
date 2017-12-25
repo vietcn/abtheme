@@ -11,16 +11,9 @@
  * @param  abtheme_Post_Metabox $metabox
  */
 
-//global $post;
-//echo '<pre>';
-//var_dump(get_post_meta(107, 'ptitle_bg'));
-////var_dump($post);
-//echo '</pre>';
-
 function abtheme_page_options_register($metabox)
 {
-
-//    $metabox->set_args('global_variable', abtheme_get_page_opt_name());
+    
     if (!$metabox->isset_args('page')) {
         $metabox->set_args('page', array(
             'opt_name'     => abtheme_get_page_opt_name(),

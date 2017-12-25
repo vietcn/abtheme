@@ -19,6 +19,14 @@ body {
 .pull-right{
     float: left!important;
 }
+#header-search .searchform {
+    right: auto;
+    left: 0;
+}
+#header-cart .cartform {
+    right: auto;
+    left: 0;
+}
 @media (min-width: 992px){
     .primary-menu .sub-menu {
         right: 0;

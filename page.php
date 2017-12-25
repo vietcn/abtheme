@@ -11,18 +11,12 @@
  */
 
 get_header();
-
-if(( class_exists( 'WooCommerce' ) && (is_cart() || is_checkout()) )) {
-    $sidebar_pos = 'none';
-} else {
-    $sidebar_pos = abtheme_get_page_opt( 'sidebar_page', 'none' );
-}
 ?>
-<div class="container content-container">
-    <div class="row content-row">
-        <div id="primary" <?php abtheme_primary_class( $sidebar_pos, 'content-area' ); ?>>
-            <main id="main" class="site-main">
-                <?php
+    <div class="container content-container">
+        <div class="row content-row">
+            <div id="primary" class="content-area">
+                <main id="main" class="site-main">
+                    <?php
 
                     while ( have_posts() )
                     {
@@ -36,17 +30,10 @@ if(( class_exists( 'WooCommerce' ) && (is_cart() || is_checkout()) )) {
                         }
                     }
 
-                ?>
-            </main><!-- #main -->
-        </div><!-- #primary -->
-
-
-        <?php if ( 'left' == $sidebar_pos || 'right' == $sidebar_pos ) : ?>
-            <aside id="secondary" <?php abtheme_secondary_class( $sidebar_pos, 'widget-area' ); ?>>
-                <?php get_sidebar(); ?>
-            </aside>
-        <?php endif; ?>
+                    ?>
+                </main><!-- #main -->
+            </div><!-- #primary -->
+        </div>
     </div>
-</div>
 <?php
 get_footer();

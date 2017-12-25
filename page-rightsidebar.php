@@ -7,11 +7,10 @@
  */
 
 get_header();
-$sidebar_pos = 'right';
 ?>
     <div class="container content-container">
         <div class="row content-row">
-            <div id="primary" <?php abtheme_primary_class( $sidebar_pos, 'content-area' ); ?>>
+            <div id="primary" class="content-area content-has-sidebar pull-right">
                 <main id="main" class="site-main">
                     <?php
 
@@ -32,7 +31,7 @@ $sidebar_pos = 'right';
             </div><!-- #primary -->
 
             <?php if ( 'left' == $sidebar_pos || 'right' == $sidebar_pos ) : ?>
-                <aside id="secondary" <?php abtheme_secondary_class( $sidebar_pos, 'widget-area' ); ?>>
+                <aside id="secondary" class="widget-area widget-has-sidebar pull-right">
                     <?php get_sidebar(); ?>
                 </aside>
             <?php endif; ?>
