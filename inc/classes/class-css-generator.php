@@ -144,7 +144,7 @@ class Abtheme_CSS_Generator
 
         if ( $css )
         {
-            wp_add_inline_style( 'abtheme', $this->dev_mode ? $css : abtheme_css_minifier( $css ) );
+            wp_add_inline_style( 'abtheme-theme', $this->dev_mode ? $css : abtheme_css_minifier( $css ) );
         }
     }
 
