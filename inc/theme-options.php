@@ -116,7 +116,7 @@ $args = array(
             ),
         ),
     ),
-    'templates_path'       => get_template_directory() . '/core/templates/redux/'
+    'templates_path'       => class_exists('CmssuperheroesCore') ? cmssuperheroes()->path('APP_DIR') . '/templates/redux/' : '',
 );
 
 Redux::SetArgs($opt_name, $args);

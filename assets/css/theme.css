@@ -64,9 +64,6 @@
 # Media
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-# Singlular
---------------------------------------------------------------*/
-/*--------------------------------------------------------------
 # Comments
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
@@ -1360,6 +1357,14 @@ button:focus, input[type="button"]:focus, input[type="reset"]:focus, input[type=
   color: #3b3b3b;
   background: transparent;
 }
+.btn-primary {
+  background: #32a0df;
+  color: #fff;
+}
+.btn-primary:hover {
+  background: #000;
+  color: #fff;
+}
 .site-branding {
   padding: 1em 0;
 }
@@ -1796,6 +1801,13 @@ ul.back {
 }
 a {
   color: #32a0df;
+  text-decoration: none;
+  -webkit-transition: all 0.3s;
+  -khtml-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
 }
 a:focus {
   outline: thin dotted;

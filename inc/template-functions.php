@@ -71,7 +71,7 @@ function abtheme_get_post_format_value($post_format_key, $default = false)
  */
 function abtheme_get_opt_name()
 {
-    return apply_filters('abtheme_opt_name', 'abtheme_theme_options');
+    return apply_filters('abtheme_opt_name', 'cms_theme_options');
 }
 
 /**
@@ -82,7 +82,7 @@ function abtheme_get_opt_name()
  */
 function abtheme_get_page_opt_name()
 {
-    return apply_filters('abtheme_page_opt_name', 'abtheme_page_options');
+    return apply_filters('abtheme_page_opt_name', 'cms_page_options');
 }
 
 /**
@@ -93,7 +93,7 @@ function abtheme_get_page_opt_name()
  */
 function abtheme_get_post_opt_name()
 {
-    return apply_filters('abtheme_post_opt_name', 'abtheme_post_options');
+    return apply_filters('abtheme_post_opt_name', 'cms_post_options');
 }
 
 /**
