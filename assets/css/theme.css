@@ -1421,6 +1421,9 @@ button:focus, input[type="button"]:focus, input[type="reset"]:focus, input[type=
   right: 0;
   top: 50px;
 }
+#header-search .search-field {
+  width: 170px;
+}
 #header-cart {
   position: relative;
 }
@@ -1832,12 +1835,12 @@ a:hover, a:active {
   z-index: 9999;
   background: url('../images/loading.gif') 50% 50% no-repeat #f9f9f9;
 }
-.content-area {
+#primary {
   padding-left: 15px;
   padding-right: 15px;
   position: relative;
 }
-.widget-area {
+#secondary {
   padding-left: 15px;
   padding-right: 15px;
   position: relative;
