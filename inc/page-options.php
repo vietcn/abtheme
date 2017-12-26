@@ -18,7 +18,6 @@ function abtheme_page_options_register($metabox)
         $metabox->set_args('page', array(
             'opt_name'     => abtheme_get_page_opt_name(),
             'display_name' => esc_html__('Page Settings', 'abtheme'),
-            'show_options_object' => true,
         ), array(
             'context'  => 'advanced',
             'priority' => 'default'
