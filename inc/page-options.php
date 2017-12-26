@@ -74,28 +74,6 @@ function abtheme_page_options_register($metabox)
         ));
     }
 
-    /**
-     * Config page meta options
-     *
-     */
-    $metabox->add_section('page', array(
-        'title'  => esc_html__('General', 'abtheme'),
-        'desc'   => esc_html__('General settings for the page.', 'abtheme'),
-        'fields' => array(
-            array(
-                'id'       => 'sidebar_page',
-                'type'     => 'button_set',
-                'title'    => esc_html__('Sidebar Position', 'abtheme'),
-                'subtitle' => esc_html__('Select a sidebar position for page', 'abtheme'),
-                'options'  => array(
-                    'left'  => esc_html__('Left', 'abtheme'),
-                    'right' => esc_html__('Right', 'abtheme'),
-                    'none'  => esc_html__('Disabled', 'abtheme')
-                ),
-                'default'  => abtheme_get_option_of_theme_options('sidebar_page', 'none')
-            ),
-        )
-    ));
     $metabox->add_section('page', array(
         'title'  => esc_html__('Header', 'abtheme'),
         'desc'   => esc_html__('Header settings for the page.', 'abtheme'),
