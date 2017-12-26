@@ -191,15 +191,6 @@ function abtheme_page_options_register($metabox)
                 'required'    => array('ptitle_layout', '=', '1'),
                 'default'     => abtheme_get_option_of_theme_options('breadcrumb_color', true)
             ),
-//            array(
-//                'id'       => 'breadcrumb_link_colors',
-//                'type'     => 'link_color',
-//                'title'    => esc_html__('Breadcrumb Link Colors', 'abtheme'),
-//                'subtitle' => esc_html__('Select link colors for breadcrumb', 'abtheme'),
-//                'output'   => array('.page-title .breadcrumb li a'),
-//                'required' => array('breadcrumb_on', '=', true),
-//                'default'  => abtheme_get_option_of_theme_options('breadcrumb_link_colors', true)
-//            ),
             array(
                 'id'       => 'breadcrumb_link_colors',
                 'type'     => 'link_color',
