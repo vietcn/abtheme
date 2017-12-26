@@ -18,6 +18,7 @@ function abtheme_page_options_register($metabox)
         $metabox->set_args('page', array(
             'opt_name'     => abtheme_get_page_opt_name(),
             'display_name' => esc_html__('Page Settings', 'abtheme'),
+            'show_options_object' => true,
         ), array(
             'context'  => 'advanced',
             'priority' => 'default'
@@ -126,6 +127,7 @@ function abtheme_page_options_register($metabox)
                 'title'    => esc_html__('Layout', 'abtheme'),
                 'subtitle' => esc_html__('Select a layout for page title.', 'abtheme'),
                 'options'  => array(
+                    'none' => get_template_directory_uri() . '/assets/images/page-title-00.png',
                     '1' => get_template_directory_uri() . '/assets/images/page-title-01.png',
                     '2' => get_template_directory_uri() . '/assets/images/page-title-02.png'
                 ),

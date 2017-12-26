@@ -1840,6 +1840,10 @@ a:hover, a:active {
   padding-right: 15px;
   position: relative;
 }
+.content-fullwidth #primary {
+  padding-left: 0;
+  padding-right: 0;
+}
 #secondary {
   padding-left: 15px;
   padding-right: 15px;
