@@ -483,31 +483,6 @@ Redux::setSection($opt_name, array(
     )
 ));
 
-
-/*--------------------------------------------------------------
-# Shop
---------------------------------------------------------------*/
-
-Redux::setSection($opt_name, array(
-    'title'  => esc_html__('Shop', 'abtheme'),
-    'icon'   => 'el-icon-list',
-    'fields' => array(
-        array(
-            'id'       => 'sidebar_shop',
-            'type'     => 'button_set',
-            'title'    => esc_html__('Sidebar Position', 'abtheme'),
-            'subtitle' => esc_html__('Select a sidebar position for shop', 'abtheme'),
-            'options'  => array(
-                'left'  => esc_html__('Left', 'abtheme'),
-                'right' => esc_html__('Right', 'abtheme'),
-                'none'  => esc_html__('Disabled', 'abtheme')
-            ),
-            'default'  => 'none'
-        ),
-    )
-));
-
-
 /*--------------------------------------------------------------
 # Portfolio
 --------------------------------------------------------------*/
