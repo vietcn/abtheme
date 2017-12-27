@@ -75,6 +75,27 @@ function abtheme_page_options_register($metabox)
     }
 
     $metabox->add_section('page', array(
+        'title'  => esc_html__('General', 'abtheme'),
+        'desc'   => esc_html__('General settings for the page.', 'abtheme'),
+        'icon'   => 'el-icon-home',
+        'fields' => array(
+            array(
+                'id'       => 'page_paddings',
+                'type'     => 'spacing',
+                'title'    => esc_html__('Paddings', 'abtheme'),
+                'subtitle' => esc_html__('Page title paddings.', 'abtheme'),
+                'mode'     => 'padding',
+                'units'    => array('em', 'px', '%'),
+                'top'      => true,
+                'right'    => false,
+                'bottom'   => true,
+                'left'     => false,
+                'output'   => array('.page .content-area'),
+            ),
+        )
+    ));
+
+    $metabox->add_section('page', array(
         'title'  => esc_html__('Header', 'abtheme'),
         'desc'   => esc_html__('Header settings for the page.', 'abtheme'),
         'icon'   => 'el-icon-website',
