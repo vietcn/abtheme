@@ -18,7 +18,7 @@ extract(shortcode_atts(array(
         $a_href = $link['url'];
     }
 ?>
-<div class="cms-call-to-action-wrapper <?php echo esc_attr($el_class); ?>>
+<div class="cms-call-to-action-wrapper <?php echo esc_attr($el_class); ?>">
 
     ggdfgdfgdfgdgf
 </div>
