@@ -261,6 +261,7 @@ function abtheme_vc_elements()
         require_once(get_template_directory() . '/vc_elements/cms_googlemap.php');
         require_once(get_template_directory() . '/vc_elements/cms_heading.php');
         require_once(get_template_directory() . '/vc_elements/cms_process.php');
+        require_once(get_template_directory() . '/vc_elements/cms_call_to_action.php');
     }
 }
 

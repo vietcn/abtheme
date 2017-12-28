@@ -7,9 +7,9 @@ extract(shortcode_atts(array(
     'button_size'  => 'size-default',
     'icon_align'  => 'left',
     'icon_custom'  => '',
-    'el_class'  => ''       
+    'el_class'  => ''
 ), $atts));
- 
+
     $icon_name = "icon_" . $icon_type;
     $iconClass = isset($atts[$icon_name])?$atts[$icon_name]:'';
     $link = vc_build_link($link_button);
