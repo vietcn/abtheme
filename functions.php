@@ -242,9 +242,6 @@ function abtheme_shortcodes_list()
     $abtheme_shortcodes_list = array(
         'cms_carousel',
         'cms_grid',
-        'cms_fancybox_single',
-        'cms_counter_single',
-        'cms_progressbar',
     );
 
     return $abtheme_shortcodes_list;

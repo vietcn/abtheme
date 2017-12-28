@@ -1771,11 +1771,12 @@ ul.back {
 .hentry {
   margin: 0 0 1.5em;
 }
+.page .content-area {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
 .updated:not(.published) {
   display: none;
-}
-.page-content, .entry-content, .entry-content {
-  margin: 1.5em 0 0;
 }
 .format-gallery .entry-featured {
   position: relative;

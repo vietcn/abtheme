@@ -1,13 +1,5 @@
 <?php
 	$params = array(
-		array(
-			'type' => 'cms_template_img',
-		    'param_name' => 'cms_template',
-		    "shortcode" => "cms_fancybox_single",
-		    "heading" => esc_html__("Shortcode Template",'abtheme'),
-		    "admin_label" => true,
-		    "group" => esc_html__("Template", 'abtheme'),
-		),
         array(
             "type" => "colorpicker",
             "heading" => esc_html__("Icon - Background Color",'abtheme'),
