@@ -233,13 +233,6 @@ vc_map(array(
             'description' => __( 'Choose your animation style', 'abtheme' ),
             'admin_label' => false,
             'weight' => 0,
-            'group' => 'Custom Group',
-        ),
-        array(
-            'type' => 'css_editor',
-            'heading' => __( 'CSS box', 'js_composer' ),
-            'param_name' => 'css',
-            'group' => __( 'Design Options', 'js_composer' ),
         ),
     )
 ));
