@@ -10,7 +10,7 @@ get_header();
 ?>
     <div class="container content-container">
         <div class="row content-row">
-            <div id="primary" class="content-area content-has-sidebar pull-right">
+            <div id="primary" class="content-area content-has-sidebar pull-left">
                 <main id="main" class="site-main">
                     <?php
 
@@ -30,11 +30,9 @@ get_header();
                 </main><!-- #main -->
             </div><!-- #primary -->
 
-            <?php if ( 'left' == $sidebar_pos || 'right' == $sidebar_pos ) : ?>
-                <aside id="secondary" class="widget-area widget-has-sidebar pull-right">
-                    <?php get_sidebar(); ?>
-                </aside>
-            <?php endif; ?>
+            <aside id="secondary" class="widget-area widget-has-sidebar pull-right">
+                <?php get_sidebar(); ?>
+            </aside>
         </div>
     </div>
 <?php

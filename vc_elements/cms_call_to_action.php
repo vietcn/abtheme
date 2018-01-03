@@ -226,6 +226,13 @@ vc_map(array(
             "param_name" => "el_class",
             "description" => esc_html__( "If you wish to style particular content element differently, then use this field to add a class name and then refer to it in your css file.", "abtheme" ),
         ),
+        array(
+            'type' => 'css_editor',
+            'heading' => __( 'CSS box', 'js_composer' ),
+            'param_name' => 'css',
+            'group' => __( 'Design Options', 'js_composer' ),
+        ),
+        vc_map_add_css_animation(),
     )
 ));
 
@@ -236,17 +243,22 @@ class WPBakeryShortCode_cms_call_to_action extends CmsShortCode
         $atts_extra = shortcode_atts(array(
             'heading' => '',
             'heading_color' => '',
-            'button_text'=> '',
-            'button_link'=> '#',
-            'button_size'=> '',
-            'icon_type'=> 'btn-normal',
+            'icon_type' => 'fontawesome',
+            'button_text'  => 'Button',
+            'link_button'  => '#',
+            'icon_openiconic' => '',
+            'button_size'  => 'btn-normal',
+            'icon_align'  => 'left',
+            'icon_custom'  => '',
+            'el_class'  => '',
+            'animation' => '',
             'cms_template' => 'cms_call_to_action.php',
-            'class' => '',
         ), $atts);
         $atts = array_merge($atts_extra,$atts);
 
-        $atts['template'] = 'template-'.str_replace('.php','',$atts['cms_template']). $atts['class'];
-
+        $html_id = cmsHtmlID('cms-call-to-action');
+        $atts['template'] = 'template-'.str_replace('.php','',$atts['cms_template']). $atts['el_class'];
+        $atts['html_id'] = $html_id;
         return parent::content($atts, $content);
     }
 }
