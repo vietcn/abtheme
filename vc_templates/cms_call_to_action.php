@@ -1,17 +1,5 @@
 <?php
-extract(shortcode_atts(array(
-    'heading' => '',
-    'heading_color' => '',
-    'icon_type' => 'fontawesome',
-    'button_text'  => 'Button',
-    'link_button'  => '#',
-    'icon_openiconic' => '',
-    'button_size'  => 'btn-normal',
-    'icon_align'  => 'left',
-    'icon_custom'  => '',
-
-    'el_class'  => ''
-), $atts));
+extract($atts);
 
 $type = $icon_fontawesome = $icon_openiconic = $icon_typicons = $icon_entypo = $icon_linecons = '';
 
