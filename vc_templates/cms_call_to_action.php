@@ -1,10 +1,9 @@
 <?php
 extract($atts);
 
-$type = $icon_fontawesome = $icon_openiconic = $icon_typicons = $icon_entypo = $icon_linecons = '';
 
 // Enqueue needed icon font.
-vc_icon_element_fonts_enqueue( $type );
+// vc_icon_element_fonts_enqueue( $type );
 
 $icon_name = "icon_" . $icon_type;
 $iconClass = isset($atts[$icon_name])?$atts[$icon_name]:'';
@@ -14,7 +13,7 @@ if ( strlen( $link['url'] ) > 0 ) {
     $a_href = $link['url'];
 }
 // Build the animation classes
-$animation_classes = $this->getCSSAnimation( $animation );
+$animation_classes = $this->getCSSAnimation( $css_animation );
 ?>
 <div class="cms-cta-wrapper <?php echo esc_attr($el_class); ?> <?php echo esc_attr($animation_classes); ?>">
     <div class="cta-text" style="color: <?php echo esc_attr($heading_color); ?>">

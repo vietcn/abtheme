@@ -227,12 +227,20 @@ vc_map(array(
             "description" => esc_html__( "If you wish to style particular content element differently, then use this field to add a class name and then refer to it in your css file.", "abtheme" ),
         ),
         array(
+            'type' => 'animation_style',
+            'heading' => __( 'Animation Style', 'abtheme' ),
+            'param_name' => 'css_animation',
+            'description' => __( 'Choose your animation style', 'abtheme' ),
+            'admin_label' => false,
+            'weight' => 0,
+            'group' => 'Custom Group',
+        ),
+        array(
             'type' => 'css_editor',
             'heading' => __( 'CSS box', 'js_composer' ),
             'param_name' => 'css',
             'group' => __( 'Design Options', 'js_composer' ),
         ),
-        vc_map_add_css_animation(),
     )
 ));
 
@@ -251,7 +259,7 @@ class WPBakeryShortCode_cms_call_to_action extends CmsShortCode
             'icon_align'  => 'left',
             'icon_custom'  => '',
             'el_class'  => '',
-            'animation' => '',
+            'css_animation' => '',
             'cms_template' => 'cms_call_to_action.php',
         ), $atts);
         $atts = array_merge($atts_extra,$atts);
