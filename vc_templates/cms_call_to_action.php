@@ -14,14 +14,13 @@ extract(shortcode_atts(array(
 
 // Enqueue needed icon font.
 vc_icon_element_fonts_enqueue( $icon_type );
+// Build the animation classes
+$animation_classes = $this->getCSSAnimation( $css_animation );
+// VC link
+$link = vc_build_link($button_link);
 
 $icon_name = "icon_" . $icon_type;
 $iconClass = isset($atts[$icon_name])?$atts[$icon_name]:'';
-$link = vc_build_link($button_link);
-var_dump($link);
-
-// Build the animation classes
-$animation_classes = $this->getCSSAnimation( $css_animation );
 ?>
 <div class="cta-wrapper cta-layout1 <?php echo esc_attr($el_class); ?> <?php echo esc_attr($animation_classes); ?>">
     <div class="cta-text" style="color: <?php echo esc_attr($heading_color); ?>">
