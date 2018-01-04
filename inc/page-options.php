@@ -83,7 +83,7 @@ function abtheme_page_options_register($metabox)
                 'id'       => 'page_paddings',
                 'type'     => 'spacing',
                 'title'    => esc_html__('Paddings', 'abtheme'),
-                'subtitle' => esc_html__('Page title paddings.', 'abtheme'),
+                'subtitle' => esc_html__('Page paddings.', 'abtheme'),
                 'mode'     => 'padding',
                 'units'    => array('em', 'px', '%'),
                 'top'      => true,

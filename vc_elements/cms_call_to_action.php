@@ -38,7 +38,7 @@ vc_map(array(
         array(
             'type'        => 'vc_link',
             'heading'     => esc_html__( 'URL (Link)', 'abtheme' ),
-            'param_name'  => 'link',
+            'param_name'  => 'button_link',
             'description' => esc_html__( 'Button link.', 'abtheme' ),
             'group' => esc_html__("Button", "abtheme"),
         ),
@@ -47,165 +47,167 @@ vc_map(array(
             'heading' => esc_html__("Button Size", "abtheme"),
             'param_name' => 'button_size',
             'value' => array(
-                'Default' => 'btn-small',
-                'Default' => 'btn-normal',
-                'Large' => 'btn-lg',
+                'Normal' => 'btn-normal',
+                'Small' => 'btn-small',
+                'Large' => 'btn-large',
             ),
-            "group" => esc_html__("Button Icon", "abtheme"),
+            "group" => esc_html__("Button", "abtheme"),
         ),
         /* Start Icon */
         array(
             'type' => 'dropdown',
-            'heading' => esc_html__( 'Icon library', "abtheme" ),
+            'heading' => __( 'Icon library', 'abtheme' ),
             'value' => array(
-                esc_html__( 'Font Awesome', "abtheme" ) => 'fontawesome',
-                esc_html__( 'Open Iconic', "abtheme" ) => 'openiconic',
-                esc_html__( 'Typicons', "abtheme" ) => 'typicons',
-                esc_html__( 'Entypo', "abtheme" ) => 'entypo',
-                esc_html__( 'Linecons', "abtheme" ) => 'linecons',
-                esc_html__( 'Pixel', "abtheme" ) => 'pixelicons',
-                esc_html__( 'P7 Stroke', "abtheme" ) => 'pe7stroke',
-                esc_html__( 'RT Icon', "abtheme" ) => 'rticon',
+                __( 'Font Awesome', 'abtheme' ) => 'fontawesome',
+                __( 'Open Iconic', 'abtheme' ) => 'openiconic',
+                __( 'Typicons', 'abtheme' ) => 'typicons',
+                __( 'Entypo', 'abtheme' ) => 'entypo',
+                __( 'Linecons', 'abtheme' ) => 'linecons',
+                __( 'Mono Social', 'abtheme' ) => 'monosocial',
+                __( 'Material', 'abtheme' ) => 'material',
             ),
             'param_name' => 'icon_type',
-            'description' => esc_html__( 'Select icon library.', "abtheme" ),
-            "group" => esc_html__("Button Icon", "abtheme"),
+            'description' => __( 'Select icon library.', 'abtheme' ),
+            'group' => esc_html__('Button Icon', 'abtheme'),
         ),
         array(
             'type' => 'iconpicker',
-            'heading' => esc_html__( 'Icon Item', "abtheme" ),
+            'heading' => __( 'Icon', 'abtheme' ),
             'param_name' => 'icon_fontawesome',
-            'value' => '',
+            'value' => 'fa fa-adjust',
+            // default value to backend editor admin_label
             'settings' => array(
-                'emptyIcon' => true, // default true, display an "EMPTY" icon?
-                'type' => 'fontawesome',
-                'iconsPerPage' => 200, // default 100, how many icons per/page to display
+                'emptyIcon' => false,
+                // default true, display an "EMPTY" icon?
+                'iconsPerPage' => 4000,
+                // default 100, how many icons per/page to display, we use (big number) to display all icons in single page
             ),
             'dependency' => array(
                 'element' => 'icon_type',
                 'value' => 'fontawesome',
             ),
-            'description' => esc_html__( 'Select icon from library.', "abtheme" ),
-            "group" => esc_html__("Button Icon", "abtheme"),
+            'description' => __( 'Select icon from library.', 'abtheme' ),
+            'group' => esc_html__('Button Icon', 'abtheme'),
         ),
         array(
             'type' => 'iconpicker',
-            'heading' => esc_html__( 'Icon Item', "abtheme" ),
+            'heading' => __( 'Icon', 'abtheme' ),
             'param_name' => 'icon_openiconic',
-            'value' => '',
+            'value' => 'vc-oi vc-oi-dial',
+            // default value to backend editor admin_label
             'settings' => array(
-                'emptyIcon' => true, // default true, display an "EMPTY" icon?
+                'emptyIcon' => false,
+                // default true, display an "EMPTY" icon?
                 'type' => 'openiconic',
-                'iconsPerPage' => 200, // default 100, how many icons per/page to display
+                'iconsPerPage' => 4000,
+                // default 100, how many icons per/page to display
             ),
             'dependency' => array(
                 'element' => 'icon_type',
                 'value' => 'openiconic',
             ),
-            'description' => esc_html__( 'Select icon from library.', "abtheme" ),
-            "group" => esc_html__("Button Icon", "abtheme"),
+            'description' => __( 'Select icon from library.', 'abtheme' ),
+            'group' => esc_html__('Button Icon', 'abtheme'),
         ),
         array(
             'type' => 'iconpicker',
-            'heading' => esc_html__( 'Icon Item', "abtheme" ),
+            'heading' => __( 'Icon', 'abtheme' ),
             'param_name' => 'icon_typicons',
-            'value' => '',
+            'value' => 'typcn typcn-adjust-brightness',
+            // default value to backend editor admin_label
             'settings' => array(
-                'emptyIcon' => true, // default true, display an "EMPTY" icon?
+                'emptyIcon' => false,
+                // default true, display an "EMPTY" icon?
                 'type' => 'typicons',
-                'iconsPerPage' => 200, // default 100, how many icons per/page to display
+                'iconsPerPage' => 4000,
+                // default 100, how many icons per/page to display
             ),
             'dependency' => array(
                 'element' => 'icon_type',
                 'value' => 'typicons',
             ),
-            'description' => esc_html__( 'Select icon from library.', "abtheme" ),
-            "group" => esc_html__("Button Icon", "abtheme"),
+            'description' => __( 'Select icon from library.', 'abtheme' ),
+            'group' => esc_html__('Button Icon', 'abtheme'),
         ),
         array(
             'type' => 'iconpicker',
-            'heading' => esc_html__( 'Icon Item', "abtheme" ),
+            'heading' => __( 'Icon', 'abtheme' ),
             'param_name' => 'icon_entypo',
-            'value' => '',
+            'value' => 'entypo-icon entypo-icon-note',
+            // default value to backend editor admin_label
             'settings' => array(
-                'emptyIcon' => true, // default true, display an "EMPTY" icon?
+                'emptyIcon' => false,
+                // default true, display an "EMPTY" icon?
                 'type' => 'entypo',
-                'iconsPerPage' => 200, // default 100, how many icons per/page to display
+                'iconsPerPage' => 4000,
+                // default 100, how many icons per/page to display
             ),
             'dependency' => array(
                 'element' => 'icon_type',
                 'value' => 'entypo',
             ),
-            'description' => esc_html__( 'Select icon from library.', "abtheme" ),
-            "group" => esc_html__("Button Icon", "abtheme"),
+            'description' => __( 'Select icon from library.', 'abtheme' ),
+            'group' => esc_html__('Button Icon', 'abtheme'),
         ),
         array(
             'type' => 'iconpicker',
-            'heading' => esc_html__( 'Icon Item', "abtheme" ),
+            'heading' => __( 'Icon', 'abtheme' ),
             'param_name' => 'icon_linecons',
-            'value' => '',
+            'value' => 'vc_li vc_li-heart',
+            // default value to backend editor admin_label
             'settings' => array(
-                'emptyIcon' => true, // default true, display an "EMPTY" icon?
+                'emptyIcon' => false,
+                // default true, display an "EMPTY" icon?
                 'type' => 'linecons',
-                'iconsPerPage' => 200, // default 100, how many icons per/page to display
+                'iconsPerPage' => 4000,
+                // default 100, how many icons per/page to display
             ),
             'dependency' => array(
                 'element' => 'icon_type',
                 'value' => 'linecons',
             ),
-            'description' => esc_html__( 'Select icon from library.', "abtheme" ),
-            "group" => esc_html__("Button Icon", "abtheme"),
+            'description' => __( 'Select icon from library.', 'abtheme' ),
+            'group' => esc_html__('Button Icon', 'abtheme'),
         ),
         array(
             'type' => 'iconpicker',
-            'heading' => esc_html__( 'Icon Item', "abtheme" ),
-            'param_name' => 'icon_pixelicons',
-            'value' => '',
+            'heading' => __( 'Icon', 'abtheme' ),
+            'param_name' => 'icon_monosocial',
+            'value' => 'vc-mono vc-mono-fivehundredpx',
+            // default value to backend editor admin_label
             'settings' => array(
-                'emptyIcon' => true, // default true, display an "EMPTY" icon?
-                'type' => 'pixelicons',
-                'iconsPerPage' => 200, // default 100, how many icons per/page to display
+                'emptyIcon' => false,
+                // default true, display an "EMPTY" icon?
+                'type' => 'monosocial',
+                'iconsPerPage' => 4000,
+                // default 100, how many icons per/page to display
             ),
             'dependency' => array(
                 'element' => 'icon_type',
-                'value' => 'pixelicons',
+                'value' => 'monosocial',
             ),
-            'description' => esc_html__( 'Select icon from library.', "abtheme" ),
-            "group" => esc_html__("Button Icon", "abtheme"),
+            'description' => __( 'Select icon from library.', 'abtheme' ),
+            'group' => esc_html__('Button Icon', 'abtheme'),
         ),
         array(
             'type' => 'iconpicker',
-            'heading' => esc_html__( 'Icon Item', "abtheme" ),
-            'param_name' => 'icon_pe7stroke',
-            'value' => '',
+            'heading' => __( 'Icon', 'abtheme' ),
+            'param_name' => 'icon_material',
+            'value' => 'vc-material vc-material-cake',
+            // default value to backend editor admin_label
             'settings' => array(
-                'emptyIcon' => true, // default true, display an "EMPTY" icon?
-                'type' => 'pe7stroke',
-                'iconsPerPage' => 200, // default 100, how many icons per/page to display
+                'emptyIcon' => false,
+                // default true, display an "EMPTY" icon?
+                'type' => 'material',
+                'iconsPerPage' => 4000,
+                // default 100, how many icons per/page to display
             ),
             'dependency' => array(
                 'element' => 'icon_type',
-                'value' => 'pe7stroke',
+                'value' => 'material',
             ),
-            'description' => esc_html__( 'Select icon from library.', "abtheme" ),
-            "group" => esc_html__("Button Icon", "abtheme"),
-        ),
-        array(
-            'type' => 'iconpicker',
-            'heading' => esc_html__( 'Icon Item', "abtheme" ),
-            'param_name' => 'icon_rticon',
-            'value' => '',
-            'settings' => array(
-                'emptyIcon' => true, // default true, display an "EMPTY" icon?
-                'type' => 'rticon',
-                'iconsPerPage' => 200, // default 100, how many icons per/page to display
-            ),
-            'dependency' => array(
-                'element' => 'icon_type',
-                'value' => 'rticon',
-            ),
-            'description' => esc_html__( 'Select icon from library.', "abtheme" ),
-            "group" => esc_html__("Button Icon", "abtheme"),
+            'description' => __( 'Select icon from library.', 'abtheme' ),
+            'group' => esc_html__('Button Icon', 'abtheme'),
         ),
         /* End Icon */
         array(
@@ -240,26 +242,8 @@ vc_map(array(
 class WPBakeryShortCode_cms_call_to_action extends CmsShortCode
 {
 
-    protected function content($atts, $content = null){
-        $atts_extra = shortcode_atts(array(
-            'heading' => '',
-            'heading_color' => '',
-            'icon_type' => 'fontawesome',
-            'button_text'  => 'Button',
-            'link_button'  => '#',
-            'icon_openiconic' => '',
-            'button_size'  => 'btn-normal',
-            'icon_align'  => 'left',
-            'icon_custom'  => '',
-            'el_class'  => '',
-            'css_animation' => '',
-            'cms_template' => 'cms_call_to_action.php',
-        ), $atts);
-        $atts = array_merge($atts_extra,$atts);
-
-        $html_id = cmsHtmlID('cms-call-to-action');
-        $atts['template'] = 'template-'.str_replace('.php','',$atts['cms_template']). $atts['el_class'];
-        $atts['html_id'] = $html_id;
+    protected function content($atts, $content = null)
+    {
         return parent::content($atts, $content);
     }
 }
