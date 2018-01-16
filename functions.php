@@ -33,6 +33,7 @@ if (!function_exists('abtheme_setup')) :
         // This theme uses wp_nav_menu() in one location.
         register_nav_menus(array(
             'primary' => esc_html__('Primary', 'abtheme'),
+            'cms' => esc_html__('CMS HELLO', 'abtheme'),
         ));
 
         /*
@@ -262,6 +263,7 @@ function abtheme_vc_elements()
         require_once(get_template_directory() . '/vc_elements/cms_heading.php');
         require_once(get_template_directory() . '/vc_elements/cms_process.php');
         require_once(get_template_directory() . '/vc_elements/cms_call_to_action.php');
+        require_once(get_template_directory() . '/vc_elements/cms_grid_portfolio.php');
     }
 }
 
@@ -317,4 +319,10 @@ add_filter('cmssuperheroes_extra_post_types', 'cmssuperheroes_extra_post_types_f
 function cmssuperheroes_extra_post_types_func_2($args) {
     $args['labels']['menu_name'] = 'Portfolio Test Filter';
     return $args;
+}
+
+add_filter('cms_locations', 'add_menu_location');
+function add_menu_location($locations) {
+    $locations[] = 'cms';
+    return $locations;
 }
