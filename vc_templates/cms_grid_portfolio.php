@@ -22,7 +22,7 @@
                     $class = ' no-image';
                     $thumbnail = '<img src="' . esc_url(CMS_IMAGES) . 'no-image.jpg" alt="' . get_the_title($post->ID) . '" />';
                 endif;
-                echo '<div class="cms-grid-media ' . esc_attr($class) . '">' . wp_kses($thumbnail, wp_kses_allowed_html()) . '</div>';
+                echo '<div class="cms-grid-media ' . esc_attr($class) . '">' . wp_kses_post($thumbnail) . '</div>';
                 ?>
                 <div class="cms-grid-title">
                     <h3><?php echo get_the_title($post->ID); ?></h3>
