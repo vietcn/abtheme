@@ -195,36 +195,45 @@ class WPBakeryShortCode_cms_grid_portfolio extends CmsShortCode
         $atts = array_merge($atts_extra, $atts);
 
         $html_id = cmsHtmlID('cms-grid-portfolio');
-        $args_lol = array(
-            'post_type'       => 'portfolio',
-            'posts_per_page ' => !empty($atts['limit']) ? intval($atts['limit']) : 6,
-            'order'           => !empty($atts['order']) ? $atts['order'] : 'DESC',
-            'orderby'         => !empty($atts['orderby']) ? $atts['orderby'] : 'date',
-            'tax_query'       => array(
-                'relation' => 'OR',
-            )
-        );
-        //default categories selected
-        $source = !empty($atts['source']) ? $atts['source'] : '';
-        // if select term on custom post type, move term item to cat.
-        if (!empty($source)) {
-            $source_a = explode(',', $source);
-            foreach ($source_a as $terms) {
-                $tmp = explode('|', $terms);
-                if (isset($tmp[0]) && isset($tmp[1])) {
-                    $args_lol['tax_query'][] = array(
-                        'taxonomy' => $tmp[1],
-                        'field'    => 'term_id',
-                        'operator' => 'IN',
-                        'terms'    => array($tmp[0]),
-                    );
+        if (!empty($atts['post_ids'])) {
+            $atts['posts'] = get_posts(
+                array(
+                    'post_type' => 'portfolio',
+                    'include'   => array_map('intval', explode(',', $atts['post_ids']))
+                )
+            );
+        } else {
+            $args_lol = array(
+                'post_type'       => 'portfolio',
+                'posts_per_page ' => !empty($atts['limit']) ? intval($atts['limit']) : 6,
+                'order'           => !empty($atts['order']) ? $atts['order'] : 'DESC',
+                'orderby'         => !empty($atts['orderby']) ? $atts['orderby'] : 'date',
+                'tax_query'       => array(
+                    'relation' => 'OR',
+                )
+            );
+            //default categories selected
+            $source = !empty($atts['source']) ? $atts['source'] : '';
+            // if select term on custom post type, move term item to cat.
+            if (!empty($source)) {
+                $source_a = explode(',', $source);
+                foreach ($source_a as $terms) {
+                    $tmp = explode('|', $terms);
+                    if (isset($tmp[0]) && isset($tmp[1])) {
+                        $args_lol['tax_query'][] = array(
+                            'taxonomy' => $tmp[1],
+                            'field'    => 'term_id',
+                            'operator' => 'IN',
+                            'terms'    => array($tmp[0]),
+                        );
+                    }
                 }
             }
+            $cms_query = new WP_Query($args_lol);
+            $cms_query->set('posts_per_page', !empty($atts['limit']) ? intval($atts['limit']) : 6);
+            $query = $cms_query->query($cms_query->query_vars);
+            $atts['posts'] = $query;
         }
-        $cms_query = new WP_Query($args_lol);
-        $cms_query->set('posts_per_page', !empty($atts['limit']) ? intval($atts['limit']) : 6);
-        $query = $cms_query->query($cms_query->query_vars);
-        $atts['posts'] = $query;
 
 
         $col_lg = 12 / $atts['col_lg'];

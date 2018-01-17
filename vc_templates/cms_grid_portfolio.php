@@ -1,8 +1,8 @@
 <?php
 
-//echo '<pre>';
-//var_dump($atts['posts']);
-//echo '</pre>';
+echo '<pre>';
+var_dump($atts);
+echo '</pre>';
 ?>
 
 <div class="row cms-grid">
