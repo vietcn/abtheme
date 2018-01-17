@@ -14,7 +14,7 @@ $atts_extra = shortcode_atts(array(
     'filter'       => 'true',
     'not__in'      => 'false',
     'cms_template' => 'cms_grid_portfolio.php',
-    'el_class'        => '',
+    'el_class'     => '',
 ), $atts);
 extract(array_merge($atts_extra, $atts));
 if (!empty($post_ids)) {
@@ -62,14 +62,39 @@ $col_md = 12 / $col_md;
 $col_sm = 12 / $col_sm;
 $col_xs = 12 / $col_xs;
 $item_class = "cms-grid-item col-lg-{$col_lg} col-md-{$col_md} col-sm-{$col_sm} col-xs-{$col_xs}";
+if (!empty($source)) {
+    $categories = explode(',', $source);
+} else {
+    $source = abtheme_get_term_list();
+    $categories = $source['terms'];
+}
+$categories = is_array($categories) ? $categories : array();
+$tax = array();
 ?>
-
+<?php if ($filter == "true" and $layout == 'masonry'): ?>
+    <div class="cms-grid-filter">
+        <ul class="cms-filter-category list-unstyled list-inline">
+            <li><a class="active" href="#" data-group="all"><?php echo esc_html__("All", "abtheme"); ?></a></li>
+            <?php foreach ($categories as $category): ?>
+                <?php $category_arr = explode('|', $category); ?>
+                <?php $tax[] = $category_arr[1]; ?>
+                <?php $term = get_term($category_arr[0], $category_arr[1]); ?>
+                <li>
+                    <a href="#" data-group="<?php echo esc_attr('category-' . $term->slug); ?>">
+                        <?php echo esc_html($term->name); ?>
+                    </a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+<?php endif; ?>
 <div class="cms-grid-portfolio cms-grid-portfolio-layout1 <?php echo esc_attr($el_class); ?>">
     <?php
     if (is_array($posts)):
         foreach ($posts as $post) {
+            $filter_class = abtheme_get_term_of_post_to_class($post->ID,array_unique($tax));
             ?>
-            <div class="<?php echo esc_attr($item_class); ?>">
+            <div class="<?php echo esc_attr($item_class); ?>" data-group="<?php echo esc_attr($filter_class) ?>">
                 <?php
                 if (has_post_thumbnail($post->ID) && wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), false)):
                     $class = ' has-thumbnail';

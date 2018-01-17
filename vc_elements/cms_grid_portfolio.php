@@ -1,19 +1,37 @@
 <?php
-$taxonomy_objects = get_object_taxonomies('portfolio', 'names');
-$term_list = array();
-foreach ($taxonomy_objects as $tax) {
-    $terms = get_terms(
-        array(
-            'taxonomy'   => $tax,
-            'hide_empty' => false,
-        )
-    );
-    foreach ($terms as $term) {
-        $term_list[] = array(
-            'value' => $term->term_id . '|' . $tax,
-            'label' => $term->name,
+function abtheme_get_term_list()
+{
+    $taxonomy_objects = get_object_taxonomies('portfolio', 'names');
+    $term_list = array();
+    $terms_of_posttype = array();
+    foreach ($taxonomy_objects as $tax) {
+        $terms = get_terms(
+            array(
+                'taxonomy'   => $tax,
+                'hide_empty' => false,
+            )
         );
+        foreach ($terms as $term) {
+            $term_list['terms'][] = $term->term_id . '|' . $tax;
+            $term_list['auto_complete'][] = array(
+                'value' => $term->term_id . '|' . $tax,
+                'label' => $term->name,
+            );
+        }
     }
+    return $term_list;
+}
+
+function abtheme_get_term_of_post_to_class($post_id,$tax = array())
+{
+    $term_list = array();
+    foreach ($tax as $taxo){
+        $term_of_post = wp_get_post_terms($post_id, $taxo);
+        foreach ($term_of_post as $term) {
+            $term_list[] = $term->slug;
+        }
+    }
+    return implode(',', $term_list);
 }
 
 function abtheme_get_type_posts_data($post_type = 'post')
@@ -32,6 +50,7 @@ function abtheme_get_type_posts_data($post_type = 'post')
     return $result;
 }
 
+$term_list = abtheme_get_term_list();
 vc_map(
     array(
         "name"     => __("CMS Grid Portfolio", CMS_NAME),
@@ -45,7 +64,7 @@ vc_map(
                 "param_name" => "source",
                 'settings'   => array(
                     'multiple' => true,
-                    'values'   => $term_list
+                    'values'   => $term_list['auto_complete']
                 ),
                 "group"      => __("Source Settings", CMS_NAME),
             ),
