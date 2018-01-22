@@ -315,10 +315,10 @@ Redux::setSection($opt_name, array(
             'left'     => false,
             'output'   => array('#pagetitle'),
             'default'  => array(
-                'top'    => '5',
-                'right'  => '5',
-                'bottom' => '5',
-                'left'   => '5',
+                'top'    => '',
+                'right'  => '',
+                'bottom' => '',
+                'left'   => '',
                 'units'  => 'px',
             )
         ),
@@ -334,7 +334,7 @@ Redux::setSection($opt_name, array(
             'title'       => esc_html__('Breadcrumb Text Color', 'abtheme'),
             'subtitle'    => esc_html__('Select text color for breadcrumb', 'abtheme'),
             'transparent' => false,
-            'output'      => array('.page-title .breadcrumb'),
+            'output'      => array('.breadcrumb'),
             'required'    => array('breadcrumb_on', '=', true)
         ),
         array(
@@ -342,11 +342,12 @@ Redux::setSection($opt_name, array(
             'type'     => 'link_color',
             'title'    => esc_html__('Breadcrumb Link Colors', 'abtheme'),
             'subtitle' => esc_html__('Select link colors for breadcrumb', 'abtheme'),
+            'output'      => array('.breadcrumb a'),
             'default'  => array(
-                'regular' => '#1e73be', // blue
-                'hover'   => '#dd3333', // red
-                'active'  => '#8224e3',  // purple
-                'visited' => '#8224e3',  // purple
+                'regular' => '',
+                'hover'   => '',
+                'active'  => '',
+                'visited' => '',
             ),
             'required' => array('breadcrumb_on', '=', true)
         )

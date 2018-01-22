@@ -23,18 +23,19 @@ $icon_name = "icon_" . $icon_type;
 $iconClass = isset($atts[$icon_name])?$atts[$icon_name]:'';
 ?>
 <div class="cta-wrapper cta-layout1 <?php echo esc_attr($el_class); ?> <?php echo esc_attr($animation_classes); ?>">
-    <div class="cta-text" style="color: <?php echo esc_attr($heading_color); ?>">
-        <?php echo esc_attr($heading); ?>
-    </div>
-    <div class="cta-button">
-        <a href="<?php echo esc_url($link["url"]);?>" title="<?php echo esc_attr($link["title"]);?>" target="<?php echo esc_attr($link["target"]);?>" class="btn <?php echo esc_attr($button_size); ?>">
+    <div class="row">
+        <div class="cta-text col-md-8" style="color: <?php echo esc_attr($heading_color); ?>">
+            <?php echo esc_attr($heading); ?>
+        </div>
+        <div class="cta-button col-md-4">
+            <a href="<?php echo esc_url($link["url"]);?>" title="<?php echo esc_attr($link["title"]);?>" target="<?php echo esc_attr($link["target"]);?>" class="btn btn-outline <?php echo esc_attr($button_size); ?>">
             <span class="btn-text">
                 <?php switch ($icon_align) {
                     case 'right':
                         ?>
                         <span><?php echo esc_attr($button_text); ?></span>
                             <?php if( $iconClass ): ?>
-                        <i class="<?php echo esc_attr($iconClass);?>"></i>
+                        <i class="<?php echo esc_attr($iconClass);?> icon-right"></i>
                     <?php endif; ?>
                         <?php
                         break;
@@ -42,13 +43,14 @@ $iconClass = isset($atts[$icon_name])?$atts[$icon_name]:'';
                     default:
                         ?>
                         <?php if( $iconClass ): ?>
-                        <i class="<?php echo esc_attr($iconClass);?>"></i>
+                        <i class="<?php echo esc_attr($iconClass);?> icon-left"></i>
                     <?php endif;?>
                             <span><?php echo esc_attr($button_text); ?></span>
                         <?php
                         break;
                 }?>
             </span>
-        </a>
+            </a>
+        </div>
     </div>
 </div>

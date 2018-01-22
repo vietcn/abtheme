@@ -221,6 +221,7 @@ html {
 }
 body {
   background-color: #fff;
+  color: #666;
 }
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   clear: both;
@@ -314,7 +315,7 @@ td {
     width: 1170px;
   }
 }
-@media (min-width: 1170px) {
+@media (max-width: 1199px) {
   .container {
     width: 100%;
   }
@@ -1232,6 +1233,14 @@ td {
 #content[tabindex="-1"]:focus {
   outline: 0;
 }
+.list-unstyled {
+  list-style: none;
+  padding: 0;
+}
+.list-inline li {
+  display: inline-block;
+  padding: 0 10px;
+}
 .alignleft, .alignright, .aligncenter {
   margin-bottom: 1em;
 }
@@ -1250,6 +1259,16 @@ td {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  /* Text align */
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.text-center {
+  text-align: center;
 }
 ::-webkit-input-placeholder {
   color: #8a8a8a;
@@ -1355,16 +1374,20 @@ button:focus, input[type="button"]:focus, input[type="reset"]:focus, input[type=
 .btn.btn-large {
   padding: 15px 35px;
 }
-.btn.btn-line {
+.btn.btn-outline {
   border: 2px solid #d5d5d5;
   color: #3b3b3b;
   background: transparent;
+}
+.btn.btn-outline:hover, .btn.btn-outline:focus {
+  border: 2px solid #32a0df !important;
+  color: #32a0df !important;
 }
 .btn-primary {
   background: #32a0df;
   color: #fff;
 }
-.btn-primary:hover {
+.btn-primary:hover, .btn-primary:focus {
   background: #000;
   color: #fff;
 }
@@ -1751,6 +1774,9 @@ ul.back {
   padding-bottom: 50px;
   background: #ccc;
 }
+#pagetitle h1 {
+  margin: 0;
+}
 .breadcrumb {
   list-style: none;
   padding: 0;
@@ -1858,6 +1884,9 @@ a:hover, a:active {
 }
 .site-content .widget-has-sidebar {
   width: 30%;
+}
+.content-no-sidebar {
+  width: 100%;
 }
 .widget {
   margin: 0 0 1.5em;
@@ -2018,4 +2047,11 @@ a.scroll-top {
 }
 .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
   background: #869791;
+  /* Custom Heading */
+}
+.cms-heading-wrapper {
+  margin-bottom: 15px;
+}
+.cms-heading-wrapper h1, .cms-heading-wrapper h2, .cms-heading-wrapper h3, .cms-heading-wrapper h4, .cms-heading-wrapper h5 {
+  margin: 0;
 }

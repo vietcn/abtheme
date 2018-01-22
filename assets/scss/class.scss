@@ -36,6 +36,17 @@
     outline: 0;
 }
 
+.list-unstyled{
+    list-style: none;
+    padding: 0;
+}
+.list-inline{
+    li{
+        display: inline-block;
+        padding: 0 10px;
+    }
+}
+
 // Alignments
 //--------------------------------------------------
 .alignleft,
@@ -58,4 +69,15 @@
 .aligncenter {
     clear: both;
     @include center-block;
+}
+
+/* Text align */
+.text-left {
+    text-align: left;
+}
+.text-right {
+    text-align: right;
+}
+.text-center{
+    text-align: center;
 }

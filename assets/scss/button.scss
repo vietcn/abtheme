@@ -85,17 +85,21 @@ input[type="submit"]:focus {
     padding: 15px 35px;
   }
 
-  &.btn-line{
+  &.btn-outline{
     border: 2px solid #d5d5d5;
     color: #3b3b3b;
     background: transparent;
+    &:hover, &:focus{
+      border: 2px solid $primary_color!important;
+      color: $primary_color!important;;
+    }
   }
 }
 
 .btn-primary{
   background: $primary_color;
   color: #fff;
-  &:hover{
+  &:hover, &:focus{
     background: #000;
     color: #fff;
   }

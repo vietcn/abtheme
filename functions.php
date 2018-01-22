@@ -27,8 +27,20 @@ if (!function_exists('abtheme_setup')) :
         // Let WordPress manage the document title.
         add_theme_support('title-tag');
 
+        /* Change default image thumbnail sizes in wordpress */
+        update_option('thumbnail_size_w', 300);
+        update_option('thumbnail_size_h', 300);
+        update_option('thumbnail_crop', 1);
+        update_option('medium_size_w', 800);
+        update_option('medium_size_h', 400);
+        update_option('medium_crop', 1);
+        update_option('large_size_w', 1000);
+        update_option('large_size_h', 500);
+        update_option('large_crop', 1);
+
         // Enable support for Post Thumbnails on posts and pages.
         add_theme_support('post-thumbnails');
+        add_image_size( 'abtheme-small', 160, 160, true );
 
         // This theme uses wp_nav_menu() in one location.
         register_nav_menus(array(
@@ -133,6 +145,37 @@ function abtheme_widgets_init()
 add_action('widgets_init', 'abtheme_widgets_init');
 
 /**
+ * Register Google fonts
+ */
+if ( ! function_exists( 'abtheme_fonts_url' ) ) :
+
+    function abtheme_fonts_url() {
+        $fonts_url = '';
+        $fonts     = array();
+        $subsets   = 'latin,latin-ext';
+
+        /* translators: If there are characters in your language that are not supported by Source Sans Pro, translate this to 'off'. Do not translate into your own language. */
+        if ( 'off' !== _x( 'on', 'Source Sans Pro font: on or off', 'abtheme' ) ) {
+            $fonts[] = 'Source+Sans+Pro:400,600,700,900';
+        }
+
+        /* translators: If there are characters in your language that are not supported by PT Serif, translate this to 'off'. Do not translate into your own language. */
+        if ( 'off' !== _x( 'on', 'PT Serif font: on or off', 'abtheme' ) ) {
+            $fonts[] = 'PT+Serif:400,700';
+        }
+
+        if ( $fonts ) {
+            $fonts_url = add_query_arg( array(
+                'family' => urlencode( implode( '|', $fonts ) ),
+                'subset' => urlencode( $subsets ),
+            ), 'https://fonts.googleapis.com/css' );
+        }
+
+        return $fonts_url;
+    }
+endif;
+
+/**
  * Enqueue scripts and styles.
  */
 function abtheme_scripts()
@@ -155,12 +198,12 @@ function abtheme_scripts()
     }
 
     $sticky_on = abtheme_get_opt('sticky_on', true);
-    if ($sticky_on = 1) {
+    if ($sticky_on == 1) {
         wp_enqueue_script('headroom', get_template_directory_uri() . '/assets/js/headroom.min.js', array('jquery'), $theme->get('Version'), true);
+        wp_enqueue_script('abtheme-headroom', get_template_directory_uri() . '/assets/js/headroom.js', array('jquery'), $theme->get('Version'), true);
     }
     wp_enqueue_script('owl-carousel', get_template_directory_uri() . '/assets/js/owl.carousel.min.js', array('jquery'), $theme->get('Version'), true);
     wp_enqueue_script('magnific-popup', get_template_directory_uri() . '/assets/js/magnific-popup.js', array('jquery'), $theme->get('Version'), true);
-    //wp_enqueue_script( 'abtheme-menu', get_template_directory_uri() . '/assets/js/menu.js', array( 'jquery' ), $theme->get( 'Version' ), true );
     wp_enqueue_script('abtheme-main', get_template_directory_uri() . '/assets/js/main.js', array('jquery'), $theme->get('Version'), true);
 }
 
@@ -226,27 +269,10 @@ function abtheme_vc_after_init()
     require_once(get_template_directory() . '/vc_params/vc_custom_heading.php');
     require_once(get_template_directory() . '/vc_params/cms_custom_pagram_vc.php');
 
-    vc_remove_element("vc_button");
-    vc_remove_element("vc_button2");
-    vc_remove_element("vc_cta_button");
-    vc_remove_element("vc_cta_button2");
-    vc_remove_element("vc_cta");
-    // vc_remove_element( "cms_fancybox" );
-    // vc_remove_element( "cms_counter" );
+    // vc_remove_element("vc_button");
 }
 
 add_action('vc_after_init', 'abtheme_vc_after_init');
-
-/* Include CMS Shortcode */
-function abtheme_shortcodes_list()
-{
-    $abtheme_shortcodes_list = array(
-        'cms_carousel',
-        'cms_grid',
-    );
-
-    return $abtheme_shortcodes_list;
-}
 
 /**
  * Add new elements for VC
@@ -256,14 +282,18 @@ function abtheme_vc_elements()
 {
 
     if (class_exists('CmsShortCode')) {
-        add_filter('cms-shorcode-list', 'abtheme_shortcodes_list');
-
         require_once(get_template_directory() . '/vc_elements/cms_button.php');
         require_once(get_template_directory() . '/vc_elements/cms_googlemap.php');
         require_once(get_template_directory() . '/vc_elements/cms_heading.php');
-        require_once(get_template_directory() . '/vc_elements/cms_process.php');
+        //require_once(get_template_directory() . '/vc_elements/cms_process.php');
+        require_once(get_template_directory() . '/vc_elements/cms_progressbar.php');
         require_once(get_template_directory() . '/vc_elements/cms_call_to_action.php');
         require_once(get_template_directory() . '/vc_elements/cms_grid_portfolio.php');
+<<<<<<< Updated upstream
+=======
+        require_once(get_template_directory() . '/vc_elements/cms_carousel_portfolio.php');
+        require_once(get_template_directory() . '/vc_elements/cms_counter_single.php');
+>>>>>>> Stashed changes
     }
 }
 
@@ -309,9 +339,10 @@ add_filter('woocommerce_show_page_title', 'woo_hide_page_title');
  * Custom post types and args based on plugin.
  * require plugin
  */
-add_filter('cmssuperheroes_extra_post_types', 'cmssuperheroes_extra_post_types_func_1' );
-function cmssuperheroes_extra_post_types_func_1($post_types)
+add_filter('cms_extra_post_types', 'abtheme_extra_post_types_func' );
+function abtheme_extra_post_types_func($post_types)
 {
+<<<<<<< Updated upstream
     return array('portfolio' => true, 'team_member' => true);
 }
 
@@ -326,3 +357,17 @@ function add_menu_location($locations) {
     $locations[] = 'cms';
     return $locations;
 }
+=======
+    $post_types = array(
+        'portfolio' => array(
+            'status'     => true,
+        ),
+        'team'  => array(
+            'status'     => true,
+            'item_name'  => __('Team', 'abtheme'),
+            'items_name' => __('Teams', 'abtheme'),
+        )
+    );
+    return $post_types;
+}
+>>>>>>> Stashed changes

@@ -5,88 +5,6 @@
  * @package Abtheme
  */
 
-
-/**
- * Set primary content class based on sidebar position
- * 
- * @param  string $sidebar_pos
- * @param  string $extra_class
- */
-function abtheme_primary_class( $sidebar_pos, $extra_class = '' )
-{
-    if ( is_page() ) :
-        $sidebar_load = 'sidebar-page';
-    elseif ( class_exists( 'WooCommerce' ) && (is_shop() || is_product()) ) :
-        $sidebar_load = 'sidebar-shop';
-    else :
-        $sidebar_load = 'sidebar-1';
-    endif;
-
-    if ( is_active_sidebar( $sidebar_load ) ) {
-        $class = array( trim( $extra_class ) );
-        switch ( $sidebar_pos )
-        {
-            case 'left':
-                $class[] = 'content-has-sidebar pull-right';
-                break;
-
-            case 'right':
-                $class[] = 'content-has-sidebar pull-left';
-                break;
-
-            default:
-                break;
-        }
-
-        $class = implode( ' ', array_filter( $class ) );
-
-        if ( $class )
-        {
-            echo ' class="' . esc_html($class) . '"';
-        }
-    }
-}
-
-/**
- * Set secondary content class based on sidebar position
- * 
- * @param  string $sidebar_pos
- * @param  string $extra_class
- */
-function abtheme_secondary_class( $sidebar_pos, $extra_class = '' )
-{
-    if ( is_page() ) :
-        $sidebar_load = 'sidebar-page';
-    elseif ( class_exists( 'WooCommerce' ) && (is_shop() || is_singular('product'))) :
-        $sidebar_load = 'sidebar-shop';
-    else :
-        $sidebar_load = 'sidebar-1';
-    endif;
-
-    if ( is_active_sidebar( $sidebar_load ) ) {
-        $class = array(trim($extra_class));
-        switch ($sidebar_pos) {
-            case 'left':
-                $class[] = 'widget-has-sidebar pull-left';
-                break;
-
-            case 'right':
-                $class[] = 'widget-has-sidebar pull-right';
-                break;
-
-            default:
-                break;
-        }
-
-        $class = implode(' ', array_filter($class));
-
-        if ($class) {
-            echo ' class="' . esc_html($class) . '"';
-        }
-    }
-}
-
-
 /**
  * Prints HTML for breadcrumbs.
  */
@@ -141,7 +59,7 @@ function abtheme_breadcrumb()
 
     if ( $output )
     {
-        printf( '<ul class="breadcrumb">%s</ul>', wp_kses($output,wp_kses_allowed_html()) );
+        printf( '<ul class="breadcrumb">%s</ul>', wp_kses_post($output) );
     }
 }
 

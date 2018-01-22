@@ -23,7 +23,7 @@ vc_map(array(
             'type' => 'cms_template_img',
             'param_name' => 'cms_template',
             "shortcode" => "cms_call_to_action",
-            "heading" => esc_html__("Call To Action Template","abtheme"),
+            "heading" => esc_html__("Shortcode Template","abtheme"),
             "admin_label" => true,
             "group" => esc_html__("Template", "abtheme"),
         ),

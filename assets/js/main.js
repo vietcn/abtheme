@@ -102,23 +102,6 @@
         });
 
         /* ====================
-         Headroom
-         ====================== */
-        // grab an element
-        var myElement = document.querySelector("#headroom");
-        $( '#header' ).css('height',$( '#header' ).outerHeight());
-        window.addEventListener('resize',function(){
-            $( '#header' ).css('height','');
-            $( '#header' ).css('height',$( '#header' ).outerHeight());
-        });
-        // construct an instance of Headroom, passing the element
-        var headroom  = new Headroom(myElement,{
-            offset : 280
-        });
-        // initialise
-        headroom.init();
-
-        /* ====================
          Scroll To Top
          ====================== */
         /* Check to see if the window is top if not then display button */

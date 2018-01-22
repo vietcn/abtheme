@@ -3,21 +3,24 @@
  * Custom Woocommerce shop page.
  */
 get_header();
-$sidebar_pos = abtheme_get_opt( 'sidebar_shop', 'none' );
+$h_sidebar = 'no-sidebar';
+$sidebar_pos = abtheme_get_opt( 'sidebar_shop', 'right' );
+if($sidebar_pos != 'none') {
+    $h_sidebar = 'has-sidebar';
+}
 ?>
     <div class="container content-container">
         <div class="row content-row">
-            <div id="primary" <?php abtheme_primary_class( $sidebar_pos, 'content-area' ); ?>>
-                <main id="main" class="site-main" role="main">
-                        <?php woocommerce_content(); ?>
-                </main><!-- #main -->
-            </div><!-- #primary -->
-
-            <?php if ( 'left' == $sidebar_pos || 'right' == $sidebar_pos ) : ?>
-                <aside id="secondary"<?php abtheme_secondary_class( $sidebar_pos, 'widget-area' ); ?>>
+            <?php if($sidebar_pos != 'none') { ?>
+                <aside id="secondary" class="widget-area widget-<?php echo esc_attr($h_sidebar); ?> pull-<?php echo esc_attr($sidebar_pos); ?>">
                     <?php get_sidebar(); ?>
                 </aside>
-            <?php endif; ?>
+            <?php }?>
+            <div id="primary" class="content-area content-<?php echo esc_attr($h_sidebar); ?> pull-<?php echo esc_attr($sidebar_pos); ?>">
+                <main id="main" class="site-main" role="main">
+                    <?php woocommerce_content(); ?>
+                </main><!-- #main -->
+            </div><!-- #primary -->
         </div>
     </div>
 <?php

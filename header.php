@@ -34,7 +34,7 @@
 
     $ptitle_layout = abtheme_get_opt('ptitle_layout', '1');
 
-    if (is_page()) {
+    if (is_page() || is_search() || is_singular()) {
         $page_ptitle_layout = abtheme_get_page_opt('ptitle_layout');
         if ($page_ptitle_layout !== 'none') {
             $ptitle_layout = $page_ptitle_layout;

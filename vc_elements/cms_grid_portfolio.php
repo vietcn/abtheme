@@ -1,5 +1,9 @@
 <?php
+<<<<<<< Updated upstream
 function abtheme_get_term_list()
+=======
+function abtheme_get_grid_term_list()
+>>>>>>> Stashed changes
 {
     $taxonomy_objects = get_object_taxonomies('portfolio', 'names');
     $term_list = array();
@@ -21,7 +25,10 @@ function abtheme_get_term_list()
     }
     return $term_list;
 }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 function abtheme_get_term_of_post_to_class($post_id,$tax = array())
 {
     $term_list = array();
@@ -33,7 +40,10 @@ function abtheme_get_term_of_post_to_class($post_id,$tax = array())
     }
     return implode(',', $term_list);
 }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 function abtheme_get_type_posts_data($post_type = 'post')
 {
     $posts = get_posts(array(
@@ -49,6 +59,7 @@ function abtheme_get_type_posts_data($post_type = 'post')
     }
     return $result;
 }
+<<<<<<< Updated upstream
 
 $term_list = abtheme_get_term_list();
 vc_map(
@@ -71,6 +82,71 @@ vc_map(
             array(
                 "type"       => "dropdown",
                 "heading"    => __("Order by", CMS_NAME),
+=======
+$term_list = abtheme_get_grid_term_list();
+
+vc_map(
+    array(
+        "name"     => __("CMS Grid Portfolio", "abtheme"),
+        "base"     => "cms_grid_portfolio",
+        "class"    => "vc-cms-grid-portfolio",
+        "category" => __("CmsSuperheroes Shortcodes", "abtheme"),
+        "params"   => array(
+            array(
+                'type' => 'cms_template_img',
+                'param_name' => 'cms_template',
+                "shortcode" => "cms_grid_portfolio",
+                "heading" => esc_html__("Shortcode Template","abtheme"),
+                "admin_label" => true,
+                "group" => esc_html__("Template", "abtheme"),
+            ),
+            array(
+                "type"       => "checkbox",
+                "heading"    => __("Custom Source", "abtheme"),
+                "param_name" => "custom_source",
+                "value"      => "1",
+                "description"        => 'Check here if you want custom source',
+                "group"      => __("Source Settings", "abtheme")
+            ),
+            array(
+                "type"       => "autocomplete",
+                "heading"    => __("Select Categories", "abtheme"),
+                "param_name" => "source",
+                "description" => __("Leave blank to select all category","abtheme"),
+                'settings'   => array(
+                    'multiple' => true,
+                    'values'   => $term_list['auto_complete'],
+                ),
+                "dependency" => array(
+                    "element"=>"custom_source",
+                    "value"=>array(
+                        "true",
+                    )
+                ),
+                "group"      => __("Source Settings", "abtheme"),
+            ),
+            array(
+                'type'       => 'autocomplete',
+                'class'      => '',
+                'heading'    => esc_html__('Select Post Name', 'alispx'),
+                'param_name' => 'post_ids',
+                "description" => __("Leave blank to show all post","abtheme"),
+                'settings'   => array(
+                    'multiple' => true,
+                    'values'   => abtheme_get_type_posts_data('portfolio')
+                ),
+                "dependency" => array(
+                    "element"=>"custom_source",
+                    "value"=>array(
+                        "true",
+                    )
+                ),
+                "group"      => __("Source Settings", "abtheme"),
+            ),
+            array(
+                "type"       => "dropdown",
+                "heading"    => __("Order by", "abtheme"),
+>>>>>>> Stashed changes
                 "param_name" => "orderby",
                 "value"      => array(
                     'Date'   => 'date',
@@ -80,17 +156,26 @@ vc_map(
                     'Random' => 'rand',
                 ),
                 "std"        => 'date',
+<<<<<<< Updated upstream
                 "group"      => __("Source Settings", CMS_NAME)
             ),
             array(
                 "type"       => "dropdown",
                 "heading"    => __("Order", CMS_NAME),
+=======
+                "group"      => __("Source Settings", "abtheme")
+            ),
+            array(
+                "type"       => "dropdown",
+                "heading"    => __("Order", "abtheme"),
+>>>>>>> Stashed changes
                 "param_name" => "order",
                 "value"      => array(
                     'Ascending'  => 'ASC',
                     'Descending' => 'DESC',
                 ),
                 "std"        => 'DESC',
+<<<<<<< Updated upstream
                 "group"      => __("Source Settings", CMS_NAME)
             ),
             array(
@@ -114,47 +199,117 @@ vc_map(
             array(
                 "type"       => "dropdown",
                 "heading"    => __("Layout Type", CMS_NAME),
+=======
+                "group"      => __("Source Settings", "abtheme")
+            ),
+            array(
+                "type"       => "textfield",
+                "heading"    => __("Limit", "abtheme"),
+                "param_name" => "limit",
+                "value"      => "6",
+                "group"      => __("Source Settings", "abtheme"),
+                "description" => __("Enter number only","abtheme"),
+            ),
+            array(
+                "type"       => "dropdown",
+                "heading"    => __("Layout Type", "abtheme"),
+>>>>>>> Stashed changes
                 "param_name" => "layout",
                 "value"      => array(
                     "Basic"   => "basic",
                     "Masonry" => "masonry",
                 ),
+<<<<<<< Updated upstream
                 "group"      => __("Grid Settings", CMS_NAME)
             ),
             array(
                 "type"             => "dropdown",
                 "heading"          => __("Columns XS Devices", CMS_NAME),
+=======
+                "group"      => __("Grid Settings", "abtheme")
+            ),
+            array(
+                "type"       => "dropdown",
+                "heading"    => __("Filter on Masonry", "abtheme"),
+                "param_name" => "filter",
+                "value"      => array(
+                    "Enable"  => "true",
+                    "Disable" => "false"
+                ),
+                "dependency" => array(
+                    "element" => "layout",
+                    "value"   => "masonry"
+                ),
+                "group"      => __("Grid Settings", "abtheme")
+            ),
+            array(
+                "type"       => "textfield",
+                "heading"    => __("Gap", "abtheme"),
+                "param_name" => "gap",
+                "value"      => "30",
+                "group"      => __("Grid Settings", "abtheme"),
+                "description" => __("Select gap between grid elements. Enter number only","abtheme"),
+            ),
+            array(
+                "type"             => "dropdown",
+                "heading"          => __("Columns XS Devices", "abtheme"),
+>>>>>>> Stashed changes
                 "param_name"       => "col_xs",
                 "edit_field_class" => "vc_col-sm-3 vc_column",
                 "value"            => array(1, 2, 3, 4, 6, 12),
                 "std"              => 1,
+<<<<<<< Updated upstream
                 "group"            => __("Grid Settings", CMS_NAME)
             ),
             array(
                 "type"             => "dropdown",
                 "heading"          => __("Columns SM Devices", CMS_NAME),
+=======
+                "group"            => __("Grid Settings", "abtheme")
+            ),
+            array(
+                "type"             => "dropdown",
+                "heading"          => __("Columns SM Devices", "abtheme"),
+>>>>>>> Stashed changes
                 "param_name"       => "col_sm",
                 "edit_field_class" => "vc_col-sm-3 vc_column",
                 "value"            => array(1, 2, 3, 4, 6, 12),
                 "std"              => 2,
+<<<<<<< Updated upstream
                 "group"            => __("Grid Settings", CMS_NAME)
             ),
             array(
                 "type"             => "dropdown",
                 "heading"          => __("Columns MD Devices", CMS_NAME),
+=======
+                "group"            => __("Grid Settings", "abtheme")
+            ),
+            array(
+                "type"             => "dropdown",
+                "heading"          => __("Columns MD Devices", "abtheme"),
+>>>>>>> Stashed changes
                 "param_name"       => "col_md",
                 "edit_field_class" => "vc_col-sm-3 vc_column",
                 "value"            => array(1, 2, 3, 4, 6, 12),
                 "std"              => 3,
+<<<<<<< Updated upstream
                 "group"            => __("Grid Settings", CMS_NAME)
             ),
             array(
                 "type"             => "dropdown",
                 "heading"          => __("Columns LG Devices", CMS_NAME),
+=======
+                "group"            => __("Grid Settings", "abtheme")
+            ),
+            array(
+                "type"             => "dropdown",
+                "heading"          => __("Columns LG Devices", "abtheme"),
+>>>>>>> Stashed changes
                 "param_name"       => "col_lg",
                 "edit_field_class" => "vc_col-sm-3 vc_column",
                 "value"            => array(1, 2, 3, 4, 6, 12),
                 "std"              => 4,
+<<<<<<< Updated upstream
                 "group"            => __("Grid Settings", CMS_NAME)
             ),
             array(
@@ -187,6 +342,16 @@ vc_map(
                 "heading"     => __("Shortcode Template", CMS_NAME),
                 "group"       => __("Template", CMS_NAME),
             )
+=======
+                "group"            => __("Grid Settings", "abtheme")
+            ),
+            array(
+                "type" => "textfield",
+                "heading" => esc_html__( "Extra class name", "abtheme" ),
+                "param_name" => "el_class",
+                "description" => esc_html__( "If you wish to style particular content element differently, then use this field to add a class name and then refer to it in your css file.", "abtheme" ),
+            ),
+>>>>>>> Stashed changes
         )
     )
 );
