@@ -2,32 +2,32 @@
 $term_list = cms_get_grid_term_list('portfolio');
 vc_map(
     array(
-        "name"     => __("CMS Grid Portfolio", "abtheme"),
+        "name"     => esc_html__("CMS Grid Portfolio", "abtheme"),
         "base"     => "cms_grid_portfolio",
         "class"    => "vc-cms-grid-portfolio",
-        "category" => __("CmsSuperheroes Shortcodes", "abtheme"),
+        "category" => esc_html__("CmsSuperheroes Shortcodes", "abtheme"),
         "params"   => array(
             array(
                 'type' => 'cms_template_img',
                 'param_name' => 'cms_template',
                 "shortcode" => "cms_grid_portfolio",
-                "heading" => esc_html__("Shortcode Template","abtheme"),
+                "heading" => esc_html__("Shortcode Template", "abtheme"),
                 "admin_label" => true,
                 "group" => esc_html__("Template", "abtheme"),
             ),
             array(
                 "type"       => "checkbox",
-                "heading"    => __("Custom Source", "abtheme"),
+                "heading"    => esc_html__("Custom Source", "abtheme"),
                 "param_name" => "custom_source",
                 "value"      => "1",
                 "description"        => 'Check here if you want custom source',
-                "group"      => __("Source Settings", "abtheme")
+                "group"      => esc_html__("Source Settings", "abtheme")
             ),
             array(
                 "type"       => "autocomplete",
-                "heading"    => __("Select Categories", "abtheme"),
+                "heading"    => esc_html__("Select Categories", "abtheme"),
                 "param_name" => "source",
-                "description" => __("Leave blank to select all category","abtheme"),
+                "description" => esc_html__("Leave blank to select all category", "abtheme"),
                 'settings'   => array(
                     'multiple' => true,
                     'values'   => $term_list['auto_complete'],
@@ -38,14 +38,14 @@ vc_map(
                         "true",
                     )
                 ),
-                "group"      => __("Source Settings", "abtheme"),
+                "group"      => esc_html__("Source Settings", "abtheme"),
             ),
             array(
                 'type'       => 'autocomplete',
                 'class'      => '',
                 'heading'    => esc_html__('Select Post Name', 'alispx'),
                 'param_name' => 'post_ids',
-                "description" => __("Leave blank to show all post","abtheme"),
+                "description" => esc_html__("Leave blank to show all post", "abtheme"),
                 'settings'   => array(
                     'multiple' => true,
                     'values'   => cms_get_type_posts_data('portfolio')
@@ -56,11 +56,11 @@ vc_map(
                         "true",
                     )
                 ),
-                "group"      => __("Source Settings", "abtheme"),
+                "group"      => esc_html__("Source Settings", "abtheme"),
             ),
             array(
                 "type"       => "dropdown",
-                "heading"    => __("Order by", "abtheme"),
+                "heading"    => esc_html__("Order by", "abtheme"),
                 "param_name" => "orderby",
                 "value"      => array(
                     'Date'   => 'date',
@@ -70,73 +70,40 @@ vc_map(
                     'Random' => 'rand',
                 ),
                 "std"        => 'date',
-                "group"      => __("Source Settings", "abtheme")
+                "group"      => esc_html__("Source Settings", "abtheme")
             ),
             array(
                 "type"       => "dropdown",
-                "heading"    => __("Order", "abtheme"),
-                "group"      => __("Source Settings", "abtheme")
-            ),
-            array(
-                "type"       => "dropdown",
-                "heading"    => __("Order", "abtheme"),
+                "heading"    => esc_html__("Sort order", "abtheme"),
                 "param_name" => "order",
                 "value"      => array(
                     'Ascending'  => 'ASC',
                     'Descending' => 'DESC',
                 ),
                 "std"        => 'DESC',
-                "group"      => __("Source Settings", "abtheme")
+                "group"      => esc_html__("Source Settings", "abtheme")
             ),
             array(
                 "type"       => "textfield",
-                "heading"    => __("Limit", "abtheme"),
+                "heading"    => esc_html__("Total items", "abtheme"),
                 "param_name" => "limit",
                 "value"      => "6",
-                "group"      => __("Source Settings", "abtheme")
-            ),
-            array(
-                'type'       => 'autocomplete',
-                'class'      => '',
-                'heading'    => esc_html__('Post Name', 'alispx'),
-                'param_name' => 'post_ids',
-                'settings'   => array(
-                    'multiple' => true,
-                    'values'   => cms_get_type_posts_data('portfolio')
-                ),
-                "group"      => __("Source Settings", "abtheme"),
+                "group"      => esc_html__("Source Settings", "abtheme"),
+                "description" => esc_html__("Set max limit for items in grid. Enter number only", "abtheme"),
             ),
             array(
                 "type"       => "dropdown",
-                "heading"    => __("Layout Type", "abtheme"),
-                "group"      => __("Source Settings", "abtheme")
-            ),
-            array(
-                "type"       => "textfield",
-                "heading"    => __("Limit", "abtheme"),
-                "param_name" => "limit",
-                "value"      => "6",
-                "group"      => __("Source Settings", "abtheme"),
-                "description" => __("Enter number only","abtheme"),
-            ),
-            array(
-                "type"       => "dropdown",
-                "heading"    => __("Layout Type", "abtheme"),
+                "heading"    => esc_html__("Layout Type", "abtheme"),
                 "param_name" => "layout",
                 "value"      => array(
                     "Basic"   => "basic",
                     "Masonry" => "masonry",
                 ),
-                "group"      => __("Grid Settings", "abtheme")
-            ),
-            array(
-                "type"             => "dropdown",
-                "heading"          => __("Columns XS Devices", "abtheme"),
-                "group"      => __("Grid Settings", "abtheme")
+                "group"      => esc_html__("Grid Settings", "abtheme")
             ),
             array(
                 "type"       => "dropdown",
-                "heading"    => __("Filter on Masonry", "abtheme"),
+                "heading"    => esc_html__("Filter on Masonry", "abtheme"),
                 "param_name" => "filter",
                 "value"      => array(
                     "Enable"  => "true",
@@ -146,102 +113,101 @@ vc_map(
                     "element" => "layout",
                     "value"   => "masonry"
                 ),
-                "group"      => __("Grid Settings", "abtheme")
+                "group"      => esc_html__("Grid Settings", "abtheme")
+            ),
+            array(
+                "type"       => "dropdown",
+                "heading"    => esc_html__("Load More on Masonry", "abtheme"),
+                "param_name" => "loadmore",
+                "value"      => array(
+                    "Enable"  => "true",
+                    "Disable" => "false"
+                ),
+                "dependency" => array(
+                    "element" => "layout",
+                    "value"   => "masonry"
+                ),
+                "group"      => esc_html__("Grid Settings", "abtheme")
             ),
             array(
                 "type"       => "textfield",
-                "heading"    => __("Gap", "abtheme"),
+                "heading"    => esc_html__("Default title", "abtheme"),
+                "param_name" => "filter_default_title",
+                "value"      => "All",
+                "group"      => esc_html__("Filter", "abtheme"),
+                "description" => esc_html__('Enter default title for filter option display (empty: "All")', 'summercamp'),
+                "dependency" => array(
+                    "element" => "filter",
+                    "value"   => "true"
+                ),
+            ),
+            array(
+                "type"       => "dropdown",
+                "heading"    => esc_html__("Alignment", "abtheme"),
+                "param_name" => "filter_alignment",
+                "value"      => array(
+                    "Center"   => "center",
+                    "Left"   => "left",
+                    "Right"   => "right",
+                ),
+                "description" => esc_html__('Select filter alignment.', 'summercamp'),
+                "group"      => esc_html__("Filter", "abtheme"),
+                "dependency" => array(
+                    "element" => "filter",
+                    "value"   => "true"
+                ),
+            ),
+
+            array(
+                "type"       => "textfield",
+                "heading"    => esc_html__("Item Gap", "abtheme"),
                 "param_name" => "gap",
                 "value"      => "30",
-                "group"      => __("Grid Settings", "abtheme"),
-                "description" => __("Select gap between grid elements. Enter number only","abtheme"),
+                "group"      => esc_html__("Grid Settings", "abtheme"),
+                "description" => esc_html__("Select gap between grid elements. Enter number only", "abtheme"),
             ),
             array(
                 "type"             => "dropdown",
-                "heading"          => __("Columns XS Devices", "abtheme"),
+                "heading"          => esc_html__("Columns XS Devices", "abtheme"),
                 "param_name"       => "col_xs",
                 "edit_field_class" => "vc_col-sm-3 vc_column",
                 "value"            => array(1, 2, 3, 4, 6, 12),
                 "std"              => 1,
-                "group"            => __("Grid Settings", "abtheme")
+                "group"            => esc_html__("Grid Settings", "abtheme")
             ),
             array(
                 "type"             => "dropdown",
-                "heading"          => __("Columns SM Devices", "abtheme"),
-                "group"            => __("Grid Settings", "abtheme")
-            ),
-            array(
-                "type"             => "dropdown",
-                "heading"          => __("Columns SM Devices", "abtheme"),
+                "heading"          => esc_html__("Columns SM Devices", "abtheme"),
                 "param_name"       => "col_sm",
                 "edit_field_class" => "vc_col-sm-3 vc_column",
                 "value"            => array(1, 2, 3, 4, 6, 12),
                 "std"              => 2,
-                "group"            => __("Grid Settings", "abtheme")
+                "group"            => esc_html__("Grid Settings", "abtheme")
             ),
             array(
                 "type"             => "dropdown",
-                "heading"          => __("Columns MD Devices", "abtheme"),
-                "group"            => __("Grid Settings", "abtheme")
-            ),
-            array(
-                "type"             => "dropdown",
-                "heading"          => __("Columns MD Devices", "abtheme"),
+                "heading"          => esc_html__("Columns MD Devices", "abtheme"),
                 "param_name"       => "col_md",
                 "edit_field_class" => "vc_col-sm-3 vc_column",
                 "value"            => array(1, 2, 3, 4, 6, 12),
                 "std"              => 3,
-                "group"            => __("Grid Settings", "abtheme")
+                "group"            => esc_html__("Grid Settings", "abtheme")
             ),
             array(
                 "type"             => "dropdown",
-                "heading"          => __("Columns LG Devices", "abtheme"),
-                "group"            => __("Grid Settings", "abtheme")
-            ),
-            array(
-                "type"             => "dropdown",
-                "heading"          => __("Columns LG Devices", "abtheme"),
+                "heading"          => esc_html__("Columns LG Devices", "abtheme"),
                 "param_name"       => "col_lg",
                 "edit_field_class" => "vc_col-sm-3 vc_column",
                 "value"            => array(1, 2, 3, 4, 6, 12),
                 "std"              => 4,
-                "group"            => __("Grid Settings", "abtheme")
-            ),
-            array(
-                "type"       => "dropdown",
-                "heading"    => __("Filter on Masonry", "abtheme"),
-                "param_name" => "filter",
-                "value"      => array(
-                    "Enable"  => "true",
-                    "Disable" => "false"
-                ),
-                "dependency" => array(
-                    "element" => "layout",
-                    "value"   => "masonry"
-                ),
-                "group"      => __("Grid Settings", "abtheme")
-            ),
-            array(
-                "type"        => "textfield",
-                "heading"     => __("Extra Class", "abtheme"),
-                "param_name"  => "class",
-                "value"       => "",
-                "description" => __("", "abtheme"),
-                "group"       => __("Template", "abtheme")
-            ),
-            array(
-                "type"        => "cms_template",
-                "param_name"  => "cms_template",
-                "shortcode"   => "cms_grid",
-                "admin_label" => true,
-                "heading"     => __("Shortcode Template", "abtheme"),
-                "group"       => __("Template", "abtheme"),
+                "group"            => esc_html__("Grid Settings", "abtheme")
             ),
             array(
                 "type" => "textfield",
                 "heading" => esc_html__( "Extra class name", "abtheme" ),
                 "param_name" => "el_class",
-                "description" => esc_html__( "If you wish to style particular content element differently, then use this field to add a class name and then refer to it in your css file.", "abtheme" ),
+                "description" => esc_html__( "Style particular content element differently - add a class name and refer to it in Custom CSS.", "abtheme" ),
+                "group"            => esc_html__("Grid Settings", "abtheme")
             ),
         )
     )
@@ -251,6 +217,8 @@ class WPBakeryShortCode_cms_grid_portfolio extends CmsShortCode
 {
     protected function content($atts, $content = null)
     {
+        $html_id = cmsHtmlID('cms-grid-portfolio');
+        $atts['html_id'] = $html_id;
         return parent::content($atts, $content);
     }
 }
