@@ -102,7 +102,7 @@ vc_map(
                 'param_name' => 'post_ids',
                 'settings'   => array(
                     'multiple' => true,
-                    'values'   => cms_get_type_posts_data'portfolio')
+                    'values'   => cms_get_type_posts_data('portfolio')
                 ),
                 "group"      => __("Source Settings", "abtheme"),
             ),
