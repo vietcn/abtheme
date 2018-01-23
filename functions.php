@@ -336,32 +336,17 @@ add_filter('woocommerce_show_page_title', 'woo_hide_page_title');
  * Custom post types and args based on plugin.
  * require plugin
  */
+/**
+ * Custom post types and args based on plugin.
+ * require plugin
+ */
 add_filter('cms_extra_post_types', 'abtheme_extra_post_types_func' );
 function abtheme_extra_post_types_func($post_types)
 {
-    return array('portfolio' => true, 'team_member' => true);
-}
-
-add_filter('cmssuperheroes_extra_post_types', 'cmssuperheroes_extra_post_types_func_2');
-function cmssuperheroes_extra_post_types_func_2($args) {
-    $args['labels']['menu_name'] = 'Portfolio Test Filter';
-    return $args;
-}
-
-add_filter('cms_locations', 'add_menu_location');
-function add_menu_location($locations) {
-    $locations[] = 'cms';
-    return $locations;
-}
     $post_types = array(
         'portfolio' => array(
             'status'     => true,
         ),
-        'team'  => array(
-            'status'     => true,
-            'item_name'  => __('Team', 'abtheme'),
-            'items_name' => __('Teams', 'abtheme'),
-        )
     );
     return $post_types;
 }
