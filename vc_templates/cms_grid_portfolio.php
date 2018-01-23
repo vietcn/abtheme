@@ -102,7 +102,6 @@ $tax = array();
                     <?php echo esc_html($term->name); ?>
                 </span>
 
-    <?php endforeach; ?>
     </div>
 <?php endif; ?>
 
@@ -110,7 +109,7 @@ $tax = array();
     <?php
     if (is_array($posts)):
         foreach ($posts as $post) {
-            $filter_class = abtheme_get_term_of_post_to_class($post->ID, array_unique($tax));
+            $filter_class = cms_get_term_of_post_to_class($post->ID, array_unique($tax));
             ?>
             <div class="<?php echo esc_attr($item_class . ' ' . $filter_class); ?>"
                  data-category="<?php echo esc_attr($filter_class) ?>">
