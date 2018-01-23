@@ -1,5 +1,5 @@
 <?php
-
+$term_list = cms_get_grid_term_list('portfolio');
 vc_map(
     array(
         "name"     => __("CMS Grid Portfolio", "abtheme"),
@@ -48,7 +48,7 @@ vc_map(
                 "description" => __("Leave blank to show all post","abtheme"),
                 'settings'   => array(
                     'multiple' => true,
-                    'values'   => abtheme_get_type_posts_data('portfolio')
+                    'values'   => cms_get_type_posts_data('portfolio')
                 ),
                 "dependency" => array(
                     "element"=>"custom_source",
@@ -102,7 +102,7 @@ vc_map(
                 'param_name' => 'post_ids',
                 'settings'   => array(
                     'multiple' => true,
-                    'values'   => abtheme_get_type_posts_data('portfolio')
+                    'values'   => cms_get_type_posts_data'portfolio')
                 ),
                 "group"      => __("Source Settings", "abtheme"),
             ),
