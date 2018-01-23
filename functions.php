@@ -289,11 +289,8 @@ function abtheme_vc_elements()
         require_once(get_template_directory() . '/vc_elements/cms_progressbar.php');
         require_once(get_template_directory() . '/vc_elements/cms_call_to_action.php');
         require_once(get_template_directory() . '/vc_elements/cms_grid_portfolio.php');
-<<<<<<< Updated upstream
-=======
         require_once(get_template_directory() . '/vc_elements/cms_carousel_portfolio.php');
         require_once(get_template_directory() . '/vc_elements/cms_counter_single.php');
->>>>>>> Stashed changes
     }
 }
 
@@ -342,7 +339,6 @@ add_filter('woocommerce_show_page_title', 'woo_hide_page_title');
 add_filter('cms_extra_post_types', 'abtheme_extra_post_types_func' );
 function abtheme_extra_post_types_func($post_types)
 {
-<<<<<<< Updated upstream
     return array('portfolio' => true, 'team_member' => true);
 }
 
@@ -357,7 +353,6 @@ function add_menu_location($locations) {
     $locations[] = 'cms';
     return $locations;
 }
-=======
     $post_types = array(
         'portfolio' => array(
             'status'     => true,
@@ -370,4 +365,3 @@ function add_menu_location($locations) {
     );
     return $post_types;
 }
->>>>>>> Stashed changes
