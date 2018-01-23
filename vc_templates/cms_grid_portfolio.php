@@ -6,7 +6,6 @@ $atts_extra = shortcode_atts(array(
     'limit'    => '6',
     'gap'      => '30',
     'post_ids' => '',
-
     'col_lg'               => 4,
     'col_md'               => 3,
     'col_sm'               => 2,
@@ -31,10 +30,6 @@ $col_xs = 12 / $col_xs;
 $grid_sizer = "col-lg-{$col_lg} col-md-{$col_md} col-sm-{$col_sm} col-xs-{$col_xs}";
 
 $gap_item = intval($gap / 2);
-wp_enqueue_style(
-    'inline-style',
-    get_template_directory_uri() . '/assets/css/inline-style.css'
-);
 $custom_css = "
         .cms-grid-inner {
             margin: 0 -{$gap_item}px;
@@ -47,7 +42,7 @@ wp_add_inline_style('inline-style', $custom_css);
 $grid_class = '';
 if ($layout == 'masonry') {
     wp_enqueue_script('isotope');
-    wp_enqueue_script('summercamp-isotope', get_template_directory_uri() . '/assets/js/isotope.cms.js', array('jquery'), '1.0.0', true);
+    wp_enqueue_script('abtheme-isotope', get_template_directory_uri() . '/assets/js/isotope.cms.js', array('jquery'), '1.0.0', true);
     $grid_class = 'cms-grid-inner cms-grid-masonry row';
     if ($loadmore == 'true') {
         $html_id = str_replace('-', '_', $html_id);

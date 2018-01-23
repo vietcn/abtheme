@@ -77,6 +77,18 @@
         });
 
         /* ===================
+         Popup Images
+         ===================== */
+        $('.images-light-box').magnificPopup({
+            delegate: 'a.light-box',
+            type: 'image',
+            gallery: {
+                enabled: true
+            },
+            mainClass: 'mfp-fade',
+        });
+
+        /* ===================
          Search Toggle
          ===================== */
         $('#header-search .search-toggle').click(function(e){
