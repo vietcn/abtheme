@@ -217,8 +217,6 @@ class WPBakeryShortCode_cms_grid_portfolio extends CmsShortCode
 {
     protected function content($atts, $content = null)
     {
-        $html_id = cmsHtmlID('cms-grid-portfolio');
-        $atts['html_id'] = $html_id;
         return parent::content($atts, $content);
     }
 }
