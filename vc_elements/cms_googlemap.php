@@ -2,7 +2,7 @@
 vc_map(array(
     "name" => 'CMS Google Map',
     "base" => "cms_googlemap",
-    "icon" => "cs_icon_for_vc",
+    "icon" => "icon-wpb-map-pin",
     "category" => esc_html__('CmsSuperheroes Shortcodes', "abtheme"),
     "params" => array(
         array(

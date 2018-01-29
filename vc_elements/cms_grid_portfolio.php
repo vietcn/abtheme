@@ -146,8 +146,8 @@ vc_map(
                 "heading"    => esc_html__("Alignment", "abtheme"),
                 "param_name" => "filter_alignment",
                 "value"      => array(
-                    "Center"   => "center",
                     "Left"   => "left",
+                    "Center"   => "center",
                     "Right"   => "right",
                 ),
                 "description" => esc_html__('Select filter alignment.', 'summercamp'),

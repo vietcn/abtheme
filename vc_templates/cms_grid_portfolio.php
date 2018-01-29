@@ -14,11 +14,10 @@ extract(shortcode_atts(array(
     'loadmore'             => 'true',
     'filter'               => 'true',
     'filter_default_title' => 'All',
-    'filter_alignment'     => 'center',
+    'filter_alignment'     => 'left',
     'el_class'             => '',
 ), $atts));
-//$atts = array_merge($atts_extra, $atts);
-//extract($atts);
+
 $tax = array();
 extract(cms_get_posts_of_grid('portfolio', $atts));
 $filter_default_title = !empty($filter_default_title) ? $filter_default_title : 'All';
@@ -65,7 +64,7 @@ if ($layout == 'masonry') {
 <div id="<?php echo esc_attr($html_id) ?>" class="cms-grid cms-grid-portfolio clearfix <?php echo esc_attr($el_class); ?>">
 
     <?php if ($filter == "true" and $layout == 'masonry'): ?>
-        <div class="grid-filter-wrap align-<?php echo esc_attr($filter_alignment); ?>">
+        <div class="grid-filter-wrap text-<?php echo esc_attr($filter_alignment); ?>">
             <span class="filter-item active" data-filter="*"><?php echo esc_html($filter_default_title); ?></span>
             <?php foreach ($categories as $category): ?>
                 <?php $category_arr = explode('|', $category); ?>

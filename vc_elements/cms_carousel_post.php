@@ -1,17 +1,17 @@
 <?php
-$term_list = cms_get_grid_term_list('portfolio');
+$term_list = cms_get_grid_term_list('post');
 
 vc_map(
     array(
-        "name"     => __("CMS Carousel Portfolio", "abtheme"),
-        "base"     => "cms_carousel_portfolio",
-        "class"    => "vc-cms-carousel-portfolio",
+        "name"     => __("CMS Carousel Post", "abtheme"),
+        "base"     => "cms_carousel_post",
+        "class"    => "vc-cms-carousel-post",
         "category" => __("CmsSuperheroes Shortcodes", "abtheme"),
         "params"   => array(
             array(
                 'type' => 'cms_template_img',
                 'param_name' => 'cms_template',
-                "shortcode" => "cms_carousel_portfolio",
+                "shortcode" => "cms_carousel_post",
                 "heading" => esc_html__("Shortcode Template","abtheme"),
                 "admin_label" => true,
                 "group" => esc_html__("Template", "abtheme"),
@@ -49,7 +49,7 @@ vc_map(
                 "description" => __("Leave blank to show all post","abtheme"),
                 'settings'   => array(
                     'multiple' => true,
-                    'values'   => cms_get_type_posts_data('portfolio')
+                    'values'   => cms_get_type_posts_data('post')
                 ),
                 "dependency" => array(
                     "element"=>"custom_source",
@@ -198,7 +198,7 @@ vc_map(
     )
 );
 
-class WPBakeryShortCode_cms_carousel_portfolio extends CmsShortCode
+class WPBakeryShortCode_cms_carousel_post extends CmsShortCode
 {
     protected function content($atts, $content = null)
     {

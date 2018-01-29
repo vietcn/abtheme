@@ -18,11 +18,11 @@ extract(shortcode_atts(array(
     'not__in'      => 'false',
     'el_class'        => '',
 ), $atts));
-extract(cms_get_posts_of_grid('portfolio', $atts));
+extract(cms_get_posts_of_grid('post', $atts));
 ?>
 
-<div class="carousel-portfolio carousel-portfolio-layout1 <?php echo esc_attr($el_class); ?>">
-    <div class="cms-carousel owl-carousel owl-theme cms-carousel-portfolio-layout1" data-margin="<?php echo esc_attr($margin); ?>" data-loop="<?php echo esc_attr($loop); ?>" data-nav="<?php echo esc_attr($nav); ?>" data-dots="<?php echo esc_attr($dots); ?>" data-autoplay="<?php echo esc_attr($autoplay); ?>" data-large-items="<?php echo esc_attr($large_items); ?>" data-medium-items="<?php echo esc_attr($medium_items); ?>" data-small-items="<?php echo esc_attr($small_items); ?>" data-xsmall-items="<?php echo esc_attr($xsmall_items); ?>">
+<div class="carousel-post carousel-post-layout1 <?php echo esc_attr($el_class); ?>">
+    <div class="cms-carousel owl-carousel owl-theme cms-carousel-post-layout1" data-margin="<?php echo esc_attr($margin); ?>" data-loop="<?php echo esc_attr($loop); ?>" data-nav="<?php echo esc_attr($nav); ?>" data-dots="<?php echo esc_attr($dots); ?>" data-autoplay="<?php echo esc_attr($autoplay); ?>" data-large-items="<?php echo esc_attr($large_items); ?>" data-medium-items="<?php echo esc_attr($medium_items); ?>" data-small-items="<?php echo esc_attr($small_items); ?>" data-xsmall-items="<?php echo esc_attr($xsmall_items); ?>">
         <?php
         if (is_array($posts)):
             foreach ($posts as $post) {
@@ -36,16 +36,16 @@ extract(cms_get_posts_of_grid('portfolio', $atts));
                         $class = ' no-image';
                         $thumbnail = '<img src="' . get_template_directory_uri() . '/assets/images/no-image.jpg" alt="' . get_the_title($post->ID) . '" />';
                     endif;
-                    echo '<div class="carousel-portfolio-media ' . esc_attr($class) . '">' . wp_kses_post($thumbnail) . '</div>';
+                    echo '<div class="carousel-post-media ' . esc_attr($class) . '">' . wp_kses_post($thumbnail) . '</div>';
                     ?>
-                    <div class="carousel-portfolio-title">
+                    <div class="carousel-post-title">
                         <h3>
                             <a href="<?php echo esc_url(get_permalink( $post->ID )); ?>">
                                 <?php echo esc_attr(get_the_title($post->ID)); ?>
                             </a>
                         </h3>
                     </div>
-                    <div class="carousel-portfolio-desc">
+                    <div class="carousel-post-desc">
                         <?php echo wp_trim_words( $post->post_content, $num_words = 55, $more = null ); ?>
                     </div>
                 </div>

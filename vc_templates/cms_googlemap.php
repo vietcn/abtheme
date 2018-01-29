@@ -32,7 +32,7 @@ if($api){
 }
 
 wp_enqueue_script('maps-googleapis', $api_js, array(), '3.0.0', true);
-wp_enqueue_script('cms.googlemap', get_template_directory_uri() . '/inc/elements/googlemap/cms.googlemap.js', array('maps-googleapis'), '3.0.0', true);
+wp_enqueue_script('cms.googlemap', get_template_directory_uri() . '/assets/js/cms.googlemap.js', array('maps-googleapis'), '3.0.0', true);
 
 /* style defualt */
 $map_styles = array(
