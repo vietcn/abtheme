@@ -22,7 +22,7 @@
                 if (abtheme_get_opt( 'footer_copyright')) {
                     echo wp_kses_post(abtheme_get_opt( 'footer_copyright'));
                 } else {
-                    echo wp_kses_post('&copy; '.esc_attr(date("Y")).' '.esc_attr(get_bloginfo('name')).' - Theme by <a href="http://www.farost.com/">Farost</a>');
+                    echo wp_kses_post('&copy; '.esc_attr(date("Y")).' '.esc_attr(get_bloginfo('name')).' - Theme by <a href="http://www.cmssuperheroes.com/">cmssuperheroes</a>');
                 }
                 ?>
             </div><!-- .site-info -->

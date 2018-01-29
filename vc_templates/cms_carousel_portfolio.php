@@ -46,7 +46,7 @@ extract(cms_get_posts_of_grid('portfolio', $atts));
                         </h3>
                     </div>
                     <div class="carousel-portfolio-desc">
-                        <?php echo wp_trim_words( $post->post_content, $num_words = 55, $more = null ); ?>
+                        <?php echo wp_trim_words( $post->post_content, $num_words = 15, $more = null ); ?>
                     </div>
                 </div>
                 <?php
