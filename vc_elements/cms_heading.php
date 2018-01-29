@@ -2,7 +2,7 @@
 vc_map(array(
     "name" => 'CMS Heading',
     "base" => "cms_heading",
-    "icon" => "cs_icon_for_vc",
+    "icon" => "icon-wpb-ui-custom_heading",
     "category" => esc_html__('CmsSuperheroes Shortcodes', "abtheme"),
     "params" => array(
         array(

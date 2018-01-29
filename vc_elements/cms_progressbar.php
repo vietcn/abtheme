@@ -3,7 +3,7 @@ vc_map(
 	array(
 		"name" => __("CMS Progress Bar", "abtheme"),
 	    "base" => "cms_progressbar",
-	    "class" => "vc-cms-progressbar",
+	    "icon" => "icon-wpb-graph",
 	    "category" => __("CmsSuperheroes Shortcodes", "abtheme"),
 	    "params" => array(
             array(
@@ -33,6 +33,38 @@ vc_map(
 	            "description" => __("","abtheme"),
 	            "group" => __("Progress Bar Settings", "abtheme")
 	        ),
+            array(
+                'type' => 'param_group',
+                'heading' => __( 'Values', 'abtheme' ),
+                'param_name' => 'values',
+                'description' => __( 'Enter values for graph - value, title and color.', 'abtheme' ),
+                'value' => urlencode( json_encode( array(
+                    array(
+                        'label' => __( 'Design', 'abtheme' ),
+                        'value' => '80',
+                    ),
+                    array(
+                        'label' => __( 'Marketing', 'abtheme' ),
+                        'value' => '70',
+                    ),
+                ) ) ),
+                'params' => array(
+                    array(
+                        'type' => 'textfield',
+                        'heading' => __( 'Label', 'abtheme' ),
+                        'param_name' => 'label',
+                        'description' => __( 'Enter text used as title of bar.', 'abtheme' ),
+                        'admin_label' => true,
+                    ),
+                    array(
+                        'type' => 'textfield',
+                        'heading' => __( 'Value', 'abtheme' ),
+                        'param_name' => 'value',
+                        'description' => __( 'Enter value of bar.', 'abtheme' ),
+                        'admin_label' => true,
+                    ),
+                ),
+            ),
             /* Start Icon */
             array(
                 'type' => 'dropdown',
