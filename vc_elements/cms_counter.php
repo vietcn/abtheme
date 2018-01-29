@@ -1,15 +1,15 @@
 <?php
 vc_map(
 	array(
-		"name" => __("CMS Counter Single", "abtheme"),
-	    "base" => "cms_counter_single",
-	    "class" => "vc-cms-counter-single",
+		"name" => __("CMS Counter", "abtheme"),
+	    "base" => "cms_counter",
+	    "icon" => "icon-wpb-wp",
 	    "category" => __("CmsSuperheroes Shortcodes", "abtheme"),
 	    "params" => array(
             array(
                 'type' => 'cms_template_img',
                 'param_name' => 'cms_template',
-                "shortcode" => "cms_counter_single",
+                "shortcode" => "cms_counter",
                 "heading" => esc_html__("Shortcode Template",'abtheme'),
                 "admin_label" => true,
                 "group" => esc_html__("Template", 'abtheme'),
@@ -285,7 +285,7 @@ vc_map(
 		)
 	)
 );
-class WPBakeryShortCode_cms_counter_single extends CmsShortCode{
+class WPBakeryShortCode_cms_counter extends CmsShortCode{
 	protected function content($atts, $content = null){
 		return parent::content($atts, $content);
 	}

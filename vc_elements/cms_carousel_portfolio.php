@@ -5,7 +5,7 @@ vc_map(
     array(
         "name"     => __("CMS Carousel Portfolio", "abtheme"),
         "base"     => "cms_carousel_portfolio",
-        "class"    => "vc-cms-carousel-portfolio",
+        "class"    => "icon-wpb-images-carousel",
         "category" => __("CmsSuperheroes Shortcodes", "abtheme"),
         "params"   => array(
             array(

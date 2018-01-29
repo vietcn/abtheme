@@ -2,7 +2,7 @@
 vc_map(array(
     "name" => 'CMS Button',
     "base" => "cms_button",
-    "icon" => "cs_icon_for_vc",
+    "icon" => "icon-wpb-ui-button",
     "category" => esc_html__('CmsSuperheroes Shortcodes', "abtheme"),
     "params" => array(
         array(

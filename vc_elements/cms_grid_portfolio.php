@@ -4,7 +4,7 @@ vc_map(
     array(
         "name"     => esc_html__("CMS Grid Portfolio", "abtheme"),
         "base"     => "cms_grid_portfolio",
-        "class"    => "vc-cms-grid-portfolio",
+        "class"    => "vc_icon-vc-masonry-media-grid",
         "category" => esc_html__("CmsSuperheroes Shortcodes", "abtheme"),
         "params"   => array(
             array(

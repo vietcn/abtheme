@@ -2,7 +2,7 @@
 vc_map(array(
     "name" => 'CMS Call To Action',
     "base" => "cms_call_to_action",
-    "icon" => "cs_icon_for_vc",
+    "icon" => "icon-wpb-call-to-action",
     "category" => esc_html__('CmsSuperheroes Shortcodes', "abtheme"),
     "params" => array(
         array(

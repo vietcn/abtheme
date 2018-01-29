@@ -265,7 +265,6 @@ require_once get_template_directory() . '/inc/template-tags.php';
 
 function abtheme_vc_after_init()
 {
-
     require_once(get_template_directory() . '/vc_params/vc_custom_heading.php');
     require_once(get_template_directory() . '/vc_params/cms_custom_pagram_vc.php');
 
@@ -280,20 +279,10 @@ add_action('vc_after_init', 'abtheme_vc_after_init');
 
 function abtheme_vc_elements()
 {
-
     if (class_exists('CmsShortCode')) {
-        require_once(get_template_directory() . '/vc_elements/cms_button.php');
-        require_once(get_template_directory() . '/vc_elements/cms_googlemap.php');
-        require_once(get_template_directory() . '/vc_elements/cms_heading.php');
-        //require_once(get_template_directory() . '/vc_elements/cms_process.php');
-        require_once(get_template_directory() . '/vc_elements/cms_progressbar.php');
-        require_once(get_template_directory() . '/vc_elements/cms_call_to_action.php');
-        require_once(get_template_directory() . '/vc_elements/cms_grid_portfolio.php');
-        require_once(get_template_directory() . '/vc_elements/cms_carousel_portfolio.php');
-        require_once(get_template_directory() . '/vc_elements/cms_counter_single.php');
+        cms_require_folder('vc_elements', get_template_directory());
     }
 }
-
 add_action('vc_before_init', 'abtheme_vc_elements');
 
 /**
