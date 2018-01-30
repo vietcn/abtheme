@@ -26,7 +26,6 @@ jQuery(function($) {
 			if ($(this).attr("data-type") === 'random') {
 				random = Math.floor(Math.random() * digit * 2);
 			}
-			console.log($(this).attr("id"));
 			$(this).waypoint(
 				function() {
 					var count = new countUp($(this).attr("id"), random,
