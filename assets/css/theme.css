@@ -1380,11 +1380,11 @@ button:focus, input[type="button"]:focus, input[type="reset"]:focus, input[type=
   background: transparent;
 }
 .btn.btn-outline:hover, .btn.btn-outline:focus {
-  border: 2px solid #32a0df !important;
-  color: #32a0df !important;
+  border: 2px solid #1b5e20 !important;
+  color: #1b5e20 !important;
 }
 .btn-primary {
-  background: #32a0df;
+  background: #1b5e20;
   color: #fff;
 }
 .btn-primary:hover, .btn-primary:focus {
@@ -1833,7 +1833,7 @@ ul.back {
   margin-top: -15px;
 }
 a {
-  color: #32a0df;
+  color: #1b5e20;
   text-decoration: none;
   -webkit-transition: all 0.3s;
   -khtml-transition: all 0.3s;

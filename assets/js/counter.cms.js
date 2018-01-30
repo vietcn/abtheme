@@ -8,24 +8,25 @@ jQuery(function($) {
 				useGrouping : false,
 				separator : ',',
 				decimal : '.'
-			}
+			};
 			var digit = $(this).attr("data-digit");
 			var tmp = digit.split('.');
-			if(typeof tmp[1] == 'undefined'){
+			if(typeof tmp[1] === 'undefined'){
 				tmp[1] = 0;
 			}
 			var prefix = $(this).attr("data-prefix");
 			var suffix = $(this).attr("data-suffix");
-			if (prefix != undefined) {
+			if (prefix !== undefined) {
 				options.prefix = prefix;
 			}
-			if (suffix != undefined) {
+			if (suffix !== undefined) {
 				options.suffix = suffix;
 			}
 			var random = 0;
-			if ($(this).attr("data-type") == 'random') {
-				var random = Math.floor(Math.random() * digit * 2);
+			if ($(this).attr("data-type") === 'random') {
+				random = Math.floor(Math.random() * digit * 2);
 			}
+			console.log($(this).attr("id"));
 			$(this).waypoint(
 				function() {
 					var count = new countUp($(this).attr("id"), random,

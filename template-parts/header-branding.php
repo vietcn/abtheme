@@ -6,12 +6,12 @@
 $logo     = abtheme_get_opt( 'logo', array( 'url' => '', 'id' => '' ) );
 $logo_url = '';
 
-if ( $logo['id'] )
+if ( !empty($logo['id']) )
 {
     $logo_url = wp_get_attachment_url( $logo['id'] );
 }
 
-if ( ! $logo_url )
+if ( empty($logo_url) )
 {
     $logo_url = $logo['url'];
 }

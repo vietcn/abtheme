@@ -15,7 +15,7 @@ extract(shortcode_atts(array(
     'css_animation' => '',
     'el_class' => '',
 ), $atts));
-
+$html_id = cmsHtmlID('cms-counter');
 wp_register_script('counter', get_template_directory_uri().'/assets/js/counter.min.js', array('jquery'),'1.0.0',true);
 wp_register_script('abtheme-do-counter', get_template_directory_uri().'/assets/js/counter.cms.js', array('counter','waypoints'),'1.0.0',true);
 
@@ -45,7 +45,7 @@ $animation_classes = $this->getCSSAnimation( $css_animation );
 $icon_name = "icon_" . $icon_type;
 $iconClass = isset($atts[$icon_name])?$atts[$icon_name]:'';
 ?>
-<div class="cms-counter-wrap cms-counter-layout1 <?php echo esc_attr($atts['el_class']);?> <?php echo esc_attr($animation_classes); ?>">
+<div class="cms-counter-wrap cms-counter-layout1 <?php echo esc_attr($el_class);?> <?php echo esc_attr($animation_classes); ?>">
     <div class="cms-counter-body clearfix">
         <?php
         $image_url = '';
@@ -74,7 +74,7 @@ $iconClass = isset($atts[$icon_name])?$atts[$icon_name]:'';
         <?php endif;?>
 
         <div class="cms-counter-content">
-            <div style="font-size: <?php echo esc_attr($digit_fontsize); ?>px; color: <?php echo esc_attr($digit_color)?>" class="cms-counter ft-lr <?php echo esc_attr(strtolower($type));?>" data-suffix="<?php echo esc_attr($suffix);?>" data-prefix="<?php echo esc_attr($prefix);?>" data-type="<?php echo esc_attr(strtolower($type));?>" data-digit="<?php echo esc_attr($digit);?>"></div>
+            <div style="font-size: <?php echo esc_attr($digit_fontsize); ?>px; color: <?php echo esc_attr($digit_color)?>" id="<?php echo esc_attr($html_id) ?>" class="cms-counter ft-lr <?php echo esc_attr(strtolower($type));?>" data-suffix="<?php echo esc_attr($suffix);?>" data-prefix="<?php echo esc_attr($prefix);?>" data-type="<?php echo esc_attr(strtolower($type));?>" data-digit="<?php echo esc_attr($digit);?>"></div>
         </div>
     </div>
 </div>
