@@ -22,7 +22,7 @@ $link = vc_build_link($button_link);
 $icon_name = "icon_" . $icon_type;
 $iconClass = isset($atts[$icon_name])?$atts[$icon_name]:'';
 ?>
-<div class="cta-wrapper cta-layout1 <?php echo esc_attr($el_class); ?> <?php echo esc_attr($animation_classes); ?>">
+<div class="cta-wrapper cta-layout1 <?php echo esc_attr($el_class.' '.$animation_classes); ?>">
     <div class="row">
         <div class="cta-text col-md-8" style="color: <?php echo esc_attr($heading_color); ?>">
             <?php echo esc_attr($heading); ?>

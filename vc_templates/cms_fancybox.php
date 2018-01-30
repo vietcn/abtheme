@@ -28,17 +28,15 @@ if ($button_type == 'button'){
 } else {
     $btn_class = 'btn-link';
 }
-?>
-<div class="cms-fancybox-wraper cms-fancybox-layout1 <?php echo esc_attr($el_class);?> text-<?php echo esc_attr($content_align);?> <?php echo esc_attr($animation_classes); ?>">
-    <div class="cms-fancybox-item">
-        <?php
-        $image_url = '';
-        if (!empty($atts['image'])) {
-            $attachment_image = wp_get_attachment_image_src($atts['image'], 'full');
-            $image_url = $attachment_image[0];
-        }
-        ?>
 
+$image_url = '';
+if (!empty($image)) {
+    $attachment_image = wp_get_attachment_image_src($image, 'full');
+    $image_url = $attachment_image[0];
+}
+?>
+<div class="cms-fancybox-wraper cms-fancybox-layout1 text-<?php echo esc_attr($content_align);?> <?php echo esc_attr($el_class.' '.$animation_classes);?>">
+    <div class="cms-fancybox-item">
         <?php if($image_url):?>
             <div class="cms-fancybox-icon">
                 <img src="<?php echo esc_attr($image_url);?>" />

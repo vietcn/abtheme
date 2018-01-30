@@ -42,11 +42,11 @@ wp_add_inline_style('inline-style', $custom_css);
 $grid_class = '';
 if ($layout == 'masonry') {
     wp_enqueue_script('isotope');
-    wp_enqueue_script('abtheme-isotope', get_template_directory_uri() . '/assets/js/isotope.cms.js', array('jquery'), '1.0.0', true);
+    wp_enqueue_script('abtheme-isotope', get_template_directory_uri() . '/assets/js/do.isotope.js', array('jquery'), '1.0.0', true);
     $grid_class = 'cms-grid-inner cms-grid-masonry row';
     if ($loadmore == 'true') {
         $html_id = str_replace('-', '_', $html_id);
-        wp_enqueue_script('cms-loadmore-grid', get_template_directory_uri() . '/assets/js/cms-loadmore-grid.js', array('jquery'), 'all', true);
+        wp_enqueue_script('cms-loadmore-grid', get_template_directory_uri() . '/assets/js/do.loadmoregrid.js', array('jquery'), 'all', true);
         wp_localize_script('cms-loadmore-grid', 'cms_load_more_' . $html_id, array(
             'startPage' => $paged,
             'maxPages'  => $max,

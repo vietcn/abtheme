@@ -5,3 +5,10 @@
 #abtheme_page_options-_ptitle_layout .redux-image-select{
 	display: block;
 }
+
+.fa.vc_element-icon{
+	background: #ccc;
+	text-align: center;
+	line-height: 32px;
+	border-radius: 5px;
+}

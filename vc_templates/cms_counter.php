@@ -17,20 +17,12 @@ extract(shortcode_atts(array(
 ), $atts));
 $html_id = cmsHtmlID('cms-counter');
 wp_register_script('counter', get_template_directory_uri().'/assets/js/counter.min.js', array('jquery'),'1.0.0',true);
-wp_register_script('abtheme-do-counter', get_template_directory_uri().'/assets/js/counter.cms.js', array('counter','waypoints'),'1.0.0',true);
-
-wp_enqueue_script('abtheme-do-counter');
+wp_enqueue_script('abtheme-do-counter', get_template_directory_uri().'/assets/js/do.counter.js', array('counter','waypoints'),'1.0.0',true);
 
 $atts['icon_type'] = isset($atts['icon_type'])?$atts['icon_type']:'fontawesome';
 switch ($atts['icon_type']) {
     case 'pe7stroke':
         wp_enqueue_style('cms-icon-pe7stroke', CMS_CSS. 'Pe-icon-7-stroke.css');
-        break;
-    case 'glyphicons':
-        wp_enqueue_style('cms-icon-glyphicons', CMS_CSS. 'glyphicons.css');
-        break;
-    case 'rticon':
-        wp_enqueue_style('cms-icon-rticon', CMS_CSS. 'rticon.css');
         break;
     default:
         vc_icon_element_fonts_enqueue( $atts['icon_type'] );
@@ -45,8 +37,8 @@ $animation_classes = $this->getCSSAnimation( $css_animation );
 $icon_name = "icon_" . $icon_type;
 $iconClass = isset($atts[$icon_name])?$atts[$icon_name]:'';
 ?>
-<div class="cms-counter-wrap cms-counter-layout1 <?php echo esc_attr($el_class);?> <?php echo esc_attr($animation_classes); ?>">
-    <div class="cms-counter-body clearfix">
+<div class="cms-counter-wrap cms-counter-layout1 <?php echo esc_attr($el_class.' '.$animation_classes);?>">
+    <div class="cms-counter-inner clearfix">
         <?php
         $image_url = '';
         if (!empty($atts['image'])) {
@@ -68,9 +60,9 @@ $iconClass = isset($atts[$icon_name])?$atts[$icon_name]:'';
         <?php endif;?>
 
         <?php if($title):?>
-            <span class="cms-counter-title" style="font-size: <?php echo esc_attr($title_fontsize); ?>px; margin-bottom: <?php echo esc_attr($title_margin); ?>px; color: <?php echo esc_attr($title_color)?>">
-                    <?php echo esc_attr($title);?>
-                </span>
+            <div class="cms-counter-title" style="font-size: <?php echo esc_attr($title_fontsize); ?>px; margin-bottom: <?php echo esc_attr($title_margin); ?>px; color: <?php echo esc_attr($title_color)?>">
+                <?php echo esc_attr($title);?>
+            </div>
         <?php endif;?>
 
         <div class="cms-counter-content">

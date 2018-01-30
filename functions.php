@@ -260,12 +260,10 @@ require_once get_template_directory() . '/inc/template-tags.php';
 /**
  * Custom params & remove VC Elements.
  *
- * @author FOX
  */
 
 function abtheme_vc_after_init()
 {
-    require_once(get_template_directory() . '/vc_params/vc_custom_heading.php');
     require_once(get_template_directory() . '/vc_params/cms_custom_pagram_vc.php');
 
     // vc_remove_element("vc_button");

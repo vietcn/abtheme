@@ -58,7 +58,7 @@ vc_map(array(
             "dependency" => array(
                 "element"=>"cms_template",
                 "value"=>array(
-                    "cms_heading.php",
+                    "cms_heading--layout2.php",
                 )
             ),
             "group" => esc_html__("Sub Heading", "abtheme"),
@@ -71,7 +71,7 @@ vc_map(array(
             "dependency" => array(
                 "element"=>"cms_template",
                 "value"=>array(
-                    "cms_heading.php",
+                    "cms_heading--layout2.php",
                 )
             ),
             "group" => esc_html__("Sub Heading", "abtheme"),

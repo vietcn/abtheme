@@ -5,6 +5,8 @@ extract(shortcode_atts(array(
     'value_suffix'=> '',
     'bg_color'=> '#e9e9e9',
     'color'=> '',
+    'width'=> '250px',
+    'height'=> '50px',
     'border_radius'=> '',
     'css_animation'     => '',
     'el_class'     => '',
@@ -24,16 +26,16 @@ $html_id = cmsHtmlID('cms-progressbar');
 $animation_classes = $this->getCSSAnimation( $css_animation );
 $new_line = (array) vc_param_group_parse_atts( $values );
 ?>
-<div class="cms-progressbar-wraper cms-progressbar-layout1 <?php echo esc_attr($el_class.' '.$animation_classes);?>">
+<div class="cms-progressbar-wraper cms-progressbar-vertical <?php echo esc_attr($el_class.' '.$animation_classes);?>">
     <div class="cms-progress-content">
         <?php foreach ($new_line as $key => $value) {
         $label = isset($value['label']) ? $value['label'] : '';
         $value = isset($value['value']) ? $value['value'] : ''; ?>
-        <h3 class="cms-progress-title">
+        <div class="cms-progress-title">
             <?php echo esc_attr($label);?>
-        </h3>
-        <div class="cms-progress progress" style="background-color:<?php echo esc_attr($bg_color);?>; border-radius:<?php echo esc_attr($border_radius);?>">
-            <div id="item-<?php echo esc_attr($html_id); ?>" class="progress-bar" role="progressbar" data-valuetransitiongoal="<?php echo esc_attr($value); ?>" style="background-color:<?php echo esc_attr($color);?>;">
+        </div>
+        <div class="cms-progress progress vertical" style="background-color:<?php echo esc_attr($bg_color);?>; border-radius:<?php echo esc_attr($border_radius);?>; width:<?php echo esc_attr($width);?>; height:<?php echo esc_attr($height);?>">
+            <div id="item-<?php echo esc_attr($html_id); ?>" class="progress-bar progress-striped" role="progressbar" data-valuetransitiongoal="<?php echo esc_attr($value); ?>" style="background-color:<?php echo esc_attr($color);?>;">
                 <span class="progress-couter">
                     <?php if($show_value == 'true'): ?>
                         <?php echo esc_attr($value.' '.$value_suffix);?>
