@@ -1,15 +1,15 @@
 <?php
 vc_map(
     array(
-        "name" => esc_html__("Team member", "abtheme"),
-        "base" => "cms_team",
-        "icon" => "fa fa-users",
+        "name" => esc_html__("Testimonial", "abtheme"),
+        "base" => "cms_testimonial",
+        "icon" => "fa fa-comments",
         "category" => esc_html__("CmsSuperheroes Shortcodes", "abtheme"),
         "params" => array(
             array(
                 'type' => 'cms_template_img',
                 'param_name' => 'cms_template',
-                "shortcode" => "cms_team",
+                "shortcode" => "cms_testimonial",
                 "heading" => esc_html__("Shortcode Template","abtheme"),
                 "admin_label" => true,
                 "group" => esc_html__("Template", "abtheme"),
@@ -20,7 +20,7 @@ vc_map(
                 "param_name" => "name",
                 "value" => "",
                 "description" => esc_html__("Name","abtheme"),
-                "group" => esc_html__("Team", "abtheme")
+                "group" => esc_html__("Testimonial", "abtheme")
             ),
             array(
                 "type" => "textfield",
@@ -28,7 +28,7 @@ vc_map(
                 "param_name" => "position",
                 "value" => "",
                 "description" => esc_html__("Position","abtheme"),
-                "group" => esc_html__("Team", "abtheme")
+                "group" => esc_html__("Testimonial", "abtheme")
             ),
             array(
                 "type" => "textarea",
@@ -36,49 +36,13 @@ vc_map(
                 "param_name" => "description",
                 "value" => "",
                 "description" => esc_html__("Description","abtheme"),
-                "group" => esc_html__("Team", "abtheme")
+                "group" => esc_html__("Testimonial", "abtheme")
             ),
             array(
                 "type" => "attach_image",
-                "heading" => esc_html__("Team Image","abtheme"),
+                "heading" => esc_html__("Testimonial Image","abtheme"),
                 "param_name" => "image",
-                "group" => esc_html__("Team", "abtheme")
-            ),
-            array(
-                "type"			=> "textfield",
-                "class"			=> "",
-                "heading"		=> esc_html__("Facebook","abtheme"),
-                "param_name"	=> "facebook",
-                "value"			=> "",
-                "description" 	=> "Insert your facebook link here",
-                "group" => esc_html__("Social", "abtheme"),
-            ),
-            array(
-                "type"			=> "textfield",
-                "class"			=> "",
-                "heading"		=> esc_html__("Twitter","abtheme"),
-                "param_name"	=> "twitter",
-                "value"			=> "",
-                "description" 	=> "Insert your twitter link here",
-                "group" => esc_html__("Social", "abtheme"),
-            ),
-            array(
-                "type"			=> "textfield",
-                "class"			=> "",
-                "heading"		=> esc_html__("Pinterest","abtheme"),
-                "param_name"	=> "pinterest",
-                "value"			=> "",
-                "description" 	=> "Insert your pinterest link here",
-                "group" => esc_html__("Social", "abtheme"),
-            ),
-            array(
-                "type"			=> "textfield",
-                "class"			=> "",
-                "heading"		=> esc_html__("Google +","abtheme"),
-                "param_name"	=> "google",
-                "value"			=> "",
-                "description" 	=> "Insert your google+ link here",
-                "group" => esc_html__("Social", "abtheme"),
+                "group" => esc_html__("Testimonial", "abtheme")
             ),
             array(
                 'type' => 'animation_style',
@@ -98,7 +62,7 @@ vc_map(
     )
 );
 
-class WPBakeryShortCode_cms_team extends CmsShortCode
+class WPBakeryShortCode_cms_testimonial extends CmsShortCode
 {
 
     protected function content($atts, $content = null)

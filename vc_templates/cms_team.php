@@ -18,7 +18,7 @@ if (!empty($image)) {
     $image_url = $attachment_image[0];
 }
 ?>
-<div class="cms-team-member cms-team-member-layout1 <?php echo esc_attr($el_class.' '.$animation_classes); ?>">
+<div class="cms-team cms-team-layout1 <?php echo esc_attr($el_class.' '.$animation_classes); ?>">
     <div class="team-image">
         <?php if($image_url){ ?>
             <img src="<?php echo esc_attr($image_url);?>" />
