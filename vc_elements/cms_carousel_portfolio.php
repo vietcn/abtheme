@@ -3,7 +3,7 @@ $term_list = cms_get_grid_term_list('portfolio');
 
 vc_map(
     array(
-        "name"     => __("CMS Carousel Portfolio", "abtheme"),
+        "name"     => __("CMS Portfolio Carousel", "abtheme"),
         "base"     => "cms_carousel_portfolio",
         "icon"    => "icon-wpb-images-carousel",
         "category" => __("CmsSuperheroes Shortcodes", "abtheme"),

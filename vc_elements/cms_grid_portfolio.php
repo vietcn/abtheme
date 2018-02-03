@@ -2,7 +2,7 @@
 $term_list = cms_get_grid_term_list('portfolio');
 vc_map(
     array(
-        "name"     => esc_html__("CMS Grid Portfolio", "abtheme"),
+        "name"     => esc_html__("CMS Portfolio Grid", "abtheme"),
         "base"     => "cms_grid_portfolio",
         "icon"    => "vc_icon-vc-masonry-media-grid",
         "category" => esc_html__("CmsSuperheroes Shortcodes", "abtheme"),

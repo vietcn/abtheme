@@ -3,7 +3,7 @@ $term_list = cms_get_grid_term_list('post');
 
 vc_map(
     array(
-        "name"     => __("CMS Carousel Post", "abtheme"),
+        "name"     => __("CMS Post Carousel", "abtheme"),
         "base"     => "cms_carousel_post",
         "icon"    => "icon-wpb-slideshow",
         "category" => __("CmsSuperheroes Shortcodes", "abtheme"),
