@@ -35,8 +35,8 @@ if($button_style == 'btn-outline'){
                     ?>
                     <span><?php echo esc_attr($button_text); ?></span>
                         <?php if( $iconClass ): ?>
-                    <i class="<?php echo esc_attr($iconClass);?> icon-right"></i>
-                <?php endif; ?>
+                            <i class="<?php echo esc_attr($iconClass);?> icon-right"></i>
+                        <?php endif; ?>
                     <?php
                     break;
                 case 'left':

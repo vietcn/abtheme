@@ -133,7 +133,7 @@ vc_map(
                 "heading" => __("Margin Items","abtheme"),
                 "param_name" => "margin",
                 "value" => "10",
-                "description" => __("","abtheme"),
+                "description" => __("Enter number only","abtheme"),
                 "group" => __("Carousel Settings", "abtheme")
             ),
             array(
