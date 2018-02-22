@@ -27,7 +27,8 @@ function abtheme_page_options_register($metabox)
     if (!$metabox->isset_args('cms_pf_audio')) {
         $metabox->set_args('cms_pf_audio', array(
             'opt_name'     => 'post_format_audio',
-            'display_name' => esc_html__('Audio', 'abtheme')
+            'display_name' => esc_html__('Audio', 'abtheme'),
+            'class' => 'fully-expanded',
         ), array(
             'context'  => 'advanced',
             'priority' => 'default'
@@ -37,7 +38,8 @@ function abtheme_page_options_register($metabox)
     if (!$metabox->isset_args('cms_pf_link')) {
         $metabox->set_args('cms_pf_link', array(
             'opt_name'     => 'post_format_link',
-            'display_name' => esc_html__('Link', 'abtheme')
+            'display_name' => esc_html__('Link', 'abtheme'),
+            'class' => 'fully-expanded',
         ), array(
             'context'  => 'advanced',
             'priority' => 'default'
@@ -47,7 +49,8 @@ function abtheme_page_options_register($metabox)
     if (!$metabox->isset_args('cms_pf_quote')) {
         $metabox->set_args('cms_pf_quote', array(
             'opt_name'     => 'post_format_quote',
-            'display_name' => esc_html__('Quote', 'abtheme')
+            'display_name' => esc_html__('Quote', 'abtheme'),
+            'class' => 'fully-expanded',
         ), array(
             'context'  => 'advanced',
             'priority' => 'default'
@@ -57,7 +60,8 @@ function abtheme_page_options_register($metabox)
     if (!$metabox->isset_args('cms_pf_video')) {
         $metabox->set_args('cms_pf_video', array(
             'opt_name'     => 'post_format_video',
-            'display_name' => esc_html__('Video', 'abtheme')
+            'display_name' => esc_html__('Video', 'abtheme'),
+            'class' => 'fully-expanded',
         ), array(
             'context'  => 'advanced',
             'priority' => 'default'
@@ -67,7 +71,8 @@ function abtheme_page_options_register($metabox)
     if (!$metabox->isset_args('cms_pf_gallery')) {
         $metabox->set_args('cms_pf_gallery', array(
             'opt_name'     => 'post_format_gallery',
-            'display_name' => esc_html__('Gallery', 'abtheme')
+            'display_name' => esc_html__('Gallery', 'abtheme'),
+            'class' => 'fully-expanded',
         ), array(
             'context'  => 'advanced',
             'priority' => 'default'
