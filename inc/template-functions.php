@@ -299,8 +299,12 @@ function abtheme_custom_css()
     if ($custom_css !== '') $styles .= $custom_css;
 
     $css_output = "\n<style type=\"text/css\">\n" . preg_replace('/\s+/', ' ', $styles) . "\n</style>\n";
-
-    if (!empty($custom_css)) print wp_kses($css_output,wp_kses_allowed_html());
+    
+    if (!empty($custom_css)) print wp_kses($css_output,wp_kses_allowed_html(array(
+        'style' => array(
+            'type' => array()
+        )
+    )));
 
 }
 
