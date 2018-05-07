@@ -316,8 +316,47 @@ function woo_hide_page_title()
 {
     return false;
 }
-
 add_filter('woocommerce_show_page_title', 'woo_hide_page_title');
+
+/**
+ * Add Cart icon and count to header if WC is active
+ */
+function abtheme_wc_cart_count() {
+
+    if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+
+        $count = WC()->cart->cart_contents_count;
+        $cart_url = wc_get_cart_url();
+        ?>
+        <a class="cartcontents tooltip" href="<?php echo esc_url($cart_url); ?>" title="<?php esc_html_e( 'View Cart' ); ?>">
+            <i class="fa fa-shopping-cart"></i>
+            <span class="cart-contents-count"><?php echo esc_html( $count ); ?></span>
+        </a>
+        <?php
+    }
+
+}
+
+/**
+ * Ensure cart contents update when products are added to the cart via AJAX
+ */
+function abtheme_header_add_to_cart_fragment( $fragments ) {
+
+    ob_start();
+    $count = WC()->cart->cart_contents_count;
+    $cart_url = wc_get_cart_url();
+    ?>
+    <a class="cartcontents tooltip" href="<?php echo esc_url($cart_url); ?>" title="<?php esc_html_e( 'View Cart' ); ?>">
+        <i class="fa fa-shopping-cart"></i>
+        <span class="cart-contents-count"><?php echo esc_html( $count ); ?></span>
+    </a>
+    <?php
+
+    $fragments['a.cartcontents'] = ob_get_clean();
+
+    return $fragments;
+}
+add_filter( 'woocommerce_add_to_cart_fragments', 'abtheme_header_add_to_cart_fragment' );
 
 /**
  * Custom post types and args based on plugin.
