@@ -40,15 +40,15 @@ class Abtheme_Contact_Info_Widget extends WP_Widget
 
         $phone = preg_replace( '/[^0-9x\+]/', '', str_replace( '(0)', '', $instance['phone'] ) );
 
-        echo esc_attr($args['before_widget']);
+        echo wp_kses_post($args['before_widget']);
 
-        echo esc_attr($args['before_title']) . esc_attr($instance['title']) . esc_attr($args['after_title']);
+        echo wp_kses_post($args['before_title']) . esc_attr($instance['title']) . wp_kses_post($args['after_title']);
 
         echo '<div class="contact-info">';
 
         if ( $instance['desc'] )
         {
-            printf( '<div class="desc">%s</div>', esc_attr(wpautop( $instance['desc']) ) );
+            printf( '<div class="desc">%s</div>', wp_kses_post(wpautop( $instance['desc']) ) );
         }
 
         if ( $instance['address'] )
@@ -84,7 +84,7 @@ class Abtheme_Contact_Info_Widget extends WP_Widget
 
         echo '</div>';
 
-        echo esc_attr($args['after_widget']);
+        echo wp_kses_post($args['after_widget']);
     }
 
     /**

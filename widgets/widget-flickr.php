@@ -49,9 +49,9 @@ class Abtheme_Flickr_Widget extends WP_Widget
         $title = empty( $instance['title'] ) ? 'Flickr' : $instance['title'];
         $title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
 
-        echo esc_attr($args['before_widget']);
+        echo wp_kses_post($args['before_widget']);
 
-        echo esc_attr($args['before_title']) . esc_attr($title) . esc_attr($args['after_title']);
+        echo wp_kses_post($args['before_title']) . esc_attr($title) . wp_kses_post($args['after_title']);
 
         $instance['usr'] = trim( $instance['usr'] );
         $instance['number'] = absint( $instance['number'] );
@@ -108,7 +108,7 @@ class Abtheme_Flickr_Widget extends WP_Widget
         echo '</ul>';
         echo '</div>';
 
-        echo esc_attr($args['after_widget']);
+        echo wp_kses_post($args['after_widget']);
     }         
     
 
