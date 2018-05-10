@@ -51,9 +51,9 @@ class Abtheme_Instagram_Widget extends WP_Widget
         $title = empty( $instance['title'] ) ? esc_html__( 'Instagram', 'abtheme' ) : $instance['title'];
         $title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
 
-        echo wp_kses($args['before_widget'],wp_kses_allowed_html());
+        echo wp_kses_post($args['before_widget']);
 
-        echo wp_kses($args['before_title'],wp_kses_allowed_html()) . esc_attr($title) . wp_kses($args['after_title'],wp_kses_allowed_html());
+        echo wp_kses_post($args['before_title']) . esc_attr($title) . wp_kses_post($args['after_title']);
 
         $instance['usr'] = trim( $instance['usr'] );
         $instance['usr_show'] = (bool) $instance['usr_show'];
@@ -137,7 +137,7 @@ class Abtheme_Instagram_Widget extends WP_Widget
                 esc_html( $instance['usr'] )
             );
         }
-        echo wp_kses($args['after_widget'],wp_kses_allowed_html());
+        echo wp_kses_post($args['after_widget']);
     }         
     
 
