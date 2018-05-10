@@ -245,6 +245,62 @@ function abtheme_page_options_register($metabox)
         )
     ));
 
+	$metabox->add_section('page', array(
+		'title'  => esc_html__('Content', 'abtheme'),
+		'desc'   => esc_html__('Settings for content area.', 'abtheme'),
+		'icon'   => 'el-icon-pencil',
+		'fields' => array(
+			array(
+				'id'       => 'content_bg_color',
+				'type'     => 'color_rgba',
+				'title'    => esc_html__('Background Color', 'abtheme'),
+				'subtitle' => esc_html__('Content background color.', 'abtheme'),
+				'output' => array('background-color' => '#content')
+			),
+			array(
+				'id'             => 'content_padding',
+				'type'           => 'spacing',
+				'output'         => array('#content'),
+				'right'   => false,
+				'left'    => false,
+				'mode'           => 'padding',
+				'units'          => array('px'),
+				'units_extended' => 'false',
+				'title'          => esc_html__('Content Padding', 'abtheme'),
+				'desc'           => esc_html__('Default: Top-85px, Bottom-85px', 'abtheme'),
+				'default'            => array(
+					'padding-top'   => '',
+					'padding-bottom'   => '',
+					'units'          => 'px',
+				)
+			),
+			array(
+				'id'       => 'show_sidebar_page',
+				'type'     => 'switch',
+				'title'    => esc_html__('Show Sidebar', 'abtheme'),
+				'default'  => false,
+				'indent' => true
+			),
+			array(
+				'id'       => 'sidebar_page_pos',
+				'type'     => 'button_set',
+				'title'    => esc_html__('Sidebar Position', 'abtheme'),
+				'options'  => array(
+					'left'  => esc_html__('Left', 'abtheme'),
+					'right' => esc_html__('Right', 'abtheme'),
+				),
+				'default'  => 'right',
+				'required' => array( 0 => 'show_sidebar_page', 1 => '=', 2 => '1' ),
+				'force_output' => true
+			),
+			array(
+				'id'       => 'character_content',
+				'type'     => 'text',
+				'title'    => esc_html__('Character', 'abtheme'),
+				'subtitle' => esc_html__('Enter characters, it is blurry below the page.', 'abtheme'),
+			),
+		)
+	));
     $metabox->add_section('page', array(
         'title'  => esc_html__('Footer', 'abtheme'),
         'desc'   => esc_html__('Settings for page footer.', 'abtheme'),
