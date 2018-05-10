@@ -105,6 +105,13 @@ function abtheme_page_options_register($metabox)
         'desc'   => esc_html__('Header settings for the page.', 'abtheme'),
         'icon'   => 'el-icon-website',
         'fields' => array(
+	        array(
+		        'id'       => 'custom_header',
+		        'type'     => 'switch',
+		        'title'    => esc_html__('Custom Header', 'abtheme'),
+		        'default'  => false,
+		        'indent' => true
+	        ),
             array(
                 'id'       => 'header_layout',
                 'type'     => 'image_select',
@@ -114,7 +121,9 @@ function abtheme_page_options_register($metabox)
                     '1' => get_template_directory_uri() . '/assets/images/header-01.png',
                     '2' => get_template_directory_uri() . '/assets/images/header-02.png'
                 ),
-                'default'  => abtheme_get_option_of_theme_options('header_layout', '1')
+                'default'  => abtheme_get_option_of_theme_options('header_layout', '1'),
+                'required' => array( 0 => 'custom_header', 1 => '=', 2 => '1' ),
+                'force_output' => true
             )
         )
     ));
@@ -124,6 +133,13 @@ function abtheme_page_options_register($metabox)
         'desc'   => esc_html__('Settings for page header area.', 'abtheme'),
         'icon'   => 'el-icon-map-marker',
         'fields' => array(
+	        array(
+		        'id'       => 'custom_pagetitle',
+		        'type'     => 'switch',
+		        'title'    => esc_html__('Custom Page Title', 'abtheme'),
+		        'default'  => false,
+		        'indent' => true
+	        ),
             array(
                 'id'       => 'ptitle_layout',
                 'type'     => 'image_select',
@@ -134,19 +150,25 @@ function abtheme_page_options_register($metabox)
                     '1' => get_template_directory_uri() . '/assets/images/page-title-01.png',
                     '2' => get_template_directory_uri() . '/assets/images/page-title-02.png'
                 ),
-                'default'  => abtheme_get_option_of_theme_options('ptitle_layout')
+                'default'  => abtheme_get_option_of_theme_options('ptitle_layout'),
+                'required' => array( 0 => 'custom_pagetitle', 1 => '=', 2 => '1' ),
+                'force_output' => true
             ),
             array(
                 'id'       => 'custom_title',
                 'type'     => 'text',
                 'title'    => esc_html__('Custom Title', 'abtheme'),
-                'subtitle' => esc_html__('Use custom title for this page. The default title will be used on document title.', 'abtheme')
+                'subtitle' => esc_html__('Use custom title for this page. The default title will be used on document title.', 'abtheme'),
+                'required' => array( 0 => 'custom_pagetitle', 1 => '=', 2 => '1' ),
+                'force_output' => true
             ),
             array(
                 'id'       => 'custom_desc',
                 'type'     => 'text',
                 'title'    => esc_html__('Custom description', 'abtheme'),
-                'subtitle' => esc_html__('Show custom page description under page title', 'abtheme')
+                'subtitle' => esc_html__('Show custom page description under page title', 'abtheme'),
+                'required' => array( 0 => 'custom_pagetitle', 1 => '=', 2 => '1' ),
+                'force_output' => true
             ),
             array(
                 'id'       => 'ptitle_color',
@@ -155,7 +177,9 @@ function abtheme_page_options_register($metabox)
                 'subtitle' => esc_html__('Page title color.', 'abtheme'),
                 'output'   => array('#pagetitle'),
                 'default'  => '#000',
-                'default'  => abtheme_get_option_of_theme_options('ptitle_color', '#fff')
+                'default'  => abtheme_get_option_of_theme_options('ptitle_color', '#fff'),
+                'required' => array( 0 => 'custom_pagetitle', 1 => '=', 2 => '1' ),
+                'force_output' => true
             ),
             array(
                 'id'       => 'ptitle_bg',
@@ -163,7 +187,9 @@ function abtheme_page_options_register($metabox)
                 'title'    => esc_html__('Background', 'abtheme'),
                 'subtitle' => esc_html__('Page title background.', 'abtheme'),
                 'output'   => array('#pagetitle'),
-                'default'  => abtheme_get_option_of_theme_options('ptitle_bg', array())
+                'default'  => abtheme_get_option_of_theme_options('ptitle_bg', array()),
+                'required' => array( 0 => 'custom_pagetitle', 1 => '=', 2 => '1' ),
+                'force_output' => true
             ),
             array(
                 'id'       => 'ptitle_paddings',
@@ -177,13 +203,17 @@ function abtheme_page_options_register($metabox)
                 'bottom'   => true,
                 'left'     => false,
                 'output'   => array('#pagetitle'),
-                'default'  => abtheme_get_option_of_theme_options('ptitle_paddings', array())
+                'default'  => abtheme_get_option_of_theme_options('ptitle_paddings', array()),
+                'required' => array( 0 => 'custom_pagetitle', 1 => '=', 2 => '1' ),
+                'force_output' => true
             ),
             array(
                 'id'      => 'breadcrumb_on',
                 'type'    => 'switch',
                 'title'   => esc_html__('Breadcrumb', 'abtheme'),
-                'default' => abtheme_get_option_of_theme_options('breadcrumb_on', true)
+                'default' => abtheme_get_option_of_theme_options('breadcrumb_on', true),
+                'required' => array( 0 => 'custom_pagetitle', 1 => '=', 2 => '1' ),
+                'force_output' => true
             ),
             array(
                 'id'          => 'breadcrumb_color',
@@ -193,7 +223,9 @@ function abtheme_page_options_register($metabox)
                 'transparent' => false,
                 'output'      => array('.page-title .breadcrumb'),
                 'required'    => array('ptitle_layout', '=', '1'),
-                'default'     => abtheme_get_option_of_theme_options('breadcrumb_color', true)
+                'default'     => abtheme_get_option_of_theme_options('breadcrumb_color', true),
+                'required' => array( 0 => 'custom_pagetitle', 1 => '=', 2 => '1' ),
+                'force_output' => true
             ),
             array(
                 'id'       => 'breadcrumb_link_colors',
@@ -206,7 +238,9 @@ function abtheme_page_options_register($metabox)
                     'hover'    => '#dd3333', // red
                     'active'   => '#8224e3',  // purple
                     'visited'  => '#8224e3',  // purple
-                )
+                ),
+                'required' => array( 0 => 'custom_pagetitle', 1 => '=', 2 => '1' ),
+                'force_output' => true
             )
         )
     ));
@@ -216,6 +250,13 @@ function abtheme_page_options_register($metabox)
         'desc'   => esc_html__('Settings for page footer.', 'abtheme'),
         'icon'   => 'el el-website',
         'fields' => array(
+	        array(
+		        'id'       => 'custom_footer',
+		        'type'     => 'switch',
+		        'title'    => esc_html__('Custom Footer', 'abtheme'),
+		        'default'  => false,
+		        'indent' => true
+	        ),
             array(
                 'id'       => 'footer_layout',
                 'type'     => 'image_select',
@@ -225,8 +266,11 @@ function abtheme_page_options_register($metabox)
                     '1' => get_template_directory_uri() . '/assets/images/footer-01.png',
                     '2' => get_template_directory_uri() . '/assets/images/footer-02.png'
                 ),
-                'default'  => abtheme_get_option_of_theme_options('footer_layout','1')
-            ))
+                'default'  => abtheme_get_option_of_theme_options('footer_layout','1'),
+                'required' => array( 0 => 'custom_footer', 1 => '=', 2 => '1' ),
+                'force_output' => true
+            )
+        )
     ));
 
     /**
