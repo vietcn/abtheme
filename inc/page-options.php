@@ -118,6 +118,7 @@ function abtheme_page_options_register($metabox)
                 'title'    => esc_html__('Layout', 'abtheme'),
                 'subtitle' => esc_html__('Select a layout for header.', 'abtheme'),
                 'options'  => array(
+                    'none' => get_template_directory_uri() . '/assets/images/header-00.png',
                     '1' => get_template_directory_uri() . '/assets/images/header-01.png',
                     '2' => get_template_directory_uri() . '/assets/images/header-02.png'
                 ),
@@ -319,6 +320,7 @@ function abtheme_page_options_register($metabox)
                 'title'    => esc_html__('Layout', 'abtheme'),
                 'subtitle' => esc_html__('Select a layout for upper footer area.', 'abtheme'),
                 'options'  => array(
+                    'none' => get_template_directory_uri() . '/assets/images/footer-00.png',
                     '1' => get_template_directory_uri() . '/assets/images/footer-01.png',
                     '2' => get_template_directory_uri() . '/assets/images/footer-02.png'
                 ),
