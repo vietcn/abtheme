@@ -13,7 +13,7 @@
 
 function abtheme_page_options_register($metabox)
 {
-    
+
     if (!$metabox->isset_args('page')) {
         $metabox->set_args('page', array(
             'opt_name'     => abtheme_get_page_opt_name(),
@@ -78,27 +78,6 @@ function abtheme_page_options_register($metabox)
             'priority' => 'default'
         ));
     }
-
-    $metabox->add_section('page', array(
-        'title'  => esc_html__('General', 'abtheme'),
-        'desc'   => esc_html__('General settings for the page.', 'abtheme'),
-        'icon'   => 'el-icon-home',
-        'fields' => array(
-            array(
-                'id'       => 'page_paddings',
-                'type'     => 'spacing',
-                'title'    => esc_html__('Paddings', 'abtheme'),
-                'subtitle' => esc_html__('Page paddings.', 'abtheme'),
-                'mode'     => 'padding',
-                'units'    => array('em', 'px', '%'),
-                'top'      => true,
-                'right'    => false,
-                'bottom'   => true,
-                'left'     => false,
-                'output'   => array('.page .content-area'),
-            ),
-        )
-    ));
 
     $metabox->add_section('page', array(
         'title'  => esc_html__('Header', 'abtheme'),
