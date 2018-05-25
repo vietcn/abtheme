@@ -378,7 +378,7 @@ Redux::setSection($opt_name, array(
                 'left' => esc_html__('Right', 'abtheme'),
                 'none'  => esc_html__('Disabled', 'abtheme')
             ),
-            'default'  => 'right'
+            'default'  => 'left'
         ),
         array(
             'id'       => 'archive_nav_type',
@@ -437,14 +437,14 @@ Redux::setSection($opt_name, array(
         array(
             'id'       => 'post_sidebar_pos',
             'type'     => 'button_set',
-            'title'    => esc_html__('Layouts', 'abtheme'),
+            'title'    => esc_html__('Sidebar Position', 'abtheme'),
             'subtitle' => esc_html__('select a layout for single...', 'abtheme'),
             'options'  => array(
                 'right'  => esc_html__('Left', 'abtheme'),
                 'left' => esc_html__('Right', 'abtheme'),
                 'none'  => esc_html__('Disabled', 'abtheme')
             ),
-            'default'  => 'right'
+            'default'  => 'left'
         ),
         array(
             'id'       => 'post_date_on',
