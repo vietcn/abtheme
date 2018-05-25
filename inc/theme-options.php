@@ -374,8 +374,8 @@ Redux::setSection($opt_name, array(
             'title'    => esc_html__('Sidebar Position', 'abtheme'),
             'subtitle' => esc_html__('Select a sidebar position for blog home, archive, search...', 'abtheme'),
             'options'  => array(
-                'left'  => esc_html__('Left', 'abtheme'),
-                'right' => esc_html__('Right', 'abtheme'),
+                'right'  => esc_html__('Left', 'abtheme'),
+                'left' => esc_html__('Right', 'abtheme'),
                 'none'  => esc_html__('Disabled', 'abtheme')
             ),
             'default'  => 'right'
@@ -440,8 +440,8 @@ Redux::setSection($opt_name, array(
             'title'    => esc_html__('Layouts', 'abtheme'),
             'subtitle' => esc_html__('select a layout for single...', 'abtheme'),
             'options'  => array(
-                'left'  => esc_html__('Left', 'abtheme'),
-                'right' => esc_html__('Right', 'abtheme'),
+                'right'  => esc_html__('Left', 'abtheme'),
+                'left' => esc_html__('Right', 'abtheme'),
                 'none'  => esc_html__('Disabled', 'abtheme')
             ),
             'default'  => 'right'
