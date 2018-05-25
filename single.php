@@ -7,7 +7,7 @@
 
 get_header();
 $h_sidebar = 'no-sidebar';
-$sidebar_pos = abtheme_get_opt( 'post_sidebar_pos', 'right' );
+$sidebar_pos = abtheme_get_opt( 'post_sidebar_pos', 'left' );
 if( is_active_sidebar( 'sidebar-1' ) && ($sidebar_pos != 'none') ) {
     $h_sidebar = 'has-sidebar';
 }
