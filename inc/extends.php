@@ -22,6 +22,21 @@ add_action( 'after_setup_theme', 'abtheme_after_setup_theme' );
  */
 function abtheme_body_classes( $classes )
 {
+	if ( is_front_page() && is_home() ) {
+	// Default homepage
+
+	} elseif ( is_front_page()){
+	//Static homepage
+
+	} elseif ( is_home()){
+
+	//Blog page
+
+	} else {
+
+	//everything else
+	}
+	
     // Adds a class of group-blog to blogs with more than 1 published author.
     if (is_multi_author()) {
         $classes[] = 'group-blog';
