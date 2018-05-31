@@ -16,18 +16,28 @@
 function abtheme_get_opt($opt_id, $default = false)
 {
     $opt_name = abtheme_get_opt_name();
+	if ( empty( $opt_name ) ) {
+		return $default;
+	}
 
-    if (empty($opt_name)) {
-        return $default;
-    }
+	global ${$opt_name};
+	if ( ! isset( ${$opt_name} ) || ! isset( ${$opt_name}[ $opt_id ] ) ) {
+		$options = get_option( $opt_name );
+	} else {
+		$options = ${$opt_name};
+	}
+	if ( ! isset( $options ) || ! isset( $options[ $opt_id ] ) || $options[ $opt_id ] === '' ) {
+		return $default;
+	}
+	if ( is_array( $options[ $opt_id ] ) && is_array( $default ) ) {
+		foreach ( $options[ $opt_id ] as $key => $value ) {
+			if ( isset( $default[ $key ] ) && $value === '' ) {
+				$options[ $opt_id ][ $key ] = $default[ $key ];
+			}
+		}
+	}
 
-    global ${$opt_name};
-
-    if (!isset(${$opt_name}) || !isset(${$opt_name}[$opt_id])) {
-        return $default;
-    }
-
-    return ${$opt_name}[$opt_id];
+	return $options[ $opt_id ];
 }
 
 /**
