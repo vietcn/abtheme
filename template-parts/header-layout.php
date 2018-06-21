@@ -2,7 +2,7 @@
 /**
  * Template part for displaying default header layout
  */
-$sticky_on = abtheme_get_opt( 'sticky_on', true );
+$sticky_on = abtheme_get_opt( 'sticky_on', 0 );
 ?>
 <header id="masthead" class="site-header header-layout1">
     <div class="header-top"></div>

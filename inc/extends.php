@@ -22,6 +22,7 @@ add_action( 'after_setup_theme', 'abtheme_after_setup_theme' );
  */
 function abtheme_body_classes( $classes )
 {
+
 	if ( is_front_page() && is_home() ) {
 	// Default homepage
 

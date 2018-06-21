@@ -28,7 +28,7 @@ if($button_style == 'btn-outline'){
 }
 ?>
 <div class="cms-button-wrapper button-layout1 text-<?php echo esc_attr($button_align); ?> <?php echo esc_attr($el_class.' '.$animation_classes); ?>">
-    <a href="<?php echo esc_url($link["url"]);?>" title="<?php echo esc_attr($link["title"]);?>" target="<?php echo esc_attr($link["target"]);?>" class="btn <?php echo esc_attr($button_style); ?> <?php echo esc_attr($button_size); ?>" style="<?php echo $st; ?>; color: <?php echo esc_attr($button_text_color);?>">
+    <a href="<?php echo esc_url($link["url"]);?>" title="<?php echo esc_attr($link["title"]);?>" target="<?php echo !empty($link["target"]) ? esc_attr($link["target"]) : '_self'; ?>" class="btn <?php echo esc_attr($button_style); ?> <?php echo esc_attr($button_size); ?>" style="<?php if($button_text_color){ echo 'color: '.esc_attr($button_text_color).';'; } ?> <?php echo esc_attr($st); ?>">
         <span class="btn-text">
             <?php switch ($icon_align) {
                 case 'right':

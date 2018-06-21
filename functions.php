@@ -197,7 +197,7 @@ function abtheme_scripts()
         wp_enqueue_script('comment-reply');
     }
 
-    $sticky_on = abtheme_get_opt('sticky_on', true);
+    $sticky_on = abtheme_get_opt('sticky_on', 0);
     if ($sticky_on == 1) {
         wp_enqueue_script('headroom', get_template_directory_uri() . '/assets/js/headroom.min.js', array('jquery'), $theme->get('Version'), true);
         wp_enqueue_script('abtheme-headroom', get_template_directory_uri() . '/assets/js/headroom.js', array('jquery'), $theme->get('Version'), true);
